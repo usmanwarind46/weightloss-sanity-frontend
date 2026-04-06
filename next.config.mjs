@@ -9,11 +9,11 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/consultation",
+        source: "/start-consultation/",
         destination: "https://weightloss-consultation.vercel.app/consultation",
       },
       {
-        source: "/consultation/:path*",
+        source: "/start-consultation/:path*",
         destination:
           "https://weightloss-consultation.vercel.app/consultation/:path*",
       },
