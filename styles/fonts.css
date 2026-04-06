@@ -1,0 +1,174 @@
+/* Regular Font */
+@font-face {
+  font-family: "GraphikRegular";
+  src: url("../public/Fonts/graphik/GraphikRegular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GraphikBold";
+  src: url("../public/Fonts/graphik/GraphikBold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GraphikMedium";
+  src: url("../public/Fonts/graphik/GraphikMedium.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GraphikSemibold";
+  src: url("../public/Fonts/graphik/GraphikSemibold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GraphikLight";
+  src: url("../public/Fonts/graphik/GraphikLight.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GraphikThin";
+  src: url("../public/Fonts/graphik/GraphikThin.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GraphikSuper";
+  src: url("../public/Fonts/graphik/GraphikSuper.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GraphikBlack";
+  src: url("../public/Fonts/graphik/GraphikBlack.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("../public/Fonts/Roboto/Roboto-Bold.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto-ExtraBold";
+  src: url("../public/Fonts/Roboto/Roboto-ExtraBold.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("../public/Fonts/Roboto/Roboto-Medium.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../public/Fonts/Roboto/Roboto-Regular.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto-SemiBold";
+  src: url("../public/Fonts/Roboto/Roboto-SemiBold.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto-Thin";
+  src: url("../public/Fonts/Roboto/Roboto-Thin.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* Define a CSS variable for the font */
+:root {
+  --reg-font: "GraphikRegular";
+  --bold-font: "GraphikBold";
+  --light-font: "GraphikLight";
+  --semibold-font: "GraphikSemibold";
+  --medium-font: "GraphikMedium";
+  --thin-font: "GraphikThin";
+  --super-font: "GraphikSuper";
+  --black-font: "GraphikBlack";
+
+  --roboto-reg: "Roboto-Regular";
+  --roboto-bold: "Roboto-Bold";
+  --roboto-medium: "Roboto-Medium";
+  --roboto-semibold: "Roboto-SemiBold";
+  --roboto-thin: "Roboto-Thin";
+  --roboto-extrabold: "Roboto-ExtraBold";
+}
+
+/* Roboto font class  */
+.roboto-reg {
+  font-family: var(--roboto-reg) !important;
+}
+.roboto-bold {
+  font-family: var(--roboto-bold) !important;
+}
+.roboto-medium {
+  font-family: var(--roboto-medium) !important;
+}
+.roboto-semibold {
+  font-family: var(--roboto-semibold) !important;
+}
+.roboto-thin {
+  font-family: var(--roboto-thin) !important;
+}
+.roboto-extrabold {
+  font-family: var(--roboto-extrabold) !important;
+}
+
+.thin-font {
+  font-family: var(--thin-font) !important;
+}
+.reg-font {
+  font-family: var(--reg-font) !important;
+}
+.bold-font {
+  font-family: var(--bold-font) !important;
+}
+.semibold-font {
+  font-family: var(--semibold-font) !important;
+}
+.black-font {
+  font-family: var(--black-font) !important;
+}
+.med-font {
+  font-family: var(--medium-font) !important;
+}
+.super-font {
+  font-family: var(--super-font) !important;
+}
+body {
+  font-family: var(--reg-font);
+}

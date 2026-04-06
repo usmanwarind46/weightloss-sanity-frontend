@@ -1,0 +1,823 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#reviews .swiper.swiper-initialized.swiper-horizontal {
+  padding-bottom: 20px;
+}
+.cta-bg {
+  background-image: url("../public/Images/MedicalConsultation.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* parallax effect */
+  min-height: 500px;
+}
+.review-section {
+  margin-top: 110px;
+}
+
+.rating-desktop {
+  display: block;
+}
+.rating-mobile {
+  display: none;
+}
+/* ============================== Landing page css start =============================== */
+
+.pricing-section {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+  font-family: sans-serif;
+  margin-top: 110px;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.title span {
+  color: #4db581;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+/* SVG defs */
+.shadow-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Bottom banner */
+.bottom-banner {
+  background-image: url("/Lp-images/save-bg.png");
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 31px 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.banner-half {
+  width: 50%;
+  font-size: 25px;
+}
+
+.banner-half.right {
+  border-left: 2px solid #11b6b3;
+}
+
+.lowest-bottom-text {
+  font-size: 20px;
+}
+
+.lowest-bottom-gphc span {
+  background-image: url("/Lp-images/check.png");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding-left: 28px;
+  background-position: left center;
+}
+
+/* ============================================================
+   DESKTOP LAYOUT — visible above 997px
+============================================================ */
+.pricing-section {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+  font-family: sans-serif;
+  margin-top: 110px;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.title span {
+  color: #4db581;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+/* Scroll hint — hidden on desktop, shown on mobile */
+.scroll-hint {
+  display: none;
+  font-size: 13px;
+  color: #9ca3af;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+/* Bottom banner */
+.bottom-banner {
+  background-image: url("/Lp-images/save-bg.png");
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 31px 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.banner-half {
+  width: 50%;
+  font-size: 25px;
+}
+
+.banner-half.right {
+  border-left: 2px solid #11b6b3;
+}
+
+.lowest-bottom-text {
+  font-size: 20px;
+}
+
+.lowest-bottom-gphc span {
+  background-image: url("/Lp-images/check.png");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding-left: 28px;
+  background-position: left center;
+}
+
+/* ── Scroll wrapper ── */
+/* Desktop: no scroll, full width */
+.pricing-scroll-wrapper {
+  width: 100%;
+  overflow: visible;
+}
+
+/* ── Card ── */
+.pricing-card {
+  margin-top: 90px;
+  position: relative;
+  border-radius: 20px;
+  overflow: visible;
+  background-image: url("/Lp-images/llp-overlay.png");
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+}
+
+/* Single teal column */
+.center-bg {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 37.5%;
+  z-index: 0;
+  background: linear-gradient(217deg, #4db581, #4565bf);
+}
+
+/* Row grid */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+}
+
+/* Header row */
+.header {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+.center-header {
+  position: relative;
+  z-index: 3;
+  background: linear-gradient(217deg, #4db581, #49939b);
+  color: white;
+  padding: 24px 20px 20px;
+  border-radius: 20px 20px 0 0;
+  margin-top: -40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.header-text {
+  font-weight: 500;
+  color: #334155;
+  font-size: 24px;
+}
+
+/* Cells */
+.cell {
+  padding: 18px;
+  font-size: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.cell.left.header-text {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.cell.right.header-text {
+  padding-top: 24px;
+  padding-bottom: 25px;
+}
+
+.left {
+  text-align: center;
+  font-weight: 400;
+}
+
+.center {
+  text-align: center;
+  color: white;
+  font-weight: 400;
+}
+
+.right {
+  text-align: center;
+  font-weight: 400;
+}
+
+/* Glass row */
+.glass-row {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.glass-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: linear-gradient(
+    to right,
+    rgb(255 255 255),
+    rgba(255, 255, 255, 0.18),
+    rgb(255 255 255 / 37%),
+    rgb(255 255 255 / 40%),
+    rgb(255 255 255)
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+/* Save row */
+.save-row-custom {
+  min-height: 90px;
+}
+
+.save-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.save-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+  color: white;
+}
+
+.save-title strong {
+  font-weight: 800;
+}
+
+.save-sub {
+  font-size: 14px;
+  opacity: 0.8;
+  color: white;
+}
+
+.center-para {
+  position: absolute;
+  bottom: 27px;
+  width: 100%;
+  left: 0;
+}
+
+/* ============================================================
+   MOBILE — horizontal scroll below 997px
+============================================================ */
+@media (max-width: 997px) {
+  .scroll-hint {
+    display: block;
+  }
+
+  /* Wrapper becomes the scroll container */
+  .pricing-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    /* Scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: #4db581 #e5e7eb;
+    padding-bottom: 12px; /* space for scrollbar */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .pricing-scroll-wrapper::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .pricing-scroll-wrapper::-webkit-scrollbar-track {
+    background: #e5e7eb;
+    border-radius: 10px;
+  }
+
+  .pricing-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: #4db581;
+    border-radius: 10px;
+  }
+
+  /* Card has a fixed min-width so it scrolls */
+  .pricing-card {
+    min-width: 680px; /* wide enough to show all 3 columns clearly */
+    margin-top: 60px; /* less top margin on mobile */
+    border-radius: 16px;
+  }
+
+  /* Reduce font sizes slightly for tighter columns */
+  .cell {
+    font-size: 14px;
+    padding: 14px 12px;
+  }
+
+  .center-header {
+    font-size: 16px;
+    padding: 18px 12px 16px;
+  }
+
+  .header-text {
+    font-size: 16px;
+  }
+
+  .save-title {
+    font-size: 18px;
+  }
+
+  /* Bottom banner stacks on mobile */
+  .bottom-banner {
+    flex-direction: column;
+    padding: 20px 16px;
+    width: 90%;
+    margin: 20px auto 0;
+    border-radius: 20px;
+    background-size: cover;
+  }
+
+  .banner-half {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .banner-half.right {
+    border-left: none;
+    border-top: 2px solid #11b6b3;
+  }
+
+  .lowest-bottom-text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
+  }
+
+  .pricing-section {
+    margin-top: 68px;
+  }
+
+  /* Even on very small screens, keep min-width for scrollability */
+  .pricing-card {
+    min-width: 580px;
+  }
+}
+/* ============================== Landing page css end =============================== */
+
+/* ============================ LLP Testimonial Css Start ============================ */
+
+.lp-testimonial-section {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* TITLE */
+.lp-testimonial-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #1f2937;
+}
+
+.lp-testimonial-title span {
+  color: #4db581;
+}
+
+/* GRID */
+.lp-testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* CARD */
+.lp-testimonial-card {
+  background: #edf5f6;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 240px;
+
+  transition: 0.3s ease;
+}
+
+.lp-testimonial-card:hover {
+  transform: translateY(-4px);
+}
+
+/* NAME */
+.lp-testimonial-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #0c3a4a;
+}
+
+/* TEXT */
+.lp-testimonial-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 150px;
+  margin-top: 19px;
+}
+
+/* FOOTER */
+.lp-testimonial-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* STARS */
+.lp-testimonial-stars {
+  height: 20px;
+}
+
+/* ============================ LLP Testimonial Css End ============================ */
+
+/* ============================ LLP FAQ Css Start ============================ */
+.lp-faq-answer {
+  font-size: 18px;
+}
+.lp-faq-heading {
+  font-size: 20px;
+}
+
+/* ============================ LLP FAQ Css End ============================ */
+
+@media (max-width: 768px) {
+  .cta-bg {
+    background-attachment: scroll; /* disable parallax on mobile — iOS doesn't support it */
+    background-position: center right;
+    min-height: 420px;
+  }
+
+  .cta-bg-2 {
+    background-attachment: scroll; /* disable parallax on mobile — iOS doesn't support it */
+    background-position: center right;
+    min-height: 420px;
+  }
+  .lp-testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lp-testimonial-title {
+    font-size: 24px;
+  }
+  .lp-testimonial-text {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+}
+
+.cta-bg-2 {
+  background-image: url("../public/Images/MedicalConsultation2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* parallax effect */
+  min-height: 300px;
+}
+
+.top-bg {
+  background-image: url("../public/Images/about-top-bg.png");
+  background-repeat: no-repeat;
+  background-size: 160% 100%;
+  background-position: center;
+
+  height: 400px;
+}
+
+.how-it-work-2 {
+  width: 70%;
+}
+.ourClinic-bg {
+  background-image: none;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.injection-bg {
+  background-image: url("../public/Images/injection.png");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.wegovyInjection-bg {
+  background-image: url("../public/Images/wegovy-side-img.png");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .ourClinic-bg {
+    background-image: url("../public/Images/OurClinical-bg.png");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-bg {
+    height: 200px;
+  }
+}
+
+.doctor-bg {
+  background-image: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .doctor-bg {
+    background-image: url("../public/Images/about-side-img.png");
+  }
+}
+.myths-bg {
+  background-image: url("../public/Images/manjaro-bg.jpg");
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media (min-width: 1280px) {
+  .myths-bg {
+    background-size: 100%;
+    background-position: 100% 90%;
+  }
+}
+@media (min-width: 1600px) {
+  .myths-bg {
+    background-size: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .myths-bg {
+    background-image: none;
+  }
+  .injection-bg {
+    display: none;
+  }
+  .wegovyInjection-bg {
+    display: none;
+  }
+  .lp-tailored-column {
+    width: 100%;
+    margin-bottom: 26px;
+  }
+  .rating-desktop {
+    display: none;
+  }
+  .rating-mobile {
+    display: block;
+  }
+}
+
+/* Mobile */
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Tablet (768px+) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+/* Small Laptop (1024px+) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+/* Laptop (1280px+) */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1000px;
+  }
+}
+
+/* Large Laptop / Desktop (1440px+) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1200px;
+  }
+  .wegovyInjection-bg {
+    padding: 191px 0px;
+    margin-top: 74px;
+  }
+}
+
+/* Big Screen / Mac (1700px+) */
+@media (min-width: 1700px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+/* Big Screen / Mac (1700px+) */
+
+@media (min-width: 1922px) {
+  .para-font {
+    font-size: 20px;
+  }
+  .wieght-card-font {
+    font-size: 18px;
+  }
+  .footer-font-size {
+    font-size: 16px;
+  }
+  .footer-bottom-size {
+    font-size: 14px;
+  }
+  .doctor-bg {
+    padding: 100px 0px;
+  }
+  .wegovyInjection-bg {
+    padding: 191px 0px;
+    margin-top: 74px;
+  }
+  .lp-testimonial-text {
+    font-size: 16px;
+  }
+  .lp-testimonial-name {
+    font-size: 18px;
+  }
+  .title {
+    font-size: 45px;
+  }
+}
+
+@media (max-width: 600px) {
+  .leading-tight br {
+    display: none;
+  }
+  .cta-wrap {
+    text-align: center;
+  }
+
+  .cta-wrap button,
+  .cta-wrap a {
+    width: 216px;
+    text-align: center !important;
+    justify-content: center;
+  }
+  .cta-btn {
+    align-items: center;
+  }
+
+  .para-font {
+    font-size: 14px;
+  }
+  .title {
+    font-size: 28px;
+  }
+  .lp-testimonial-title {
+    font-size: 28px;
+  }
+  .subtitle {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
+  }
+  .lowest-bottom-text {
+    font-size: 16px;
+  }
+  .review-section {
+    margin-top: 66px;
+  }
+  .pricing-section {
+    margin-top: 68px;
+  }
+  .lp-faq-heading {
+    font-size: 18px;
+  }
+  .lp-faq-answer {
+    font-size: 15px;
+  }
+
+  .lowest-bottom-gphc span {
+    background-size: 16px;
+  }
+}
