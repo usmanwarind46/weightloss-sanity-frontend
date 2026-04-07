@@ -275,7 +275,7 @@ const IMAGES = [
   "/Images/Slider2/image-25.png",
 ];
 
-export default function MounjaroProduct({ seoSettings, siteSettings }) {
+export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
   const half = Math.ceil(wegovyFaqs.length / 2);
   const leftCol = wegovyFaqs.slice(0, half);
   const rightCol = wegovyFaqs.slice(half);
