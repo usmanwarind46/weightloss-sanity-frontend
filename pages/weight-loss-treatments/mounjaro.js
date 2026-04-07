@@ -369,7 +369,7 @@ export default function MounjaroProduct({ seoSettings, siteSettings }) {
       <MetaLayout
         // seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/mounjaro/`}
+        canonical={`${meta_url}/weight-loss-treatments/mounjaro/`}
       />
       <Header data={siteSettings} />
       <div className=" sm:py-12 py-4">
