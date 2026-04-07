@@ -4,9 +4,15 @@ import { Footer } from "../components/Footer";
 import MetaLayout from "../Meta/MetaLayout";
 import { meta_url } from "../config/constants";
 import { sanityClient } from "../lib/sanity";
-import { PAGE_QUERY, SITE_SETTINGS_QUERY } from "../lib/sanityQueries";
+import {
+  PAGE_QUERY,
+  SEO_QUERY,
+  SITE_SETTINGS_QUERY,
+} from "../lib/sanityQueries";
 
 export async function getStaticProps() {
+  const seoSettings = await sanityClient.fetch(SEO_QUERY);
+
   const data = await sanityClient.fetch(PAGE_QUERY, {
     slug: "privacy-policy",
   });
@@ -15,6 +21,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      seoSettings,
       data,
       siteSettings,
     },
@@ -22,7 +29,7 @@ export async function getStaticProps() {
   };
 }
 
-const PrivacyPolicy = ({ data, siteSettings }) => {
+const PrivacyPolicy = ({ seoSettings, data, siteSettings }) => {
   const privacySection = data?.sections.find(
     (s) => s._type === "privacyPolicySection",
   );
@@ -30,9 +37,9 @@ const PrivacyPolicy = ({ data, siteSettings }) => {
   return (
     <>
       <MetaLayout
-        title="Privacy Policy - Online Weight Loss Clinic | Mounjaro & Wegovy"
-        description="Your privacy is important to us. Read our privacy policy to understand how we protect your personal data and ensure your confidentiality when using our services."
-        canonical={`${meta_url}/privacy-policy`}
+        seo={data?.seo}
+        globalSeo={seoSettings}
+        canonical={`${meta_url}/privacy-policy/`}
       />
       <Header data={siteSettings} />
       <main className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">

@@ -7,9 +7,15 @@ import MetaLayout from "../Meta/MetaLayout";
 import { meta_url } from "../config/constants";
 import toast from "react-hot-toast";
 import { sanityClient } from "../lib/sanity";
-import { PAGE_QUERY, SITE_SETTINGS_QUERY } from "../lib/sanityQueries";
+import {
+  PAGE_QUERY,
+  SEO_QUERY,
+  SITE_SETTINGS_QUERY,
+} from "../lib/sanityQueries";
 
 export async function getStaticProps() {
+  const seoSettings = await sanityClient.fetch(SEO_QUERY);
+
   const data = await sanityClient.fetch(PAGE_QUERY, {
     slug: "contact-us",
   });
@@ -18,6 +24,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      seoSettings,
       data,
       siteSettings,
     },
@@ -25,7 +32,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function ContactUs({ data, siteSettings }) {
+export default function ContactUs({ seoSettings, data, siteSettings }) {
   const {
     register,
     handleSubmit,
@@ -78,8 +85,8 @@ export default function ContactUs({ data, siteSettings }) {
   return (
     <>
       <MetaLayout
-        title="Contact Online Weight Loss Clinic - Mounjaro & Wegovy Inquiries"
-        description="Have questions about Mounjaro or Wegovy? Contact us for expert advice, personalized support, and information on our weight loss treatments."
+        seo={data?.seo}
+        globalSeo={seoSettings}
         canonical={`${meta_url}/contact-us/`}
       />
       <Header data={siteSettings} />

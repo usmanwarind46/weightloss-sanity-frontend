@@ -4,9 +4,15 @@ import { Footer } from "../components/Footer";
 import MetaLayout from "../Meta/MetaLayout";
 import { meta_url } from "../config/constants";
 import { sanityClient } from "../lib/sanity";
-import { PAGE_QUERY, SITE_SETTINGS_QUERY } from "../lib/sanityQueries";
+import {
+  PAGE_QUERY,
+  SEO_QUERY,
+  SITE_SETTINGS_QUERY,
+} from "../lib/sanityQueries";
 
 export async function getStaticProps() {
+  const seoSettings = await sanityClient.fetch(SEO_QUERY);
+
   const data = await sanityClient.fetch(PAGE_QUERY, {
     slug: "terms-conditions",
   });
@@ -15,6 +21,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      seoSettings,
       data,
       siteSettings,
     },
@@ -22,7 +29,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function TermsConditions({ data, siteSettings }) {
+export default function TermsConditions({ seoSettings, data, siteSettings }) {
   const termsSection = data?.sections.find(
     (s) => s._type === "termsConditionsSection",
   );
@@ -30,8 +37,8 @@ export default function TermsConditions({ data, siteSettings }) {
   return (
     <>
       <MetaLayout
-        title="Terms & Conditions - Online Weight Loss Clinic | Mounjaro & Wegovy"
-        description="Read our terms and conditions for using our online weight loss clinic services. Understand the rules regarding Mounjaro and Wegovy treatments."
+        seo={data?.seo}
+        globalSeo={seoSettings}
         canonical={`${meta_url}/terms-conditions/`}
       />
       <Header data={siteSettings} />

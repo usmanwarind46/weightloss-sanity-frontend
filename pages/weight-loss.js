@@ -15,13 +15,16 @@ import { href } from "react-router";
 import { meta_url } from "../config/constants";
 import MetaLayout from "../Meta/MetaLayout";
 import { sanityClient } from "../lib/sanity";
-import { SITE_SETTINGS_QUERY } from "../lib/sanityQueries";
+import { SEO_QUERY, SITE_SETTINGS_QUERY } from "../lib/sanityQueries";
 
 export async function getStaticProps() {
+  const seoSettings = await sanityClient.fetch(SEO_QUERY);
+
   const siteSettings = await sanityClient.fetch(SITE_SETTINGS_QUERY);
 
   return {
     props: {
+      seoSettings,
       siteSettings,
     },
     revalidate: false,
@@ -366,12 +369,16 @@ const tabs = [
   },
 ];
 
-const WeightLossTreatments = ({ siteSettings }) => {
+const WeightLossTreatments = ({ seoSettings, siteSettings }) => {
   const [active, setActive] = useState(0);
 
   return (
     <>
-      <MetaLayout canonical={`${meta_url}/weight-loss/`} />
+      <MetaLayout
+        // seo={data?.seo}
+        globalSeo={seoSettings}
+        canonical={`${meta_url}/weight-loss/`}
+      />
       <Header data={siteSettings} />
       {/* Hero + Product Cards */}
       <div

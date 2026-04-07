@@ -8,10 +8,16 @@ import { motion } from "framer-motion";
 import { FaStethoscope, FaUsers, FaFileAlt, FaShieldAlt } from "react-icons/fa";
 import MetaLayout from "../Meta/MetaLayout";
 import { meta_url } from "../config/constants";
-import { PAGE_QUERY, SITE_SETTINGS_QUERY } from "../lib/sanityQueries";
+import {
+  PAGE_QUERY,
+  SEO_QUERY,
+  SITE_SETTINGS_QUERY,
+} from "../lib/sanityQueries";
 import { sanityClient } from "../lib/sanity";
 
 export async function getStaticProps() {
+  const seoSettings = await sanityClient.fetch(SEO_QUERY);
+
   const data = await sanityClient.fetch(PAGE_QUERY, {
     slug: "about-clinic",
   });
@@ -20,6 +26,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      seoSettings,
       data,
       siteSettings,
     },
@@ -190,7 +197,7 @@ const expectationsIconMap = {
   ),
 };
 
-function AboutClinic({ data, siteSettings }) {
+function AboutClinic({ seoSettings, data, siteSettings }) {
   const [active, setActive] = useState(0);
 
   const heroSection = data?.sections.find((s) => s._type === "aboutClinicHero");
@@ -344,8 +351,8 @@ function AboutClinic({ data, siteSettings }) {
   return (
     <>
       <MetaLayout
-        title="Trusted Online Clinic - Weight Loss Medications & More | Online Weight Loss Clinic"
-        description="Online Weight Loss Clinic offers personalised, healthcare-guided weight management solutions focused on patient safety, medical appropriateness, and achieving"
+        seo={data?.seo}
+        globalSeo={seoSettings}
         canonical={`${meta_url}/about-clinic/`}
       />
       <Header data={siteSettings} />

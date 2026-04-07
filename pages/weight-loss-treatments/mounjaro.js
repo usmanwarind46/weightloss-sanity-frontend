@@ -13,14 +13,17 @@ import ManjaroTableContent from "../../components/ManjaroTableContent/ManjaroTab
 import MetaLayout from "../../Meta/MetaLayout";
 import { meta_url } from "../../config/constants";
 import { sanityClient } from "../../lib/sanity";
-import { SITE_SETTINGS_QUERY } from "../../lib/sanityQueries";
+import { SEO_QUERY, SITE_SETTINGS_QUERY } from "../../lib/sanityQueries";
 import NextButton from "../../components/ui/NextButton";
 
 export async function getStaticProps() {
+  const seoSettings = await sanityClient.fetch(SEO_QUERY);
+
   const siteSettings = await sanityClient.fetch(SITE_SETTINGS_QUERY);
 
   return {
     props: {
+      seoSettings,
       siteSettings,
     },
     revalidate: false,
@@ -325,7 +328,7 @@ const IMAGES = [
   "/Images/Slider/image-25.png",
 ];
 
-export default function MounjaroProduct({ siteSettings }) {
+export default function MounjaroProduct({ seoSettings, siteSettings }) {
   const half = Math.ceil(wegovyFaqs.length / 2);
   const leftCol = wegovyFaqs.slice(0, half);
   const rightCol = wegovyFaqs.slice(half);
@@ -364,8 +367,8 @@ export default function MounjaroProduct({ siteSettings }) {
   return (
     <>
       <MetaLayout
-        title="Mounjaro Weight Loss Treatment - Safe & Effective | Online Weight Loss Clinic"
-        description="Discover Mounjaro for weight loss. A clinically proven treatment available at our online clinic. Achieve your weight loss goals with Mounjaro today."
+        // seo={data?.seo}
+        globalSeo={seoSettings}
         canonical={`${meta_url}/mounjaro/`}
       />
       <Header data={siteSettings} />

@@ -4,9 +4,15 @@ import { Footer } from "../components/Footer";
 import { meta_url } from "../config/constants";
 import MetaLayout from "../Meta/MetaLayout";
 import { sanityClient } from "../lib/sanity";
-import { PAGE_QUERY, SITE_SETTINGS_QUERY } from "../lib/sanityQueries";
+import {
+  PAGE_QUERY,
+  SEO_QUERY,
+  SITE_SETTINGS_QUERY,
+} from "../lib/sanityQueries";
 
 export async function getStaticProps() {
+  const seoSettings = await sanityClient.fetch(SEO_QUERY);
+
   const data = await sanityClient.fetch(PAGE_QUERY, {
     slug: "off-label-prescribing",
   });
@@ -15,6 +21,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      seoSettings,
       data,
       siteSettings,
     },
@@ -22,7 +29,7 @@ export async function getStaticProps() {
   };
 }
 
-const OffLabelPrescribing = ({ data, siteSettings }) => {
+const OffLabelPrescribing = ({ seoSettings, data, siteSettings }) => {
   const offLabelSection = data?.sections.find(
     (s) => s._type === "offLabelPrescribingSection",
   );
@@ -30,8 +37,8 @@ const OffLabelPrescribing = ({ data, siteSettings }) => {
   return (
     <>
       <MetaLayout
-        title="Off-Label Prescribing Policy for Weight Loss Treatments | Online Clinic"
-        description="Learn about off-label prescribing of Mounjaro and Wegovy for weight loss. Our clinic offers safe, effective treatment options, following medical guidelines."
+        seo={data?.seo}
+        globalSeo={seoSettings}
         canonical={`${meta_url}/off-label-prescribing/`}
       />
       <Header data={siteSettings} />

@@ -8,13 +8,19 @@ import { Footer } from "../components/Footer";
 import MetaLayout from "../Meta/MetaLayout";
 import { meta_url } from "../config/constants";
 import { sanityClient } from "../lib/sanity";
-import { SITE_SETTINGS_QUERY, PAGE_QUERY } from "../lib/sanityQueries";
+import {
+  SITE_SETTINGS_QUERY,
+  PAGE_QUERY,
+  SEO_QUERY,
+} from "../lib/sanityQueries";
 
 const GRADIENT = "linear-gradient(135deg, #76c8a1, #4b6bc1)";
 const BORDER_DEFAULT = "#e5e7eb";
 
 // ✅ STATIC PROPS (ONLY THIS — NO getStaticPaths)
 export async function getStaticProps() {
+  const seoSettings = await sanityClient.fetch(SEO_QUERY);
+
   const data = await sanityClient.fetch(PAGE_QUERY, {
     slug: "frequently-asked-questions",
   });
@@ -23,6 +29,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      seoSettings,
       data,
       siteSettings,
     },
@@ -83,7 +90,7 @@ function FAQItem({ question, answer }) {
 }
 
 // ✅ MAIN PAGE
-export default function FAQPage({ data, siteSettings }) {
+export default function FAQPage({ seoSettings, data, siteSettings }) {
   console.log(data, "datadatadata");
   const sections = data?.sections || [];
 
@@ -93,8 +100,8 @@ export default function FAQPage({ data, siteSettings }) {
     <>
       {/* ✅ SEO (static for now) */}
       <MetaLayout
-        title={data?.title || "Frequently Asked Questions"}
-        description="Find answers to common questions about our treatments and services."
+        seo={data?.seo}
+        globalSeo={seoSettings}
         canonical={`${meta_url}/frequently-asked-questions/`}
       />
 

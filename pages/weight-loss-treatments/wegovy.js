@@ -17,13 +17,16 @@ import { meta_url } from "../../config/constants";
 import NextButton from "../../components/ui/NextButton";
 import Link from "next/link";
 import { sanityClient } from "../../lib/sanity";
-import { SITE_SETTINGS_QUERY } from "../../lib/sanityQueries";
+import { SEO_QUERY, SITE_SETTINGS_QUERY } from "../../lib/sanityQueries";
 
 export async function getStaticProps() {
+  const seoSettings = await sanityClient.fetch(SEO_QUERY);
+
   const siteSettings = await sanityClient.fetch(SITE_SETTINGS_QUERY);
 
   return {
     props: {
+      seoSettings,
       siteSettings,
     },
     revalidate: false,
@@ -263,7 +266,7 @@ const IMAGES = [
   "/Images/Slider2/image-25.png",
 ];
 
-export default function MounjaroProduct({ siteSettings }) {
+export default function MounjaroProduct({ seoSettings, siteSettings }) {
   const half = Math.ceil(wegovyFaqs.length / 2);
   const leftCol = wegovyFaqs.slice(0, half);
   const rightCol = wegovyFaqs.slice(half);
@@ -301,8 +304,8 @@ export default function MounjaroProduct({ siteSettings }) {
   return (
     <>
       <MetaLayout
-        title="Wegovy Weight Loss Treatment - Effective & Trusted | Online Weight Loss Clinic"
-        description="Learn about Wegovy, a breakthrough weight loss treatment. Achieve your weight loss goals with this effective medication, available at our online clinic."
+        // seo={data?.seo}
+        globalSeo={seoSettings}
         canonical={`${meta_url}/wegovy/`}
       />
       <Header data={siteSettings} />
