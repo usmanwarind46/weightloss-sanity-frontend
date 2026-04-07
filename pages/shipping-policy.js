@@ -9,6 +9,7 @@ import {
   SEO_QUERY,
   SITE_SETTINGS_QUERY,
 } from "../lib/sanityQueries";
+import { generateSchema } from "../lib/schemaGenerator";
 
 export async function getStaticProps() {
   const seoSettings = await sanityClient.fetch(SEO_QUERY);
@@ -34,12 +35,19 @@ export default function ShippingPolicy({ seoSettings, data, siteSettings }) {
     (s) => s._type === "shippingPolicySection",
   );
 
+  const autoSchemas = generateSchema({
+    data,
+    globalSeo: seoSettings,
+    canonical: `${meta_url}/shipping-policy/`,
+  });
+
   return (
     <>
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/shipping-policy/`}
+        autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />
       <div className="min-h-screen bg-white">

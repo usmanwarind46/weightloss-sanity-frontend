@@ -16,6 +16,7 @@ import { meta_url } from "../config/constants";
 import MetaLayout from "../Meta/MetaLayout";
 import { sanityClient } from "../lib/sanity";
 import { SEO_QUERY, SITE_SETTINGS_QUERY } from "../lib/sanityQueries";
+import { generateSchema } from "../lib/schemaGenerator";
 
 export async function getStaticProps() {
   const seoSettings = await sanityClient.fetch(SEO_QUERY);
@@ -372,12 +373,18 @@ const tabs = [
 const WeightLossTreatments = ({ seoSettings, siteSettings }) => {
   const [active, setActive] = useState(0);
 
+  const autoSchemas = generateSchema({
+    globalSeo: seoSettings,
+    canonical: `${meta_url}/weight-loss/`,
+  });
+
   return (
     <>
       <MetaLayout
         // seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/weight-loss/`}
+        autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />
       {/* Hero + Product Cards */}

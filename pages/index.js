@@ -17,6 +17,7 @@ import {
   SEO_QUERY,
   SITE_SETTINGS_QUERY,
 } from "../lib/sanityQueries";
+import { generateSchema } from "../lib/schemaGenerator";
 import MetaLayout from "../Meta/MetaLayout";
 import { useEffect } from "react";
 
@@ -68,12 +69,19 @@ export default function Home({ seoSettings, data, siteSettings }) {
 
   const ctaSection = data?.sections?.find((s) => s._type === "ctaSection");
 
+  const autoSchemas = generateSchema({
+    data,
+    globalSeo: seoSettings,
+    canonical: `${meta_url}/${data?.slug?.current || ""}`,
+  });
+
   return (
     <>
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/`}
+        autoSchemas={autoSchemas}
       />
       <div className="min-h-screen bg-white">
         <Header data={siteSettings} />

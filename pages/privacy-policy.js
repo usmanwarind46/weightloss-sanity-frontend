@@ -9,6 +9,7 @@ import {
   SEO_QUERY,
   SITE_SETTINGS_QUERY,
 } from "../lib/sanityQueries";
+import { generateSchema } from "../lib/schemaGenerator";
 
 export async function getStaticProps() {
   const seoSettings = await sanityClient.fetch(SEO_QUERY);
@@ -34,12 +35,19 @@ const PrivacyPolicy = ({ seoSettings, data, siteSettings }) => {
     (s) => s._type === "privacyPolicySection",
   );
 
+  const autoSchemas = generateSchema({
+    data,
+    globalSeo: seoSettings,
+    canonical: `${meta_url}/privacy-policy/`,
+  });
+
   return (
     <>
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/privacy-policy/`}
+        autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />
       <main className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">

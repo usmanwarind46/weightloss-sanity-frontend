@@ -9,6 +9,7 @@ import {
   SEO_QUERY,
   SITE_SETTINGS_QUERY,
 } from "../lib/sanityQueries";
+import { generateSchema } from "../lib/schemaGenerator";
 
 export async function getStaticProps() {
   const seoSettings = await sanityClient.fetch(SEO_QUERY);
@@ -34,12 +35,19 @@ const OffLabelPrescribing = ({ seoSettings, data, siteSettings }) => {
     (s) => s._type === "offLabelPrescribingSection",
   );
 
+  const autoSchemas = generateSchema({
+    data,
+    globalSeo: seoSettings,
+    canonical: `${meta_url}/off-label-prescribing/`,
+  });
+
   return (
     <>
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/off-label-prescribing/`}
+        autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />
       <main className="min-h-screen py-12 md:py-20 px-4 sm:px-6 lg:px-8">

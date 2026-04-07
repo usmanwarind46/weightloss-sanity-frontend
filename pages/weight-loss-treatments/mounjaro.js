@@ -15,6 +15,7 @@ import { meta_url } from "../../config/constants";
 import { sanityClient } from "../../lib/sanity";
 import { SEO_QUERY, SITE_SETTINGS_QUERY } from "../../lib/sanityQueries";
 import NextButton from "../../components/ui/NextButton";
+import { generateSchema } from "../../lib/schemaGenerator";
 
 export async function getStaticProps() {
   const seoSettings = await sanityClient.fetch(SEO_QUERY);
@@ -364,12 +365,18 @@ export default function MounjaroProduct({ seoSettings, siteSettings }) {
     [emblaApi],
   );
 
+  const autoSchemas = generateSchema({
+    globalSeo: seoSettings,
+    canonical: `${meta_url}/weight-loss-treatments/mounjaro/`,
+  });
+
   return (
     <>
       <MetaLayout
         // seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/weight-loss-treatments/mounjaro/`}
+        autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />
       <div className=" sm:py-12 py-4">

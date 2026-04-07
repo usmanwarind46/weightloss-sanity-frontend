@@ -12,6 +12,7 @@ import {
   SEO_QUERY,
   SITE_SETTINGS_QUERY,
 } from "../lib/sanityQueries";
+import { generateSchema } from "../lib/schemaGenerator";
 
 export async function getStaticProps() {
   const seoSettings = await sanityClient.fetch(SEO_QUERY);
@@ -82,12 +83,19 @@ export default function ContactUs({ seoSettings, data, siteSettings }) {
     }
   };
 
+  const autoSchemas = generateSchema({
+    data,
+    globalSeo: seoSettings,
+    canonical: `${meta_url}/contact-us/`,
+  });
+
   return (
     <>
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/contact-us/`}
+        autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />
       <section

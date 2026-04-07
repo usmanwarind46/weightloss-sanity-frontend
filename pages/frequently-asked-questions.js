@@ -13,6 +13,7 @@ import {
   PAGE_QUERY,
   SEO_QUERY,
 } from "../lib/sanityQueries";
+import { generateSchema } from "../lib/schemaGenerator";
 
 const GRADIENT = "linear-gradient(135deg, #76c8a1, #4b6bc1)";
 const BORDER_DEFAULT = "#e5e7eb";
@@ -96,6 +97,12 @@ export default function FAQPage({ seoSettings, data, siteSettings }) {
 
   const faqSection = sections.find((s) => s._type === "faqPageSection");
 
+  const autoSchemas = generateSchema({
+    data,
+    globalSeo: seoSettings,
+    canonical: `${meta_url}/frequently-asked-questions/`,
+  });
+
   return (
     <>
       {/* ✅ SEO (static for now) */}
@@ -103,6 +110,7 @@ export default function FAQPage({ seoSettings, data, siteSettings }) {
         seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/frequently-asked-questions/`}
+        autoSchemas={autoSchemas}
       />
 
       {/* ✅ HEADER */}

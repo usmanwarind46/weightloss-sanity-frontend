@@ -9,6 +9,7 @@ import {
   SEO_QUERY,
   SITE_SETTINGS_QUERY,
 } from "../lib/sanityQueries";
+import { generateSchema } from "../lib/schemaGenerator";
 
 export async function getStaticProps() {
   const seoSettings = await sanityClient.fetch(SEO_QUERY);
@@ -34,12 +35,19 @@ export default function Complaints({ seoSettings, data, siteSettings }) {
     (s) => s._type === "complaintsSection",
   );
 
+  const autoSchemas = generateSchema({
+    data,
+    globalSeo: seoSettings,
+    canonical: `${meta_url}/complaints/`,
+  });
+
   return (
     <>
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/complaints/`}
+        autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />
       <div className="bg-white">

@@ -14,6 +14,7 @@ import {
   SITE_SETTINGS_QUERY,
 } from "../lib/sanityQueries";
 import { sanityClient } from "../lib/sanity";
+import { generateSchema } from "../lib/schemaGenerator";
 
 export async function getStaticProps() {
   const seoSettings = await sanityClient.fetch(SEO_QUERY);
@@ -348,12 +349,19 @@ function AboutClinic({ seoSettings, data, siteSettings }) {
 
   const current = transformedTabs[active] || {};
 
+  const autoSchemas = generateSchema({
+    data,
+    globalSeo: seoSettings,
+    canonical: `${meta_url}/about-clinic/`,
+  });
+
   return (
     <>
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/about-clinic/`}
+        autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />
       <div className="font-serif">

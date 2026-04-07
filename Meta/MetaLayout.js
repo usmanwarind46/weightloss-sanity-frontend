@@ -11,6 +11,8 @@ export default function MetaLayout({
 
   // 🔹 PASSED CANONICAL (from page)
   canonical,
+
+  autoSchemas,
 }) {
   // ─────────────────────────────────────
   // 🔹 FALLBACK (YOUR ORIGINAL DEFAULTS)
@@ -123,6 +125,27 @@ export default function MetaLayout({
           <div
             dangerouslySetInnerHTML={{
               __html: globalSeo.additionalMetaTags,
+            }}
+          />
+        )}
+
+        {/* ───── AUTO SCHEMA ───── */}
+        {autoSchemas?.map((schema, i) => (
+          <script
+            key={`auto-${i}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(schema),
+            }}
+          />
+        ))}
+
+        {/* ───── MANUAL SCHEMA (OVERRIDE) ───── */}
+        {seo?.schema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: seo.schema,
             }}
           />
         )}
