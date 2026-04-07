@@ -12,11 +12,17 @@ import { StatsSection } from "../components/StatsSection";
 import { TrustSection } from "../components/TrustSection";
 import { meta_url } from "../config/constants";
 import { sanityClient } from "../lib/sanity";
-import { PAGE_QUERY, SITE_SETTINGS_QUERY } from "../lib/sanityQueries";
+import {
+  PAGE_QUERY,
+  SEO_QUERY,
+  SITE_SETTINGS_QUERY,
+} from "../lib/sanityQueries";
 import MetaLayout from "../Meta/MetaLayout";
 import { useEffect } from "react";
 
 export async function getStaticProps() {
+  const seoSettings = await sanityClient.fetch(SEO_QUERY);
+
   const data = await sanityClient.fetch(PAGE_QUERY, {
     slug: "home",
   });
@@ -25,6 +31,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      seoSettings,
       data,
       siteSettings,
     },
@@ -32,7 +39,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ data, siteSettings }) {
+export default function Home({ seoSettings, data, siteSettings }) {
   console.log(data, "dataaaaaaaa");
 
   const heroSection = data?.sections?.find(
@@ -64,8 +71,8 @@ export default function Home({ data, siteSettings }) {
   return (
     <>
       <MetaLayout
-        title="Weight Loss Treatments UK -  Online Weight Loss Clinic"
-        description="Explore effective weight loss treatments at our UK-based clinic. Offering Mounjaro & Wegovy for safe and sustainable weight management. Start your journey today."
+        seo={data?.seo}
+        globalSeo={seoSettings}
         canonical={`${meta_url}/`}
       />
       <div className="min-h-screen bg-white">

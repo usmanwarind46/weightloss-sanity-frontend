@@ -1,3 +1,3 @@
-let meta_url = "https://www.onlineweightlossclinic.co.uk";
+let meta_url = "https://weightloss-sanity-frontend.vercel.app";
 
 export { meta_url };

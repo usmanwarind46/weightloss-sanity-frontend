@@ -1,57 +1,133 @@
-// components/Layout.js
 import Head from "next/head";
 
 export default function MetaLayout({
   children,
-  title = "Start Online Consultation - Online Weight Loss Clinic",
-  description = "Online Weight Loss Clinic provides MHRA-approved weight loss treatments in the UK that have clinically proven results",
+
+  // 🔹 PAGE SEO
+  seo = {},
+
+  // 🔹 GLOBAL SEO
+  globalSeo = {},
+
+  // 🔹 PASSED CANONICAL (from page)
   canonical,
-  noIndex = true,
-
-  // OG props — all fall back to sensible defaults
-  ogTitle,
-  ogDescription,
-  ogImage = "/Images/og-default.webp",
-  ogUrl,
-  ogType = "website",
-  ogSiteName = "Online Weight Loss Clinic",
-
-  // Twitter Card
-  twitterCard = "summary_large_image",
-  twitterTitle,
-  twitterDescription,
-  twitterImage,
 }) {
-  const resolvedOgTitle = ogTitle || title;
-  const resolvedOgDescription = ogDescription || description;
-  const resolvedOgUrl = ogUrl || canonical;
-  const resolvedTwitterTitle = twitterTitle || resolvedOgTitle;
-  const resolvedTwitterDesc = twitterDescription || resolvedOgDescription;
-  const resolvedTwitterImage = twitterImage || ogImage;
+  // ─────────────────────────────────────
+  // 🔹 FALLBACK (YOUR ORIGINAL DEFAULTS)
+  // ─────────────────────────────────────
+  const FALLBACK_TITLE =
+    "Start Online Consultation - Online Weight Loss Clinic";
 
+  const FALLBACK_DESCRIPTION =
+    "Online Weight Loss Clinic provides MHRA-approved weight loss treatments in the UK that have clinically proven results";
+
+  // ─────────────────────────────────────
+  // 🔹 TITLE (PAGE → GLOBAL → FALLBACK)
+  // ─────────────────────────────────────
+  let title =
+    seo?.metaTitle && seo.metaTitle.trim() !== ""
+      ? seo.metaTitle
+      : globalSeo?.defaultTitle || FALLBACK_TITLE;
+
+  // 🔹 Apply title template
+  if (globalSeo?.titleTemplate && title) {
+    title = globalSeo.titleTemplate.replace("%s", title);
+  }
+
+  // ─────────────────────────────────────
+  // 🔹 DESCRIPTION
+  // ─────────────────────────────────────
+  const description =
+    seo?.metaDescription ??
+    globalSeo?.defaultDescription ??
+    FALLBACK_DESCRIPTION;
+
+  // ─────────────────────────────────────
+  // 🔹 CANONICAL (PAGE → PROP → AUTO)
+  // ─────────────────────────────────────
+  let finalCanonical =
+    seo?.canonical ??
+    canonical ??
+    (globalSeo?.siteUrl ? globalSeo.siteUrl : null);
+
+  // ─────────────────────────────────────
+  // 🔹 ROBOTS (CRITICAL FIX WITH ??)
+  // ─────────────────────────────────────
+  const noIndex = seo?.noIndex ?? globalSeo?.defaultNoIndex ?? false;
+
+  const noFollow = seo?.noFollow ?? globalSeo?.defaultNoFollow ?? false;
+
+  const robots =
+    globalSeo?.robotsContent ??
+    `${noIndex ? "noindex" : "index"}, ${noFollow ? "nofollow" : "follow"}`;
+
+  // ─────────────────────────────────────
+  // 🔹 OPEN GRAPH (AUTO FALLBACK)
+  // ─────────────────────────────────────
+  const ogTitle = seo?.ogTitle ?? title;
+
+  const ogDescription = seo?.ogDescription ?? description;
+
+  const ogImage =
+    seo?.ogImage?.asset?.url ??
+    globalSeo?.defaultOgImage?.asset?.url ??
+    "/Images/og-default.webp";
+
+  const ogUrl = finalCanonical;
+
+  const ogType = globalSeo?.ogType ?? "website";
+
+  const ogSiteName = globalSeo?.ogSiteName ?? "Online Weight Loss Clinic";
+
+  // ─────────────────────────────────────
+  // 🔹 TWITTER (AUTO FALLBACK)
+  // ─────────────────────────────────────
+  const twitterCard = globalSeo?.twitterCard ?? "summary_large_image";
+
+  const twitterTitle = seo?.twitterTitle ?? ogTitle;
+
+  const twitterDescription = seo?.twitterDescription ?? ogDescription;
+
+  const twitterImage = seo?.twitterImage?.asset?.url ?? ogImage;
+
+  // ─────────────────────────────────────
+  // 🔹 RENDER
+  // ─────────────────────────────────────
   return (
     <>
       <Head>
-        {/* ── STANDARD ── */}
+        {/* ───── BASIC ───── */}
         <title>{title}</title>
         <meta name="description" content={description} />
-        {canonical && <link rel="canonical" href={canonical} />}
-        {noIndex && <meta name="robots" content="noindex, nofollow" />}
 
-        {/* ── OPEN GRAPH ── */}
+        {finalCanonical && <link rel="canonical" href={finalCanonical} />}
+
+        <meta name="robots" content={robots} />
+
+        {/* ───── OPEN GRAPH ───── */}
         <meta property="og:type" content={ogType} />
         <meta property="og:site_name" content={ogSiteName} />
-        <meta property="og:title" content={resolvedOgTitle} />
-        <meta property="og:description" content={resolvedOgDescription} />
-        <meta property="og:image" content={ogImage} />
-        {resolvedOgUrl && <meta property="og:url" content={resolvedOgUrl} />}
+        <meta property="og:title" content={ogTitle} />
+        <meta property="og:description" content={ogDescription} />
+        {ogImage && <meta property="og:image" content={ogImage} />}
+        {ogUrl && <meta property="og:url" content={ogUrl} />}
 
-        {/* ── TWITTER CARD ── */}
+        {/* ───── TWITTER ───── */}
         <meta name="twitter:card" content={twitterCard} />
-        <meta name="twitter:title" content={resolvedTwitterTitle} />
-        <meta name="twitter:description" content={resolvedTwitterDesc} />
-        <meta name="twitter:image" content={resolvedTwitterImage} />
+        <meta name="twitter:title" content={twitterTitle} />
+        <meta name="twitter:description" content={twitterDescription} />
+        {twitterImage && <meta name="twitter:image" content={twitterImage} />}
+
+        {/* ───── EXTRA META TAGS ───── */}
+        {globalSeo?.additionalMetaTags && (
+          <div
+            dangerouslySetInnerHTML={{
+              __html: globalSeo.additionalMetaTags,
+            }}
+          />
+        )}
       </Head>
+
       {children}
     </>
   );

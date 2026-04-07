@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://www.onlineweightlossclinic.co.uk",
+  siteUrl: "https://weightloss-sanity-frontend.vercel.app",
   generateRobotsTxt: true,
   changefreq: "weekly",
   priority: 0.7,
