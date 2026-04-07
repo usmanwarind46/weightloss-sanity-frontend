@@ -17,16 +17,25 @@ import { meta_url } from "../../config/constants";
 import NextButton from "../../components/ui/NextButton";
 import Link from "next/link";
 import { sanityClient } from "../../lib/sanity";
-import { SEO_QUERY, SITE_SETTINGS_QUERY } from "../../lib/sanityQueries";
+import {
+  PAGE_QUERY,
+  SEO_QUERY,
+  SITE_SETTINGS_QUERY,
+} from "../../lib/sanityQueries";
 
 export async function getStaticProps() {
   const seoSettings = await sanityClient.fetch(SEO_QUERY);
+
+  const data = await sanityClient.fetch(PAGE_QUERY, {
+    slug: "wegovy",
+  });
 
   const siteSettings = await sanityClient.fetch(SITE_SETTINGS_QUERY);
 
   return {
     props: {
       seoSettings,
+      data,
       siteSettings,
     },
     revalidate: false,
@@ -304,7 +313,7 @@ export default function MounjaroProduct({ seoSettings, siteSettings }) {
   return (
     <>
       <MetaLayout
-        // seo={data?.seo}
+        seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/weight-loss-treatments/wegovy/`}
       />
