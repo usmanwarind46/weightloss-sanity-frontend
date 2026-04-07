@@ -14,7 +14,7 @@ export function Header({ data }) {
 
   const pathname = usePathname();
 
-  // ✅ CMS DATA
+  // ✅ CMS DATAa
   const navLinks = data?.navLinks || [];
   const logoUrl = data?.logo?.asset?.url;
   const topBarText = data?.topBarText;
