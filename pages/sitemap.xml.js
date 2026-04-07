@@ -33,7 +33,15 @@ export async function getServerSideProps({ res }) {
   // ─────────────────────────────
   const pageUrls = filteredPages
     .map((page) => {
-      const path = page.slug === "home" ? "" : page.slug;
+      let path = "";
+
+      if (page.slug === "home") {
+        path = "";
+      } else if (["mounjaro", "wegovy"].includes(page.slug)) {
+        path = `weight-loss-treatments/${page.slug}`;
+      } else {
+        path = page.slug;
+      }
 
       return `
         <url>
