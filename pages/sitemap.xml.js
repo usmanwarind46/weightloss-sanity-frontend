@@ -29,7 +29,7 @@ export async function getServerSideProps({ res }) {
   );
 
   // ─────────────────────────────
-  // 🔹 BUILD PAGE URLS
+  // 🔹 BUILD PAGE URLs
   // ─────────────────────────────
   const pageUrls = filteredPages
     .map((page) => {
