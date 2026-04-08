@@ -87,9 +87,9 @@ export default function Home({ seoSettings, data, siteSettings }) {
         <Header data={siteSettings} />
         <main>
           {heroSection && <Hero data={heroSection} />}
-          {/* <FadeUp>
+          <FadeUp>
             {trustSection && <TrustSection data={trustSection} />}
-          </FadeUp> */}
+          </FadeUp>
           {howItWorks && <HowItWorks data={howItWorks} />}
           {medicationSection && <MedicationSection data={medicationSection} />}
           {statsSection && <StatsSection data={statsSection} />}

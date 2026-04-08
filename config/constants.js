@@ -1,3 +1,3 @@
-let meta_url = "https://onlineweightlossclinic.co.uk";
+let meta_url = "https://www.onlineweightlossclinic.co.uk";
 
 export { meta_url };
