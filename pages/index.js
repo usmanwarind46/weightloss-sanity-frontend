@@ -41,7 +41,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ seoSettings, data, siteSettings }) {
-  console.log(data, "dataaaaaaaa");
+  console.log(data, "data From New Frontend");
 
   const heroSection = data?.sections?.find(
     (section) => section._type === "hero",
