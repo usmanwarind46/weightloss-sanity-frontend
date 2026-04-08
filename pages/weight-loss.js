@@ -28,7 +28,7 @@ export async function getStaticProps() {
       seoSettings,
       siteSettings,
     },
-    revalidate: false,
+    revalidate: 1,
   };
 }
 

@@ -36,7 +36,7 @@ export async function getStaticProps() {
       data,
       siteSettings,
     },
-    revalidate: 10,
+    revalidate: 1,
   };
 }
 
