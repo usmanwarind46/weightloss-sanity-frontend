@@ -4,8 +4,7 @@ import { SEO_QUERY } from "../lib/sanityQueries";
 export async function getServerSideProps({ res }) {
   const seo = await sanityClient.fetch(SEO_QUERY);
 
-  const siteUrl =
-    seo?.siteUrl || "https://weightloss-sanity-frontend.vercel.app";
+  const siteUrl = seo?.siteUrl || "https://onlineweightlossclinic.co.uk";
 
   const allowAll = seo?.allowAll ?? true;
 
