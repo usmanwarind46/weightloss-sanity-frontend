@@ -37,7 +37,7 @@ const products = [
     id: 1,
     name: "Mounjaro",
     subtitle: "Tirzepatide",
-    price: "£159.00",
+    price: "£210.00",
     bgColor: "#5B6EE8",
     image: "/Images/Mounjaro.png",
     href: "/weight-loss-treatments/mounjaro",
@@ -248,8 +248,7 @@ const tabs = [
           </h3>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed">
             If you are pregnant, planning to conceive, or breastfeeding, do not
-            use these medications unless specifically prescribed by your
-            healthcare provider.
+            use these medications.
           </p>
         </div>
       </div>
@@ -354,10 +353,10 @@ const tabs = [
           potential side effects.
         </p>
         <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-          At Weight Loss Pharmacy, access to these medications is only given
-          following a clinician-reviewed online consultation, where your medical
-          history, current health status, and any ongoing medications are
-          carefully assessed.
+          At Online Weight Loss Clinic, access to these medications is only
+          given following a clinician-reviewed online consultation, where your
+          medical history, current health status, and any ongoing medications
+          are carefully assessed.
         </p>
         <p className="text-gray-600 text-sm md:text-base leading-relaxed">
           While some over-the-counter products, such as herbal supplements or
@@ -399,12 +398,10 @@ const WeightLossTreatments = ({ seoSettings, siteSettings }) => {
           {/* Heading */}
           <div className="text-center mb-10 md:mb-14">
             <h1 className="text-2xl sm:text-3xl md:text-5xl med-font text-[#1a1a2e] mb-4 leading-tight tracking-tight">
-              Regain confidence with UK licensed, and doctor-recommended weight
-              loss treatment
+              Explore Weight Loss Treatments
             </h1>
             <p className="text-gray-500 text-sm md:text-xl reg-font leading-relaxed max-w-2xl mx-auto para-font">
-              Access weight loss treatments in 3 simple steps: fill out the
-              consultation form, check eligibility, and receive treatment.
+              Choose any treatment and start free consultation online
             </p>
           </div>
 
@@ -524,6 +521,7 @@ const WeightLossTreatments = ({ seoSettings, siteSettings }) => {
           </div>
         </div>
       </section>
+
       <section id="how-it-works" className="py-12 md:py-20 bg-white">
         <div className="container mx-auto">
           {/* Heading */}
@@ -750,7 +748,8 @@ const WeightLossTreatments = ({ seoSettings, siteSettings }) => {
         <div className="relative z-10 container mx-auto  py-16 sm:py-24 md:py-36 cta-wrap">
           <div className="max-w-lg md:max-w-xl">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-              See If You’re Eligible for Proven Weight Loss Injections
+              See If You’re Eligible for Clinically Proven Weight Loss
+              Injections
             </h2>
 
             <p className="text-white/80 text-sm sm:text-base reg-font mb-8 leading-relaxed para-font">
@@ -760,8 +759,13 @@ const WeightLossTreatments = ({ seoSettings, siteSettings }) => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 cta-btn">
-              <Link href="#">
-                <NextButton label="View Treatments" />
+              <Link href="#top" scroll={false}>
+                <NextButton
+                  label="View Treatments"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                />
               </Link>
               <Link
                 href="/frequently-asked-questions"

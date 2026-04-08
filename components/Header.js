@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { ChevronRight, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -14,6 +14,8 @@ export function Header({ data }) {
 
   const pathname = usePathname();
 
+  console.log(data, "LLP Header Data");
+
   // ✅ CMS DATAaa
   const navLinks = data?.navLinks || [];
   const logoUrl = data?.logo?.asset?.url;
@@ -24,7 +26,18 @@ export function Header({ data }) {
 
   // ✅ Keep your business logic
   const dynamicCtaLabel =
-    pathname === "/discounted-llp/" ? "Start my Journey" : ctaLabel;
+    pathname === "/discounted-llp/" ? (
+      <>
+        <span className="flex">
+          Start my Journey{" "}
+          <span className="next-btn-arrow">
+            <ChevronRight />
+          </span>
+        </span>
+      </>
+    ) : (
+      ctaLabel
+    );
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);

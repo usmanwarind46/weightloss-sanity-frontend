@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { BadgeCheck, ChevronDown, Link } from "lucide-react";
+import { BadgeCheck, ChevronDown } from "lucide-react";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { AnimatePresence, motion } from "framer-motion";
@@ -16,6 +16,7 @@ import { sanityClient } from "../../lib/sanity";
 import { SEO_QUERY, SITE_SETTINGS_QUERY } from "../../lib/sanityQueries";
 import NextButton from "../../components/ui/NextButton";
 import { generateSchema } from "../../lib/schemaGenerator";
+import Link from "next/link";
 
 export async function getStaticProps() {
   const seoSettings = await sanityClient.fetch(SEO_QUERY);

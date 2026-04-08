@@ -16,8 +16,25 @@ import { ReviewsSection } from "../components/ReviewsSection";
 import { StatsSection } from "../components/StatsSection";
 import { TrustSection } from "../components/TrustSection";
 import { meta_url } from "../config/constants";
+import { sanityClient } from "../lib/sanity";
+import { SITE_SETTINGS_QUERY } from "../lib/sanityQueries";
 import MetaLayout from "../Meta/MetaLayout";
-export default function Home() {
+
+export async function getStaticProps() {
+  // const seoSettings = await sanityClient.fetch(SEO_QUERY);
+
+  const siteSettings = await sanityClient.fetch(SITE_SETTINGS_QUERY);
+
+  return {
+    props: {
+      // seoSettings,
+      siteSettings,
+    },
+    revalidate: false,
+  };
+}
+
+export default function Home({ siteSettings }) {
   return (
     <>
       <MetaLayout
@@ -26,7 +43,7 @@ export default function Home() {
         canonical={`${meta_url}/`}
       />
       <div className="min-h-screen bg-white">
-        <Header />
+        <Header data={siteSettings} />
         <main>
           <LpHero />
           <PricingComparison />
