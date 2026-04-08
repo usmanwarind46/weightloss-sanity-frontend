@@ -22,11 +22,19 @@ export async function getServerSideProps({ res }) {
   // ─────────────────────────────
   // 🔹 FILTER NOINDEX PAGES
   // ─────────────────────────────
-  const filteredPages = pages.filter((page) =>
-    page?.seo?.noIndex !== undefined
-      ? !page.seo.noIndex
-      : !(seo?.defaultNoIndex ?? false),
-  );
+  const filteredPages = pages.filter((page) => {
+    // 🔴 GLOBAL FIRST
+    if (seo?.defaultNoIndex === true) {
+      return false;
+    }
+
+    // 🟡 PAGE SECOND
+    if (page?.seo?.noIndex === true) {
+      return false;
+    }
+
+    return true;
+  });
 
   // ─────────────────────────────
   // 🔹 BUILD PAGE URLs

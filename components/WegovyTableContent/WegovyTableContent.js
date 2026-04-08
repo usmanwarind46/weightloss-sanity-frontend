@@ -345,12 +345,26 @@ const ManjaroTableContent = () => {
                 <Image
                   width={1200}
                   height={150}
-                  src={"/Images/differentWegovyDoes.png"}
+                  src={"/Images/differentWegovyDoes.jpg"}
                   alt="Different Wegovy Doses"
                   className="w-full  mx-auto h-auto object-contain"
                 />
               </div>
-
+              <p className="para-font reg-font text-gray-600">
+                <strong>Note:</strong> These results are based on clinical
+                trials{" "}
+                <span className="font-semibold text-teal-600">
+                  <a
+                    href="https://www.nejm.org/doi/full/10.1056/NEJMoa2032183"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    over 68 weeks
+                  </a>
+                </span>{" "}
+                and are compared against a placebo group; individual outcomes
+                may vary.
+              </p>
               {/* How long does Wegovy take to work? */}
               <h3 className="text-xl sm:text-2xl reg-font text-black">
                 How long does Wegovy take to work?
@@ -370,15 +384,15 @@ const ManjaroTableContent = () => {
                 Is Wegovy safe?
               </h3>
               <p className="para-font reg-font text-gray-600 reg-font text-[#212529]">
-                Yes, Wegovy is safe when prescribed and monitored by a
-                healthcare professional. It is a licensed weight-loss medication
-                approved in the UK, designed for use under medical supervision.
-                While generally well-tolerated, some users may experience mild
-                side effects like nausea, headache, or digestive issues, which
-                often improve with time. Serious risks, though rare, can include
-                gallbladder problems or pancreatitis, especially in individuals
-                with certain health conditions. Always consult a doctor to
-                assess suitability and manage any potential risks.
+                Yes, Wegovy showed safe tolerability in patients during clinical
+                studies. It is a licensed weight-loss medication approved in the
+                UK, designed for use under medical supervision. While generally
+                well-tolerated, some users may experience mild side effects like
+                nausea, headache, or digestive issues, which often improve with
+                time. Serious risks, though rare, can include gallbladder
+                problems or pancreatitis, especially in individuals with certain
+                health conditions. Always consult a doctor to assess suitability
+                and manage any potential risks.
               </p>
 
               {/* Is there a generic version of Wegovy? */}
@@ -473,6 +487,10 @@ const ManjaroTableContent = () => {
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>High blood pressure</span>
                 </li>
+                {/* <li className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
+                  <span>Cardiovascular disease</span>
+                </li> */}
               </ul>
               <p className="para-font reg-font text-[#212529]">
                 The decision to prescribe weight loss pen is based on this
@@ -521,18 +539,25 @@ const ManjaroTableContent = () => {
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>Cardiovascular disease</span>
                 </li>
-
-                <li className="flex items-start gap-3">
-                  <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
-                  <span>Is Wegovy right for me?</span>
-                </li>
               </ul>
               {/* <Image
                 width={1200}
                 height={150}
                 src={"/Images/Mounjarodosage.webp"}
-                alt="Mounjaro Dosage"
+                alt="Mounjaro Dos
+                age"
               /> */}
+              <h3 className="text-2xl reg-font text-black">
+                Is Wegovy right for me?
+              </h3>
+              <p className="para-font reg-font text-[#212529]">
+                Wegovy may be right for you if you have a BMI of 30 or above, or
+                27+ with weight-related conditions, and have not seen results
+                with lifestyle changes alone. It helps control appetite and
+                supports gradual weight loss. Suitability depends on your
+                medical history, current medications, and overall health. A
+                clinician assessment is essential before starting.
+              </p>
 
               <h3 className="text-2xl reg-font text-black">
                 Can Wegovy be used by people with diabetes?
@@ -636,7 +661,7 @@ const ManjaroTableContent = () => {
               <Image
                 width={1200}
                 height={150}
-                src={"/Images/wegovy-injections.png"}
+                src={"/Images/wegovy-injections.jpg"}
                 alt="Mounjaro Dosage"
               />
               <h3 className="text-2xl reg-font text-black">
@@ -946,9 +971,9 @@ const ManjaroTableContent = () => {
               </h3>
 
               <p className="para-font reg-font text-[#212529]">
-                There is no need to source needles independently. If
-                appropriate, needles and a sharps disposal bin can be supplied
-                during your clinical assessment.
+                There is no need to source needles independently. If needed,
+                needles and a sharps bin can be purchased at the time of
+                checkout.
               </p>
             </div>
 
@@ -1432,8 +1457,8 @@ const ManjaroTableContent = () => {
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
                     Private weight-management clinics offering clinician-led
-                    consultations, such as Online Weight Loss Clinic, Mayfair,
-                    and London Slimming Clinic.
+                    consultations, such as Online Weight Loss Clinic, Mayfair
+                    Weight Loss Clinic, and ASDA Online Doctor.
                   </span>
                 </li>
               </ul>
@@ -1460,6 +1485,37 @@ const ManjaroTableContent = () => {
                 To request Wegovy from Online Weight Loss Clinic:
               </p>
 
+              <ol className="list-decimal space-y-3 ps-6 text-[#212529]">
+                <li className="flex items-start gap-3">
+                  <span className="">1.</span>
+                  <span>Complete a secure online medical assessment</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="">2.</span>
+                  <span>
+                    Provide details such as BMI, medical history, and current
+                    medications
+                  </span>
+                </li>
+
+                <li className="flex items-start gap-3">
+                  <span className="">3.</span>
+                  <span>A UK-licensed clinician reviews your information</span>
+                </li>
+
+                <li className="flex items-start gap-3">
+                  <span className="">4.</span>
+                  <span>
+                    If approved, the clinic dispenses Wegovy and arranges
+                    delivery
+                  </span>
+                </li>
+              </ol>
+              <p className="para-font reg-font text-[#212529]">
+                Prescription approval is based on clinical suitability, not
+                guaranteed.
+              </p>
+
               <h3 className="text-2xl reg-font text-black">
                 How do I get a prescription for Wegovy?
               </h3>
@@ -1471,7 +1527,7 @@ const ManjaroTableContent = () => {
               </p>
 
               <h3 className="text-2xl reg-font text-black">
-                How to request Wegovy from Weight Loss Pharmacy?
+                How to request Wegovy from an Online Weight Loss Clinic?
               </h3>
               <p className="para-font reg-font text-[#212529]">
                 To request Wegovy from Online Weight Loss Clinic:
@@ -1945,8 +2001,8 @@ const ManjaroTableContent = () => {
                   patient information leaflet.
                 </a>{" "}
                 (PIL) is provided with your prescription medication packaging
-                when your treatment is dispensed by Weight Loss Pharmacy. It
-                contains detailed guidance on how Wegovy works, dosing
+                when your treatment is dispensed by Online Weight Loss Clinic.
+                It contains detailed guidance on how Wegovy works, dosing
                 instructions, and safety information. Read it fully before
                 starting treatment, as required for all UK-licensed prescription
                 medicines.

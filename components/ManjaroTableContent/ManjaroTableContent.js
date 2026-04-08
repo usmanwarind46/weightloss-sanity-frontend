@@ -331,8 +331,17 @@ const ManjaroTableContent = () => {
                 alt="Different Mounjaro Doses"
               />
               <p className="para-font reg-font text-gray-600">
-                <strong>Note:</strong> The data presented is derived from a
-                72-week clinical trial, comparing results with a placebo group.
+                <strong>Note:</strong> The data presented is derived from a{" "}
+                <span className="font-semibold text-teal-600">
+                  <a
+                    href="https://www.nejm.org/doi/full/10.1056/NEJMoa2206038"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    72-week clinical trial
+                  </a>
+                </span>
+                , comparing results with a placebo group.
               </p>
 
               <h3 className="text-lg sm:text-2xl reg-font text-black">
@@ -376,7 +385,7 @@ const ManjaroTableContent = () => {
                 </h2>
               </div>
 
-              <h3 className="text-lg sm:text-lg sm:text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How to use Mounjaro?
               </h3>
               <p className="para-font reg-font text-gray-600">
@@ -428,7 +437,7 @@ const ManjaroTableContent = () => {
               <Image
                 width={1200}
                 height={150}
-                src={"/Images/Mounjarodosage.webp"}
+                src={"/Images/Mounjarodosage.png"}
                 alt="Mounjaro Dosage"
               />
 
@@ -473,10 +482,11 @@ const ManjaroTableContent = () => {
               <p className="para-font reg-font text-gray-600">
                 Never take more than one dose to make up for a missed dose, as
                 this will not enhance effectiveness and may increase the risk of
-                side effects. If you need to adjust the day you take Mounjaro,
+                side effects.
+                {/* If you need to adjust the day you take Mounjaro,
                 ensure there is a 72-hour gap (3 days) between your last dose
                 and the new schedule. Afterwards, continue taking it once a week
-                on a new day.
+                on a new day. */}
               </p>
 
               <h3 className="text-lg sm:text-2xl reg-font text-black">
@@ -516,15 +526,12 @@ const ManjaroTableContent = () => {
                 Does it matter if there’s an air bubble in the pen?
               </h3>
               <p className="para-font reg-font text-gray-600">
-                No, a small air bubble in your Mounjaro pen is{" "}
-                <span className="semibold-font">normal and expected.</span>{" "}
-                These pens are designed to contain tiny air pockets, and they do{" "}
-                <span className="semibold-font">
-                  not affect the dose or reduce effectiveness
-                </span>{" "}
-                of the injection. You should still administer the full dose as
-                instructed. If you’re concerned or the bubble seems unusually
-                large, consult our UK licensed clinician for reassurance.
+                No, a small air bubble in your Mounjaro pen is normal and
+                expected. These pens can contain tiny air pockets, and they do{" "}
+                not affect the dose or reduce effectiveness of the injection.
+                You should still administer the full dose as instructed. If
+                you’re concerned or the bubble seems unusually large, consult
+                our UK licensed clinician for reassurance.
               </p>
             </div>
 
@@ -1669,7 +1676,7 @@ const ManjaroTableContent = () => {
               </p>
 
               {/* Is mental health support available? */}
-              <h3 className="text-lg sm:text-2xl reg-font text-black">
+              {/* <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Is mental health support available for weight loss patients?
               </h3>
               <p className="para-font reg-font text-gray-600">
@@ -1677,7 +1684,7 @@ const ManjaroTableContent = () => {
                 your weight loss journey, mental health support is available.
                 You can consult our team for personalised advice or explore our
                 Mental Health Support Hub for additional resources.
-              </p>
+              </p> */}
             </div>
 
             {/* ── Comparisons & Alternatives ── */}

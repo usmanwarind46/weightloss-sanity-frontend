@@ -55,9 +55,11 @@ export default function MetaLayout({
   // ─────────────────────────────────────
   // 🔹 ROBOTS (CRITICAL FIX WITH ??)
   // ─────────────────────────────────────
-  const noIndex = seo?.noIndex ?? globalSeo?.defaultNoIndex ?? false;
+  const noIndex =
+    globalSeo?.defaultNoIndex === true ? true : (seo?.noIndex ?? false);
 
-  const noFollow = seo?.noFollow ?? globalSeo?.defaultNoFollow ?? false;
+  const noFollow =
+    globalSeo?.defaultNoFollow === true ? true : (seo?.noFollow ?? false);
 
   const robots =
     globalSeo?.robotsContent ??

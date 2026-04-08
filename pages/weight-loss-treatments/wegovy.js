@@ -401,15 +401,31 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
                     </span>
                     <BadgeCheck className="w-4 h-4 text-teal-500" />
                   </div>
-                  <p className="text-xs text-gray-500">GMC No. 7099398</p>
+                  <p className="text-xs text-gray-500">
+                    GMC No.{" "}
+                    <a
+                      href="https://www.gmc-uk.org/registrants/7099398"
+                      className="text-teal-600 hover:underline"
+                      target="_blank"
+                    >
+                      7099398
+                    </a>
+                  </p>
                 </div>
               </div>
 
               {/* Short text — sirf desktop pe hamesha visible */}
               <p className="text-[13px] reg-font hidden sm:block  text-gray-600 leading-relaxed mt-3">
                 Dr Mihaela C. is a highly experienced General Practitioner
-                registered with the General Medical Council (GMC No. 7099398),
-                with a strong background in both NHS and private healthcare
+                registered with the General Medical Council (GMC No.{" "}
+                <a
+                  href="https://www.gmc-uk.org/registrants/7099398"
+                  className="text-teal-600 hover:underline"
+                  target="_blank"
+                >
+                  7099398
+                </a>
+                ), with a strong background in both NHS and private healthcare
                 across the UK.
               </p>
 
@@ -445,7 +461,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
 
               {/* Last reviewed — hamesha visible */}
               <p className="text-xs text-gray-500 mt-3">
-                Last reviewed on: 01/12/2025
+                Last reviewed on: 30/03/2026
               </p>
             </div>
           </div>
@@ -519,7 +535,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
                 Wegovy Dosage and Prices
               </h3>
 
-              <p className="text-gray-600 text-gray-600 para-font space-y-4 leading-relaxed">
+              <p className="text-gray-600 text-gray-600 para-font space-y-4 leading-relaxed mb-4">
                 One Wegovy pen contains four doses, so a pen lasts for 4 weeks.
               </p>
 
@@ -557,7 +573,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
             </div>
 
             {/* QUANTITY */}
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
                 Selected Quantity
               </label>
@@ -565,10 +581,10 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
               <div className="border rounded-lg mt-2 px-4 py-3 bg-white text-sm">
                 1 Month – £{price}.00
               </div>
-            </div>
+            </div> */}
 
             <div className="mt-4 bg-[#d4efe1] rounded-lg p-4 max-w-full sm:max-w-52">
-              <p className="text-lg text-black med-font">Price:</p>
+              <p className="text-lg text-black med-font">Price for 1 Month:</p>
               <p className="text-xl sm:text-3xl font-bold text-blue-600">
                 £{price}.00
               </p>
@@ -580,8 +596,8 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
               </h3>
 
               <p className="text-md text-gray-600 mb-4 para-font">
-                Wegovy (semaglutide) is privately prescribed at Weight Loss
-                Pharmacy following an online medical assessment and clinician
+                Wegovy (semaglutide) is privately prescribed at Online Weight
+                Loss Clinic following an online medical assessment and clinician
                 review. Simply complete our online consultation form. If you
                 meet the eligibility criteria, you may proceed with placing an
                 order for Wegovy weight loss injection pens.
@@ -617,15 +633,31 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
                   </span>
                   <BadgeCheck className="w-4 h-4 text-teal-500" />
                 </div>
-                <p className="text-xs text-gray-500">GMC No. 7099398</p>
+                <p className="text-xs text-gray-500">
+                  GMC No.{" "}
+                  <a
+                    href="https://www.gmc-uk.org/registrants/7099398"
+                    className="text-teal-600 hover:underline"
+                    target="_blank"
+                  >
+                    7099398
+                  </a>
+                </p>
               </div>
             </div>
 
             <p className="sm:hidden block text-sm text-gray-600 leading-relaxed mt-3">
               Dr Mihaela C. is a highly experienced General Practitioner
-              registered with the General Medical Council (GMC No. 7099398),
-              with a strong background in both NHS and private healthcare across
-              the UK
+              registered with the General Medical Council (GMC No.{" "}
+              <a
+                href="https://www.gmc-uk.org/registrants/7099398"
+                className="text-teal-600 hover:underline"
+                target="_blank"
+              >
+                7099398
+              </a>
+              ), with a strong background in both NHS and private healthcare
+              across the UK
             </p>
 
             {/* Mobile: short text sirf Read more ke baad | Desktop: extended text */}
@@ -659,13 +691,13 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
 
             {/* Last reviewed — hamesha visible */}
             <p className="text-xs text-gray-500 mt-3">
-              Last reviewed on: 01/12/2025
+              Last reviewed on: 30/03/2026
             </p>
           </div>
         </div>
       </div>
 
-      <section className="py-4 sm:py-20 bg-white">
+      <section className="py-4 sm:py-16 bg-white">
         <div className="container mx-auto px-6">
           {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
@@ -747,8 +779,8 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
             {/* RIGHT SIDE IMAGE */}
             <div className="flex justify-center">
               <Image
-                src="/Images/wegovyImg.jpg"
-                width={420}
+                src="/Images/wegovyImg.png"
+                width={1220}
                 height={520}
                 alt="Mounjaro Injection"
                 className="object-contain"
@@ -811,7 +843,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
               width={500}
               height={600}
               alt="Mounjaro pens"
-              className="w-full max-w-[400px] object-contain"
+              className="w-full max-w-[550px] object-contain"
             />
           </div>
         </div>
@@ -859,8 +891,9 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 cta-btn">
-              <NextButton label="View Treatments" />
-
+              <Link href="/weight-loss/">
+                <NextButton label="View Treatments" />
+              </Link>
               <Link
                 href="/frequently-asked-questions"
                 className="inline-flex items-center gap-2 border-2 border-white/70 hover:border-white text-white hover:bg-white/10 px-6 py-3 rounded-md text-sm md:text-base font-medium transition-all duration-200 group"
