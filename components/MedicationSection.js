@@ -41,7 +41,8 @@ export function MedicationSection({ data }) {
               {cards.map((card, index) => (
                 <div
                   key={index}
-                  className={`${card.bgColor} rounded-2xl p-6 ${
+                  style={{ backgroundColor: card.bgColor }}
+                  className={`rounded-2xl p-6 ${
                     card.fullWidth ? "sm:col-span-2" : ""
                   }`}
                 >

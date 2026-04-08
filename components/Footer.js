@@ -1,18 +1,45 @@
 "use client";
 
-import { Shield, Phone, Mail, MapPin } from "lucide-react";
+import { Shield, Phone, Mail, MapPin, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import NextButton from "./ui/NextButton";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewsletterModal from "./NewsletterModal/NewsletterModal";
-
+import { motion, AnimatePresence } from "framer-motion";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 export function Footer() {
   const [open, setOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const formVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+    exit: { opacity: 0, y: -10, transition: { duration: 0.25 } },
+  };
   // ✅ NEW: accordion state
   const [activeIndex, setActiveIndex] = useState(null);
   const toggle = (i) => setActiveIndex(activeIndex === i ? null : i);
+  useEffect(() => {
+    const handler = (e) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [setOpen]);
+
+  const onSubmit = (data) => {
+    toast.success("Thank You for Subscribing", {
+      duration: 3000,
+    });
+    reset();
+    setSubmitted(true);
+  };
 
   return (
     <footer className="bg-gray-50 text-gray-900">
@@ -159,20 +186,122 @@ export function Footer() {
         </div>
 
         {/* rest of code unchanged */}
-        <div className="border-t border-gray-200 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <Image
-            src="/Images/footer-payment.png"
-            alt="Payment Methods"
-            width={200}
-            height={150}
-          />
-          <NextButton
+        <div className="border-t border-gray-200 py-2 flex flex-col sm:flex-row items-center justify-between gap-6 grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-2 md:grid-cols-2 w-full max-w-md items-center">
+            <div className="flex justify-center relative left-9 sm:left-0">
+              <Image
+                src="/Images/footer-payment.png"
+                alt="Payment Methods"
+                width={1200}
+                height={150}
+                className="w-full h-auto object-contain footer_payment_visa "
+              />
+            </div>
+
+            <div className="flex sm:justify-start ms-16 sm:ms-8">
+              <Link
+                href="https://www.legitscript.com/websites/Onlineweightlossclinic.co.uk"
+                target="_blank"
+                className="w-20"
+              >
+                <Image
+                  src="/Images/legitscript-logo.png"
+                  alt="Legitscript Logo"
+                  width={50}
+                  height={50}
+                  className="w-full h-auto"
+                />
+              </Link>
+            </div>
+          </div>
+
+          {/* Newsletter ✌️✌️✌️✌️✌️ */}
+          <div className="w-full max-w-3xl mx-auto sm:p-8">
+            {/* Heading */}
+            <div className="mb-6 text-start sm:text-center sm:text-left">
+              <h3 className="font-semibold text-gray-900 mb-5 text-sm tracking-wide uppercase footer-font-size">
+                Newsletter
+              </h3>
+              <p className="text-gray-600 mt-2 text-sm">
+                Subscribe to our newsletter to get updates and exclusive offers
+              </p>
+            </div>
+
+            <div className="pt-2">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key="form"
+                  variants={formVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                >
+                  <form onSubmit={handleSubmit(onSubmit)} noValidate>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      {/* Name */}
+                      <div className="flex-1">
+                        <input
+                          type="text"
+                          placeholder="Your Name"
+                          {...register("name", { required: "Required" })}
+                          className={`w-full px-4 py-3 rounded-xl bg-white border text-sm text-gray-800 placeholder-gray-400 outline-none transition-all duration-200 
+                  focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 shadow-sm
+                  ${errors.name ? "border-red-400" : "border-gray-200"}`}
+                        />
+                        {errors.name && (
+                          <p className="text-xs text-red-500 mt-1">
+                            {errors.name.message}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Email */}
+                      <div className="flex-1">
+                        <input
+                          type="email"
+                          placeholder="Your Email"
+                          {...register("email", {
+                            required: "Required",
+                            pattern: {
+                              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                              message: "Invalid email",
+                            },
+                          })}
+                          className={`w-full px-4 py-3 rounded-xl bg-white border text-sm text-gray-800 placeholder-gray-400 outline-none transition-all duration-200 
+                  focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 shadow-sm
+                  ${errors.email ? "border-red-400" : "border-gray-200"}`}
+                        />
+                        {errors.email && (
+                          <p className="text-xs text-red-500 mt-1">
+                            {errors.email.message}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Button */}
+                      <button
+                        type="submit"
+                        className="px-6 py-3 rounded-xl text-white roboto-reg text-md 
+                bg-gradient-to-r from-emerald-500 to-teal-500 
+                hover:from-emerald-600 hover:to-teal-600 
+                transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 cursor-pointer tracking-wide
+"
+                      >
+                        Subscribe
+                      </button>
+                    </div>
+                  </form>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+          {/* <NextButton
             label="Join Our Newsletter"
             onClick={() => setOpen(true)}
-          />
+          /> */}
         </div>
 
-        <NewsletterModal open={open} setOpen={setOpen} />
+        {/* <NewsletterModal open={open} setOpen={setOpen} /> */}
       </div>
 
       {/* ── PHARMACY TRUST BAR ── */}
@@ -181,12 +310,18 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* GPhC Badge + pharmacy name */}
             <div className="flex items-center gap-4">
-              <Image
-                src="/Images/registered.png"
-                width={70}
-                height={70}
-                alt="GPhC Registered"
-              />
+              <a
+                href="https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/1039469"
+                className="text-teal-600 hover:underline footer-bottom-size"
+                target="_blank"
+              >
+                <Image
+                  src="/Images/registered.png"
+                  width={70}
+                  height={70}
+                  alt="GPhC Registered"
+                />
+              </a>
               <div>
                 <p className="text-sm font-semibold text-gray-900 footer-bottom-size">
                   Primed Pharmacy
@@ -240,7 +375,7 @@ export function Footer() {
       <div className="bg-white border-t border-gray-100">
         <div className="container mx-auto py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-400">
           <p className="footer-bottom-size">
-            © 2026 The Online Weight Loss Clinic. All Rights Reserved
+            © 2026 Online Weight Loss Clinic. All Rights Reserved
           </p>
           <p className="text-center sm:text-right footer-bottom-size">
             All consultations and prescribing is carried out by UK registered
