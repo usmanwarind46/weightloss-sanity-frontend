@@ -9,6 +9,27 @@ import { FaTags } from "react-icons/fa6";
 import Link from "next/link";
 import MetaLayout from "../Meta/MetaLayout";
 import { meta_url } from "../config/constants";
+import {
+  PAGE_QUERY,
+  SEO_QUERY,
+  SITE_SETTINGS_QUERY,
+} from "../lib/sanityQueries";
+import { generateSchema } from "../lib/schemaGenerator";
+import { sanityClient } from "../lib/sanity";
+
+export async function getStaticProps() {
+  const seoSettings = await sanityClient.fetch(SEO_QUERY);
+
+  const siteSettings = await sanityClient.fetch(SITE_SETTINGS_QUERY);
+
+  return {
+    props: {
+      seoSettings,
+      siteSettings,
+    },
+    revalidate: 1,
+  };
+}
 
 const categories = ["All", "Mounjaro", "Wegovy", "Weight Loss"];
 
@@ -151,7 +172,7 @@ const GuideCard = ({ guide, i }) => (
   </motion.article>
 );
 
-export default function GuidesSection() {
+export default function GuidesSection({ seoSettings, siteSettings }) {
   const [active, setActive] = useState("All");
   const [loadingMore, setLoadingMore] = useState(false);
   const [visibleCount, setVisibleCount] = useState(INITIAL_SHOW);
@@ -179,14 +200,20 @@ export default function GuidesSection() {
     }, 800);
   };
 
+  const autoSchemas = generateSchema({
+    globalSeo: seoSettings,
+    canonical: `${meta_url}/guide/`,
+  });
+
   return (
     <>
       <MetaLayout
-        title="Comprehensive Weight Loss Treatment Guide - Mounjaro & Wegovy"
-        description="Read our guide to learn about weight loss treatments including Mounjaro and Wegovy. Understand how these medications work and what to expect on your journey."
+        // seo={data?.seo}
+        globalSeo={seoSettings}
         canonical={`${meta_url}/guide/`}
+        autoSchemas={autoSchemas}
       />
-      <Header />
+      <Header data={siteSettings} />
       <section
         className="w-full py-14 md:py-16 px-4 sm:px-6 lg:px-8"
         style={{
