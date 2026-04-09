@@ -105,8 +105,8 @@ export function Header({ data }) {
 
               return (
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  key={link.href || "#"}
+                  href={link.href || "#"}
                   className={`relative text-base lg:text-lg roboto-reg transition-colors duration-200 group
                   ${
                     isActive

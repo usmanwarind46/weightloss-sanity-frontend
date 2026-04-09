@@ -4,11 +4,19 @@ export default async function handler(req, res) {
       return res.status(401).json({ message: "Invalid token" });
     }
 
-    const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+    // ✅ SAFE BODY HANDLING
+    const body = req.body || {};
+
+    console.log("Webhook Body:", body);
 
     const slug = body?.slug;
 
-    const path = slug === "home" ? "/" : `/${slug}`;
+    // ✅ HANDLE MISSING SLUG (VERY IMPORTANT)
+    let path = "/";
+
+    if (slug && slug !== "home") {
+      path = `/${slug}`;
+    }
 
     console.log("Revalidating path:", path);
 
@@ -19,7 +27,10 @@ export default async function handler(req, res) {
       path,
     });
   } catch (err) {
-    console.error(err);
-    return res.status(500).send("Error revalidating");
+    console.error("❌ Revalidate Error:", err);
+    return res.status(500).json({
+      message: "Error revalidating",
+      error: err.message,
+    });
   }
 }
