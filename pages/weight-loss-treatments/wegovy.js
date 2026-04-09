@@ -50,19 +50,19 @@ const DOSAGES = [
   },
   {
     label: "0.5 mg (4 x doses of 0.5 mg)",
-    price: 0.5,
+    price: 98,
   },
   {
     label: "1.0 mg (4 x doses of 1.0 mg)",
-    price: 1,
+    price: 109,
   },
   {
     label: "1.7 mg (4 x doses of 1.7 mg)",
-    price: 1.7,
+    price: 164,
   },
   {
     label: "2.4 mg (4 x doses of 2.4 mg)",
-    price: 2.4,
+    price: 198,
   },
 ];
 
