@@ -35,27 +35,27 @@ export async function getStaticProps() {
 const DOSAGES = [
   {
     label: "2.5mg (4 x doses of 2.5mg)",
-    price: 210,
+    price: 139,
   },
   {
     label: "5mg (4 x doses of 5mg)",
-    price: 235,
+    price: 179,
   },
   {
     label: "7.5mg (4 x doses of 7.5mg)",
-    price: 315,
+    price: 230,
   },
   {
     label: "10mg (4 x doses of 10mg)",
-    price: 340,
+    price: 239,
   },
   {
     label: "12.5mg (4 x doses of 12.5mg)",
-    price: 355,
+    price: 265,
   },
   {
     label: "15mg (4 x doses of 15mg)",
-    price: 375,
+    price: 279,
   },
 ];
 

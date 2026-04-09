@@ -46,23 +46,23 @@ export async function getStaticProps() {
 const DOSAGES = [
   {
     label: "0.25 mg (4 x doses of 0.25 mg)",
-    price: 168,
+    price: 88,
   },
   {
     label: "0.5 mg (4 x doses of 0.5 mg)",
-    price: 189,
+    price: 0.5,
   },
   {
     label: "1.0 mg (4 x doses of 1.0 mg)",
-    price: 197,
+    price: 1,
   },
   {
     label: "1.7 mg (4 x doses of 1.7 mg)",
-    price: 247,
+    price: 1.7,
   },
   {
     label: "2.4 mg (4 x doses of 2.4 mg)",
-    price: 297,
+    price: 2.4,
   },
 ];
 
