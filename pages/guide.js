@@ -10,99 +10,30 @@ import Link from "next/link";
 import MetaLayout from "../Meta/MetaLayout";
 import { meta_url } from "../config/constants";
 import {
-  PAGE_QUERY,
   SEO_QUERY,
   SITE_SETTINGS_QUERY,
+  BLOGS_QUERY,
+  CATEGORIES_QUERY,
 } from "../lib/sanityQueries";
 import { generateSchema } from "../lib/schemaGenerator";
 import { sanityClient } from "../lib/sanity";
 
 export async function getStaticProps() {
   const seoSettings = await sanityClient.fetch(SEO_QUERY);
-
   const siteSettings = await sanityClient.fetch(SITE_SETTINGS_QUERY);
+  const blogs = await sanityClient.fetch(BLOGS_QUERY);
+  const categories = await sanityClient.fetch(CATEGORIES_QUERY);
 
   return {
     props: {
       seoSettings,
       siteSettings,
+      blogs,
+      categories,
     },
-    revalidate: 1,
+    revalidate: 60,
   };
 }
-
-const categories = ["All", "Mounjaro", "Wegovy", "Weight Loss"];
-
-const guides = [
-  {
-    id: 1,
-    category: "Mounjaro",
-    image: "/Images/guides/guid-manjaro-1.webp",
-    title:
-      "Why Weight-Loss Injection Mounjaro Might Trigger Hair Loss and How to Prevent It",
-  },
-  {
-    id: 2,
-    category: "Wegovy",
-    image: "/Images/guides/guid-wegovy-1.webp",
-    title:
-      "How Important Is Resistance Training to Preserve Muscle While Losing Weight With a Wegovy Injection?",
-  },
-  {
-    id: 3,
-    category: "Weight Loss",
-    image: "/Images/guides/guid-weightLoss-1.webp",
-    title:
-      "Is Over-Exercising While on a Weight-Loss Injection Harmful or Counterproductive?",
-  },
-  {
-    id: 4,
-    category: "Weight Loss",
-    image: "/Images/guides/guid-weightLoss-2.webp",
-    title:
-      "How Weight-Loss Injection Affects Menopause Related Weight Gain or Metabolic Changes",
-  },
-  {
-    id: 5,
-    category: "Mounjaro",
-    image: "/Images/guides/guid-manjaro-2.webp",
-    title:
-      "Which Types of Foods Help Reduce Nausea or Digestive Issues When Using Mounjaro for Weight Loss?",
-  },
-  {
-    id: 6,
-    category: "Mounjaro",
-    image: "/Images/guides/guid-manjaro-3.webp",
-    title:
-      "The Effects of Mounjaro Weight-Loss Injection on Anxiety and Depression",
-  },
-  {
-    id: 7,
-    category: "Wegovy",
-    image: "/Images/guides/guid-wegovy-2.webp",
-    title: "How Physical Activity Supports Care While Using Wegovy Injection",
-  },
-  {
-    id: 8,
-    category: "Mounjaro",
-    image: "/Images/guides/guid-manjaro-4.webp",
-    title: "How to Sustain Results After Stopping Mounjaro for Weight Loss",
-  },
-  {
-    id: 9,
-    category: "Wegovy",
-    image: "/Images/guides/guid-wegovy-3.webp",
-    title:
-      "How to Balance Your Macronutrients While Using Wegovy for Weight Management",
-  },
-  {
-    id: 10,
-    category: "Mounjaro",
-    image: "/Images/guides/guid-manjaro-5.webp",
-    title:
-      "What Women with Type 2 Diabetes Should Know About Mounjaro for Weight Loss",
-  },
-];
 
 const INITIAL_SHOW = 6;
 const LOAD_MORE_COUNT = 3;
@@ -134,8 +65,9 @@ const SkeletonCard = ({ i }) => (
 
 const CategoryBadge = ({ category }) => (
   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-lg font-medium bg-green-50 text-black">
+    {" "}
     <FaTags className="text-[#4DB581] text-lg" />
-    {category}
+    {category}{" "}
   </span>
 );
 
@@ -148,10 +80,10 @@ const GuideCard = ({ guide, i }) => (
     transition={{ duration: 0.35, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }}
     className="flex flex-col cursor-pointer group"
   >
-    <Link href="guide/why-weight-loss-injection-mounjaro-might-trigger-hair-loss-and-how-to-prevent-it">
+    <Link href={`/guide/${guide.slug}`}>
       <div className="relative w-full h-[195px] sm:h-[220px] rounded-2xl overflow-hidden mb-4 bg-gray-100">
         <Image
-          src={guide.image}
+          src={guide.image || "/Images/placeholder.jpg"}
           alt={guide.title}
           fill
           className="object-cover object-center group-hover:scale-[1.05] transition-transform duration-500 ease-out"
@@ -159,7 +91,9 @@ const GuideCard = ({ guide, i }) => (
         <div className="absolute inset-0 bg-[#4B5FC0] opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-2xl" />
       </div>
       <div className="mb-2">
-        <CategoryBadge category={guide.category} />
+        {guide.categories.map((cat, idx) => (
+          <CategoryBadge key={idx} category={cat} />
+        ))}
       </div>
       <h3 className="text-sm md:text-[20px] reg-font text-gray-800 leading-snug group-hover:text-[#4DB581] transition-colors duration-200">
         {guide.title}
@@ -172,13 +106,31 @@ const GuideCard = ({ guide, i }) => (
   </motion.article>
 );
 
-export default function GuidesSection({ seoSettings, siteSettings }) {
+export default function GuidesSection({
+  seoSettings,
+  siteSettings,
+  blogs,
+  categories,
+}) {
   const [active, setActive] = useState("All");
   const [loadingMore, setLoadingMore] = useState(false);
   const [visibleCount, setVisibleCount] = useState(INITIAL_SHOW);
 
+  const categoryTabs = ["All", ...categories.map((cat) => cat.title)];
+
+  const guides = blogs.map((blog) => ({
+    id: blog._id,
+    title: blog.title,
+    image: blog.image,
+    categories: blog.categories?.map((c) => c.title) || [],
+    slug: blog.slug?.current,
+  }));
+
   const filtered =
-    active === "All" ? guides : guides.filter((g) => g.category === active);
+    active === "All"
+      ? guides
+      : guides.filter((g) => g.categories.includes(active));
+
   const visible = filtered.slice(0, visibleCount);
   const hasMore = visibleCount < filtered.length;
   const newCardsCount = Math.min(
@@ -208,11 +160,10 @@ export default function GuidesSection({ seoSettings, siteSettings }) {
   return (
     <>
       <MetaLayout
-        // seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/guide/`}
         autoSchemas={autoSchemas}
-      />
+      />{" "}
       <Header data={siteSettings} />
       <section
         className="w-full py-14 md:py-16 px-4 sm:px-6 lg:px-8"
@@ -221,14 +172,15 @@ export default function GuidesSection({ seoSettings, siteSettings }) {
             "linear-gradient(180deg, #eef4ff 0%, #f8faff 40%, #ffffff 100%)",
         }}
       >
+        {" "}
         <div className="container">
-          {/* Heading */}
+          {/* Heading */}{" "}
           <div className="text-center mb-10">
+            {" "}
             <h1 className="text-3xl sm:text-4xl md:text-5xl med-font text-gray-900 mb-3 leading-tight">
-              Guides
-            </h1>
+              Guides{" "}
+            </h1>{" "}
           </div>
-
           {/* Filter tabs */}
           <div className="flex justify-center mb-12">
             <div
@@ -238,7 +190,7 @@ export default function GuidesSection({ seoSettings, siteSettings }) {
                 border: "1px solid rgba(75, 95, 192, 0.12)",
               }}
             >
-              {categories.map((cat) => (
+              {categoryTabs.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => handleCategoryChange(cat)}
@@ -261,7 +213,11 @@ export default function GuidesSection({ seoSettings, siteSettings }) {
                     />
                   )}
                   <span
-                    className={`relative z-10 transition-colors duration-200 font-medium ${active === cat ? "text-white" : "text-gray-500 hover:text-gray-700 footer-font-size"}`}
+                    className={`relative z-10 transition-colors duration-200 font-medium ${
+                      active === cat
+                        ? "text-white"
+                        : "text-gray-500 hover:text-gray-700 footer-font-size"
+                    }`}
                   >
                     {cat}
                   </span>
@@ -269,7 +225,6 @@ export default function GuidesSection({ seoSettings, siteSettings }) {
               ))}
             </div>
           </div>
-
           {/* Cards count */}
           <div className="flex items-center justify-end mb-6">
             <div className="h-px flex-1 bg-gray-100 mr-4" />
@@ -285,7 +240,6 @@ export default function GuidesSection({ seoSettings, siteSettings }) {
               Results
             </p>
           </div>
-
           {/* Cards Grid */}
           <motion.div
             layout
@@ -304,7 +258,6 @@ export default function GuidesSection({ seoSettings, siteSettings }) {
                 ))}
             </AnimatePresence>
           </motion.div>
-
           {/* Load More button */}
           {!loadingMore && hasMore && (
             <motion.div
@@ -326,7 +279,6 @@ export default function GuidesSection({ seoSettings, siteSettings }) {
               </button>
             </motion.div>
           )}
-
           {/* All loaded message */}
           {!hasMore && filtered.length > INITIAL_SHOW && (
             <motion.p
@@ -339,7 +291,6 @@ export default function GuidesSection({ seoSettings, siteSettings }) {
           )}
         </div>
       </section>
-
       <style jsx global>{`
         @keyframes shimmer {
           100% {
@@ -347,7 +298,6 @@ export default function GuidesSection({ seoSettings, siteSettings }) {
           }
         }
       `}</style>
-
       <Footer />
     </>
   );
