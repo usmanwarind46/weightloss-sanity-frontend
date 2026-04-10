@@ -179,7 +179,7 @@ const ExpertDetails = ({ data, seoSettings, siteSettings }) => {
       {/* CONTENT */}
 
       <section className="container mx-auto px-4 py-10">
-        <h3 className="text-lg font-semibold text-gray-900 mb-2">About</h3>
+        <h3 className="text-2xl font-semibold text-gray-900 mb-2">About</h3>
 
         {data?.bio && (
           <div className="text-auther leading-relaxed">
