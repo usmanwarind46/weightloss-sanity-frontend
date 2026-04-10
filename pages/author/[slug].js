@@ -52,7 +52,7 @@ export async function getStaticProps({ params }) {
       seoSettings,
       siteSettings,
     },
-    revalidate: 60,
+    revalidate: 1,
   };
 }
 
