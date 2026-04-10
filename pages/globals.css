@@ -717,6 +717,13 @@ body {
   .container {
     max-width: 1000px;
   }
+
+  .cta-section {
+    background-image: url('/Images/cta-bg.svg');
+    background-size: 80% !important;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 }
 
 /* Large Laptop / Desktop (1440px+) */
@@ -767,6 +774,16 @@ body {
   .title {
     font-size: 45px;
   }
+  
+.cta-section {
+  background-image: url('/Images/cta-bg.svg'); 
+  background-size:  60% !important;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.text-auther {
+    font-size: 20px !important;
+}
 }
 
 @media (max-width: 600px) {
@@ -820,4 +837,25 @@ body {
   .lowest-bottom-gphc span {
     background-size: 16px;
   }
+
+  .cta-section {
+  background-image: none !important; 
+  background-size:  60% !important;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+}
+
+
+
+
+.cta-section {
+  background-image: url('/Images/cta-bg.svg'); 
+  background-size:  100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.text-auther{
+  font-size: 16px;
+}
+
