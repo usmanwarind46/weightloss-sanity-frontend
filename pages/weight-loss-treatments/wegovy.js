@@ -258,7 +258,7 @@ function FAQItem({ question, answer }) {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             style={{ overflow: "hidden" }}
           >
-            <div className="px-2  pb-6 text-gray-600 leading-relaxed whitespace-pre-line">
+            <div className="px-2  pb-6 text-gray-600 leading-relaxed whitespace-pre-line para-font">
               {answer}
             </div>
           </motion.div>
@@ -852,7 +852,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
       {/*  */}
 
       <WegovyTableContent />
-      <div className="bg-white container mx-auto px-6 py-12">
+      <div className="bg-white container mx-auto sm:px-6 py-4 sm:py-12">
         {/* Title */}
         <h4 className="text-2xl sm:text-4xl med-font text-gray-900 text-center mb-10">
           Frequently Asked Questions for Wegovy Weight Loss

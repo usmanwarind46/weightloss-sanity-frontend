@@ -296,7 +296,7 @@ function FAQItem({ question, answer }) {
           >
             <div className="px-2 pb-6 text-gray-600 leading-relaxed">
               {typeof answer === "string" ? (
-                <p className="whitespace-pre-line">{answer}</p>
+                <p className="whitespace-pre-line para-font">{answer}</p>
               ) : (
                 <>
                   <p className="mb-3">{answer.intro}</p>
@@ -928,7 +928,7 @@ export default function MounjaroProduct({ seoSettings, siteSettings }) {
 
       <ManjaroTableContent />
 
-      <div className="bg-white container mx-auto px-6 py-12">
+      <div className="bg-white container mx-auto sm:px-6 py-6 sm:py-12">
         {/* Title */}
         <h4 className="text-2xl sm:text-4xl med-font text-gray-900 text-center mb-10">
           Frequently Asked Questions for Mounjaro Weight Loss

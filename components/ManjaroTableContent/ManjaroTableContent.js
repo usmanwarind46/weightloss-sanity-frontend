@@ -58,7 +58,7 @@ const ManjaroTableContent = () => {
   };
 
   return (
-    <section className="mt-2 py-15  bg-white rounded">
+    <section className="mt-2 py-7 sm:py-15  bg-white rounded">
       <div className="mx-auto container">
         <div className="flex flex-col md:flex-row gap-6">
           <div

@@ -79,7 +79,7 @@ function FAQItem({ question, answer }) {
               animate={{ height: "auto" }}
               exit={{ height: 0 }}
             >
-              <div className="px-6 pb-6 text-gray-600 whitespace-pre-line">
+              <div className="px-6 pb-6 text-gray-600 whitespace-pre-line para-font">
                 {answer}
               </div>
             </motion.div>

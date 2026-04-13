@@ -73,7 +73,9 @@ export function FAQSection({ data }) {
                   </button>
 
                   {isOpen && (
-                    <div className="px-6 pb-6 text-gray-600">{faq.answer}</div>
+                    <div className="px-6 pb-6 text-gray-600 para-font">
+                      {faq.answer}
+                    </div>
                   )}
                 </div>
               </div>
