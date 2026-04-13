@@ -97,7 +97,7 @@ export default function Home({ seoSettings, data, siteSettings }) {
           {faqSection && <FAQSection data={faqSection} />}
           {ctaSection && <CTASection data={ctaSection} />}
         </main>
-        <Footer />
+        <Footer data={siteSettings} />
       </div>
     </>
   );

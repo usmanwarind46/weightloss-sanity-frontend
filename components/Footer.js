@@ -9,7 +9,9 @@ import NewsletterModal from "./NewsletterModal/NewsletterModal";
 import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-export function Footer() {
+
+export function Footer({ data }) {
+  console.log(data, "data From foooooter");
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -49,17 +51,14 @@ export function Footer() {
           <div className="min-w-0">
             <div className="mb-4">
               <Image
-                src="/Images/logo.png"
+                src={data?.footerLogo?.asset?.url || "/Images/logo.png"}
                 alt="Online Weight Loss Clinic Logo"
                 width={160}
                 height={60}
               />
             </div>
             <p className="text-sm text-gray-600 leading-relaxed footer-font-size">
-              Online Weight Loss Clinic provides clinician-led weight loss
-              treatments in the UK using MHRA approved medications. All
-              consultations are conducted by qualified healthcare professionals
-              to ensure safe, personalised care.
+              {data?.footerDescription}
             </p>
           </div>
 
@@ -84,13 +83,7 @@ export function Footer() {
                   : "max-[600px]:max-h-0"
               } md:max-h-full`}
             >
-              {[
-                { label: "Weight Loss Treatments", href: "/weight-loss" },
-                { label: "About Us", href: "/about-clinic" },
-                { label: "Contact Us", href: "/contact-us" },
-                { label: "Guide", href: "/guide" },
-                { label: "FAQs", href: "/frequently-asked-questions" },
-              ].map((item) => (
+              {data?.footerLinks1?.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
@@ -124,17 +117,7 @@ export function Footer() {
                   : "max-[600px]:max-h-0"
               } md:max-h-full`}
             >
-              {[
-                { label: "Shipping", href: "/shipping-policy" },
-                { label: "Refunds & Returns", href: "/refunds-returns" },
-                {
-                  label: "Off-Label Prescribing",
-                  href: "/off-label-prescribing",
-                },
-                { label: "Complaints", href: "/complaints" },
-                { label: "Terms & Conditions", href: "/terms-conditions" },
-                { label: "Privacy Policy", href: "/privacy-policy" },
-              ].map((item) => (
+              {data?.footerLinks2?.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
@@ -156,29 +139,30 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <Phone size={15} className="text-teal-600 mt-0.5 shrink-0" />
                 <a
-                  href="tel:+442081782178"
+                  href={`tel:${data?.footerContact?.phone}`}
                   className="text-gray-600 hover:text-teal-600"
                 >
-                  +44 (0)208 178 2178
+                  {data?.footerContact?.phone}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail size={15} className="text-teal-600 mt-0.5 shrink-0" />
                 <a
-                  href="mailto:contact@onlineweightlossclinic.co.uk"
+                  href={`mailto:${data?.footerContact?.email}`}
                   className="text-gray-600 hover:text-teal-600 break-all"
                 >
-                  contact@onlineweightlossclinic.co.uk
+                  {data?.footerContact?.email}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={15} className="text-teal-600 mt-0.5 shrink-0" />
                 <address className="not-italic text-gray-600">
-                  Online Weight Loss Clinic
-                  <br />
-                  2 Raven Road
-                  <br />
-                  London, E18 1HB
+                  {data?.footerContact?.address?.map((line, i) => (
+                    <span key={i}>
+                      {line}
+                      <br />
+                    </span>
+                  ))}
                 </address>
               </li>
             </ul>
@@ -311,7 +295,7 @@ export function Footer() {
             {/* GPhC Badge + pharmacy name */}
             <div className="flex items-center gap-4">
               <a
-                href="https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/1039469"
+                href={data?.pharmacy?.registrationLink}
                 className="text-teal-600 hover:underline footer-bottom-size"
                 target="_blank"
               >
@@ -324,26 +308,26 @@ export function Footer() {
               </a>
               <div>
                 <p className="text-sm font-semibold text-gray-900 footer-bottom-size">
-                  Primed Pharmacy
+                  {data?.pharmacy?.name}
                 </p>
                 <p className="text-xs text-gray-500 footer-bottom-size">
                   GPhC Registration:{" "}
                   <a
-                    href="https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/1039469"
+                    href={data?.pharmacy?.registrationLink}
                     className="text-teal-600 hover:underline footer-bottom-size"
                     target="_blank"
                   >
-                    1039469
+                    {data?.pharmacy?.registrationNumber}
                   </a>
                 </p>
                 <p className="text-xs text-gray-500 mt-0.5 footer-bottom-size">
-                  Prescriber: Dr. Mihaela Coman — GMC No.{" "}
+                  Prescriber: {data?.pharmacy?.prescriberName} — GMC No.{" "}
                   <a
-                    href="https://www.gmc-uk.org/registrants/7099398"
+                    href={data?.pharmacy?.prescriberLink}
                     className="text-teal-600 hover:underline"
                     target="_blank"
                   >
-                    7099398
+                    {data?.pharmacy?.prescriberGmc}
                   </a>
                 </p>
               </div>
@@ -354,9 +338,7 @@ export function Footer() {
 
             {/* Description */}
             <p className="text-xs text-gray-500 max-w-md text-center md:text-left leading-relaxed footer-bottom-size">
-              Primed Pharmacy is our partner pharmacy. All dispensing and
-              shipping of medicines is completed by Primed Pharmacy a UK
-              licensed, General Pharmaceutical Council registered Pharmacy.
+              {data?.pharmacy?.description}
             </p>
 
             {/* Divider */}
