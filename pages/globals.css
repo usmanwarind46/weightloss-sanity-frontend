@@ -447,6 +447,14 @@ body {
 }
 
 @media (max-width: 600px) {
+  .cta-bg-2 {
+    background-image: url("../public/Images/MedicalConsultation2Mobile.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* parallax effect */
+    min-height: 300px;
+  }
   .title {
     font-size: 28px;
   }
@@ -719,11 +727,11 @@ body {
   }
 
   .cta-section {
-    background-image: url('/Images/cta-bg.svg');
+    background-image: url("/Images/cta-bg.svg");
     background-size: 80% !important;
     background-position: center;
     background-repeat: no-repeat;
-}
+  }
 }
 
 /* Large Laptop / Desktop (1440px+) */
@@ -774,16 +782,16 @@ body {
   .title {
     font-size: 45px;
   }
-  
-.cta-section {
-  background-image: url('/Images/cta-bg.svg'); 
-  background-size:  60% !important;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.text-auther {
+
+  .cta-section {
+    background-image: url("/Images/cta-bg.svg");
+    background-size: 60% !important;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .text-auther {
     font-size: 20px !important;
-}
+  }
 }
 
 @media (max-width: 600px) {
@@ -839,23 +847,19 @@ body {
   }
 
   .cta-section {
-  background-image: none !important; 
-  background-size:  60% !important;
-  background-position: center;
-  background-repeat: no-repeat;
+    background-image: none !important;
+    background-size: 60% !important;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
-}
-
-
-
 
 .cta-section {
-  background-image: url('/Images/cta-bg.svg'); 
-  background-size:  100%;
+  background-image: url("/Images/cta-bg.svg");
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
-.text-auther{
+.text-auther {
   font-size: 16px;
 }
-
