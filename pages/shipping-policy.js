@@ -67,7 +67,7 @@ export default function ShippingPolicy({ seoSettings, data, siteSettings }) {
           />
         </div>
       </div>
-      <Footer />
+      <Footer data={siteSettings} />
     </>
   );
 }

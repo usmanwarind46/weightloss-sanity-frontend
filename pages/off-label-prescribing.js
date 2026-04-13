@@ -63,7 +63,7 @@ const OffLabelPrescribing = ({ seoSettings, data, siteSettings }) => {
           />
         </div>
       </main>
-      <Footer />
+      <Footer data={siteSettings} />
     </>
   );
 };

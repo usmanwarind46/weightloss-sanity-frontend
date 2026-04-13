@@ -152,7 +152,7 @@ export default function FAQPage({ seoSettings, data, siteSettings }) {
       </div>
 
       {/* ✅ FOOTER */}
-      <Footer />
+      <Footer data={siteSettings} />
     </>
   );
 }

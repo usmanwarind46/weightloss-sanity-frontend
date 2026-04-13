@@ -75,7 +75,7 @@ export default function TermsConditions({ seoSettings, data, siteSettings }) {
           />
         </div>
       </div>
-      <Footer />
+      <Footer data={siteSettings} />
     </>
   );
 }

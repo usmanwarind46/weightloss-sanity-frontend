@@ -256,7 +256,7 @@ const ExpertDetails = ({ data, seoSettings, siteSettings }) => {
         </div>
       </section>
 
-      <Footer />
+      <Footer data={siteSettings} />
     </>
   );
 };

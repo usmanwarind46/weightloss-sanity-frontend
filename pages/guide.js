@@ -298,7 +298,7 @@ export default function GuidesSection({
           }
         }
       `}</style>
-      <Footer />
+      <Footer data={siteSettings} />
     </>
   );
 }

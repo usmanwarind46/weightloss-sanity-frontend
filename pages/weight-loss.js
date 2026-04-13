@@ -780,7 +780,7 @@ const WeightLossTreatments = ({ seoSettings, siteSettings }) => {
 
       {/* Footer */}
 
-      <Footer />
+      <Footer data={siteSettings} />
     </>
   );
 };

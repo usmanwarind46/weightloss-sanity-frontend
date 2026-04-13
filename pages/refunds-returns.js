@@ -75,7 +75,7 @@ export default function RefundsReturns({ seoSettings, data, siteSettings }) {
           />
         </div>
       </div>
-      <Footer />
+      <Footer data={siteSettings} />
     </>
   );
 }

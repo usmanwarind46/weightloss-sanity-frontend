@@ -787,7 +787,7 @@ function AboutClinic({ seoSettings, data, siteSettings }) {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer data={siteSettings} />
     </>
   );
 }

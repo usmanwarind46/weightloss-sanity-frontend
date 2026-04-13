@@ -448,7 +448,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
           </p>
         </article>
       </div>
-      <Footer />
+      <Footer data={siteSettings} />
     </>
   );
 }

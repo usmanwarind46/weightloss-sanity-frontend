@@ -980,7 +980,7 @@ export default function MounjaroProduct({ seoSettings, siteSettings }) {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer data={siteSettings} />
     </>
   );
 }

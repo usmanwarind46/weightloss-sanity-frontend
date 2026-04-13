@@ -249,7 +249,7 @@ const AuthorDetails = ({ data, seoSettings, siteSettings }) => {
         </div>
       </section>
 
-      <Footer />
+      <Footer data={siteSettings} />
     </>
   );
 };
