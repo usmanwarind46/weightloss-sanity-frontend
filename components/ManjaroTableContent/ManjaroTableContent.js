@@ -147,7 +147,7 @@ const ManjaroTableContent = () => {
                 Mounjaro is used to assist with weight loss by reducing calorie
                 intake. It works through several key mechanisms:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -207,7 +207,7 @@ const ManjaroTableContent = () => {
               <p className="para-font reg-font text-gray-600">
                 Here’s how it helps:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -261,7 +261,7 @@ const ManjaroTableContent = () => {
                 results vary based on individual factors like initial weight,
                 diet, and exercise adherence. For example:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -292,7 +292,7 @@ const ManjaroTableContent = () => {
                 <strong>Note:</strong> Individual outcomes may vary. The
                 following factors can influence the results you may experience:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>Initial weight</span>
@@ -405,7 +405,7 @@ const ManjaroTableContent = () => {
                 injection into the abdomen, thigh, or upper arm. Here are some
                 helpful tips:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -561,7 +561,7 @@ const ManjaroTableContent = () => {
                 alt="Where should I inject Mounjaro"
                 className="w-full h-auto"
               />
-              <p className="para-font reg-font text-gray-600">
+              <p className="para-font reg-font text-gray-600 para-font">
                 To prevent irritation and discomfort, rotate injection sites
                 each week, varying the specific spot within the same area (e.g.,
                 stomach). Abdomen injections are often recommended for
@@ -576,7 +576,7 @@ const ManjaroTableContent = () => {
                 into the abdomen, thigh, or upper arm. Here are some helpful
                 tips:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -648,7 +648,7 @@ const ManjaroTableContent = () => {
                 Several factors may contribute to slower-than-expected weight
                 loss on Mounjaro:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -764,7 +764,7 @@ const ManjaroTableContent = () => {
               <h4 className="text-lg med-font text-black">
                 Very common side effects:
               </h4>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 {[
                   "Nausea",
                   "Vomiting",
@@ -786,7 +786,7 @@ const ManjaroTableContent = () => {
               <h4 className="text-lg med-font text-black">
                 Other common side effects:
               </h4>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 {[
                   "Stomach pain",
                   "Injection site reactions (e.g., redness, swelling)",
@@ -804,7 +804,7 @@ const ManjaroTableContent = () => {
               <h4 className="text-lg med-font text-black">
                 Uncommon side effects:
               </h4>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 {[
                   "Increased heart rate",
                   "Changes in taste",
@@ -827,7 +827,7 @@ const ManjaroTableContent = () => {
                 but it’s important to seek immediate medical attention if you
                 experience any of the following symptoms:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -908,7 +908,7 @@ const ManjaroTableContent = () => {
                 To reduce the likelihood of side effects, consider these
                 strategies:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>Stay hydrated throughout the day.</span>
@@ -944,7 +944,7 @@ const ManjaroTableContent = () => {
                 Additionally, there are certain serious side effects to be aware
                 of, including:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 {[
                   "Pancreatitis (inflammation of the pancreas)",
                   "Gastroparesis (delayed stomach emptying)",
@@ -1025,7 +1025,7 @@ const ManjaroTableContent = () => {
                 Losing weight too quickly while using Mounjaro can lead to
                 several risks:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -1104,7 +1104,7 @@ const ManjaroTableContent = () => {
               <p className="para-font reg-font text-gray-600">
                 Do not use Mounjaro shot if you:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -1151,7 +1151,7 @@ const ManjaroTableContent = () => {
                 monitoring or adjustments may be necessary during your
                 treatment:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>Diabetic Retinopathy</span>
@@ -1220,7 +1220,7 @@ const ManjaroTableContent = () => {
                 a UK-licensed healthcare professional. This treatment is
                 generally recommended for individuals who have:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>A BMI of 30 or higher, or</span>
@@ -1233,7 +1233,7 @@ const ManjaroTableContent = () => {
                   </span>
                 </li>
               </ul>
-              <ul className="space-y-3 ps-10 text-gray-600">
+              <ul className="space-y-3 ps-10 text-gray-600 para-font">
                 {[
                   "Type 2 diabetes or pre-diabetes",
                   "Obstructive sleep apnoea",
@@ -1281,7 +1281,7 @@ const ManjaroTableContent = () => {
                 To buy Mounjaro from Online Weight Loss Clinic, here’s the
                 straightforward process based on how the clinic operates:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -1368,7 +1368,7 @@ const ManjaroTableContent = () => {
               <p className="para-font reg-font text-gray-600">
                 You may only need supplements if:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -1429,7 +1429,7 @@ const ManjaroTableContent = () => {
                 At Online Weight Loss Clinic, Mounjaro is available in multiple
                 dose strengths, each priced for a full month of treatment.
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 {[
                   {
                     dose: "2.5 mg (starting dose)",
@@ -1514,7 +1514,7 @@ const ManjaroTableContent = () => {
               <p className="para-font reg-font text-gray-600">
                 If you can’t afford Mounjaro, consider these options:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -1656,7 +1656,7 @@ const ManjaroTableContent = () => {
                 Your treatment includes everything needed to start safely and
                 confidently:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 {[
                   "A free online medical assessment to check your eligibility",
                   "Review and approval by a UK licensed clinician",
@@ -1719,7 +1719,7 @@ const ManjaroTableContent = () => {
                 If medication isn’t the right option, several non-drug
                 approaches are commonly recommended:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -1777,7 +1777,7 @@ const ManjaroTableContent = () => {
                 Both Wegovy and Mounjaro are once-weekly prescription injections
                 used to support weight loss, but they work slightly differently.
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -1808,7 +1808,7 @@ const ManjaroTableContent = () => {
                 Choosing between Wegovy and Mounjaro depends on how your body
                 responds and what you want to achieve:
               </p>
-              <ul className="space-y-3 ps-4 text-gray-600">
+              <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>

@@ -65,7 +65,7 @@ const ManjaroTableContent = () => {
   };
 
   return (
-    <section className="mt-2 py-15 md:px-12.5 bg-white rounded">
+    <section className="mt-2 py-10 md:py-14 md:px-12.5 bg-white rounded">
       <div className="mx-auto container">
         <div className="flex flex-col md:flex-row gap-6">
           {/* ── Sticky Sidebar ── */}
@@ -139,7 +139,7 @@ const ManjaroTableContent = () => {
               </div>
 
               {/* What is Wegovy? */}
-              <h3 className="text-xl sm:text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 What is Wegovy?
               </h3>
               <p className="para-font reg-font text-gray-600 reg-font text-[#212529]">
@@ -171,7 +171,7 @@ const ManjaroTableContent = () => {
               </p>
 
               {/* How does Wegovy work? */}
-              <h3 className="text-xl sm:text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How does Wegovy work?
               </h3>
               <p className="para-font reg-font text-gray-600 reg-font text-[#212529]">
@@ -216,7 +216,7 @@ const ManjaroTableContent = () => {
               </p>
 
               {/* What are the benefits of Wegovy? */}
-              <h3 className="text-xl sm:text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 What are the benefits of Wegovy?
               </h3>
               <p className="para-font reg-font text-gray-600 reg-font text-[#212529]">
@@ -264,7 +264,7 @@ const ManjaroTableContent = () => {
               </ul>
 
               {/* How effective is Wegovy? */}
-              <h3 className="text-xl sm:text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How effective is Wegovy?
               </h3>
               <p className="para-font reg-font text-gray-600 reg-font text-[#212529]">
@@ -333,7 +333,7 @@ const ManjaroTableContent = () => {
               </p>
 
               {/* What are the weight loss outcomes across different Wegovy doses? */}
-              <h3 className="text-xl sm:text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 What are the weight loss outcomes across different Wegovy doses?
               </h3>
               <p className="para-font reg-font text-gray-600 reg-font text-[#212529]">
@@ -366,7 +366,7 @@ const ManjaroTableContent = () => {
                 may vary.
               </p>
               {/* How long does Wegovy take to work? */}
-              <h3 className="text-xl sm:text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How long does Wegovy take to work?
               </h3>
               <p className="para-font reg-font text-gray-600 reg-font text-[#212529]">
@@ -380,7 +380,7 @@ const ManjaroTableContent = () => {
               </p>
 
               {/* Is Wegovy safe? */}
-              <h3 className="text-xl sm:text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Is Wegovy safe?
               </h3>
               <p className="para-font reg-font text-gray-600 reg-font text-[#212529]">
@@ -396,7 +396,7 @@ const ManjaroTableContent = () => {
               </p>
 
               {/* Is there a generic version of Wegovy? */}
-              <h3 className="text-xl sm:text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Is there a generic version of Wegovy?
               </h3>
               <p className="para-font reg-font text-gray-600 reg-font text-[#212529]">
@@ -408,7 +408,7 @@ const ManjaroTableContent = () => {
               </p>
 
               {/* Can Wegovy improve heart health? */}
-              <h3 className="text-xl sm:text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Can Wegovy improve heart health?
               </h3>
               <p className="para-font reg-font text-gray-600 reg-font text-[#212529]">
@@ -449,7 +449,7 @@ const ManjaroTableContent = () => {
                 </h2>
               </div>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Who can use Wegovy?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -460,7 +460,7 @@ const ManjaroTableContent = () => {
                 medical history and weight loss goals.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Who is eligible for Wegovy?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -478,7 +478,7 @@ const ManjaroTableContent = () => {
                 , or A BMI of 27 or higher, alongside health conditions related
                 to weight, such as:
               </p>
-              <ul className="space-y-3 ps-4 text-[#212529]">
+              <ul className="space-y-3 ps-4 text-[#212529] para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>Type 2 diabetes</span>
@@ -505,7 +505,7 @@ const ManjaroTableContent = () => {
                   patient information leaflet.
                 </a>
               </p>
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Who should not take Wegovy?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -525,7 +525,7 @@ const ManjaroTableContent = () => {
                 If you have any of the following health conditions, consult with
                 our clinician before starting Wegovy medication:
               </p>
-              <ul className="space-y-3 ps-4 text-[#212529]">
+              <ul className="space-y-3 ps-4 text-[#212529] para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>Diabetic retinopathy</span>
@@ -547,7 +547,7 @@ const ManjaroTableContent = () => {
                 alt="Mounjaro Dos
                 age"
               /> */}
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Is Wegovy right for me?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -559,7 +559,7 @@ const ManjaroTableContent = () => {
                 clinician assessment is essential before starting.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Can Wegovy be used by people with diabetes?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -571,7 +571,7 @@ const ManjaroTableContent = () => {
                 individual health profile.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Can Wegovy be used by people without diabetes?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -595,7 +595,7 @@ const ManjaroTableContent = () => {
                   Dosing & Usage
                 </h2>
               </div>
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 What dosage of Wegovy should I use?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -603,7 +603,7 @@ const ManjaroTableContent = () => {
                 start low and increase every 4 weeks until you reach a
                 maintenance dose.
               </p>
-              <ul className="space-y-3 ps-4 text-[#212529]">
+              <ul className="space-y-3 ps-4 text-[#212529] para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -640,7 +640,7 @@ const ManjaroTableContent = () => {
                 The maintenance may be 1.7 mg or 2.4 mg, depending on what our
                 UK licensed clinician decides is right for you.
               </p>
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How does the Wegovy dosage plan support safe, gradual weight
                 loss?
               </h3>
@@ -664,7 +664,7 @@ const ManjaroTableContent = () => {
                 src={"/Images/wegovy-injections.jpg"}
                 alt="Mounjaro Dosage"
               />
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Finding the right Wegovy dose for you
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -674,7 +674,7 @@ const ManjaroTableContent = () => {
                 one-size-fits-all, and our healthcare professional may keep you
                 at a lower dose if you're doing well on it.
               </p>
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Adjusting your dose
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -684,7 +684,7 @@ const ManjaroTableContent = () => {
                 recommend staying on the same dose longer rather than moving up
                 on schedule. Only change dose under clinical advice.
               </p>
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-blackblack">
                 Can I take Wegovy a day early?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -693,7 +693,7 @@ const ManjaroTableContent = () => {
                 it’s important to confirm any adjustments with our clinician to
                 make sure it’s safe for you.
               </p>
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 What happens if I miss a dose of Wegovy?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -715,7 +715,7 @@ const ManjaroTableContent = () => {
                 dose, especially if you’ve experienced any stomach-related
                 discomfort.
               </p>
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How long should I take Wegovy for?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -732,7 +732,7 @@ const ManjaroTableContent = () => {
                 medication as part of your long-term weight management plan.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How long do you take Wegovy for weight loss?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -765,7 +765,7 @@ const ManjaroTableContent = () => {
                 </h2>
               </div>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How to administer the Wegovy injection?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -781,7 +781,7 @@ const ManjaroTableContent = () => {
                 pen:
               </p>
 
-              <ul className="space-y-3 ps-4 text-[#212529]">
+              <ul className="space-y-3 ps-4 text-[#212529] para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -869,7 +869,7 @@ const ManjaroTableContent = () => {
                 </li>
               </ul>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Where should Wegovy be injected?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -886,11 +886,11 @@ const ManjaroTableContent = () => {
                 alt="Where should I inject Mounjaro"
               />
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How to dispose of used needles?
               </h3>
 
-              <ul className="space-y-3 ps-4 text-[#212529]">
+              <ul className="space-y-3 ps-4 text-[#212529] para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -956,7 +956,7 @@ const ManjaroTableContent = () => {
                 clinical waste guidance.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Does Wegovy come with needles?
               </h3>
 
@@ -966,7 +966,7 @@ const ManjaroTableContent = () => {
                 included with your order if required.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Do I need to buy my own needles?
               </h3>
 
@@ -988,7 +988,7 @@ const ManjaroTableContent = () => {
                 </h2>
               </div>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How do I store Wegovy?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1001,7 +1001,7 @@ const ManjaroTableContent = () => {
                 the cap on to protect it from light.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How long can Wegovy be out of the fridge?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1011,7 +1011,7 @@ const ManjaroTableContent = () => {
                 cool, dry place.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Can I travel with Wegovy?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1035,7 +1035,7 @@ const ManjaroTableContent = () => {
                 </h2>
               </div>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How quickly does Wegovy suppress appetite?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1045,7 +1045,7 @@ const ManjaroTableContent = () => {
                 9–12 as dosing increases.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Why am I still hungry on Wegovy?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1058,7 +1058,7 @@ const ManjaroTableContent = () => {
                 clinician.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 What happens when I stop taking Wegovy?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1076,7 +1076,7 @@ const ManjaroTableContent = () => {
                 requires ongoing lifestyle changes.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Will I regain weight after stopping Wegovy?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1101,7 +1101,7 @@ const ManjaroTableContent = () => {
 
               {/* Common Side Effects */}
               <div className="flex flex-col gap-2">
-                <h3 className="text-2xl reg-font text-black">
+                <h3 className="text-lg sm:text-2xl reg-font text-black">
                   What are the side effects of Wegovy?
                 </h3>
                 <p className="para-font reg-font text-[#212529]">
@@ -1110,7 +1110,7 @@ const ManjaroTableContent = () => {
                   temporary, often improving as the body adjusts to the
                   medication.
                 </p>
-                <h3 className="text-xl font-semibold text-[#212529]">
+                <h3 className="text-lg sm:text-2xl reg-font text-black">
                   Very common side effects
                 </h3>
                 <ul className="list-disc list-inside para-font text-[#212529] space-y-1">
@@ -1124,7 +1124,7 @@ const ManjaroTableContent = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-semibold text-[#212529]">
+                <h3 className="text-lg sm:text-2xl reg-font text-black">
                   Common side effects
                 </h3>
                 <ul className="list-disc list-inside para-font text-[#212529] space-y-1">
@@ -1139,7 +1139,7 @@ const ManjaroTableContent = () => {
 
               {/* Serious Side Effects */}
               <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-semibold text-[#212529]">
+                <h3 className="text-lg sm:text-2xl reg-font text-black">
                   What are serious side effects of Wegovy?
                 </h3>
                 <p className="para-font text-[#212529]">
@@ -1183,7 +1183,7 @@ const ManjaroTableContent = () => {
 
               {/* How long do side effects last */}
               <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-semibold text-[#212529]">
+                <h3 className="text-lg sm:text-2xl reg-font text-black">
                   How long do side effects last?
                 </h3>
                 <p className="para-font text-[#212529]">
@@ -1194,7 +1194,7 @@ const ManjaroTableContent = () => {
                 </p>
               </div>
               <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-semibold text-[#212529]">
+                <h3 className="text-lg sm:text-2xl reg-font text-black">
                   Are there long-term side effects of Wegovy?
                 </h3>
                 <p className="para-font text-[#212529]">
@@ -1210,7 +1210,7 @@ const ManjaroTableContent = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-semibold text-[#212529]">
+                <h3 className="text-lg sm:text-2xl reg-font text-black">
                   What should I do if I lose weight too quickly?
                 </h3>
                 <p className="para-font text-[#212529]">
@@ -1226,7 +1226,7 @@ const ManjaroTableContent = () => {
                 </p>
               </div>
               <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-semibold text-[#212529]">
+                <h3 className="text-lg sm:text-2xl reg-font text-black">
                   How to manage Wegovy side effects?
                 </h3>
                 <p className="para-font text-[#212529]">
@@ -1245,7 +1245,7 @@ const ManjaroTableContent = () => {
                 </p>
               </div>
               {/* Managing Side Effects */}
-              <h3 className="text-xl font-semibold text-[#212529]">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 What are the important warnings to consider when using Wegovy?
               </h3>
               <p className="para-font text-[#212529]">
@@ -1285,7 +1285,7 @@ const ManjaroTableContent = () => {
                 </li>
               </ul>
 
-              <h3 className="text-lg font-semibold text-[#212529]">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Wegovy and pregnancy
               </h3>
               <p className="para-font text-[#212529]">
@@ -1298,7 +1298,7 @@ const ManjaroTableContent = () => {
                 medication and seek advice from our healthcare provider.
               </p>
 
-              <h3 className="text-lg font-semibold text-[#212529]">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Wegovy and breastfeeding
               </h3>
               <p className="para-font text-[#212529]">
@@ -1307,7 +1307,7 @@ const ManjaroTableContent = () => {
                 prioritise the health and safety of both you and your baby.
               </p>
 
-              <h3 className="text-lg font-semibold text-[#212529]">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Contraception requirements
               </h3>
               <p className="para-font text-[#212529]">
@@ -1337,7 +1337,7 @@ const ManjaroTableContent = () => {
                 </h2>
               </div>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Does Wegovy interact with other medications?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1362,7 +1362,7 @@ const ManjaroTableContent = () => {
                 provider if you’re using other treatments to ensure they are
                 compatible with Wegovy.
               </p>
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Can I take Wegovy with insulin?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1373,7 +1373,7 @@ const ManjaroTableContent = () => {
                 closer glucose monitoring.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Can Wegovy be taken with other GLP-1 medications?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1383,10 +1383,10 @@ const ManjaroTableContent = () => {
                 significantly increases the risk of side effects.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 What precautions should I take before using Wegovy?
               </h3>
-              <ul className="space-y-3 ps-4 text-[#212529]">
+              <ul className="space-y-3 ps-4 text-[#212529] para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -1426,7 +1426,7 @@ const ManjaroTableContent = () => {
                 </h2>
               </div>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Can I buy Wegovy online?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1437,7 +1437,7 @@ const ManjaroTableContent = () => {
                 issued, and Wegovy will be delivered directly to your door in
                 discreet packaging, ensuring your privacy and convenience.
               </p>
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Where can I buy Wegovy in the UK?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1445,7 +1445,7 @@ const ManjaroTableContent = () => {
                 that are legally authorized to prescribe prescription-only
                 medicines. You can access it via:
               </p>
-              <ul className="space-y-3 ps-4 text-[#212529]">
+              <ul className="space-y-3 ps-4 text-[#212529] para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -1467,7 +1467,7 @@ const ManjaroTableContent = () => {
                 purchased from unregulated sellers.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How do I get a prescription for Wegovy?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1478,14 +1478,14 @@ const ManjaroTableContent = () => {
                 home.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How to request Wegovy from Online Weight Loss Clinic?
               </h3>
               <p className="para-font reg-font text-[#212529]">
                 To request Wegovy from Online Weight Loss Clinic:
               </p>
 
-              <ol className="list-decimal space-y-3 ps-6 text-[#212529]">
+              <ol className="list-decimal space-y-3 ps-6 text-[#212529] para-font">
                 <li className="flex items-start gap-3">
                   <span className="">1.</span>
                   <span>Complete a secure online medical assessment</span>
@@ -1516,7 +1516,7 @@ const ManjaroTableContent = () => {
                 guaranteed.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How do I get a prescription for Wegovy?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1526,13 +1526,13 @@ const ManjaroTableContent = () => {
                 prescribed and delivered discreetly to your home.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How to request Wegovy from an Online Weight Loss Clinic?
               </h3>
               <p className="para-font reg-font text-[#212529]">
                 To request Wegovy from Online Weight Loss Clinic:
               </p>
-              <ul className="space-y-3 ps-4 text-[#212529]">
+              <ul className="space-y-3 ps-4 text-[#212529] para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>Complete a secure online medical assessment</span>
@@ -1561,14 +1561,14 @@ const ManjaroTableContent = () => {
                 not guaranteed.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Ordering for the first time
               </h3>
               <p className="para-font reg-font text-[#212529]">
                 First-time orders follow a structured process to ensure Wegovy
                 is supplied safely and in line with UK regulations:
               </p>
-              <ul className="space-y-3 ps-4 text-[#212529]">
+              <ul className="space-y-3 ps-4 text-[#212529] para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -1615,7 +1615,7 @@ const ManjaroTableContent = () => {
                 </h2>
               </div>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How much does Wegovy cost in the UK?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1623,7 +1623,7 @@ const ManjaroTableContent = () => {
                 Based on current in-stock pricing, monthly costs are:
               </p>
 
-              <div className="overflow-hidden rounded-md border border-gray-300">
+              <div className="overflow-hidden rounded-md border border-gray-300 ">
                 <table className="w-full para-font text-[#212529]">
                   <thead>
                     <tr className="bg-blue-100">
@@ -1687,7 +1687,7 @@ const ManjaroTableContent = () => {
                 </h2>
               </div>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 What is the difference between Wegovy and Mounjaro?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1702,7 +1702,7 @@ const ManjaroTableContent = () => {
                 guidance.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 What is the difference between Wegovy and Saxenda?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1713,7 +1713,7 @@ const ManjaroTableContent = () => {
                 activity means daily administration is required.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 What is the difference between Wegovy and Ozempic?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1724,7 +1724,7 @@ const ManjaroTableContent = () => {
                 more focused on appetite regulation for weight management.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Can I switch to Wegovy from Mounjaro?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1743,7 +1743,7 @@ const ManjaroTableContent = () => {
                 your weight loss journey.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Which weight loss injection is best for me?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1751,7 +1751,7 @@ const ManjaroTableContent = () => {
                 The right option depends on your BMI, medical history, and
                 prescriber assessment.
               </p>
-              <ul className="space-y-3 ps-4 text-[#212529]">
+              <ul className="space-y-3 ps-4 text-[#212529] para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
@@ -1789,7 +1789,7 @@ const ManjaroTableContent = () => {
                 </h2>
               </div>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 What are alternative weight loss medications?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1800,7 +1800,7 @@ const ManjaroTableContent = () => {
                 weight loss options that suit your health and lifestyle.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How does Wegovy compare to other weight loss injections?
               </h3>
 
@@ -1988,7 +1988,7 @@ const ManjaroTableContent = () => {
                 </h2>
               </div>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 Where can I find the Wegovy patient information leaflet?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -2008,7 +2008,7 @@ const ManjaroTableContent = () => {
                 medicines.
               </p>
 
-              <h3 className="text-2xl reg-font text-black">
+              <h3 className="text-lg sm:text-2xl reg-font text-black">
                 What information is included with Wegovy treatment?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -2016,7 +2016,7 @@ const ManjaroTableContent = () => {
                 injection, with clear information on how it works to reduce
                 appetite and cravings. You'll also receive:
               </p>
-              <ul className="space-y-3 ps-4 text-[#212529]">
+              <ul className="space-y-3 ps-4 text-[#212529] para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>Details on dose strengths and pricing</span>
