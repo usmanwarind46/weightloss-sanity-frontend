@@ -200,7 +200,7 @@ const expectationsIconMap = {
 
 function AboutClinic({ seoSettings, data, siteSettings }) {
   const [active, setActive] = useState(0);
-
+  console.log(data, "about page data");
   const heroSection = data?.sections.find((s) => s._type === "aboutClinicHero");
   const introSection = data?.sections.find(
     (s) => s._type === "aboutClinicIntro",
@@ -486,7 +486,7 @@ function AboutClinic({ seoSettings, data, siteSettings }) {
             {/* Mobile image only — hidden on md+ */}
             <div className="absolute inset-0 md:hidden">
               <Image
-                src={frameworkSection?.desktopImage?.asset?.url}
+                src={frameworkSection?.mobileImage?.asset?.url}
                 alt="Clinical team reviewing patient information"
                 fill
                 className="object-cover object-center"
