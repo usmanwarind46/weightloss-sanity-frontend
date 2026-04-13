@@ -179,7 +179,7 @@ export function Header({ data }) {
                     transition={{ delay: i * 0.05 }}
                   >
                     <Link
-                      href={link.href}
+                      href={link.href || "#"}
                       onClick={() => setMenuOpen(false)}
                       className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm roboto-reg transition-colors
                       ${
