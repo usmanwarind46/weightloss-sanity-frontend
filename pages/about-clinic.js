@@ -373,7 +373,7 @@ function AboutClinic({ seoSettings, data, siteSettings }) {
             </h1>
 
             <Link
-              href={heroSection?.buttonLink}
+              href={heroSection?.buttonLink || "#"}
               className="bg-[#4caf82] hover:bg-[#3d9e6e] text-white rounded-md px-5 sm:px-7 py-3 sm:py-3.5 text-sm reg-font font-sans tracking-wide transition-colors duration-200 cursor-pointer w-full sm:w-auto para-font"
             >
               {heroSection?.buttonLabel}

@@ -86,7 +86,7 @@ export function Footer({ data }) {
               {data?.footerLinks1?.map((item) => (
                 <li key={item.label}>
                   <Link
-                    href={item.href}
+                    href={item.href || "#"}
                     className="text-gray-600 hover:text-teal-600 transition-colors"
                   >
                     {item.label}
@@ -120,7 +120,7 @@ export function Footer({ data }) {
               {data?.footerLinks2?.map((item) => (
                 <li key={item.label}>
                   <Link
-                    href={item.href}
+                    href={item.href || "#"}
                     className="text-gray-600 hover:text-teal-600 transition-colors"
                   >
                     {item.label}
