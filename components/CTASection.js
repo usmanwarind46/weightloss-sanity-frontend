@@ -25,14 +25,14 @@ export function CTASection({ data }) {
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 cta-btn">
             {data?.primaryButton?.link && (
-              <Link href={data.primaryButton.link}>
+              <Link href={data.primaryButton.link || "/start-consultation/"}>
                 <NextButton label={data.primaryButton.label} />
               </Link>
             )}
 
             {data?.secondaryButton?.link && (
               <Link
-                href={data.secondaryButton.link}
+                href={data.secondaryButton.link || "/about-clinic/"}
                 className="inline-flex items-center gap-2 border-2 border-white/70 hover:border-white text-white hover:bg-white/10 px-6 py-3 rounded-md text-sm md:text-base font-medium transition-all duration-200 group"
               >
                 {data.secondaryButton.label}

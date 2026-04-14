@@ -57,7 +57,7 @@ export function Hero({ data }) {
 
             {/* Button */}
             <div className="py-4 max-w-max">
-              <Link href={data.buttonLink || "/"}>
+              <Link href={data.buttonLink || "/start-consultation/"}>
                 <NextButton label={data.buttonText || "Click"} />
               </Link>
             </div>

@@ -129,10 +129,14 @@ export function Header({ data }) {
           <div className="flex items-center gap-3">
             {/* CTA */}
             <div className="hidden sm:block">
-              <NextButton
-                label={dynamicCtaLabel}
-                onClick={() => window.open(ctaLink, "_blank")}
-              />
+              <Link href={data?.ctaLink || "/start-consultation/login/"}>
+                {" "}
+                <NextButton
+                  label={dynamicCtaLabel}
+                  // onClick={() => window.open(ctaLink, "_blank")}
+                  // onClick={ctaLink}
+                />
+              </Link>
             </div>
 
             {/* MOBILE MENU BUTTON */}
@@ -199,10 +203,12 @@ export function Header({ data }) {
 
               {/* MOBILE CTA */}
               <div className="pt-3 pb-1">
-                <NextButton
-                  label={dynamicCtaLabel}
-                  onClick={() => window.open(ctaLink, "_blank")}
-                />
+                <Link href={data?.ctaLink || "/start-consultation/login/"}>
+                  <NextButton
+                    label={dynamicCtaLabel}
+                    // onClick={() => window.open(ctaLink, "_blank")}
+                  />
+                </Link>
               </div>
             </div>
           </motion.div>

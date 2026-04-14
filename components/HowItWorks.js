@@ -57,7 +57,7 @@ export function HowItWorks({ data }) {
             <p className="text-gray-600 mb-6 text-xl">{footerText}</p>
 
             <div className="py-4 max-w-max m-auto">
-              <Link href={buttonLink || "/"}>
+              <Link href={buttonLink || "/start-consultation/"}>
                 <NextButton label={buttonLabel} />
               </Link>
             </div>

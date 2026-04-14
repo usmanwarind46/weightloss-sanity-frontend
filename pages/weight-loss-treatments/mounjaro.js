@@ -662,15 +662,16 @@ export default function MounjaroProduct({ seoSettings, siteSettings }) {
                 meet the eligibility criteria, you may proceed with placing an
                 order for Mounjaro weight loss injection pens.
               </p>
-
-              <button
-                className="w-full bg-[#4caf82] text-sm sm:text-lg text-white py-3 rounded-lg semibold-font  hover:bg-[#3d9e6e] cursor-pointer"
-                onClick={() => {
-                  window.open("/start-consultation/?product_id=4", "_blank");
-                }}
-              >
-                Start Your Free Consultation Now
-              </button>
+              <Link href="/start-consultation/?product_id=4">
+                <button
+                  className="w-full bg-[#4caf82] text-sm sm:text-lg text-white py-3 rounded-lg semibold-font  hover:bg-[#3d9e6e] cursor-pointer"
+                  // onClick={() => {
+                  //   window.open("/start-consultation/?product_id=4", "_blank");
+                  // }}
+                >
+                  Start Your Free Consultation Now
+                </button>
+              </Link>
             </div>
           </div>
 
