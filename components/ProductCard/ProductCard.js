@@ -95,7 +95,7 @@ export default function ProductCard({ product = products[0] }) {
           className="relative w-[160px] h-[160px] sm:w-[200px] sm:h-[220px]"
         >
           <Image
-            src={product.image}
+            src={product?.image}
             alt={product.name}
             fill
             className="object-contain drop-shadow-xl"
