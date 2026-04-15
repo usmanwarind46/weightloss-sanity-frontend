@@ -9,7 +9,7 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/start-consultation/",
+        source: "/start-consultation",
         destination:
           "https://weightloss-consultation.vercel.app/start-consultation/",
       },
