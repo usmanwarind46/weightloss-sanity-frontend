@@ -6,15 +6,21 @@ const nextConfig = {
     unoptimized: true,
   },
 
-  async redirects() {
-    return [
-      {
-        source: "/start-consultation/:path*",
-        destination:
-          "https://weightloss-consultation.vercel.app/start-consultation/:path*",
-        permanent: false,
-      },
-    ];
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: "/start-consultation",
+          destination:
+            "https://weightloss-consultation.vercel.app/start-consultation",
+        },
+        {
+          source: "/start-consultation/:path*",
+          destination:
+            "https://weightloss-consultation.vercel.app/start-consultation/:path*",
+        },
+      ],
+    };
   },
 };
 
