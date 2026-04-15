@@ -10,13 +10,11 @@ const nextConfig = {
     return [
       {
         source: "/start-consultation/",
-        destination:
-          "https://weightloss-consultation.vercel.app/start-consultation/",
+        destination: "https://weightloss-consultation.vercel.app",
       },
       {
         source: "/start-consultation/:path*",
-        destination:
-          "https://weightloss-consultation.vercel.app/start-consultation/:path*",
+        destination: "https://weightloss-consultation.vercel.app/:path*",
       },
     ];
   },
