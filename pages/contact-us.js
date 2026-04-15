@@ -51,7 +51,7 @@ export default function ContactUs({ seoSettings, data, siteSettings }) {
 
     try {
       const res = await fetch(
-        "https://vmi12.com/clients/vmi/online_contact_send.php",
+        "https://app.onlineweightlossclinic.co.uk/api/contact-submit",
         {
           method: "POST",
           headers: {
@@ -64,6 +64,8 @@ export default function ContactUs({ seoSettings, data, siteSettings }) {
             phone: data.phone,
             email: data.email,
             message: data.message,
+            type: "contact-form",
+            company_id: 2,
           }),
         },
       );
@@ -88,7 +90,7 @@ export default function ContactUs({ seoSettings, data, siteSettings }) {
     globalSeo: seoSettings,
     canonical: `${meta_url}/contact-us/`,
   });
-
+  console.log(contactInfoSection, "contactInfoSection");
   return (
     <>
       <MetaLayout
@@ -133,6 +135,7 @@ export default function ContactUs({ seoSettings, data, siteSettings }) {
                     className={`w-full bg-gray-100 rounded-xl px-4 py-3 text-sm text-gray-800 outline-none focus:ring-2 focus:ring-[#4B5FC0] transition ${
                       errors.firstName ? "ring-2 ring-red-400" : ""
                     }`}
+                    placeholder="Enter first name"
                   />
                   {errors.firstName && (
                     <p className="text-xs text-red-500">
@@ -156,6 +159,7 @@ export default function ContactUs({ seoSettings, data, siteSettings }) {
                     className={`w-full bg-gray-100 rounded-xl px-4 py-3 text-sm text-gray-800 outline-none focus:ring-2 focus:ring-[#4B5FC0] transition ${
                       errors.lastName ? "ring-2 ring-red-400" : ""
                     }`}
+                    placeholder="Enter last name"
                   />
                   {errors.lastName && (
                     <p className="text-xs text-red-500">
@@ -294,7 +298,7 @@ export default function ContactUs({ seoSettings, data, siteSettings }) {
               </h3>
               <div className="flex flex-col gap-3">
                 {contactInfoSection?.contactDetailsItems?.map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
+                  <div key={i} className="flex items-center gap-3 ">
                     {/* ICON (keep frontend logic) */}
                     {item.type === "phone" && (
                       <svg
@@ -326,9 +330,18 @@ export default function ContactUs({ seoSettings, data, siteSettings }) {
                       </svg>
                     )}
 
-                    <span className="text-sm text-black reg-font break-all footer-font-size">
+                    <a
+                      href={
+                        item.type === "phone"
+                          ? `tel:${item.value}`
+                          : item.type === "email"
+                            ? `mailto:${item.value}`
+                            : item.value
+                      }
+                      className="text-sm text-gray-600 hover:text-teal-600 transition-colors break-all"
+                    >
                       {item.value}
-                    </span>
+                    </a>
                   </div>
                 ))}
               </div>
@@ -359,7 +372,8 @@ export default function ContactUs({ seoSettings, data, siteSettings }) {
                   {contactInfoSection?.pharmacyAddressLines?.map((line, i) => (
                     <span
                       key={i}
-                      className="text-sm text-gray-700 reg-font footer-font-size"
+                      className="text-sm text-gray-700 reg-font footer-font-size  
+                    "
                     >
                       {line}
                     </span>

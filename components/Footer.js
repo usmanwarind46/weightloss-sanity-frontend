@@ -35,12 +35,36 @@ export function Footer({ data }) {
     return () => window.removeEventListener("keydown", handler);
   }, [setOpen]);
 
-  const onSubmit = (data) => {
-    toast.success("Thank You for Subscribing", {
-      duration: 3000,
-    });
-    reset();
-    setSubmitted(true);
+  const onSubmit = async (data) => {
+    try {
+      const res = await fetch(
+        "https://app.onlineweightlossclinic.co.uk/api/contact-submit",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            firstName: data.name,
+            email: data.email,
+            type: "news-letter",
+            company_id: 2,
+          }),
+        },
+      );
+
+      if (res.ok) {
+        toast.success("Thank You for Subscribing");
+        reset();
+        setSubmitted(true);
+      } else {
+        toast.error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Something went wrong");
+    }
   };
 
   return (
