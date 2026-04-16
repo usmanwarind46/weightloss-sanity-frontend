@@ -52,7 +52,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
   const autoSchemas = generateSchema({
     data,
     globalSeo: seoSettings,
-    canonical: `${meta_url}/guide/${data?.slug?.current}/`,
+    canonical: `${meta_url}/guide/${data?.slug?.current}`,
   });
 
   console.log(data._type, "Data type");
@@ -61,7 +61,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
     <>
       <MetaLayout
         globalSeo={seoSettings}
-        canonical={`${meta_url}/guide/${data?.slug?.current}`}
+        canonical={`${meta_url}/guide/${data?.slug?.current}/`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />
