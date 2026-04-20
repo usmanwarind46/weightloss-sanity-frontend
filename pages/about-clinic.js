@@ -200,7 +200,7 @@ const expectationsIconMap = {
 
 function AboutClinic({ seoSettings, data, siteSettings }) {
   const [active, setActive] = useState(0);
-  console.log(data, "about page data");
+
   const heroSection = data?.sections.find((s) => s._type === "aboutClinicHero");
   const introSection = data?.sections.find(
     (s) => s._type === "aboutClinicIntro",
@@ -233,6 +233,8 @@ function AboutClinic({ seoSettings, data, siteSettings }) {
   const regulatorsSection = data?.sections.find(
     (s) => s._type === "aboutClinicRegulators",
   );
+
+  console.log(expectationsSection, "expectationsSection");
 
   const resourceIconMap = {
     guide: <FaStethoscope className="w-5 h-5 text-teal-600" />,
@@ -390,7 +392,7 @@ function AboutClinic({ seoSettings, data, siteSettings }) {
               <div className="absolute inset-0 md:hidden">
                 <Image
                   src={introSection?.desktopImage?.asset?.url}
-                  alt="Doctor"
+                  alt={introSection?.imageAlt || "Doctors"}
                   fill
                   className="object-cover object-center"
                   priority
@@ -487,7 +489,10 @@ function AboutClinic({ seoSettings, data, siteSettings }) {
             <div className="absolute inset-0 md:hidden">
               <Image
                 src={frameworkSection?.mobileImage?.asset?.url}
-                alt="Clinical team reviewing patient information"
+                alt={
+                  frameworkSection?.imageAlt ||
+                  "Clinical team reviewing patient information"
+                }
                 fill
                 className="object-cover object-center"
                 priority
@@ -538,8 +543,11 @@ function AboutClinic({ seoSettings, data, siteSettings }) {
           {/* Left: Image with right fade */}
           <div className="relative w-full h-[420px] md:h-auto">
             <Image
-              src="/Images/WhatPatientsCanExpect.png"
-              alt="Doctor measuring patient waist"
+              src={expectationsSection?.sectionImage?.asset?.url}
+              alt={
+                expectationsSection?.imageAlt ||
+                "Doctor measuring patient waist"
+              }
               fill
               className="object-cover object-center"
               priority
@@ -770,10 +778,10 @@ function AboutClinic({ seoSettings, data, siteSettings }) {
               >
                 <div className="mb-3 md:mb-4">
                   <Image
-                    src={item.logo.asset.url}
-                    width={item.imageWidth || 150}
-                    height={item.imageHeight || 100}
-                    alt={item.shortName}
+                    src={item?.logo.asset.url}
+                    width={item?.imageWidth || 150}
+                    height={item?.imageHeight || 100}
+                    alt={item?.imageAlt}
                   />
                 </div>
                 <h3 className="text-base md:text-lg med-font text-gray-900 mb-2 leading-snug para-font">

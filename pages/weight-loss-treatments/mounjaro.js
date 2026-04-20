@@ -13,18 +13,27 @@ import ManjaroTableContent from "../../components/ManjaroTableContent/ManjaroTab
 import MetaLayout from "../../Meta/MetaLayout";
 import { meta_url } from "../../config/constants";
 import { sanityClient } from "../../lib/sanity";
-import { SEO_QUERY, SITE_SETTINGS_QUERY } from "../../lib/sanityQueries";
+import {
+  PAGE_QUERY,
+  SEO_QUERY,
+  SITE_SETTINGS_QUERY,
+} from "../../lib/sanityQueries";
 import NextButton from "../../components/ui/NextButton";
 import { generateSchema } from "../../lib/schemaGenerator";
 import Link from "next/link";
 
 export async function getStaticProps() {
+  const data = await sanityClient.fetch(PAGE_QUERY, {
+    slug: "mounjaro",
+  });
+
   const seoSettings = await sanityClient.fetch(SEO_QUERY);
 
   const siteSettings = await sanityClient.fetch(SITE_SETTINGS_QUERY);
 
   return {
     props: {
+      data,
       seoSettings,
       siteSettings,
     },
@@ -330,7 +339,7 @@ const IMAGES = [
   "/Images/Slider/image-25.png",
 ];
 
-export default function MounjaroProduct({ seoSettings, siteSettings }) {
+export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
   const half = Math.ceil(wegovyFaqs.length / 2);
   const leftCol = wegovyFaqs.slice(0, half);
   const rightCol = wegovyFaqs.slice(half);
@@ -374,7 +383,7 @@ export default function MounjaroProduct({ seoSettings, siteSettings }) {
   return (
     <>
       <MetaLayout
-        // seo={data?.seo}
+        seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/weight-loss-treatments/mounjaro/`}
         autoSchemas={autoSchemas}

@@ -96,7 +96,7 @@ export default function ProductCard({ product = products[0] }) {
         >
           <Image
             src={product?.image}
-            alt={product.name}
+            alt={product?.imageAlt}
             fill
             className="object-contain drop-shadow-xl"
             priority
