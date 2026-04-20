@@ -90,7 +90,7 @@ export function Header({ data }) {
             {logoUrl && (
               <Image
                 src={logoUrl}
-                alt="Logo"
+                alt="Online Weight Loss Clinic"
                 width={150}
                 height={150}
                 className="w-32 md:w-44 h-auto"
