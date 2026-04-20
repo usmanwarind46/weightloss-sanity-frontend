@@ -12,7 +12,7 @@ export function Hero({ data }) {
         {data.desktopImage?.asset?.url && (
           <Image
             src={data.desktopImage.asset.url}
-            alt="banner"
+            alt={data.imageAlt || "banner"}
             fill
             priority
             className="object-cover hidden sm:block"
@@ -23,7 +23,7 @@ export function Hero({ data }) {
         {data.mobileImage?.asset?.url && (
           <Image
             src={data.mobileImage.asset.url}
-            alt="banner"
+            alt={data.imageAlt || "banner"}
             fill
             priority
             className="object-cover block sm:hidden"
