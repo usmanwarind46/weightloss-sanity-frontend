@@ -82,18 +82,18 @@ export function ReviewsSection({ data }) {
                   <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow h-full">
                     {/* Avatar + Name */}
                     <div className="flex items-center gap-3 mb-4">
-                      <img
+                      {/* <img
                         src={review.imageUrl}
                         alt={review.name}
                         className="w-14 h-14 rounded-full object-cover flex-shrink-0"
-                      />
+                      /> */}
                       <div>
                         <h4 className="font-semibold text-gray-900 text-sm">
                           {review.name}
                         </h4>
-                        <p className="text-xs text-teal-600 font-medium">
+                        {/* <p className="text-xs text-teal-600 font-medium">
                           {review.role}
-                        </p>
+                        </p> */}
                       </div>
                     </div>
 

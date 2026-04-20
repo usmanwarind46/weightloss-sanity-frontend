@@ -96,7 +96,7 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
   return (
     <>
       <MetaLayout
-        // seo={data?.seo}
+        seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/weight-loss/`}
         autoSchemas={autoSchemas}
@@ -129,6 +129,7 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
                 product={{
                   ...product,
                   image: product?.image,
+                  alt: product?.imageAlt,
                 }}
               />
             ))}
@@ -281,7 +282,7 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
                   <div className="flex-1 flex items-end justify-center">
                     <img
                       src={step?.imageUrl}
-                      alt="step"
+                      alt={step?.imageAlt}
                       className="w-full h-auto object-cover"
                     />
                   </div>

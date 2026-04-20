@@ -29,7 +29,7 @@ export function MedicationSection({ data }) {
             <div className="flex lg:hidden items-end justify-center mt-6">
               <Image
                 src={data?.mainImage?.asset?.url}
-                alt=""
+                alt={data?.mainImageAlt || "Image"}
                 width={400}
                 height={440}
                 className="w-3/4 h-auto object-contain"
@@ -47,7 +47,12 @@ export function MedicationSection({ data }) {
                   }`}
                 >
                   <div className="w-13 h-13 rounded-full bg-white flex items-center justify-center mb-4 border border-black">
-                    <Image src={card.iconUrl} width={32} height={32} alt="" />
+                    <Image
+                      src={card.iconUrl}
+                      width={32}
+                      height={32}
+                      alt={card.iconAlt || card.title || "Feature icon"}
+                    />
                   </div>
 
                   <h3 className="text-sm sm:text-[20px] med-font text-gray-900 mb-2">
@@ -67,7 +72,7 @@ export function MedicationSection({ data }) {
             <div className="hidden lg:flex items-end justify-end">
               <Image
                 src={data?.mainImage?.asset?.url}
-                alt=""
+                alt={data?.mainImageAlt || "Image"}
                 width={580}
                 height={640}
                 className="w-full h-auto object-contain object-bottom"

@@ -42,7 +42,7 @@ export function HowItWorks({ data }) {
                 <div className="flex-1 flex items-end justify-center">
                   <img
                     src={step?.imageUrl}
-                    alt={`Step ${step.number}`}
+                    alt={step?.imageAlt || `Step ${step.number} illustration`}
                     className={`w-full h-auto object-contain how-it-work-${index + 1}`}
                   />
                 </div>
