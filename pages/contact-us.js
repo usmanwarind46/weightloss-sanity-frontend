@@ -355,7 +355,7 @@ export default function ContactUs({ seoSettings, data, siteSettings }) {
                   height="18"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#4B9E7A"
+                  stroke="#4ac78b"
                   strokeWidth="1.8"
                   strokeLinecap="round"
                   strokeLinejoin="round"
