@@ -384,7 +384,7 @@ export function Footer({ data }) {
             © 2026 Online Weight Loss Clinic. All Rights Reserved
           </p>
           <p className="text-center sm:text-right footer-bottom-size">
-            All consultations and prescribing is carried out by UK registered
+            All consultations and prescribing are carried out by UK registered
             healthcare professionals.
           </p>
         </div>

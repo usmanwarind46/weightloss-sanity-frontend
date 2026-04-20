@@ -602,7 +602,7 @@ const ManjaroTableContent = () => {
                 Yes, Mounjaro must be injected under the skin (subcutaneously)
                 to work properly. There is currently no oral alternative
                 available through UK prescribing services. However, many people
-                find the once-daily injection easier than expected, and the UK
+                find the once-weekly injection easier than expected, and the UK
                 licensed clinician can guide you on proper technique to make it
                 as comfortable and straightforward as possible.
               </p>
@@ -706,7 +706,7 @@ const ManjaroTableContent = () => {
               <p className="para-font reg-font text-gray-600">
                 To manage these changes, it’s important to maintain a balanced
                 diet and regular physical activity. Always consult our
-                healthcare provider before stopping treatment to ensure proper
+                healthcare providers before stopping treatment to ensure proper
                 weight management.
               </p>
 
@@ -838,8 +838,8 @@ const ManjaroTableContent = () => {
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
-                    <strong>Gallbladder issues:</strong> issues: Sharp pain in
-                    the upper right abdomen. Seek immediate medical care.
+                    <strong>Gallbladder issues:</strong> Sharp pain in the upper
+                    right abdomen. Seek immediate medical care.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -1154,7 +1154,7 @@ const ManjaroTableContent = () => {
               <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
-                  <span>Diabetic Retinopathy</span>
+                  <span>Diabetic retinopathy</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
@@ -1860,7 +1860,7 @@ const ManjaroTableContent = () => {
                 There is no evidence that weight loss injections Mounjaro
                 directly impacts fertility. In fact, weight loss and improved
                 metabolic health could even enhance fertility. However, it’s
-                important to discuss any concerns with our clinicians ,
+                important to discuss any concerns with our clinicians,
                 especially regarding contraceptive effectiveness while on
                 Mounjaro.
               </p>

@@ -145,7 +145,7 @@ const wegovyFaqs = [
   {
     question: "What is the cost of Mounjaro?",
     answer:
-      "The cost of Mounjaro may vary depending on where you obtain it. At Online Weight Loss Clinic, the price starts from £210, which includes one pen (4 doses) and 4 needles, enough for a month’s supply.",
+      "The cost of Mounjaro may vary depending on where you obtain it. At Online Weight Loss Clinic, the price starts from £139, which includes one pen (4 doses) and 4 needles, enough for a month’s supply. ",
   },
   {
     question: "Can Mounjaro be stored outside the fridge?",

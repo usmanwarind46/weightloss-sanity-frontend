@@ -123,7 +123,7 @@ const wegovyFaqs = [
   {
     question: "Can I use Wegovy long-term?",
     answer:
-      "Wegovy is approved for long-term use, with clinical studies supporting its use for up to two years. If you’ve lost at least 5% of your starting weight after six months, you can continue treatment with the guidance of our clinician..",
+      "Wegovy is approved for long-term use, with clinical studies supporting its use for up to two years. If you’ve lost at least 5% of your starting weight after six months, you can continue treatment with the guidance of our clinician.",
   },
   {
     question: "What if I can’t tolerate my new dose?",

@@ -185,12 +185,9 @@ const ManjaroTableContent = () => {
                     GLP-1{" "}
                   </a>{" "}
                 </span>
-                , a hormone that your body naturally releases after eating. This
+                ,a hormone that your body naturally releases after eating. This
                 hormone plays an essential role in managing appetite, blood
-                sugar levels, and stomach emptying. The medication effectively
-                reduces hunger, helping you feel fuller after smaller meals,
-                while also slowing the rate at which food leaves the stomach,
-                prolonging feelings of fullness.
+                sugar levels, and stomach emptying.
               </p>
               <p className="para-font reg-font text-gray-600 reg-font text-[#212529]">
                 This combination of effects allows you to eat less, feel
@@ -565,7 +562,7 @@ const ManjaroTableContent = () => {
               <p className="para-font reg-font text-[#212529]">
                 Adults living with type 2 diabetes may use Wegovy, but medical
                 supervision plays a key role. If you already take diabetes
-                medications, Our healthcare professional will closely review
+                medications, Our healthcare professionals will closely review
                 your treatment plan and monitor your response to avoid issues
                 such as low blood sugar. Suitability always depends on your
                 individual health profile.
@@ -607,31 +604,31 @@ const ManjaroTableContent = () => {
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
-                    <strong>Weeks 1–4:</strong> 0.25 mg once weekly
+                    <strong>Weeks 1–4:</strong> 0.25 mg once-weekly
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
-                    <strong>Weeks 5–8:</strong> 0.5 mg once weekly
+                    <strong>Weeks 5–8:</strong> 0.5 mg once-weekly
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
-                    <strong>Weeks 9–12:</strong> 1.0 mg once weekly
+                    <strong>Weeks 9–12:</strong> 1.0 mg once-weekly
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
-                    <strong>Weeks 13–16:</strong> 1.7 mg once weekly
+                    <strong>Weeks 13–16:</strong> 1.7 mg once-weekly
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-gray-700 shrink-0"></span>
                   <span>
-                    <strong>Week 17 onwards:</strong> 2.4 mg once weekly
+                    <strong>Week 17 onwards:</strong> 2.4 mg once-weekly
                     (maintenance)
                   </span>
                 </li>
@@ -711,7 +708,7 @@ const ManjaroTableContent = () => {
               <p className="para-font reg-font text-[#212529]">
                 Consistently missing doses can impact the effectiveness of your
                 treatment. If you miss two or more doses, consult our healthcare
-                provider. They may advise restarting the treatment at a lower
+                providers. They may advise restarting the treatment at a lower
                 dose, especially if you’ve experienced any stomach-related
                 discomfort.
               </p>
@@ -1169,7 +1166,7 @@ const ManjaroTableContent = () => {
                 <p className="para-font text-[#212529]">
                   It's important to monitor for these and seek immediate medical
                   help if necessary. For detailed information, please consult
-                  your{" "}
+                  your
                   <a
                     href="https://www.medicines.org.uk/emc/files/pil.13801.pdf"
                     target="_blank"
@@ -1258,7 +1255,7 @@ const ManjaroTableContent = () => {
                 <li>
                   {" "}
                   <span className="med-font">Kidney issues:</span> If you have
-                  kidney problems, it’s crucial to discuss thiswith our
+                  kidney problems, it’s crucial to discuss this with our
                   clinician before using Wegovy. They may need to adjust your
                   dosage or consider alternative options.
                 </li>
@@ -1271,7 +1268,7 @@ const ManjaroTableContent = () => {
                   them.
                 </li>
                 <li>
-                  <span className="med-font">Eye health and surgery: </span>, If
+                  <span className="med-font">Eye health and surgery: </span> If
                   you have diabetic retinopathy or are planning surgery, it’s
                   essential to talk to our clinician about whether Wegovy is
                   suitable for you.
@@ -1516,7 +1513,7 @@ const ManjaroTableContent = () => {
                 guaranteed.
               </p>
 
-              <h3 className="text-lg sm:text-2xl reg-font text-black">
+              {/* <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How do I get a prescription for Wegovy?
               </h3>
               <p className="para-font reg-font text-[#212529]">
@@ -1524,7 +1521,7 @@ const ManjaroTableContent = () => {
                 online consultation and our licensed medical team will assess
                 your eligibility. If you meet the criteria, Wegovy will be
                 prescribed and delivered discreetly to your home.
-              </p>
+              </p> */}
 
               <h3 className="text-lg sm:text-2xl reg-font text-black">
                 How to request Wegovy from an Online Weight Loss Clinic?
@@ -1642,27 +1639,27 @@ const ManjaroTableContent = () => {
                     <tr className="border-t border-gray-200">
                       <td className="px-4 py-3">0.25 mg</td>
                       <td className="px-4 py-3">4 weekly doses</td>
-                      <td className="px-4 py-3 font-medium">£168.00</td>
+                      <td className="px-4 py-3 font-medium">£88.00</td>
                     </tr>
                     <tr className="border-t border-gray-200 bg-gray-50">
                       <td className="px-4 py-3">0.5 mg</td>
                       <td className="px-4 py-3">4 weekly doses</td>
-                      <td className="px-4 py-3 font-medium">£189.00</td>
+                      <td className="px-4 py-3 font-medium">£98.00</td>
                     </tr>
                     <tr className="border-t border-gray-200">
                       <td className="px-4 py-3">1.0 mg</td>
                       <td className="px-4 py-3">4 weekly doses</td>
-                      <td className="px-4 py-3 font-medium">£197.00</td>
+                      <td className="px-4 py-3 font-medium">£109.00</td>
                     </tr>
                     <tr className="border-t border-gray-200 bg-gray-50">
                       <td className="px-4 py-3">1.7 mg</td>
                       <td className="px-4 py-3">4 weekly doses</td>
-                      <td className="px-4 py-3 font-medium">£247.00</td>
+                      <td className="px-4 py-3 font-medium">£164.00</td>
                     </tr>
                     <tr className="border-t border-gray-200">
                       <td className="px-4 py-3">2.4 mg</td>
                       <td className="px-4 py-3">4 weekly doses</td>
-                      <td className="px-4 py-3 font-medium">£297.00</td>
+                      <td className="px-4 py-3 font-medium">£198.00</td>
                     </tr>
                   </tbody>
                 </table>
@@ -1707,7 +1704,7 @@ const ManjaroTableContent = () => {
               </h3>
               <p className="para-font reg-font text-[#212529]">
                 While both help with weight management, Wegovy uses semaglutide
-                and is given once weekly, whereas Saxenda uses liraglutide and
+                and is given once-weekly, whereas Saxenda uses liraglutide and
                 must be injected daily. Wegovy stays active in the body much
                 longer, allowing weekly dosing, whereas Saxenda's shorter
                 activity means daily administration is required.
@@ -1998,14 +1995,10 @@ const ManjaroTableContent = () => {
                   target="_blank"
                   className="text-teal-600"
                 >
-                  patient information leaflet.
+                  Patient Information Leaflet (PIL)
                 </a>{" "}
-                (PIL) is provided with your prescription medication packaging
-                when your treatment is dispensed by Online Weight Loss Clinic.
-                It contains detailed guidance on how Wegovy works, dosing
-                instructions, and safety information. Read it fully before
-                starting treatment, as required for all UK-licensed prescription
-                medicines.
+                is provided with your prescription medication packaging when
+                your treatment is dispensed by the Online Weight Loss Clinic.
               </p>
 
               <h3 className="text-lg sm:text-2xl reg-font text-black">
