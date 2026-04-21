@@ -1432,33 +1432,33 @@ const ManjaroTableContent = () => {
               <ul className="space-y-3 ps-4 text-gray-600 para-font">
                 {[
                   {
-                    dose: "2.5 mg (starting dose)",
-                    price: "£210.00",
+                    dose: "2.5 mg",
+                    price: "£139.00",
                     desc: "initial adjustment dose.",
                   },
                   {
                     dose: "5 mg",
-                    price: "£235.00",
+                    price: "£179.00",
                     desc: "first continuation dose.",
                   },
                   {
                     dose: "7.5 mg",
-                    price: "£315.00",
+                    price: "£230.00",
                     desc: "mid-titration dose.",
                   },
                   {
                     dose: "10 mg",
-                    price: "£340.00",
+                    price: "£239.00",
                     desc: "higher continuation dose.",
                   },
                   {
                     dose: "12.5 mg",
-                    price: "£355.00",
+                    price: "£265.00",
                     desc: "advanced continuation dose.",
                   },
                   {
                     dose: "15 mg",
-                    price: "£375.00",
+                    price: "£279.00",
                     desc: "maintenance dose once fully adjusted.",
                   },
                 ].map(({ dose, price, desc }) => (

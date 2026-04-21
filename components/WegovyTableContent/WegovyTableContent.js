@@ -175,17 +175,17 @@ const ManjaroTableContent = () => {
                 How does Wegovy work?
               </h3>
               <p className="para-font reg-font text-gray-600 reg-font text-[#212529]">
-                Wegovy injection works by mimicking{" "}
+                Wegovy injection works by mimicking
                 <span className="font-semibold text-teal-600">
                   {" "}
                   <a
                     href="https://pubmed.ncbi.nlm.nih.gov/9780839/#:~:text=GLP%2D1%20%28glucagon%2Dlike,in%20the%20gut%20L%20cells."
                     target="_blank"
                   >
-                    GLP-1{" "}
+                    GLP-1,
                   </a>{" "}
                 </span>
-                ,a hormone that your body naturally releases after eating. This
+                a hormone that your body naturally releases after eating. This
                 hormone plays an essential role in managing appetite, blood
                 sugar levels, and stomach emptying.
               </p>
