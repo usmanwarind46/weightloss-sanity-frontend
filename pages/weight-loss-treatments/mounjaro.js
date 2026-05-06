@@ -678,7 +678,7 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
                   //   window.open("/start-consultation/?product_id=4", "_blank");
                   // }}
                 >
-                  Start Your Free Consultation Now
+                  Order Your Treatment
                 </button>
               </Link>
             </div>

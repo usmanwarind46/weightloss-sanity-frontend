@@ -609,7 +609,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
                   //   window.open("/start-consultation/?product_id=1", "_blank");
                   // }}
                 >
-                  Start Your Free Consultation Now
+                  Order Your Treatment
                 </button>
               </Link>
             </div>
