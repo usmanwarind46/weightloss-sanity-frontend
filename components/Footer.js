@@ -344,7 +344,7 @@ export function Footer({ data }) {
                     {data?.pharmacy?.registrationNumber}
                   </a>
                 </p>
-                <p className="text-xs text-gray-500 mt-0.5 footer-bottom-size">
+                {/* <p className="text-xs text-gray-500 mt-0.5 footer-bottom-size">
                   Prescriber: {data?.pharmacy?.prescriberName} — GMC No.{" "}
                   <a
                     href={data?.pharmacy?.prescriberLink}
@@ -353,7 +353,7 @@ export function Footer({ data }) {
                   >
                     {data?.pharmacy?.prescriberGmc}
                   </a>
-                </p>
+                </p> */}
               </div>
             </div>
 

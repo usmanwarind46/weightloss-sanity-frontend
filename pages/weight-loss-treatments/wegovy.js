@@ -23,6 +23,7 @@ import {
   SITE_SETTINGS_QUERY,
 } from "../../lib/sanityQueries";
 import { generateSchema } from "../../lib/schemaGenerator";
+import { PortableText } from "@portabletext/react";
 
 export async function getStaticProps() {
   const seoSettings = await sanityClient.fetch(SEO_QUERY);
@@ -42,29 +43,6 @@ export async function getStaticProps() {
     revalidate: 1,
   };
 }
-
-const DOSAGES = [
-  {
-    label: "0.25 mg (4 x doses of 0.25 mg)",
-    price: 88,
-  },
-  {
-    label: "0.5 mg (4 x doses of 0.5 mg)",
-    price: 98,
-  },
-  {
-    label: "1.0 mg (4 x doses of 1.0 mg)",
-    price: 109,
-  },
-  {
-    label: "1.7 mg (4 x doses of 1.7 mg)",
-    price: 164,
-  },
-  {
-    label: "2.4 mg (4 x doses of 2.4 mg)",
-    price: 198,
-  },
-];
 
 const items = [
   {
@@ -283,10 +261,16 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
   const [dosage, setDosage] = useState(0);
   const [open, setOpen] = useState(false);
   const [descOpen, setDescOpen] = useState(false);
-  const price = DOSAGES[dosage].price;
   const [isExpanded, setIsExpanded] = useState(false);
   const [active, setActive] = useState(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+
+  const wegovyHero =
+    data?.sections?.find((section) => section._type === "wegovyHero") || {};
+
+  const DOSAGES = wegovyHero?.dosages || [];
+
+  const price = DOSAGES[dosage].price;
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -316,6 +300,8 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
     globalSeo: seoSettings,
     canonical: `${meta_url}/weight-loss-treatments/wegovy/`,
   });
+
+  console.log(wegovyHero, "wegovyHero");
 
   return (
     <>
@@ -470,48 +456,23 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
           <div>
             {/* TITLE */}
             <h1 className="text-2xl sm:text-4xl font-bold mb-4">
-              Wegovy <span className="">(Semaglutide)</span>
+              {wegovyHero?.heading}
             </h1>
 
             {/* DESCRIPTION */}
             <div className="text-gray-600 para-font space-y-4 leading-relaxed">
               <ul className="list-disc pl-5 space-y-2">
-                <li>Once-a-week weight loss injection</li>
-                <li>Clinically validated for effective weight management</li>
-                <li>
-                  Approved for{" "}
-                  <a href="/weight-loss" className="text-[#4DB581]">
-                    weight loss
-                  </a>
-                </li>
-                <li>Produced by Novo Nordisk</li>
-                <li>Key ingredient: Semaglutide</li>
+                {wegovyHero?.featureItems?.map((item, i) => (
+                  <li key={i}>{item.text}</li>
+                ))}
               </ul>
-              <p>
-                Wegovy is a prescription-based treatment designed to support
-                weight loss. It contains semaglutide, which mimics a hormone
-                naturally produced by the body, helping to regulate hunger
-                signals and promote a sense of satiety. This makes it easier to
-                manage food intake, ultimately supporting weight reduction.
-              </p>
+              <PortableText value={wegovyHero?.description} />
 
               <div
                 style={{ display: descOpen ? "block" : "none" }}
                 className="space-y-4 text-gray-600 para-font"
               >
-                <p>
-                  When paired with a balanced diet and consistent physical
-                  activity, Wegovy weight loss pen works to enhance weight loss
-                  results. In addition to aiding weight loss, weight loss
-                  injection may also improve cardiovascular health. It helps
-                  reduce the risks of heart attacks and strokes, especially for
-                  individuals with existing heart conditions.
-                </p>
-
-                <p>
-                  Each Wegovy pen provides four weekly doses for convenient and
-                  consistent usage.
-                </p>
+                <PortableText value={wegovyHero?.readMoreContent} />
               </div>
 
               {/* ✅ Yeh button missing tha */}
@@ -532,11 +493,11 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
             {/* DOSAGES */}
             <div className="mt-6">
               <h3 className="med-font mb-1 text-md sm:text-xl sm:text-3xl">
-                Wegovy Dosage and Prices
+                {wegovyHero?.dosageHeading}
               </h3>
 
               <p className="text-gray-600 text-gray-600 para-font space-y-4 leading-relaxed mb-4">
-                One Wegovy pen contains four doses, so a pen lasts for 4 weeks.
+                {wegovyHero?.dosageText}
               </p>
 
               <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
@@ -549,7 +510,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
                   onClick={() => setOpen(!open)}
                   className="w-full border rounded-lg px-4 py-3 flex justify-between items-center bg-white"
                 >
-                  {DOSAGES[dosage].label}
+                  {DOSAGES[dosage]?.label}
                   <ChevronDown size={18} />
                 </button>
 
@@ -592,24 +553,20 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
 
             <div className="mt-6 bg-gray-100  rounded-xl p-5">
               <h3 className="text-xl sm:text-2xl font-reg mb-2">
-                Check if you're eligible
+                {wegovyHero?.eligibilityHeading}
               </h3>
 
               <p className="text-md text-gray-600 mb-4 para-font">
-                Wegovy (semaglutide) is privately prescribed at Online Weight
-                Loss Clinic following an online medical assessment and clinician
-                review. Simply complete our online consultation form. If you
-                meet the eligibility criteria, you may proceed with placing an
-                order for Wegovy weight loss injection pens.
+                {wegovyHero?.eligibilityText}
               </p>
-              <Link href="/start-consultation/?product_id=1">
+              <Link href={wegovyHero?.eligibilityButtonHref}>
                 <button
                   className="w-full bg-[#4caf82] text-sm sm:text-lg text-white py-3 rounded-lg semibold-font  hover:bg-[#3d9e6e] cursor-pointer"
                   // onClick={() => {
                   //   window.open("/start-consultation/?product_id=1", "_blank");
                   // }}
                 >
-                  Order Your Treatment
+                  {wegovyHero?.eligibilityButtonLabel}
                 </button>
               </Link>
             </div>
