@@ -44,24 +44,6 @@ export async function getStaticProps() {
   };
 }
 
-const items = [
-  {
-    title: "Free online consultation",
-    content:
-      "Start by completing our quick, free consultation form. Share your health details and background information so our clinicians can assess your suitability accurately.",
-  },
-  {
-    title: "Prescriber review and assessment",
-    content:
-      "Every online consultation is carefully reviewed by a UK licensed clinician who ensures the treatment is safe and appropriate for you.",
-  },
-  {
-    title: "Confidential and discreet delivery",
-    content:
-      "If you meet the eligibility criteria for the Mounjaro weight loss pen, the prescription medication is dispensed to you by our UK-registered clinic via tracked courier service.",
-  },
-];
-
 const wegovyFaqs = [
   {
     question: "How quickly will I see results with Wegovy?",
@@ -248,8 +230,6 @@ function FAQItem({ question, answer }) {
 
 export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
   const half = Math.ceil(wegovyFaqs.length / 2);
-  const leftCol = wegovyFaqs.slice(0, half);
-  const rightCol = wegovyFaqs.slice(half);
   const [dosage, setDosage] = useState(0);
   const [open, setOpen] = useState(false);
   const [descOpen, setDescOpen] = useState(false);
@@ -275,6 +255,13 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
 
   const wegovyCTA =
     data?.sections?.find((section) => section._type === "wegovyCTA") || {};
+
+  const wegovyFaq =
+    data?.sections?.find((section) => section._type === "wegovyFaq") || {};
+
+  const wegovyBottomCTA =
+    data?.sections?.find((section) => section._type === "wegovyBottomCTA") ||
+    {};
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -304,6 +291,14 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
     globalSeo: seoSettings,
     canonical: `${meta_url}/weight-loss-treatments/wegovy/`,
   });
+
+  const faqs = wegovyFaq?.faqs || [];
+
+  const middleIndex = Math.ceil(faqs.length / 2);
+
+  const leftCol = faqs.slice(0, middleIndex);
+
+  const rightCol = faqs.slice(middleIndex);
 
   return (
     <>
@@ -808,7 +803,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
       <div className="bg-white container mx-auto sm:px-6 py-4 sm:py-12">
         {/* Title */}
         <h4 className="text-2xl sm:text-4xl med-font text-gray-900 text-center mb-10">
-          Frequently Asked Questions for Wegovy Weight Loss
+          {wegovyFaq?.heading}
         </h4>
 
         {/* 2-column FAQ grid */}
@@ -835,23 +830,22 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
         <div className="relative z-10 container mx-auto  py-16 sm:py-24 md:py-36 cta-wrap">
           <div className="max-w-lg md:max-w-xl">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-              Take Next Step
+              {wegovyBottomCTA?.heading}
             </h2>
 
             <p className="text-white/80 text-sm sm:text-base reg-font mb-8 leading-relaxed para-font">
-              Let’s talk about how we can work together to make healthcare work
-              for all of us.
+              {wegovyBottomCTA?.paragraph}
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 cta-btn">
-              <Link href="/weight-loss/">
-                <NextButton label="View Treatments" />
+              <Link href={wegovyBottomCTA?.primaryButtonHref}>
+                <NextButton label={wegovyBottomCTA?.primaryButtonLabel} />
               </Link>
               <Link
-                href="/frequently-asked-questions"
+                href={wegovyBottomCTA?.secondaryButtonHref}
                 className="inline-flex items-center gap-2 border-2 border-white/70 hover:border-white text-white hover:bg-white/10 px-6 py-3 rounded-md text-sm md:text-base font-medium transition-all duration-200 group"
               >
-                More Questions
+                {wegovyBottomCTA?.secondaryButtonLabel}
               </Link>
             </div>
           </div>
