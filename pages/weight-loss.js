@@ -334,10 +334,10 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
             </div>
             <div className="relative w-full h-[260px] sm:h-[320px] rounded-2xl overflow-hidden md:hidden">
               <Image
-                src="/Images/manjaro-bg-mobile.jpg"
+                src="/Images/manjaro-bg-mobile.png"
                 alt="Person holding Mounjaro injection pen"
                 fill
-                className="object-cover object-center"
+                className="object-cover object-top"
                 priority
               />
             </div>

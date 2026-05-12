@@ -245,14 +245,6 @@ function FAQItem({ question, answer }) {
     </div>
   );
 }
-const IMAGES = [
-  "/Images/Slider2/image-20.png",
-  "/Images/Slider2/image-21.png",
-  // "/Images/Slider2/image-22.png",
-  "/Images/Slider2/image-23.png",
-  "/Images/Slider2/image-24.png",
-  "/Images/Slider2/image-25.png",
-];
 
 export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
   const half = Math.ceil(wegovyFaqs.length / 2);
@@ -271,6 +263,18 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
   const DOSAGES = wegovyHero?.dosages || [];
 
   const price = DOSAGES[dosage].price;
+
+  const IMAGES = wegovyHero?.productImages || [];
+
+  const wegovyJourney =
+    data?.sections?.find((section) => section._type === "wegovyJourney") || {};
+
+  const wegovyWeightLoss =
+    data?.sections?.find((section) => section._type === "wegovyWeightLoss") ||
+    {};
+
+  const wegovyCTA =
+    data?.sections?.find((section) => section._type === "wegovyCTA") || {};
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -301,8 +305,6 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
     canonical: `${meta_url}/weight-loss-treatments/wegovy/`,
   });
 
-  console.log(wegovyHero, "wegovyHero");
-
   return (
     <>
       <MetaLayout
@@ -329,10 +331,12 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
                     className="flex-[0_0_100%] flex items-center justify-center h-full relative"
                   >
                     <Image
-                      src={img}
+                      src={img.imageUrl}
                       width={1200}
                       height={900}
-                      alt={`product-${i}`}
+                      alt={
+                        img.imageAlt || wegovyHero?.heading || `product-${i}`
+                      }
                       className="w-full h-full object-contain transition-opacity duration-500"
                       priority={i === 0}
                     />
@@ -357,10 +361,10 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
                   }`}
                 >
                   <Image
-                    src={img}
+                    src={img.imageUrl}
                     width={200}
                     height={120}
-                    alt={`thumb-${i}`}
+                    alt={img.imageAlt || wegovyHero?.heading || `thumb-${i}`}
                     className="w-full h-[60px] sm:h-[80px] lg:h-[90px] object-cover"
                   />
                 </button>
@@ -371,10 +375,14 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
             <div className="mt-6 bg-[#e7eaf6] rounded-xl p-3 sm:p-5 sm:block hidden">
               <div className="flex items-center gap-3 sm:gap-4">
                 <Image
-                  src="/Images/dr-mihaela-c-mayfair.png"
+                  src={wegovyHero?.doctorImage?.asset?.url}
                   width={150}
                   height={150}
-                  alt="Doctor"
+                  alt={
+                    wegovyHero?.doctorImageAlt ||
+                    wegovyHero?.doctorName ||
+                    "Doctor"
+                  }
                   className="object-cover rounded-full w-[50px] h-[50px] sm:w-[80px] sm:h-[80px] shrink-0"
                 />
                 <div>
@@ -383,54 +391,42 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
                       Reviewed by:
                     </span>
                     <span className="font-semibold text-sm sm:text-base">
-                      Dr Mihaela C.
+                      {wegovyHero?.doctorName}
                     </span>
                     <BadgeCheck className="w-4 h-4 text-teal-500" />
                   </div>
                   <p className="text-xs text-gray-500">
                     GMC No.{" "}
                     <a
-                      href="https://www.gmc-uk.org/registrants/7099398"
+                      href={wegovyHero?.doctorGmcLink}
                       className="text-teal-600 hover:underline"
                       target="_blank"
                     >
-                      7099398
+                      {wegovyHero?.doctorGmc}
                     </a>
                   </p>
                 </div>
               </div>
 
               {/* Short text — sirf desktop pe hamesha visible */}
-              <p className="text-[13px] reg-font hidden sm:block  text-gray-600 leading-relaxed mt-3">
-                Dr Mihaela C. is a highly experienced General Practitioner
-                registered with the General Medical Council (GMC No.{" "}
-                <a
-                  href="https://www.gmc-uk.org/registrants/7099398"
-                  className="text-teal-600 hover:underline"
-                  target="_blank"
-                >
-                  7099398
-                </a>
-                ), with a strong background in both NHS and private healthcare
-                across the UK.
-              </p>
+              <p
+                className="text-[13px] reg-font hidden sm:block  text-gray-600 leading-relaxed mt-3"
+                dangerouslySetInnerHTML={{
+                  __html: wegovyHero?.doctorShortTextHTML || "",
+                }}
+              ></p>
 
               {/* Mobile: short text sirf Read more ke baad | Desktop: extended text */}
               <div style={{ display: isExpanded ? "block" : "none" }}>
                 {/* Mobile pe short text bhi yahan aayega */}
 
                 {/* Extended text — dono pe */}
-                <p className="text-[13px] reg-font text-gray-600 leading-relaxed mt-3">
-                  Her clinical expertise spans general medicine, occupational
-                  health, weight management, and medico-legal reporting. As part
-                  of her commitment to improving long-term health outcomes, Dr
-                  Mihaela offers medically supervised weight loss treatment
-                  designed to support patients in achieving sustainable, safe,
-                  and effective results. Her approach is rooted in clinical
-                  evidence and focuses on understanding each patient's unique
-                  medical profile, lifestyle, and goals to develop personalised
-                  care plans.
-                </p>
+                <p
+                  className="text-[13px] reg-font text-gray-600 leading-relaxed mt-3"
+                  dangerouslySetInnerHTML={{
+                    __html: wegovyHero?.doctorLongTextHTML || "",
+                  }}
+                ></p>
               </div>
 
               {/* Read more / Read less */}
@@ -447,7 +443,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
 
               {/* Last reviewed — hamesha visible */}
               <p className="text-xs text-gray-500 mt-3">
-                Last reviewed on: 30/03/2026
+                Last reviewed on: {wegovyHero?.lastReviewedDate}
               </p>
             </div>
           </div>
@@ -575,10 +571,14 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
           <div className="mt-6 bg-[#e7eaf6] rounded-xl p-3 sm:p-5 sm:hidden block">
             <div className="flex items-center gap-3 sm:gap-4">
               <Image
-                src="/Images/dr-mihaela-c-mayfair.png"
+                src={wegovyHero?.doctorImage?.asset?.url}
                 width={150}
                 height={150}
-                alt="Doctor"
+                alt={
+                  wegovyHero?.doctorImageAlt ||
+                  wegovyHero?.doctorName ||
+                  "Doctor"
+                }
                 className="object-cover rounded-full w-[50px] h-[50px] sm:w-[80px] sm:h-[80px] shrink-0"
               />
               <div>
@@ -587,53 +587,41 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
                     Reviewed by:
                   </span>
                   <span className="font-semibold text-sm sm:text-base">
-                    Dr Mihaela C.
+                    {wegovyHero?.doctorName}
                   </span>
                   <BadgeCheck className="w-4 h-4 text-teal-500" />
                 </div>
                 <p className="text-xs text-gray-500">
                   GMC No.{" "}
                   <a
-                    href="https://www.gmc-uk.org/registrants/7099398"
+                    href={wegovyHero?.doctorGmcLink}
                     className="text-teal-600 hover:underline"
                     target="_blank"
                   >
-                    7099398
+                    {wegovyHero?.doctorGmc}
                   </a>
                 </p>
               </div>
             </div>
 
-            <p className="sm:hidden block text-sm text-gray-600 leading-relaxed mt-3">
-              Dr Mihaela C. is a highly experienced General Practitioner
-              registered with the General Medical Council (GMC No.{" "}
-              <a
-                href="https://www.gmc-uk.org/registrants/7099398"
-                className="text-teal-600 hover:underline"
-                target="_blank"
-              >
-                7099398
-              </a>
-              ), with a strong background in both NHS and private healthcare
-              across the UK
-            </p>
+            <p
+              className="sm:hidden block text-sm text-gray-600 leading-relaxed mt-3"
+              dangerouslySetInnerHTML={{
+                __html: wegovyHero?.doctorShortTextHTML || "",
+              }}
+            />
 
             {/* Mobile: short text sirf Read more ke baad | Desktop: extended text */}
             <div style={{ display: isExpanded ? "block" : "none" }}>
               {/* Mobile pe short text bhi yahan aayega */}
 
               {/* Extended text — dono pe */}
-              <p className="text-sm text-gray-600 leading-relaxed mt-2">
-                Her clinical expertise spans general medicine, occupational
-                health, weight management, and medico-legal reporting. As part
-                of her commitment to improving long-term health outcomes, Dr
-                Mihaela offers medically supervised weight loss treatment
-                designed to support patients in achieving sustainable, safe, and
-                effective results. Her approach is rooted in clinical evidence
-                and focuses on understanding each patient’s unique medical
-                profile, lifestyle, and goals to develop personalised care
-                plans.
-              </p>
+              <p
+                className="text-sm text-gray-600 leading-relaxed mt-2"
+                dangerouslySetInnerHTML={{
+                  __html: wegovyHero?.doctorLongTextHTML || "",
+                }}
+              />
             </div>
 
             <button
@@ -660,14 +648,11 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
           {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-xl sm:text-3xl 2xl:text-4xl semibold-font text-gray-900">
-              Lose up to 15% body weight with Wegovy. Backed by clinical
-              studies.
+              {wegovyJourney?.heading}
             </h2>
 
             <p className="text-gray-600 para-font space-y-4 reg-font mb-2 mt-4">
-              Start your weight loss journey by completing a short consultation
-              to see if Wegovy (semaglutide) is right for you. Get the
-              prescription weight loss injection delivered discreetly to you.
+              {wegovyJourney?.paragraph}
             </p>
           </div>
 
@@ -696,11 +681,11 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
                     stroke-width="0.6"
                   ></path>
                 </svg>
-                Order Wegovy weight loss injection online
+                {wegovyJourney?.leftTitle}
               </h3>
 
               <div className="space-y-4">
-                {items.map((item, i) => (
+                {wegovyJourney?.journeyItems?.map((item, i) => (
                   <div
                     key={i}
                     className={`rounded-xl border transition ${
@@ -737,10 +722,14 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
             {/* RIGHT SIDE IMAGE */}
             <div className="flex justify-center">
               <Image
-                src="/Images/wegovyImg.png"
+                src={wegovyJourney?.sectionImage?.asset?.url}
                 width={1220}
                 height={520}
-                alt="Mounjaro Injection"
+                alt={
+                  wegovyJourney?.imageAlt ||
+                  wegovyJourney?.heading ||
+                  "Wegovy treatment image"
+                }
                 className="object-contain"
               />
             </div>
@@ -757,18 +746,21 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
           {/* RIGHT CARD */}
           <div className="bg-white rounded-2xl shadow-md p-8 max-w-xl">
             <h2 className="text-xl sm:text-3xl font-semibold text-gray-900 mb-4">
-              Lose up to 15% of your body weight
+              {wegovyWeightLoss?.heading}
             </h2>
 
-            <p className="para-font text-gray-600 leading-relaxed mb-4">
-              Wegovy treatment helps you effectively lose up to 15% of your body
-              weight, depending on how well you adhere to the treatment.
-            </p>
-
-            <p className="para-font text-gray-600 leading-relaxed mb-4">
-              Based on the results of a peer-reviewed clinical study of 2539
-              participants.
-            </p>
+            <div className="para-font text-gray-600 leading-relaxed mb-4">
+              <PortableText
+                value={wegovyWeightLoss?.content}
+                components={{
+                  block: {
+                    normal: ({ children }) => (
+                      <p className="mb-4">{children}</p>
+                    ),
+                  },
+                }}
+              />
+            </div>
 
             {/* <div className="bg-gray-100 rounded-lg p-4 text-sm text-gray-700 mb-4">
               [bmi_calculator inline title="How much weight could you lose with
@@ -785,22 +777,25 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
           {/* LEFT CONTENT */}
           <div className="max-w-xl py-4">
             <h2 className="text-2xl sm:text-5xl font-semibold text-gray-900 leading-tight mb-6 ">
-              Get started with Wegovy weight loss treatment today
+              {wegovyCTA?.heading}
             </h2>
 
             <p className="text-lg text-gray-700 leading-relaxed para-font">
-              Providing patients with safe, medically supervised access to
-              clinically-tested Wegovy weight loss injection.
+              {wegovyCTA?.paragraph}
             </p>
           </div>
 
           {/* RIGHT IMAGE */}
           <div className="relative flex justify-end">
             <Image
-              src="/Images/Wegovy.png"
+              src={wegovyCTA?.image?.asset?.url}
               width={500}
               height={600}
-              alt="Mounjaro pens"
+              alt={
+                wegovyCTA?.imageAlt ||
+                wegovyCTA?.heading ||
+                "Wegovy Wegovy pens"
+              }
               className="w-full max-w-[550px] object-contain"
             />
           </div>
