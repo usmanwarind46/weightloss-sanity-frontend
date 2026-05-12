@@ -865,7 +865,7 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
       </section>
 
       {/*  */}
-      <section className="w-full bg-white  py-0 pb-4 sm:py-16 injection-bg">
+      <section className="w-full bg-white  py-0 pb-4 sm:py-16 wegovyInjection-bg">
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
           {/* LEFT IMAGE */}
           <div className="w-full "></div>

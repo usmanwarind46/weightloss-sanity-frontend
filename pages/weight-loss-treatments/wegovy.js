@@ -270,7 +270,7 @@ function FAQItem({ question, answer }) {
 const IMAGES = [
   "/Images/Slider2/image-20.png",
   "/Images/Slider2/image-21.png",
-  "/Images/Slider2/image-22.png",
+  // "/Images/Slider2/image-22.png",
   "/Images/Slider2/image-23.png",
   "/Images/Slider2/image-24.png",
   "/Images/Slider2/image-25.png",
@@ -702,7 +702,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
         <div className="container mx-auto px-6">
           {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-xl sm:text-3xl 2xl:text-4xl semibold-font  text-gray-900">
+            <h2 className="text-xl sm:text-3xl 2xl:text-4xl semibold-font text-gray-900">
               Lose up to 15% body weight with Wegovy. Backed by clinical
               studies.
             </h2>
