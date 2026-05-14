@@ -42,6 +42,7 @@ export async function getStaticProps() {
 }
 
 const CellContent = ({ text, list }) => {
+  // cell content
   if (list?.length) {
     return (
       <ul className="text-left inline-block space-y-1">
