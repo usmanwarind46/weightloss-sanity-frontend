@@ -112,7 +112,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
 
                 {/* 🔥 AUTHOR + EXPERT */}
                 <div className="text-white text-sm flex flex-wrap gap-2 items-center mt-10">
-                  <span>Written by</span>
+                  {/* <span>Written by</span>
 
                   {data?.author?.hasProfilePage ? (
                     <Link
@@ -125,7 +125,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                     <span>{data?.author?.name}</span>
                   )}
 
-                  <span>|</span>
+                  <span>|</span> */}
 
                   <span>Reviewed by</span>
 
@@ -274,7 +274,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                         {value.products?.map((product, i) => (
                           <div
                             key={i}
-                            className="bg-gray-50 border border-gray-100 rounded-2xl p-6 md:p-8"
+                            className="bg-gray-50 border border-teal-600 rounded-2xl p-6 md:p-8 "
                           >
                             {/* Tag */}
                             {product.tagLine && (
@@ -390,7 +390,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                     </div>
                   ),
                   blogSingleProductCard: ({ value }) => (
-                    <div className="my-12 bg-gray-50 border border-gray-100 rounded-2xl p-6 md:p-8">
+                    <div className="my-12 bg-gray-50 border border-teal-600 rounded-2xl p-6 md:p-8">
                       <div className="grid lg:grid-cols-2 gap-10 items-center">
                         {/* LEFT CONTENT */}
                         <div className="order-2 lg:order-1">
@@ -460,6 +460,34 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                             />
                           )}
                         </div>
+                      </div>
+                    </div>
+                  ),
+                  blogKeyTakeaways: ({ value }) => (
+                    <div className="my-12 bg-gray-50 border border-[#dbe7f3] rounded-2xl p-6 md:p-8">
+                      <div className="emphasize-box-inr">
+                        {/* Heading */}
+                        {value.heading && (
+                          <h2 className="section-heading text-2xl font-bold text-gray-900 mb-6">
+                            {value.heading}
+                          </h2>
+                        )}
+
+                        {/* Bullet Points */}
+                        {value.items && (
+                          <ul className="space-y-4">
+                            {value.items.map((item, i) => (
+                              <li
+                                key={i}
+                                className="flex items-start gap-3 text-gray-700"
+                              >
+                                <span className="text-[#4565bf] mt-1">✔</span>
+
+                                <span className="leading-relaxed">{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                     </div>
                   ),

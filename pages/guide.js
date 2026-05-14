@@ -35,7 +35,7 @@ export async function getStaticProps() {
   };
 }
 
-const INITIAL_SHOW = 6;
+const INITIAL_SHOW = 30;
 const LOAD_MORE_COUNT = 3;
 
 const SkeletonCard = ({ i }) => (
