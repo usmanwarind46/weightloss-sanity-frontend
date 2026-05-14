@@ -12,11 +12,12 @@ import {
 import { generateSchema } from "../../lib/schemaGenerator";
 import { meta_url } from "../../config/constants";
 import MetaLayout from "../../Meta/MetaLayout";
+import Image from "next/image";
 
 // ✅ Paths
 export async function getStaticPaths() {
   const slugs =
-    await sanityClient.fetch(`     *[_type == "post" && defined(slug.current)][].slug.current
+    await sanityClient.fetch(`*[_type == "post" && defined(slug.current)][].slug.current
   `);
 
   return {
@@ -55,6 +56,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
     canonical: `${meta_url}/guide/${data?.slug?.current}`,
   });
 
+  console.log(data?.content, "data?.content");
   // console.log(data._type, "Data type");
 
   return (
@@ -164,287 +166,306 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
         </div>
 
         {/* ── CONTENT (STATIC FOR NOW) ── */}
-        <article className="container mx-auto px-6 py-14 editorial-body">
+        <article className="container mx-auto px-3 sm:px-6 py-14 editorial-body">
           <p className="text-md text-gray-600">
             {/* 🔥 NEXT STEP: WILL BE DYNAMIC */}
-            <article className="container mx-auto px-6 py-14 editorial-body">
-              <PortableText
-                value={data?.content}
-                components={{
-                  block: {
-                    normal: ({ children }) => (
-                      <p className="text-md text-gray-600 leading-relaxed mb-5 break-words">
-                        {children}
-                      </p>
-                    ),
+            <PortableText
+              value={data?.content}
+              components={{
+                block: {
+                  normal: ({ children }) => (
+                    <p className="text-md text-gray-600 leading-relaxed mb-5 break-words">
+                      {children}
+                    </p>
+                  ),
 
-                    h2: ({ children }) => (
-                      <h2 className="section-heading text-2xl font-bold text-gray-900 mb-5">
-                        {children}
-                      </h2>
-                    ),
+                  h2: ({ children }) => (
+                    <h2 className="section-heading text-2xl font-bold text-gray-900 mb-5">
+                      {children}
+                    </h2>
+                  ),
 
-                    h3: ({ children }) => (
-                      <h3 className="editorial-title text-xl font-bold text-gray-900 mb-5">
-                        {children}
-                      </h3>
-                    ),
-                  },
+                  h3: ({ children }) => (
+                    <h3 className="editorial-title text-xl font-bold text-gray-900 mb-5">
+                      {children}
+                    </h3>
+                  ),
+                },
 
-                  list: {
-                    bullet: ({ children }) => (
-                      <ul className="space-y-4 mb-8">{children}</ul>
-                    ),
-                  },
+                list: {
+                  bullet: ({ children }) => (
+                    <ul className="space-y-4 mb-8">{children}</ul>
+                  ),
+                },
 
-                  listItem: {
-                    bullet: ({ children }) => (
-                      <li className="blogs-dot items-start gap-3 text-gray-600 text-md marker:text-teal-600">
-                        <span className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span>
-                        {children}
-                      </li>
-                    ),
-                  },
+                listItem: {
+                  bullet: ({ children }) => (
+                    <li className="blogs-dot items-start gap-3 text-gray-600 text-md marker:text-teal-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span>
+                      {children}
+                    </li>
+                  ),
+                },
 
-                  marks: {
-                    link: ({ children, value }) => (
-                      <a
-                        href={value?.href}
-                        className="text-teal-600 hover:underline"
-                        target="_blank"
-                      >
-                        {children}
-                      </a>
-                    ),
-                  },
+                marks: {
+                  link: ({ children, value }) => (
+                    <a
+                      href={value?.href}
+                      className="text-teal-600 hover:underline"
+                      target="_blank"
+                    >
+                      {children}
+                    </a>
+                  ),
+                },
 
-                  types: {
-                    image: ({ value }) => (
-                      <img
-                        src={value?.asset?.url}
-                        className="w-full rounded-2xl mb-6"
-                      />
-                    ),
+                types: {
+                  image: ({ value }) => (
+                    <img
+                      src={value?.asset?.url}
+                      className="w-full rounded-2xl mb-6"
+                    />
+                  ),
 
-                    // 🔥 YOUR FIRST CUSTOM SECTION
-                    cardsGrid: ({ value }) => (
-                      <div className="my-12">
-                        {/* Heading */}
-                        {value.heading && (
-                          <h2 className="section-heading text-2xl font-bold text-gray-900 mb-4">
-                            {value.heading}
-                          </h2>
-                        )}
+                  // 🔥 YOUR FIRST CUSTOM SECTION
+                  cardsGrid: ({ value }) => (
+                    <div className="my-12">
+                      {/* Heading */}
+                      {value.heading && (
+                        <h2 className="section-heading text-2xl font-bold text-gray-900 mb-4">
+                          {value.heading}
+                        </h2>
+                      )}
 
-                        {/* Sub text */}
-                        {value.subText && (
-                          <p className="text-gray-600 mb-8">{value.subText}</p>
-                        )}
+                      {/* Sub text */}
+                      {value.subText && (
+                        <p className="text-gray-600 mb-8">{value.subText}</p>
+                      )}
 
-                        {/* Cards */}
-                        <div className="grid md:grid-cols-2 gap-6">
-                          {value.cards?.map((card, i) => (
-                            <div
-                              key={i}
-                              className="bg-gray-50 rounded-2xl p-6 border border-gray-100"
-                            >
-                              <h3 className="font-semibold text-gray-900 mb-2">
-                                {card.title}
-                              </h3>
-                              <p className="text-gray-600 text-sm">
-                                {card.description}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    ),
-                    productComparison: ({ value }) => (
-                      <div className="my-12">
-                        {/* Heading */}
-                        {value.heading && (
-                          <h2 className="section-heading text-2xl font-bold text-gray-900 mb-8">
-                            {value.heading}
-                          </h2>
-                        )}
-
-                        {/* Cards */}
-                        <div className="grid md:grid-cols-2 gap-6">
-                          {value.products?.map((product, i) => (
-                            <div
-                              key={i}
-                              className="bg-gray-50 border border-gray-100 rounded-2xl p-6 md:p-8"
-                            >
-                              {/* Tag */}
-                              {product.tagLine && (
-                                <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-1 editorial-body">
-                                  {product.tagLine}
-                                </p>
-                              )}
-
-                              {/* Title */}
-                              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                                {product.title}
-                              </h3>
-
-                              {/* Description */}
-                              <p className="text-gray-600 mb-5">
-                                {product.description}
-                              </p>
-
-                              {/* Features */}
-                              <ul className="space-y-3 mb-6">
-                                {product.features?.map((item, j) => (
-                                  <li
-                                    key={j}
-                                    className="flex items-start gap-3 text-gray-600"
-                                  >
-                                    <span className="text-teal-500">✔</span>
-                                    {item}
-                                  </li>
-                                ))}
-                              </ul>
-
-                              {/* Button */}
-                              {product.buttonText && (
-                                <a
-                                  href={product.buttonLink || "#"}
-                                  className="inline-block text-sm font-semibold text-white px-6 py-3 rounded-lg editorial-body"
-                                  style={{
-                                    background:
-                                      "linear-gradient(135deg, #3dbfa0, #4b6bc1)",
-                                  }}
-                                >
-                                  {product.buttonText}
-                                </a>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    ),
-                    blogAddQuote: ({ value }) => (
-                      <div className="my-12">
-                        <div className="border-t border-gray-200 pt-8">
-                          <p className="text-lg md:text-xl text-gray-700 italic leading-relaxed max-w-3xl">
-                            “{value.text}”
-                          </p>
-                        </div>
-                      </div>
-                    ),
-                    blogReferences: ({ value }) => (
-                      <div className="bg-gray-50 rounded-2xl p-6 my-6">
-                        {/* Heading */}
-                        {value.heading && (
-                          <h2 className="section-heading text-2xl font-bold text-gray-900 mb-6">
-                            {value.heading}
-                          </h2>
-                        )}
-
-                        {/* Links */}
-                        <ul className="space-y-2 text-sm text-gray-400 leading-relaxed">
-                          {value.links?.map((item, i) => (
-                            <li key={i}>
-                              <a
-                                href={item.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-teal-600 hover:underline break-all"
-                              >
-                                {item.url}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ),
-                    blogRoutineCards: ({ value }) => (
-                      <div className="my-12">
-                        {/* Heading */}
-                        {value.heading && (
-                          <h2 className="section-heading text-2xl font-bold text-gray-900 mb-8">
-                            {value.heading}
-                          </h2>
-                        )}
-
-                        {/* Cards */}
-                        <div className="grid md:grid-cols-3 gap-6">
-                          {value.items?.map((item, i) => (
-                            <div
-                              key={i}
-                              className="bg-gray-50 border border-gray-100 rounded-2xl p-6"
-                            >
-                              {/* Title */}
-                              <h3 className="font-semibold text-gray-900 mb-2">
-                                {item.title}
-                              </h3>
-
-                              {/* Description */}
-                              <p className="text-gray-600 text-sm leading-relaxed">
-                                {item.description}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    ),
-                    blogSingleProductCard: ({ value }) => (
-                      <div className="my-12 bg-gray-50 border border-gray-100 rounded-2xl p-6 md:p-8">
-                        {/* Tag */}
-                        {value.tagLine && (
-                          <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-1 editorial-body">
-                            {value.tagLine}
-                          </p>
-                        )}
-
-                        {/* Title */}
-                        {value.title && (
-                          <h2 className="text-2xl font-bold text-gray-900 mb-3">
-                            {value.title}
-                          </h2>
-                        )}
-
-                        {/* Description */}
-                        {value.description && (
-                          <p className="text-gray-600 mb-5 max-w-2xl">
-                            {value.description}
-                          </p>
-                        )}
-
-                        {/* Features */}
-                        {value.features && (
-                          <ul className="space-y-3 mb-6">
-                            {value.features.map((item, i) => (
-                              <li
-                                key={i}
-                                className="flex items-start gap-3 text-gray-600"
-                              >
-                                <span className="text-teal-500">✔</span>
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-
-                        {/* Button */}
-                        {value.buttonText && (
-                          <a
-                            href={value.buttonLink || "#"}
-                            className="inline-block text-sm font-semibold text-white px-6 py-3 rounded-lg editorial-body"
-                            style={{
-                              background:
-                                "linear-gradient(135deg, #3dbfa0, #4b6bc1)",
-                            }}
+                      {/* Cards */}
+                      <div className="grid md:grid-cols-2 gap-6">
+                        {value.cards?.map((card, i) => (
+                          <div
+                            key={i}
+                            className="bg-gray-50 rounded-2xl p-6 border border-gray-100"
                           >
-                            {value.buttonText}
-                          </a>
-                        )}
+                            <h3 className="font-semibold text-gray-900 mb-2">
+                              {card.title}
+                            </h3>
+                            <p className="text-gray-600 text-sm">
+                              {card.description}
+                            </p>
+                          </div>
+                        ))}
                       </div>
-                    ),
-                  },
-                }}
-              />
-            </article>
+                    </div>
+                  ),
+                  productComparison: ({ value }) => (
+                    <div className="my-12">
+                      {/* Heading */}
+                      {value.heading && (
+                        <h2 className="section-heading text-2xl font-bold text-gray-900 mb-8">
+                          {value.heading}
+                        </h2>
+                      )}
+
+                      {/* Cards */}
+                      <div className="grid md:grid-cols-2 gap-6">
+                        {value.products?.map((product, i) => (
+                          <div
+                            key={i}
+                            className="bg-gray-50 border border-gray-100 rounded-2xl p-6 md:p-8"
+                          >
+                            {/* Tag */}
+                            {product.tagLine && (
+                              <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-1 editorial-body">
+                                {product.tagLine}
+                              </p>
+                            )}
+
+                            {/* Title */}
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">
+                              {product.title}
+                            </h3>
+
+                            {/* Description */}
+                            <p className="text-gray-600 mb-5">
+                              {product.description}
+                            </p>
+
+                            {/* Features */}
+                            <ul className="space-y-3 mb-6">
+                              {product.features?.map((item, j) => (
+                                <li
+                                  key={j}
+                                  className="flex items-start gap-3 text-gray-600"
+                                >
+                                  <span className="text-teal-500">✔</span>
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+
+                            {/* Button */}
+                            {product.buttonText && (
+                              <a
+                                href={product.buttonLink || "#"}
+                                className="inline-block text-sm font-semibold text-white px-6 py-3 rounded-lg editorial-body"
+                                style={{
+                                  background:
+                                    "linear-gradient(135deg, #3dbfa0, #4b6bc1)",
+                                }}
+                              >
+                                {product.buttonText}
+                              </a>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ),
+                  blogAddQuote: ({ value }) => (
+                    <div className="my-12">
+                      <div className="border-t border-gray-200 pt-8">
+                        <p className="text-lg md:text-xl text-gray-700 italic leading-relaxed max-w-3xl">
+                          “{value.text}”
+                        </p>
+                      </div>
+                    </div>
+                  ),
+                  blogReferences: ({ value }) => (
+                    <div className="bg-gray-50 rounded-2xl p-6 my-6">
+                      {/* Heading */}
+                      {value.heading && (
+                        <h2 className="section-heading text-2xl font-bold text-gray-900 mb-6">
+                          {value.heading}
+                        </h2>
+                      )}
+
+                      {/* Links */}
+                      <ul className="space-y-2 text-sm text-gray-400 leading-relaxed">
+                        {value.links?.map((item, i) => (
+                          <li key={i}>
+                            <a
+                              href={item.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-teal-600 hover:underline break-all"
+                            >
+                              {item.url}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ),
+                  blogRoutineCards: ({ value }) => (
+                    <div className="my-12">
+                      {/* Heading */}
+                      {value.heading && (
+                        <h2 className="section-heading text-2xl font-bold text-gray-900 mb-8">
+                          {value.heading}
+                        </h2>
+                      )}
+
+                      {/* Cards */}
+                      <div className="grid md:grid-cols-3 gap-6">
+                        {value.items?.map((item, i) => (
+                          <div
+                            key={i}
+                            className="bg-gray-50 border border-gray-100 rounded-2xl p-6"
+                          >
+                            {/* Title */}
+                            <h3 className="font-semibold text-gray-900 mb-2">
+                              {item.title}
+                            </h3>
+
+                            {/* Description */}
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                              {item.description}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ),
+                  blogSingleProductCard: ({ value }) => (
+                    <div className="my-12 bg-gray-50 border border-gray-100 rounded-2xl p-6 md:p-8">
+                      <div className="grid lg:grid-cols-2 gap-10 items-center">
+                        {/* LEFT CONTENT */}
+                        <div className="order-2 lg:order-1">
+                          {/* Tag */}
+                          {value.tagLine && (
+                            <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-1 editorial-body">
+                              {value.tagLine}
+                            </p>
+                          )}
+
+                          {/* Title */}
+                          {value.title && (
+                            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                              {value.title}
+                            </h2>
+                          )}
+
+                          {/* Description */}
+                          {value.description && (
+                            <p className="text-gray-600 mb-5 max-w-2xl">
+                              {value.description}
+                            </p>
+                          )}
+
+                          {/* Features */}
+                          {value.features && (
+                            <ul className="space-y-3 mb-6">
+                              {value.features.map((item, i) => (
+                                <li
+                                  key={i}
+                                  className="flex items-start gap-3 text-gray-600"
+                                >
+                                  <span className="text-teal-500">✔</span>
+
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+
+                          {/* Button */}
+                          {value.buttonText && (
+                            <a
+                              href={value.buttonLink || "#"}
+                              className="inline-block text-sm font-semibold text-white px-6 py-3 rounded-lg editorial-body"
+                              style={{
+                                background:
+                                  "linear-gradient(135deg, #3dbfa0, #4b6bc1)",
+                              }}
+                            >
+                              {value.buttonText}
+                            </a>
+                          )}
+                        </div>
+
+                        {/* RIGHT IMAGE */}
+                        <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+                          {value?.imageUrl && (
+                            <Image
+                              src={value.imageUrl}
+                              width={200}
+                              height={200}
+                              alt={
+                                value.imageAlt || value.title || "Product image"
+                              }
+                              className="w-full max-w-[420px] object-contain"
+                            />
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ),
+                },
+              }}
+            />
           </p>
         </article>
       </div>
