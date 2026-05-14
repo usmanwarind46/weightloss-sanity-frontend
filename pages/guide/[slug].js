@@ -55,7 +55,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
     canonical: `${meta_url}/guide/${data?.slug?.current}`,
   });
 
-  console.log(data._type, "Data type");
+  // console.log(data._type, "Data type");
 
   return (
     <>
@@ -173,7 +173,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                 components={{
                   block: {
                     normal: ({ children }) => (
-                      <p className="text-md text-gray-600 leading-relaxed mb-5">
+                      <p className="text-md text-gray-600 leading-relaxed mb-5 break-words">
                         {children}
                       </p>
                     ),
@@ -199,7 +199,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
 
                   listItem: {
                     bullet: ({ children }) => (
-                      <li className="flex items-start gap-3 text-gray-600 text-md">
+                      <li className="blogs-dot items-start gap-3 text-gray-600 text-md marker:text-teal-600">
                         <span className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></span>
                         {children}
                       </li>

@@ -498,6 +498,9 @@ body {
 .faq-content strong {
   font-weight: 600;
 }
+.blogs-dot {
+  list-style: disc;
+}
 
 /* ============================== Landing page css end =============================== */
 
