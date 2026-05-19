@@ -113,6 +113,11 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
     data?.sections?.find((section) => section._type === "wegovyBottomCTA") ||
     {};
 
+  const mounjaroTabsSection =
+    data?.sections?.find(
+      (section) => section._type === "mounjaroTabsSection",
+    ) || {};
+
   const DOSAGES = mounjaroHero?.dosages || [];
 
   const IMAGES = mounjaroHero?.productImages || [];
@@ -655,7 +660,7 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
 
       {/*  */}
 
-      <ManjaroTableContent />
+      <ManjaroTableContent data={mounjaroTabsSection} />
 
       <div className="bg-white container mx-auto sm:px-6 py-6 sm:py-12">
         {/* Title */}
