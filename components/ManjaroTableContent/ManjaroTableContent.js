@@ -153,7 +153,7 @@ const ManjaroTableContent = ({ data }) => {
               >
                 {/* SECTION TITLE */}
                 <div className="bg-blue-200 p-2 rounded-md">
-                  <h2 className="text-xl sm:text-xl sm:text-3xl font-bold text-black text-center">
+                  <h2 className="text-xl sm:text-3xl font-bold text-black text-center">
                     {section.label}
                   </h2>
                 </div>
