@@ -300,6 +300,10 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
 
   const rightCol = faqs.slice(middleIndex);
 
+  const wegovyTabsSection =
+    data?.sections?.find((section) => section._type === "wegovyTabsSection") ||
+    {};
+
   return (
     <>
       <MetaLayout
@@ -799,7 +803,8 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
 
       {/*  */}
 
-      <WegovyTableContent />
+      <WegovyTableContent data={wegovyTabsSection} />
+
       <div className="bg-white container mx-auto sm:px-6 py-4 sm:py-12">
         {/* Title */}
         <h4 className="text-2xl sm:text-4xl med-font text-gray-900 text-center mb-10">

@@ -578,9 +578,12 @@ body {
   list-style: disc;
 }
 
+.mounjaro-content ol li {
+  list-style: none;
+}
+
 .mounjaro-content a {
   color: #14b8a6;
-  text-decoration: underline;
 }
 
 .mounjaro-content img {
