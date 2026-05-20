@@ -69,69 +69,55 @@ const WegovyTableContent = ({ data }) => {
   };
 
   return (
-    <section className="mt-2 py-10 md:py-14 md:px-12.5 bg-white rounded">
+    <section className="mt-2 py-7 sm:py-15  bg-white rounded">
       <div className="mx-auto container">
         <div className="flex flex-col md:flex-row gap-6">
-          {/* SIDEBAR */}
           <div
-            className={`flex flex-col gap-2 self-start flex-1 w-full md:sticky md:top-32 ${
-              isOpen ? "sticky top-0 z-50" : ""
-            }`}
+            className={`flex flex-col gap-2 self-start flex-1 w-full md:sticky md:top-32 ${isOpen ? "sticky top-0 z-50" : ""}`}
           >
             <div className="flex flex-col w-full border border-gray-300 rounded-tl-lg rounded-tr-lg overflow-hidden">
-              {/* HEADER */}
+              {/* Header - always visible */}
               <div className="bg-[#c7d9f5] py-4 px-4 w-full flex items-center justify-between">
                 <h3 className="text-[#1a2e4a] text-xl font-semibold">
                   Table of Content
                 </h3>
-
+                {/* Hamburger button - only on mobile */}
                 <button
                   className="md:hidden flex flex-col gap-1.5 p-1"
                   onClick={() => setIsOpen((prev) => !prev)}
                   aria-label="Toggle Table of Contents"
                 >
                   <span
-                    className={`block w-5 h-0.5 bg-[#1a2e4a] transition-all duration-300 ${
-                      isOpen ? "rotate-45 translate-y-2" : ""
-                    }`}
+                    className={`block w-5 h-0.5 bg-[#1a2e4a] transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2" : ""}`}
                   />
-
                   <span
-                    className={`block w-5 h-0.5 bg-[#1a2e4a] transition-all duration-300 ${
-                      isOpen ? "opacity-0" : ""
-                    }`}
+                    className={`block w-5 h-0.5 bg-[#1a2e4a] transition-all duration-300 ${isOpen ? "opacity-0" : ""}`}
                   />
-
                   <span
-                    className={`block w-5 h-0.5 bg-[#1a2e4a] transition-all duration-300 ${
-                      isOpen ? "-rotate-45 -translate-y-2" : ""
-                    }`}
+                    className={`block w-5 h-0.5 bg-[#1a2e4a] transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}
                   />
                 </button>
               </div>
 
               {/* TABS */}
               <ul
-                className={`flex flex-col md:flex ${
-                  isOpen ? "flex" : "hidden"
-                }`}
+                className={`flex flex-col md:flex ${isOpen ? "flex" : "hidden"}`}
               >
                 {sections.map(({ id, label }) => {
                   const isActive = activeId === id;
-
                   return (
                     <li key={id}>
                       <button
                         onClick={() => {
                           handleClick(id);
-                          setIsOpen(false);
+                          setIsOpen(false); // close on mobile after click
                         }}
                         className={`w-full text-left px-4 py-3 text-lg border-b border-gray-200 transition-all duration-200 cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis block
-                        ${
-                          isActive
-                            ? "bg-[#d4f0e8] text-[#1a3c30] med-font"
-                            : "bg-white text-[#333] hover:bg-gray-50 reg-font"
-                        }`}
+                ${
+                  isActive
+                    ? "bg-[#d4f0e8] text-[#1a3c30] med-font"
+                    : "bg-white text-[#333] hover:bg-gray-50 reg-font"
+                }`}
                       >
                         {label}
                       </button>
@@ -143,16 +129,16 @@ const WegovyTableContent = ({ data }) => {
           </div>
 
           {/* CONTENT */}
-          <div className="flex flex-col gap-5 items-start flex-[1.8] w-full">
+          <div className="flex flex-col gap-5 items-start flex-[1.8]">
             {sections.map((section, index) => (
               <div
                 key={section.id || index}
                 id={section.id}
-                className={`flex flex-col gap-5 pb-5 px-1 scroll-mt-34 w-full ${
-                  index !== sections.length - 1
-                    ? "border-b border-gray-300"
-                    : ""
-                }`}
+                className={`w-full flex flex-col gap-5 ${
+                  index === sections.length - 1
+                    ? "pb-5"
+                    : "border-b border-gray-300 pb-5"
+                } px-1 scroll-mt-34`}
               >
                 {/* HEADING */}
                 <div className="bg-blue-200 p-2 rounded-md">
