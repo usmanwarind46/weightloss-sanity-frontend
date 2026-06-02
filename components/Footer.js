@@ -371,7 +371,7 @@ export function Footer({ data }) {
             {/* Trust signal */}
             <div className="flex items-center gap-2 text-xs text-gray-500 shrink-0 footer-bottom-size">
               <Shield size={16} className="text-teal-600 shrink-0" />
-              <span>GPhC &amp; MHRA Registered</span>
+              <span>GPhC &amp; MHRA - Registered</span>
             </div>
           </div>
         </div>
