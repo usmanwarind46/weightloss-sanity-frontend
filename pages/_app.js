@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Toaster position="top-center" />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 }
