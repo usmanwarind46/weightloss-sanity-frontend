@@ -66,7 +66,7 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
 
   const autoSchemas = generateSchema({
     globalSeo: seoSettings,
-    canonical: `${meta_url}/weight-loss/`,
+    canonical: `${meta_url}/weight-loss-treatments/`,
   });
 
   const heroSection = data?.sections?.find((s) => s._type === "weightLossHero");
@@ -99,7 +99,7 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/weight-loss/`}
+        canonical={`${meta_url}/weight-loss-treatments/`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />

@@ -243,7 +243,7 @@ const AuthorDetails = ({ data, seoSettings, siteSettings }) => {
             weight loss starts here
           </h2>
 
-          <Link href={"/weight-loss"} className="inline-block">
+          <Link href={"/weight-loss-treatments"} className="inline-block">
             <NextButton label={"Start Treatment"} />
           </Link>
         </div>
