@@ -309,7 +309,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/weight-loss-treatments/wegovy/`}
+        canonical={`${meta_url}/weight-loss-treatments/wegovy`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />

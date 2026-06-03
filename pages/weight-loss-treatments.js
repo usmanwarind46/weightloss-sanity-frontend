@@ -99,7 +99,7 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/weight-loss-treatments/`}
+        canonical={`${meta_url}/weight-loss-treatments`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />

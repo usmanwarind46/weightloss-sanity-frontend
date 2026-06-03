@@ -46,7 +46,7 @@ export default function ShippingPolicy({ seoSettings, data, siteSettings }) {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/shipping-policy/`}
+        canonical={`${meta_url}/shipping-policy`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />

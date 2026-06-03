@@ -46,7 +46,7 @@ const PrivacyPolicy = ({ seoSettings, data, siteSettings }) => {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/privacy-policy/`}
+        canonical={`${meta_url}/privacy-policy`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />

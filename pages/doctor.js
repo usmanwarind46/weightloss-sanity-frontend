@@ -29,7 +29,7 @@ const DoctorDetails = ({ seoSettings, siteSettings }) => {
     <>
       <MetaLayout
         globalSeo={seoSettings}
-        canonical={`${meta_url}/doctor/`}
+        canonical={`${meta_url}/doctor`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />

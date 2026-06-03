@@ -46,7 +46,7 @@ const OffLabelPrescribing = ({ seoSettings, data, siteSettings }) => {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/off-label-prescribing/`}
+        canonical={`${meta_url}/off-label-prescribing`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />

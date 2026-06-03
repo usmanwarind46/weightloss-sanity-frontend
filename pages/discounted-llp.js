@@ -40,7 +40,7 @@ export default function Home({ siteSettings }) {
       <MetaLayout
         title="Weight Loss Treatments UK -  Online Weight Loss Clinic"
         description="Explore effective weight loss treatments at our UK-based clinic. Offering Mounjaro & Wegovy for safe and sustainable weight management. Start your journey today."
-        canonical={`${meta_url}/`}
+        canonical={`${meta_url}`}
       />
       <div className="min-h-screen bg-white">
         <Header data={siteSettings} />
