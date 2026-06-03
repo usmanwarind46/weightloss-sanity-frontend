@@ -833,7 +833,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/10" />
 
         <div className="relative z-10 container mx-auto  py-16 sm:py-24 md:py-36 cta-wrap">
-          <div className="max-w-lg md:max-w-xl">
+          <div className="max-w-lg md:max-w-lg">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
               {wegovyBottomCTA?.heading}
             </h2>
