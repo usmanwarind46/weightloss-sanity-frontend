@@ -19,6 +19,8 @@ export async function getServerSideProps({ res }) {
 
   const baseUrl = seo?.siteUrl || process.env.NEXT_PUBLIC_SITE_URL;
 
+  const normalizedBaseUrl = baseUrl.replace(/\/$/, "");
+
   // ─────────────────────────────
   // 🔹 FILTER NOINDEX PAGES
   // ─────────────────────────────
@@ -45,7 +47,7 @@ export async function getServerSideProps({ res }) {
 
       if (page.slug === "home") {
         path = "";
-      } else if (page.slug == "weight-loss") {
+      } else if (page.slug === "weight-loss") {
         path = "weight-loss-treatments";
       } else if (["mounjaro", "wegovy"].includes(page.slug)) {
         path = `weight-loss-treatments/${page.slug}`;
@@ -53,9 +55,15 @@ export async function getServerSideProps({ res }) {
         path = page.slug;
       }
 
+      // ✅ homepage = /
+      // ✅ other pages = /page/
+      const finalUrl = path
+        ? `${normalizedBaseUrl}/${path}/`
+        : `${normalizedBaseUrl}/`;
+
       return `
         <url>
-          <loc>${baseUrl}/${path}/</loc>
+          <loc>${finalUrl}</loc>
           <lastmod>${page._updatedAt}</lastmod>
           <changefreq>weekly</changefreq>
           <priority>0.7</priority>
@@ -69,9 +77,17 @@ export async function getServerSideProps({ res }) {
   // ─────────────────────────────
   const customRoutes = (seo?.sitemapCustomRoutes || [])
     .map((route) => {
+      // ✅ make sure custom route starts with /
+      const cleanRoute = route.startsWith("/") ? route : `/${route}`;
+
+      // ✅ make sure custom route ends with /
+      const finalRoute = cleanRoute.endsWith("/")
+        ? cleanRoute
+        : `${cleanRoute}/`;
+
       return `
         <url>
-          <loc>${baseUrl}${route}</loc>
+          <loc>${normalizedBaseUrl}${finalRoute}</loc>
           <changefreq>weekly</changefreq>
           <priority>0.8</priority>
         </url>
