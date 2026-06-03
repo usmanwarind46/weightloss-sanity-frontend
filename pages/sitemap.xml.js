@@ -45,6 +45,8 @@ export async function getServerSideProps({ res }) {
 
       if (page.slug === "home") {
         path = "";
+      } else if (page.slug == "weight-loss") {
+        path = "weight-loss-treatments";
       } else if (["mounjaro", "wegovy"].includes(page.slug)) {
         path = `weight-loss-treatments/${page.slug}`;
       } else {
