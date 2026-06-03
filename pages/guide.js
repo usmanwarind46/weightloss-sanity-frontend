@@ -14,6 +14,7 @@ import {
   SITE_SETTINGS_QUERY,
   BLOGS_QUERY,
   CATEGORIES_QUERY,
+  PAGE_QUERY,
 } from "../lib/sanityQueries";
 import { generateSchema } from "../lib/schemaGenerator";
 import { sanityClient } from "../lib/sanity";
@@ -24,14 +25,19 @@ export async function getStaticProps() {
   const blogs = await sanityClient.fetch(BLOGS_QUERY);
   const categories = await sanityClient.fetch(CATEGORIES_QUERY);
 
+  const data = await sanityClient.fetch(PAGE_QUERY, {
+    slug: "guide",
+  });
+
   return {
     props: {
       seoSettings,
       siteSettings,
       blogs,
       categories,
+      data,
     },
-    revalidate: 60,
+    revalidate: 1,
   };
 }
 
@@ -111,6 +117,7 @@ export default function GuidesSection({
   siteSettings,
   blogs,
   categories,
+  data,
 }) {
   const [active, setActive] = useState("All");
   const [loadingMore, setLoadingMore] = useState(false);
@@ -160,6 +167,7 @@ export default function GuidesSection({
   return (
     <>
       <MetaLayout
+        seo={data?.seo}
         globalSeo={seoSettings}
         canonical={`${meta_url}/guide/`}
         autoSchemas={autoSchemas}
