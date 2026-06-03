@@ -72,6 +72,28 @@ export async function getServerSideProps({ res }) {
     })
     .join("");
 
+  const postUrls = posts
+    .filter((post) => {
+      if (seo?.defaultNoIndex === true) return false;
+      if (post?.seo?.noIndex === true) return false;
+      if (!post.slug) return false;
+
+      return true;
+    })
+    .map((post) => {
+      const finalUrl = `${normalizedBaseUrl}/guide/${post.slug}/`;
+
+      return `
+      <url>
+        <loc>${finalUrl}</loc>
+        <lastmod>${post._updatedAt}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+      </url>
+    `;
+    })
+    .join("");
+
   // ─────────────────────────────
   // 🔹 CUSTOM ROUTES FROM SANITY
   // ─────────────────────────────
@@ -101,6 +123,7 @@ export async function getServerSideProps({ res }) {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${pageUrls}
+    ${postUrls}
     ${customRoutes}
   </urlset>`;
 
