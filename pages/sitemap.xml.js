@@ -55,7 +55,7 @@ export async function getServerSideProps({ res }) {
 
       return `
         <url>
-          <loc>${baseUrl}/${path}</loc>
+          <loc>${baseUrl}/${path}/</loc>
           <lastmod>${page._updatedAt}</lastmod>
           <changefreq>weekly</changefreq>
           <priority>0.7</priority>
