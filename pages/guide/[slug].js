@@ -73,7 +73,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
         <div className="relative h-[60vh] min-h-[420px] overflow-hidden">
           <img
             src={data?.image}
-            alt={data?.title}
+            alt={data.imageAlt || data.title}
             className="w-full h-full object-cover"
           />
 
@@ -224,6 +224,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                   image: ({ value }) => (
                     <img
                       src={value?.asset?.url}
+                      alt={value?.alt || ""}
                       className="w-full rounded-2xl mb-6"
                     />
                   ),
