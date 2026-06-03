@@ -169,7 +169,7 @@ export default function GuidesSection({
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/guide/`}
+        canonical={`${meta_url}/guide`}
         autoSchemas={autoSchemas}
       />{" "}
       <Header data={siteSettings} />

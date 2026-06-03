@@ -109,7 +109,7 @@ export default function FAQPage({ seoSettings, data, siteSettings }) {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/frequently-asked-questions/`}
+        canonical={`${meta_url}/frequently-asked-questions`}
         autoSchemas={autoSchemas}
       />
 

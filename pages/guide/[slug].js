@@ -64,7 +64,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/guide/${data?.slug?.current}/`}
+        canonical={`${meta_url}/guide/${data?.slug?.current}`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />

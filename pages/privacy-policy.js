@@ -38,7 +38,7 @@ const PrivacyPolicy = ({ seoSettings, data, siteSettings }) => {
   const autoSchemas = generateSchema({
     data,
     globalSeo: seoSettings,
-    canonical: `${meta_url}/privacy-policy/`,
+    canonical: `${meta_url}/privacy-policy`,
   });
 
   return (

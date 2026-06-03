@@ -38,7 +38,7 @@ const OffLabelPrescribing = ({ seoSettings, data, siteSettings }) => {
   const autoSchemas = generateSchema({
     data,
     globalSeo: seoSettings,
-    canonical: `${meta_url}/off-label-prescribing/`,
+    canonical: `${meta_url}/off-label-prescribing`,
   });
 
   return (

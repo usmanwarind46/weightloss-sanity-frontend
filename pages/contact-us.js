@@ -96,7 +96,7 @@ export default function ContactUs({ seoSettings, data, siteSettings }) {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/contact-us/`}
+        canonical={`${meta_url}/contact-us`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />

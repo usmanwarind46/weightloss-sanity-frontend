@@ -165,7 +165,7 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/weight-loss-treatments/mounjaro/`}
+        canonical={`${meta_url}/weight-loss-treatments/mounjaro`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />

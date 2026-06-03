@@ -289,7 +289,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
 
   const autoSchemas = generateSchema({
     globalSeo: seoSettings,
-    canonical: `${meta_url}/weight-loss-treatments/wegovy/`,
+    canonical: `${meta_url}/weight-loss-treatments/wegovy`,
   });
 
   const faqs = wegovyFaq?.faqs || [];

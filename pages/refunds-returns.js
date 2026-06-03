@@ -46,7 +46,7 @@ export default function RefundsReturns({ seoSettings, data, siteSettings }) {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/refunds-returns/`}
+        canonical={`${meta_url}/refunds-returns`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />

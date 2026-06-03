@@ -46,7 +46,7 @@ export default function Complaints({ seoSettings, data, siteSettings }) {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/complaints/`}
+        canonical={`${meta_url}/complaints`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />

@@ -362,7 +362,7 @@ function AboutClinic({ seoSettings, data, siteSettings }) {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/about-clinic/`}
+        canonical={`${meta_url}/about-clinic`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />

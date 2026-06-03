@@ -66,7 +66,7 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
 
   const autoSchemas = generateSchema({
     globalSeo: seoSettings,
-    canonical: `${meta_url}/weight-loss-treatments/`,
+    canonical: `${meta_url}/weight-loss-treatments`,
   });
 
   const heroSection = data?.sections?.find((s) => s._type === "weightLossHero");

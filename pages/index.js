@@ -80,7 +80,7 @@ export default function Home({ seoSettings, data, siteSettings }) {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/`}
+        canonical={`${meta_url}`}
         autoSchemas={autoSchemas}
       />
       <div className="min-h-screen bg-white">

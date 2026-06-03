@@ -46,7 +46,7 @@ export default function TermsConditions({ seoSettings, data, siteSettings }) {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/terms-conditions/`}
+        canonical={`${meta_url}/terms-conditions`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />

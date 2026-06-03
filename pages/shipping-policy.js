@@ -38,7 +38,7 @@ export default function ShippingPolicy({ seoSettings, data, siteSettings }) {
   const autoSchemas = generateSchema({
     data,
     globalSeo: seoSettings,
-    canonical: `${meta_url}/shipping-policy/`,
+    canonical: `${meta_url}/shipping-policy`,
   });
 
   return (
