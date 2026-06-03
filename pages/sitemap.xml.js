@@ -66,7 +66,7 @@ export async function getServerSideProps({ res }) {
           <loc>${finalUrl}</loc>
           <lastmod>${page._updatedAt}</lastmod>
           <changefreq>weekly</changefreq>
-          <priority>0.7</priority>
+          <priority>1.0</priority>
         </url>
       `;
     })
@@ -89,7 +89,7 @@ export async function getServerSideProps({ res }) {
         <url>
           <loc>${normalizedBaseUrl}${finalRoute}</loc>
           <changefreq>weekly</changefreq>
-          <priority>0.8</priority>
+          <priority>1.0</priority>
         </url>
       `;
     })
