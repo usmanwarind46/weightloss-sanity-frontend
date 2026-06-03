@@ -15,9 +15,22 @@ export async function getServerSideProps({ res }) {
     }
   `);
 
+  const posts = await sanityClient.fetch(`
+    *[_type == "post"]{
+      "slug": slug.current,
+      seo {
+        noIndex
+      },
+      _updatedAt
+    }
+  `);
+
   const seo = await sanityClient.fetch(SEO_QUERY);
 
-  const baseUrl = seo?.siteUrl || process.env.NEXT_PUBLIC_SITE_URL;
+  const baseUrl =
+    seo?.siteUrl ||
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://onlineweightlossclinic.co.uk";
 
   const normalizedBaseUrl = baseUrl.replace(/\/$/, "");
 
