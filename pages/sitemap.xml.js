@@ -30,7 +30,7 @@ export async function getServerSideProps({ res }) {
   const baseUrl =
     seo?.siteUrl ||
     process.env.NEXT_PUBLIC_SITE_URL ||
-    "https://onlineweightlossclinic.co.uk";
+    "https://www.onlineweightlossclinic.co.uk";
 
   const normalizedBaseUrl = baseUrl.replace(/\/$/, "");
 
