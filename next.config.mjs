@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
-  trailingSlash: true,
+  trailingSlash: false,
   images: {
     unoptimized: true,
   },

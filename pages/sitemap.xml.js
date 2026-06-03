@@ -71,7 +71,7 @@ export async function getServerSideProps({ res }) {
       // ✅ homepage = /
       // ✅ other pages = /page/
       const finalUrl = path
-        ? `${normalizedBaseUrl}/${path}/`
+        ? `${normalizedBaseUrl}/${path}`
         : `${normalizedBaseUrl}/`;
 
       return `
@@ -94,7 +94,7 @@ export async function getServerSideProps({ res }) {
       return true;
     })
     .map((post) => {
-      const finalUrl = `${normalizedBaseUrl}/guide/${post.slug}/`;
+      const finalUrl = `${normalizedBaseUrl}/guide/${post.slug}`;
 
       return `
       <url>
@@ -115,14 +115,9 @@ export async function getServerSideProps({ res }) {
       // ✅ make sure custom route starts with /
       const cleanRoute = route.startsWith("/") ? route : `/${route}`;
 
-      // ✅ make sure custom route ends with /
-      const finalRoute = cleanRoute.endsWith("/")
-        ? cleanRoute
-        : `${cleanRoute}/`;
-
       return `
         <url>
-          <loc>${normalizedBaseUrl}${finalRoute}</loc>
+          <loc>${normalizedBaseUrl}${cleanRoute}</loc>
           <changefreq>weekly</changefreq>
           <priority>1.0</priority>
         </url>
