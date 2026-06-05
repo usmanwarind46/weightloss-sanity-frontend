@@ -493,6 +493,63 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                       </div>
                     </div>
                   ),
+                  blogTable: ({ value }) => (
+                    <div className="my-10 overflow-x-auto rounded-2xl border border-gray-200">
+                      <table className="w-full min-w-[700px] border-separate border-spacing-0">
+                        <thead>
+                          <tr className="bg-blue-50">
+                            {value?.headers?.map((header, i) => (
+                              <th
+                                key={i}
+                                className="border-r border-b border-gray-200 px-5 py-4 text-left font-semibold text-gray-900 last:border-r-0"
+                              >
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          {value?.rows?.map((row, i) => {
+                            const isLast = i === value.rows.length - 1;
+
+                            return (
+                              <tr
+                                key={i}
+                                className={
+                                  i % 2 === 1 ? "bg-gray-50" : "bg-white"
+                                }
+                              >
+                                <td
+                                  className={`border-r border-gray-200 px-5 py-4 text-gray-700 align-top ${
+                                    !isLast ? "border-b" : ""
+                                  }`}
+                                >
+                                  {row.column1}
+                                </td>
+
+                                <td
+                                  className={`border-r border-gray-200 px-5 py-4 text-gray-700 align-top ${
+                                    !isLast ? "border-b" : ""
+                                  }`}
+                                >
+                                  {row.column2}
+                                </td>
+
+                                <td
+                                  className={`px-5 py-4 text-gray-700 align-top ${
+                                    !isLast ? "border-b border-gray-200" : ""
+                                  }`}
+                                >
+                                  {row.column3}
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  ),
                 },
               }}
             />
