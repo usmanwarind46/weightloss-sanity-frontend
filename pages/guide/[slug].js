@@ -167,7 +167,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
         </div>
 
         {/* ── CONTENT (STATIC FOR NOW) ── */}
-        <article className="container mx-auto px-3 sm:px-6 py-14 editorial-body">
+        <article className="container mx-auto px-3 sm:px-6 py-14 editorial-body blogs-content">
           <p className="text-md text-gray-600">
             {/* 🔥 NEXT STEP: WILL BE DYNAMIC */}
             <PortableText

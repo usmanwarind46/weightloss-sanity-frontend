@@ -19,6 +19,13 @@
   }
 }
 
+.blogs-content ol {
+  list-style: decimal;
+}
+.blogs-content ol li {
+  margin-bottom: 14px;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
