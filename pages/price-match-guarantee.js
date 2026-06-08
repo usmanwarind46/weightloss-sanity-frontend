@@ -38,7 +38,7 @@ export default function PriceMatchSection({ seoSettings, data, siteSettings }) {
   const autoSchemas = generateSchema({
     data,
     globalSeo: seoSettings,
-    canonical: `${meta_url}/shipping-policy`,
+    canonical: `${meta_url}/price-match-quarantee`,
   });
 
   return (
@@ -46,7 +46,7 @@ export default function PriceMatchSection({ seoSettings, data, siteSettings }) {
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/shipping-policy`}
+        canonical={`${meta_url}/price-match-quarantee`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />
