@@ -112,13 +112,13 @@ function RelatedPostsSlider({ posts }) {
           </div>
         </div>
 
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-5">
+        <div className="overflow-hidden -ml-5" ref={emblaRef}>
+          <div className="flex">
             {posts.map((post) => (
               <Link
                 key={post._id}
                 href={`/guide/${post.slug?.current || post.slug}`}
-                className="group flex-[0_0_100%] sm:flex-[0_0_calc(50%-10px)] lg:flex-[0_0_calc(33.333%-14px)] block"
+                className="group flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] block pl-5"
               >
                 <div className="relative w-full h-[200px] sm:h-[220px] rounded-2xl overflow-hidden bg-gray-100 mb-4">
                   <Image
