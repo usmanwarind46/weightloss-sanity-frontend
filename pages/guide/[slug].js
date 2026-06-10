@@ -3,7 +3,6 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { sanityClient } from "../../lib/sanity";
 import { PortableText } from "@portabletext/react";
-import { portableTextComponents } from "../../lib/portableTextComponents";
 import {
   SINGLE_BLOG_QUERY,
   SEO_QUERY,
@@ -13,6 +12,10 @@ import { generateSchema } from "../../lib/schemaGenerator";
 import { meta_url } from "../../config/constants";
 import MetaLayout from "../../Meta/MetaLayout";
 import Image from "next/image";
+import useEmblaCarousel from "embla-carousel-react";
+import AutoScroll from "embla-carousel-auto-scroll";
+import { useCallback, useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // ✅ Paths
 export async function getStaticPaths() {
@@ -47,6 +50,109 @@ export async function getStaticProps({ params }) {
   };
 }
 
+function RelatedPostsSlider({ posts }) {
+  const autoScrollPlugin = useRef(
+    AutoScroll({
+      speed: 1.2,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    }),
+  );
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start", slidesToScroll: 1 },
+    [autoScrollPlugin.current],
+  );
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) {
+      autoScrollPlugin.current.stop();
+      emblaApi.scrollPrev();
+      setTimeout(() => autoScrollPlugin.current.play(), 1500);
+    }
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) {
+      autoScrollPlugin.current.stop();
+      emblaApi.scrollNext();
+      setTimeout(() => autoScrollPlugin.current.play(), 1500);
+    }
+  }, [emblaApi]);
+
+  const categoryLabel = posts[0]?.categories?.[0]?.title || "Related";
+
+  return (
+    <section className="mt-16 border-t border-gray-100 pt-12 pb-12 bg-white">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <p className="text-xs uppercase tracking-widest text-[#4DB581] font-semibold mb-1">
+              {categoryLabel}
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              Related Articles
+            </h2>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={scrollPrev}
+              aria-label="Previous"
+              className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition-colors cursor-pointer"
+            >
+              <ChevronLeft size={18} className="text-gray-600" />
+            </button>
+            <button
+              onClick={scrollNext}
+              aria-label="Next"
+              className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition-colors cursor-pointer"
+            >
+              <ChevronRight size={18} className="text-gray-600" />
+            </button>
+          </div>
+        </div>
+
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex gap-5">
+            {posts.map((post) => (
+              <Link
+                key={post._id}
+                href={`/guide/${post.slug?.current || post.slug}`}
+                className="group flex-[0_0_100%] sm:flex-[0_0_calc(50%-10px)] lg:flex-[0_0_calc(33.333%-14px)] block"
+              >
+                <div className="relative w-full h-[200px] sm:h-[220px] rounded-2xl overflow-hidden bg-gray-100 mb-4">
+                  <Image
+                    src={post.image || "/Images/placeholder.jpg"}
+                    alt={post.imageAlt || post.title || "Related article"}
+                    fill
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+
+                {post.categories?.[0]?.title && (
+                  <span className="inline-block text-xs uppercase tracking-wide text-[#4DB581] font-semibold mb-2">
+                    {post.categories[0].title}
+                  </span>
+                )}
+
+                <h3 className="text-base font-semibold text-gray-900 leading-snug group-hover:text-[#4DB581] transition-colors line-clamp-2 mb-2">
+                  {post.title}
+                </h3>
+
+                {post.excerpt && (
+                  <p className="text-sm text-gray-500 leading-relaxed line-clamp-2">
+                    {post.excerpt}
+                  </p>
+                )}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function BlogPage({ data, seoSettings, siteSettings }) {
   console.log(data, "blog data");
 
@@ -57,6 +163,9 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
   });
 
   console.log(data?.content, "data?.content");
+
+  const relatedPosts = data?.relatedPosts || [];
+
   // console.log(data._type, "Data type");
 
   return (
@@ -68,7 +177,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />
-      <div className="bg-white">
+      <div className="bg-white mb-15">
         {/* ── HERO ── */}
         <div className="relative h-[60vh] min-h-[420px] overflow-hidden">
           <img
@@ -555,6 +664,13 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
             />
           </p>
         </article>
+
+        {relatedPosts.length > 0 && (
+          <RelatedPostsSlider
+            posts={relatedPosts}
+            categoryLabel={data?.categories?.[0]?.title || "Related"}
+          />
+        )}
       </div>
       <Footer data={siteSettings} />
     </>
