@@ -236,7 +236,7 @@ export default function WegovyLandingPage({ seoSettings, data, siteSettings }) {
         canonical={`${meta_url}/wegovy-tablet-2`}
         autoSchemas={autoSchemas}
       />
-      <main className="min-h-screen overflow-hidden bg-[#F8FAFF] text-[#102A69]">
+      <main className="min-h-screen overflow-hidden bg-[#F8FAFF] text-[#102A69] smooth-scroll">
         {/* <header className="sticky top-0 z-50 border-b border-[#EEF4FF] bg-white/90 backdrop-blur-2xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <a href="#" className="flex items-center gap-3">
