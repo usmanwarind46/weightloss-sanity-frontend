@@ -19,6 +19,44 @@
   }
 }
 
+.purple-gradient {
+  background:
+    radial-gradient(
+      circle at 14% 16%,
+      rgba(255, 255, 255, 0.32) 0%,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 78% 20%,
+      rgba(217, 227, 255, 0.28) 0%,
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 55% 105%,
+      rgba(65, 162, 126, 0.2) 0%,
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      #b9c8ff 0%,
+      #6377dc 28%,
+      #4b5fc0 52%,
+      #1d3f93 74%,
+      #102a69 100%
+    );
+}
+.soft-shadow {
+  box-shadow: 0 28px 90px rgba(70, 25, 158, 0.16);
+}
+
+.card-shadow {
+  box-shadow: 0 20px 60px rgba(75, 35, 185, 0.09);
+}
+
+.input-shadow {
+  box-shadow: 0 10px 30px rgba(89, 27, 214, 0.05);
+}
+
 .blogs-content ol {
   list-style: decimal;
 }
