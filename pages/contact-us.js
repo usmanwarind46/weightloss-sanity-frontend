@@ -46,6 +46,66 @@ export default function ContactUs({ seoSettings, data, siteSettings }) {
     (s) => s._type === "contactInfoSection",
   );
 
+  // ─────────────────────────────────────────────────────────────────────
+  // CustomerLabs — fire a "Lead" event after a successful contact submit.
+  // Follows the documented format: customProperties + typed { t, v } values,
+  // user_traits / external_ids objects, and identify_by_email (ib: true).
+  // Safe: no-ops on the server or if the _cl script hasn't loaded.
+  // ─────────────────────────────────────────────────────────────────────
+  const trackCustomerLabsContactLead = (formValues) => {
+    if (typeof window === "undefined" || !window._cl) {
+      console.log("CustomerLabs: _cl not loaded — event skipped");
+      return;
+    }
+
+    const firstName = formValues?.firstName || "";
+    const lastName = formValues?.lastName || "";
+    const email = formValues?.email || "";
+    const phone = formValues?.phone || "";
+
+    // Need at least one identifier to tie the lead to a profile.
+    if (!email && !phone) return;
+
+    const userTraits = {
+      first_name: { t: "string", v: firstName },
+      last_name: { t: "string", v: lastName },
+    };
+    if (email) userTraits.email = { t: "string", v: email };
+    if (phone) userTraits.phone = { t: "string", v: String(phone) };
+
+    const properties = {
+      customProperties: {
+        form_name: { t: "string", v: "Contact Form" },
+        form_id: { t: "string", v: "contact_us_form" },
+        page_url: { t: "string", v: window.location.href },
+        user_traits: { t: "Object", v: userTraits },
+      },
+    };
+
+    if (phone) {
+      properties.customProperties.external_ids = {
+        t: "Object",
+        v: {
+          identify_by_phone: { t: "string", v: String(phone) },
+        },
+      };
+    }
+
+    if (email) {
+      properties.customProperties.identify_by_email = {
+        t: "string",
+        v: email,
+        ib: true,
+      };
+    }
+
+    // Trigger the event, then identify the user.
+    window._cl.trackClick("Lead", properties);
+    if (email || phone) {
+      window._cl.identify(properties);
+    }
+  };
+
   const onSubmit = async (data) => {
     // const loadingToast = toast.loading("Sending message...");
 
@@ -75,6 +135,10 @@ export default function ContactUs({ seoSettings, data, siteSettings }) {
 
       if (res.ok) {
         toast.success("Message sent successfully");
+
+        // CustomerLabs Lead event — only on successful submission
+        trackCustomerLabsContactLead(data);
+
         reset();
       } else {
         toast.error("Failed to send message");
