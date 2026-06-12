@@ -100,9 +100,26 @@ export default function ContactUs({ seoSettings, data, siteSettings }) {
     }
 
     // Trigger the event, then identify the user.
-    window._cl.trackClick("Lead", properties);
-    if (email || phone) {
+    console.log("CustomerLabs _cl object:", window._cl);
+    console.log(
+      "CustomerLabs trackClick exists:",
+      typeof window._cl.trackClick,
+    );
+    console.log("CustomerLabs identify exists:", typeof window._cl.identify);
+    console.log("CustomerLabs Lead event payload:", properties);
+
+    try {
+      window._cl.trackSubmit("Lead", properties);
+      console.log("CustomerLabs Lead trackClick called");
+    } catch (err) {
+      console.error("CustomerLabs Lead trackClick error:", err);
+    }
+
+    try {
       window._cl.identify(properties);
+      console.log("CustomerLabs identify called");
+    } catch (err) {
+      console.error("CustomerLabs identify error:", err);
     }
   };
 
