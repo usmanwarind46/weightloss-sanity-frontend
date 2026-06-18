@@ -497,7 +497,7 @@ export default function MounjaroProduct({
             {/* DESCRIPTION */}
             <div className="text-gray-600 para-font space-y-4 leading-relaxed">
               <ul className="list-disc pl-5 space-y-2">
-                {wegovyHero?.featureItems?.map((item, i) => (
+                {mounjaroHero?.featureItems?.map((item, i) => (
                   <li key={i}>{item.text}</li>
                 ))}
               </ul>
