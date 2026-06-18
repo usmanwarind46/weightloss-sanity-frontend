@@ -533,7 +533,7 @@ export default function MounjaroProduct({
               </p>
 
               <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
-                In Stock Dosages
+                Dosages
               </label>
 
               {/* DROPDOWN */}
@@ -694,7 +694,23 @@ export default function MounjaroProduct({
             </h2>
 
             <p className="text-gray-600 para-font space-y-4 reg-font mb-2 mt-4">
-              {mounjaroJourney?.paragraph}
+              <PortableText
+                value={mounjaroJourney?.paragraph}
+                components={{
+                  marks: {
+                    link: ({ value, children }) => (
+                      <a
+                        href={value?.href}
+                        target={value?.blank ? "_blank" : "_self"}
+                        rel={value?.blank ? "noopener noreferrer" : undefined}
+                        className="text-teal-600 underline hover:text-teal-800"
+                      >
+                        {children}
+                      </a>
+                    ),
+                  },
+                }}
+              />
             </p>
           </div>
 
@@ -825,6 +841,19 @@ export default function MounjaroProduct({
             <p className="text-lg text-gray-700 leading-relaxed para-font">
               {mounjaroCTA?.paragraph}
             </p>
+
+            {mounjaroCTA?.scrollButtonLabel && (
+              <a
+                href="#waitlist-form"
+                className="mt-6 inline-block w-full sm:w-auto"
+              >
+                <NextButton
+                  label={mounjaroCTA?.scrollButtonLabel}
+                  type="button"
+                  props="w-full"
+                />
+              </a>
+            )}
           </div>
 
           {/* RIGHT IMAGE */}

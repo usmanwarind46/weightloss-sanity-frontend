@@ -510,7 +510,23 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
             </h2>
 
             <p className="text-gray-600 para-font space-y-4 reg-font mb-2 mt-4">
-              {mounjaroJourney?.paragraph}
+              <PortableText
+                value={mounjaroJourney?.paragraph}
+                components={{
+                  marks: {
+                    link: ({ value, children }) => (
+                      <a
+                        href={value?.href}
+                        target={value?.blank ? "_blank" : "_self"}
+                        rel={value?.blank ? "noopener noreferrer" : undefined}
+                        className="text-teal-600 underline hover:text-teal-800"
+                      >
+                        {children}
+                      </a>
+                    ),
+                  },
+                }}
+              />
             </p>
           </div>
 
