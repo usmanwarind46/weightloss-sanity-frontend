@@ -524,11 +524,11 @@ export default function MounjaroProduct({
 
             {/* DOSAGES */}
             <div className="mt-6">
-              {/* <h3 className="med-font mb-1 text-md sm:text-xl sm:text-3xl">
+              <h3 className="med-font mb-1 text-md sm:text-xl sm:text-3xl">
                 {mounjaroHero?.dosageHeading}
               </h3>
 
-              <p className="text-gray-600 para-font space-y-4 leading-relaxed mb-4">
+              {/* <p className="text-gray-600 para-font space-y-4 leading-relaxed mb-4">
                 {mounjaroHero?.dosageText}
               </p> */}
 
