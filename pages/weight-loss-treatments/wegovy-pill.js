@@ -594,7 +594,7 @@ export default function MounjaroProduct({
             </div>
 
             {/* CONSULTATION */}
-            <div className="mt-6 bg-gray-100  rounded-xl p-5">
+            {/* <div className="mt-6 bg-gray-100  rounded-xl p-5">
               <h3 className="text-xl sm:text-2xl font-reg mb-2">
                 {mounjaroHero?.eligibilityHeading}
               </h3>
@@ -612,7 +612,7 @@ export default function MounjaroProduct({
                   {mounjaroHero?.eligibilityButtonLabel}
                 </button>
               </Link>
-            </div>
+            </div> */}
           </div>
 
           <div className="mt-6 bg-[#e7eaf6] rounded-xl p-3 sm:p-5 sm:hidden block">
