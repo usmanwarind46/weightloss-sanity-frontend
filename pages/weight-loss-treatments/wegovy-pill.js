@@ -528,16 +528,16 @@ export default function MounjaroProduct({
                 {mounjaroHero?.dosageHeading}
               </h3>
 
-              {/* <p className="text-gray-600 para-font space-y-4 leading-relaxed mb-4">
+              <p className="text-gray-600 para-font space-y-4 leading-relaxed mb-4">
                 {mounjaroHero?.dosageText}
-              </p> */}
+              </p>
 
-              {/* <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
+              <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
                 In Stock Dosages
-              </label> */}
+              </label>
 
               {/* DROPDOWN */}
-              {/* <div className="relative mt-2">
+              <div className="relative mt-2">
                 <button
                   onClick={() => setOpen(!open)}
                   className="w-full border rounded-lg px-4 py-3 flex justify-between items-center bg-white cursor-pointer"
@@ -562,7 +562,7 @@ export default function MounjaroProduct({
                     ))}
                   </div>
                 )}
-              </div> */}
+              </div>
             </div>
 
             {/* QUANTITY */}
