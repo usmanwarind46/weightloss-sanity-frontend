@@ -498,7 +498,30 @@ export default function MounjaroProduct({
             <div className="text-gray-600 para-font space-y-4 leading-relaxed">
               <ul className="list-disc pl-5 space-y-2">
                 {mounjaroHero?.featureItems?.map((item, i) => (
-                  <li key={i}>{item.text}</li>
+                  <li key={i}>
+                    <PortableText
+                      value={item.text}
+                      components={{
+                        marks: {
+                          link: ({ value, children }) => (
+                            <a
+                              href={value?.href}
+                              target={value?.blank ? "_blank" : "_self"}
+                              rel={
+                                value?.blank ? "noopener noreferrer" : undefined
+                              }
+                              className="text-teal-600 underline hover:text-teal-800"
+                            >
+                              {children}
+                            </a>
+                          ),
+                        },
+                        block: {
+                          normal: ({ children }) => <span>{children}</span>,
+                        },
+                      }}
+                    />
+                  </li>
                 ))}
               </ul>
               {/* Pehla paragraph — hamesha visible */}
