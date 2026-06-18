@@ -14,8 +14,6 @@ export function Header({ data }) {
 
   const pathname = usePathname();
 
-  console.log(data, "LLP Header Data");
-
   // ✅ CMS DATAaa
   const navLinks = data?.navLinks || [];
   const logoUrl = data?.logo?.asset?.url;

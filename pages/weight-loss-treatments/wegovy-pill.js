@@ -84,7 +84,187 @@ function FAQItem({ question, answerHTML }) {
   );
 }
 
-export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
+function WaitlistForm({ dark = false }) {
+  const [state, setState] = useState("idle");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    const e = {};
+
+    if (!name.trim()) e.name = "Please enter your name";
+
+    if (!email.trim()) {
+      e.email = "Please enter your email";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      e.email = "Enter a valid email";
+    }
+
+    return e;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // important: stop double click / repeated submit
+    if (state === "loading") return;
+
+    const errs = validate();
+
+    if (Object.keys(errs).length) {
+      setErrors(errs);
+      return;
+    }
+
+    setErrors({});
+    setState("loading");
+
+    try {
+      // replace this with your real API later
+      await new Promise((resolve) => setTimeout(resolve, 1800));
+
+      setState("success");
+    } catch (error) {
+      console.error("Waitlist submit failed:", error);
+      setState("idle");
+      setErrors({
+        form: "Something went wrong. Please try again.",
+      });
+    }
+  };
+
+  if (state === "success") {
+    return (
+      <div className={`wlt-state ${dark ? "on-dark" : ""}`}>
+        <div className="wlt-check">
+          <svg viewBox="0 0 52 52" fill="none">
+            <circle cx="26" cy="26" r="25" stroke="#4DB581" strokeWidth="2" />
+            <path
+              d="M14 26l8 8 16-16"
+              stroke="#4DB581"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+
+        <h3 className="wlt-state-title">You're on the list</h3>
+
+        <p className="wlt-state-body">
+          We'll email you the moment Wegovy tablets are authorised in the UK —
+          you'll be first in line.
+        </p>
+      </div>
+    );
+  }
+
+  if (state === "loading") {
+    return (
+      <div className={`wlt-state ${dark ? "on-dark" : ""}`}>
+        <div className="wlt-spinner">
+          <svg viewBox="0 0 50 50">
+            <circle
+              cx="25"
+              cy="25"
+              r="20"
+              fill="none"
+              stroke="rgba(77,181,129,.18)"
+              strokeWidth="4"
+            />
+            <circle
+              cx="25"
+              cy="25"
+              r="20"
+              fill="none"
+              stroke="#4DB581"
+              strokeWidth="4"
+              strokeDasharray="80 45"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
+
+        <p className="wlt-state-body">Securing your spot…</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="wlt-form" noValidate>
+      <div className="wlt-field">
+        <label htmlFor={`waitlist-name-${dark ? "dark" : "light"}`}>
+          Full name
+        </label>
+
+        <input
+          id={`waitlist-name-${dark ? "dark" : "light"}`}
+          type="text"
+          placeholder="Jane Smith"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+            setErrors((p) => ({ ...p, name: "", form: "" }));
+          }}
+          className={errors.name ? "wlt-input err" : "wlt-input"}
+        />
+
+        {errors.name && <span className="wlt-err">{errors.name}</span>}
+      </div>
+
+      <div className="wlt-field">
+        <label htmlFor={`waitlist-email-${dark ? "dark" : "light"}`}>
+          Email address
+        </label>
+
+        <input
+          id={`waitlist-email-${dark ? "dark" : "light"}`}
+          type="email"
+          placeholder="jane@example.com"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setErrors((p) => ({ ...p, email: "", form: "" }));
+          }}
+          className={errors.email ? "wlt-input err" : "wlt-input"}
+        />
+
+        {errors.email && <span className="wlt-err">{errors.email}</span>}
+      </div>
+
+      {errors.form && <span className="wlt-err">{errors.form}</span>}
+
+      <button
+        type="submit"
+        className="wlt-submit"
+        disabled={state === "loading"}
+      >
+        Join the waitlist
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path
+            d="M3 8h10M9 4l4 4-4 4"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+
+      <p className="wlt-fineprint">
+        No spam. We only email you when tablets reach the UK.
+      </p>
+    </form>
+  );
+}
+
+export default function MounjaroProduct({
+  data,
+  seoSettings,
+  siteSettings,
+  dark = false,
+}) {
   const [dosage, setDosage] = useState(0);
   const [open, setOpen] = useState(false);
   const [descOpen, setDescOpen] = useState(false);
@@ -352,12 +532,12 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
                 {mounjaroHero?.dosageText}
               </p>
 
-              <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
+              {/* <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
                 In Stock Dosages
-              </label>
+              </label> */}
 
               {/* DROPDOWN */}
-              <div className="relative mt-2">
+              {/* <div className="relative mt-2">
                 <button
                   onClick={() => setOpen(!open)}
                   className="w-full border rounded-lg px-4 py-3 flex justify-between items-center bg-white cursor-pointer"
@@ -382,7 +562,7 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
                     ))}
                   </div>
                 )}
-              </div>
+              </div> */}
             </div>
 
             {/* QUANTITY */}
@@ -397,11 +577,15 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
             </div> */}
 
             {/* PRICE */}
-            <div className="mt-4 bg-[#d4efe1] rounded-lg p-4 max-w-full sm:max-w-52">
+            {/* <div className="mt-4 bg-[#d4efe1] rounded-lg p-4 max-w-full sm:max-w-52">
               <p className="text-lg text-black med-font">Price for 1 Month:</p>
               <p className="text-xl sm:text-3xl font-bold text-blue-600">
                 £{price}.00
               </p>
+            </div> */}
+
+            <div className="wlt-hero-form mt-6">
+              <WaitlistForm />
             </div>
 
             {/* CONSULTATION */}
@@ -529,14 +713,14 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
                   <path
                     d="M13.9546 13.8904C10.3359 13.8904 4.64941 13.274 4.64941 18.0261C4.64941 25.7804 23.2598 17.5091 23.2598 25.7804C23.2598 30.9499 15.5055 29.916 5.68332 29.916"
                     stroke="#212E53"
-                    stroke-width="1.6"
-                    stroke-linecap="round"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
                   ></path>
                   <path
                     d="M27.0015 6.16427L17.716 2.02873C17.6412 2.00161 17.5613 1.99353 17.4828 2.00517C17.4044 2.01682 17.3298 2.04785 17.2653 2.09567C17.2007 2.1435 17.1481 2.20672 17.1118 2.28006C17.0755 2.3534 17.0566 2.43473 17.0566 2.51724V13.89C17.0566 14.0271 17.1089 14.1586 17.202 14.2555C17.2951 14.3525 17.4213 14.4069 17.5529 14.4069C17.6845 14.4069 17.8107 14.3525 17.9038 14.2555C17.9968 14.1586 18.0491 14.0271 18.0491 13.89V11.156L27.0015 7.14129C27.099 7.10614 27.1836 7.0402 27.2434 6.95264C27.3033 6.86508 27.3354 6.76027 27.3354 6.65278C27.3354 6.5453 27.3033 6.44048 27.2434 6.35293C27.1836 6.26537 27.099 6.19943 27.0015 6.16427ZM18.0491 10.0614V3.24419L26.0517 6.6526L18.0491 10.0614Z"
                     fill="#4DB581"
                     stroke="#4DB581"
-                    stroke-width="0.6"
+                    strokeWidth="0.6"
                   ></path>
                 </svg>
                 {mounjaroJourney?.leftTitle}

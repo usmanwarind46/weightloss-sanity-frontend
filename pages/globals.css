@@ -9,6 +9,23 @@ html {
   scroll-behavior: smooth;
 }
 
+.wlt {
+  --green: #4caf8#3d9e7a #3d9e7a;
+  --green-l: #eaf6f0;
+  --green-mid: #bfe5d2;
+  --ink: #2b5344;
+  --ink-soft: #585858;
+  --cream: #f8f6f1;
+  --sage: #eef3ee;
+  --line: #e6e3da;
+  --white: #fff;
+  --d-heading: "GraphikRegular", sans-serif;
+  --d-hero: "GraphikSemibold", sans-serif;
+  --d-body: "GraphikRegular", sans-serif;
+  --r: 20px;
+  --r-sm: 12px;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -21,6 +38,145 @@ html {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+.wlt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.wlt-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.wlt-field label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #2b5344;
+}
+.wlt-input {
+  padding: 12px 15px;
+  border: 1.5px solid #e6e3da;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: "GraphikRegular", sans-serif;
+  background: #fbfaf7;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+  color: #2b5344;
+}
+.wlt-input:focus {
+  border-color: #4caf8a;
+  box-shadow: 0 0 0 3px rgba(77, 181, 129, 0.16);
+  background: #fff;
+}
+.wlt-input.err {
+  border-color: #d65745;
+}
+.wlt-err {
+  font-size: 12px;
+  color: #d65745;
+}
+.wlt-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #4caf8a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "GraphikRegular", sans-serif;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+  margin-top: 2px;
+}
+.wlt-submit:hover {
+  background: #3d9e7a;
+  transform: translateY(-1px);
+}
+.wlt-fineprint {
+  font-size: 11.5px;
+  color: #8a948d;
+  text-align: center;
+  margin: 2px 0 0;
+}
+
+.wlt-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 230px;
+  padding: 24px;
+  animation: wltFade 0.5s ease;
+}
+@keyframes wltFade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.wlt-spinner {
+  width: 48px;
+  height: 48px;
+  animation: wltSpin 1s linear infinite;
+}
+@keyframes wltSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.wlt-check {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 14px;
+}
+.wlt-check circle {
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+  animation: wltDraw 0.6s ease forwards;
+}
+.wlt-check path {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: wltDraw 0.4s ease 0.5s forwards;
+}
+@keyframes wltDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.wlt-state-title {
+  font-family: "GraphikRegular", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 0 8px;
+  color: #2b5344;
+}
+.wlt-state-body {
+  font-size: 14px;
+  color: #585858;
+  line-height: 1.6;
+  max-width: 300px;
+  margin: 0;
+}
+.wlt-state.on-dark .wlt-state-title {
+  color: #2b5344;
 }
 
 .purple-gradient {
