@@ -523,7 +523,7 @@ export default function MounjaroProduct({
             </div>
 
             {/* DOSAGES */}
-            <div className="mt-6">
+            <div id="waitlist-form" className="mt-6">
               <h3 className="med-font mb-1 text-md sm:text-xl sm:text-3xl">
                 {mounjaroHero?.dosageHeading}
               </h3>
