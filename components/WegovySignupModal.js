@@ -184,7 +184,7 @@ const WegovySignupModal = ({ isOpen, onClose }) => {
             )}
           </div>
 
-          <div className="flex justify-between items-center mt-3 gap-4">
+          <div className={styles.formActions}>
             <p className={styles.termsText}>
               By clicking Sign up you agree to our{" "}
               <a href="/privacy-policy" target="_blank">

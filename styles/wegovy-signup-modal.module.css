@@ -77,6 +77,11 @@
   transform: rotate(90deg);
 }
 
+.closeButton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .modalHeader {
   display: flex;
   gap: 16px;
@@ -129,6 +134,12 @@
   gap: 14px;
 }
 
+.nameEmailGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
 .fieldGroup label {
   display: block;
   margin-bottom: 10px;
@@ -144,10 +155,10 @@
   gap: 12px;
 }
 
-.inputRow input {
+.inputRow input,
+.inputIconWrap input {
   width: 100%;
   min-height: 54px;
-  padding: 0 18px;
 
   color: var(--navy);
   font-size: 15px;
@@ -168,11 +179,21 @@
     background 0.2s ease;
 }
 
-.inputRow input::placeholder {
+.inputRow input {
+  padding: 0 18px;
+}
+
+.inputIconWrap input {
+  padding: 0 18px 0 48px;
+}
+
+.inputRow input::placeholder,
+.inputIconWrap input::placeholder {
   color: rgba(12, 58, 74, 0.45);
 }
 
-.inputRow input:focus {
+.inputRow input:focus,
+.inputIconWrap input:focus {
   border-color: rgba(31, 158, 140, 0.38);
   background: rgba(255, 255, 255, 0.96);
   box-shadow:
@@ -180,10 +201,74 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.96);
 }
 
+.inputIconWrap {
+  position: relative;
+}
+
+.inputIconWrap svg {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  color: var(--teal);
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.checkboxRow {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  color: rgba(12, 58, 74, 0.74);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.checkboxRow input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--teal);
+  cursor: pointer;
+}
+
+.formActions {
+  margin-top: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.termsText {
+  margin: 0;
+
+  color: rgba(12, 58, 74, 0.68);
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.termsText a {
+  color: var(--orange);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.termsText a:hover {
+  text-decoration: underline;
+}
+
 .submitButton {
-  min-width: 130px;
+  width: fit-content;
+  min-width: 150px;
   min-height: 54px;
-  padding: 0 24px;
+  padding: 0 28px;
 
   color: #ffffff;
   font-size: 15px;
@@ -217,45 +302,6 @@
   cursor: not-allowed;
 }
 
-.checkboxRow {
-  width: fit-content;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-
-  color: rgba(12, 58, 74, 0.74);
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.checkboxRow input {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--teal);
-  cursor: pointer;
-}
-
-.termsText {
-  margin: 0;
-
-  color: rgba(12, 58, 74, 0.68);
-  font-size: 14px;
-  line-height: 1.5;
-  font-weight: 500;
-}
-
-.termsText a {
-  color: var(--orange);
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.termsText a:hover {
-  text-decoration: underline;
-}
-
 .errorText {
   margin: 8px 0 0;
 
@@ -285,101 +331,8 @@
 .trustNote svg {
   font-size: 16px;
 }
-.nameEmailGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
 
-.inputIconWrap {
-  position: relative;
-}
-
-.inputIconWrap svg {
-  position: absolute;
-  left: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-
-  color: #1f9e8c;
-  font-size: 18px;
-  pointer-events: none;
-}
-
-.inputIconWrap input {
-  width: 100%;
-  min-height: 54px;
-  padding: 0 18px 0 48px;
-
-  color: #0c3a4a;
-  font-size: 15px;
-  font-weight: 650;
-
-  border-radius: 999px;
-  border: 1px solid rgba(31, 158, 140, 0.16);
-  background: rgba(255, 255, 255, 0.86);
-  outline: none;
-
-  box-shadow:
-    0 12px 28px rgba(12, 58, 74, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.92);
-
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
-}
-
-.inputIconWrap input::placeholder {
-  color: rgba(12, 58, 74, 0.45);
-}
-
-.inputIconWrap input:focus {
-  border-color: rgba(31, 158, 140, 0.38);
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow:
-    0 16px 34px rgba(31, 158, 140, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.96);
-}
-
-.submitButton {
-  width: fit-content;
-  min-width: 150px;
-  min-height: 54px;
-  padding: 0 28px;
-
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 900;
-
-  border: 0;
-  border-radius: 999px;
-  cursor: pointer;
-
-  background: linear-gradient(135deg, #1f9e8c, #12b49f);
-
-  box-shadow:
-    0 16px 32px rgba(31, 158, 140, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.28);
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    opacity 0.2s ease;
-}
-
-.submitButton:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow:
-    0 20px 38px rgba(31, 158, 140, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.32);
-}
-
-.submitButton:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-
+/* Loader overlay */
 .modalLoaderOverlay {
   position: absolute;
   inset: 0;
@@ -430,7 +383,7 @@
 .modalLoaderBox strong {
   margin-top: 12px;
 
-  color: #0c3a4a;
+  color: var(--navy);
   font-size: 18px;
   font-weight: 900;
 }
@@ -459,7 +412,7 @@
 
   border-width: 4px;
   border-color: rgba(31, 158, 140, 0.16);
-  border-top-color: #1f9e8c;
+  border-top-color: var(--teal);
 }
 
 .buttonSpinner {
@@ -482,29 +435,16 @@
   width: 46px;
   height: 46px;
 
-  color: #1f9e8c;
+  color: var(--teal);
 }
 
-.closeButton:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
+/* Animations */
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-@media (max-width: 640px) {
-  .nameEmailGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .submitButton {
-    width: 100%;
-  }
-}
 @keyframes modalIn {
   from {
     opacity: 0;
@@ -521,34 +461,163 @@
 @media (max-width: 640px) {
   .modalOverlay {
     align-items: flex-end;
-    padding: 0;
+    justify-content: center;
+
+    padding: 14px;
+    overflow-y: auto;
   }
 
   .modalCard {
     width: 100%;
-    border-radius: 24px 24px 0 0;
-    padding: 24px 18px;
+    max-width: 420px;
+    max-height: calc(100vh - 28px);
+    overflow-y: auto;
+
+    padding: 22px 16px 18px;
+    border-radius: 26px;
+
+    margin: 0 auto;
+  }
+
+  .closeButton {
+    top: 16px;
+    right: 16px;
+
+    width: 34px;
+    height: 34px;
+
+    font-size: 20px;
   }
 
   .modalHeader {
-    flex-direction: column;
-    padding-right: 38px;
+    display: block;
+    padding-right: 36px;
+    margin-bottom: 18px;
+  }
+
+  .iconBadge {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 14px;
+
+    border-radius: 15px;
+    font-size: 20px;
+  }
+
+  .modalHeader h2 {
+    font-size: 22px;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+  }
+
+  .modalHeader p {
+    margin-top: 10px;
+
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .form {
+    gap: 12px;
+  }
+
+  .nameEmailGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .fieldGroup label {
+    margin-bottom: 8px;
+    font-size: 12px;
   }
 
   .inputRow {
     grid-template-columns: 1fr;
   }
 
-  .submitButton {
-    width: 100%;
+  .inputIconWrap input,
+  .inputRow input {
+    min-height: 48px;
+    font-size: 13px;
+  }
+
+  .inputIconWrap input {
+    padding-left: 44px;
+  }
+
+  .inputIconWrap svg {
+    left: 16px;
+    font-size: 16px;
   }
 
   .checkboxRow {
+    width: 100%;
     align-items: flex-start;
+    gap: 8px;
+
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .checkboxRow input {
+    margin-top: 2px;
+    flex: 0 0 14px;
+
+    width: 14px;
+    height: 14px;
+  }
+
+  .formActions {
+    margin-top: 12px;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .termsText {
+    width: 100%;
+
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .submitButton {
+    width: 100%;
+    min-height: 48px;
+
+    font-size: 14px;
   }
 
   .trustNote {
     width: 100%;
-    border-radius: 18px;
+    margin-top: 4px;
+    padding: 12px;
+
+    align-items: flex-start;
+
+    border-radius: 17px;
+
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .trustNote svg {
+    flex: 0 0 15px;
+    margin-top: 1px;
+  }
+
+  .errorText {
+    margin-top: 6px;
+    font-size: 12px;
+  }
+
+  .modalLoaderOverlay {
+    border-radius: 26px;
+  }
+
+  .modalLoaderBox {
+    width: calc(100% - 32px);
+    min-width: 0;
   }
 }
