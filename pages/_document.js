@@ -34,7 +34,7 @@ export default function Document() {
         />
 
         {/* Meta Pixel */}
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -49,7 +49,7 @@ export default function Document() {
               fbq('track', 'PageView');
             `,
           }}
-        />
+        /> */}
       </Head>
       <body>
         {/* Google Tag Manager (noscript) */}
@@ -65,7 +65,7 @@ export default function Document() {
         <Main />
         <NextScript />
 
-        <noscript>
+        {/* <noscript>
           <img
             height="1"
             width="1"
@@ -73,7 +73,7 @@ export default function Document() {
             src="https://www.facebook.com/tr?id=1333513215275270&ev=PageView&noscript=1"
             alt=""
           />
-        </noscript>
+        </noscript> */}
       </body>
     </Html>
   );
