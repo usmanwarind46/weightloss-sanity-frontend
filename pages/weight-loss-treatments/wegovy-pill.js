@@ -121,8 +121,27 @@ function WaitlistForm({ dark = false }) {
     setState("loading");
 
     try {
-      // replace this with your real API later
-      await new Promise((resolve) => setTimeout(resolve, 1800));
+      const payload = {
+        type: "wegovy-pill",
+        firstName: name,
+        email: email,
+        company_id: 2,
+      };
+
+      const res = await fetch(
+        "https://app.onlineweightlossclinic.co.uk/api/contact-submit",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        },
+      );
+
+      if (!res.ok) {
+        throw new Error("Request failed");
+      }
 
       setState("success");
     } catch (error) {
