@@ -107,7 +107,7 @@ function WaitlistForm({ dark = false }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // important: stop double click / repeated submit
+    // important: stop double click / repeated submit.
     if (state === "loading") return;
 
     const errs = validate();
