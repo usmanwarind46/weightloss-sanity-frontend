@@ -10,7 +10,7 @@ const WegovySignupModalWrapper = () => {
     if (!alreadyClosed) {
       const timer = setTimeout(() => {
         setOpenModal(true);
-      }, 800);
+      }, 6000);
 
       return () => clearTimeout(timer);
     }

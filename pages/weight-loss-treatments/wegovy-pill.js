@@ -22,6 +22,7 @@ import NextButton from "../../components/ui/NextButton";
 import { generateSchema } from "../../lib/schemaGenerator";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
+import WegovySignupModalWrapper from "../../components/WegovySignupModalWrapper";
 
 export async function getStaticProps() {
   const data = await sanityClient.fetch(PAGE_QUERY, {
@@ -982,6 +983,7 @@ export default function MounjaroProduct({
         </div>
       </section>
       <Footer data={siteSettings} />
+      <WegovySignupModalWrapper />
     </>
   );
 }

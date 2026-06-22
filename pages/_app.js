@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 import Script from "next/script";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import WegovySignupModalWrapper from "../components/WegovySignupModalWrapper";
+// import WegovySignupModalWrapper from "../components/WegovySignupModalWrapper";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -31,7 +31,6 @@ export default function App({ Component, pageProps }) {
 
       <Toaster position="top-center" />
       <Component {...pageProps} />
-      <WegovySignupModalWrapper />
     </>
   );
 }
