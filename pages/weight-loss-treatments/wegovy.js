@@ -244,6 +244,8 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
 
   const price = DOSAGES[dosage].price;
 
+  console.log(DOSAGES, "Priiiiicccceeee");
+
   const IMAGES = wegovyHero?.productImages || [];
 
   const wegovyJourney =
@@ -526,6 +528,37 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
                   </div>
                 )}
               </div>
+
+              {/* TOOLTIP FOR 7.2mg */}
+              {DOSAGES[dosage]?.label?.includes("7.2") && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="mt-4 bg-amber-50 border border-amber-200 rounded-lg p-4"
+                >
+                  <div className="flex gap-3">
+                    <svg
+                      className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                    </svg>
+                    <div>
+                      <p className="text-sm font-semibold text-amber-900">
+                        Please note
+                      </p>
+                      <p className="text-sm text-amber-800 mt-1">
+                        Wegovy 7.2mg pack contains 4 individual pens, providing
+                        one injection per week for 4 weeks.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </div>
 
             {/* QUANTITY */}
