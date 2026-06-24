@@ -172,11 +172,11 @@ const WegovySignupModal = ({ isOpen, onClose }) => {
                 type="checkbox"
                 disabled={isSubmitting}
                 {...register("ageConfirm", {
-                  required: "Please confirm you are over 16 years old.",
+                  required: "Please confirm you are over 18 years old.",
                 })}
               />
 
-              <span>I confirm I am over 16 years old.</span>
+              <span>I confirm I am over 18 years old.</span>
             </label>
 
             {errors.ageConfirm && (

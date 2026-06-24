@@ -6,8 +6,10 @@ export default function Document() {
       <Head>
         <link rel="icon" href="/vercel.ico" />
 
-        {/* Google Tag Manager */}
+        {/* Google Tag Manager — gated behind 'analytics' consent */}
         <script
+          type="text/plain"
+          data-cookiecategory="analytics"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -18,11 +20,15 @@ export default function Document() {
         />
 
         <script
+          type="text/plain"
+          data-cookiecategory="analytics"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-GB2G3KMRVD"
         />
 
         <script
+          type="text/plain"
+          data-cookiecategory="analytics"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -30,6 +36,15 @@ export default function Document() {
               gtag('js', new Date());
               gtag('config', 'G-GB2G3KMRVD');
             `,
+          }}
+        />
+
+        {/* CustomerLabs — gated behind 'analytics' consent */}
+        <script
+          type="text/plain"
+          data-cookiecategory="analytics"
+          dangerouslySetInnerHTML={{
+            __html: `!function(t,e,r,c,a,n,s){t.ClAnalyticsObject=a,t[a]=t[a]||[],t[a].methods=["trackSubmit","trackClick","pageview","identify","track","trackConsent"],t[a].factory=function(e){return function(){var r=Array.prototype.slice.call(arguments);return r.unshift(e),t[a].push(r),t[a]}};for(var i=0;i<t[a].methods.length;i++){var o=t[a].methods[i];t[a][o]=t[a].factory(o)};n=e.createElement(r),s=e.getElementsByTagName(r)[0],n.async=1,n.crossOrigin="anonymous",n.src=c,s.parentNode.insertBefore(n,s)}(window,document,"script","https://cdn.js.customerlabs.co/cl8602w8wtgm8u.js","_cl");_cl.SNIPPET_VERSION="2.0.0"`,
           }}
         />
 
