@@ -20,7 +20,6 @@ export default function CookieConsentInit() {
           flipButtons: false,
         },
       },
-
       categories: {
         necessary: {
           readOnly: true,
@@ -30,11 +29,17 @@ export default function CookieConsentInit() {
             cookies: [{ name: /^_ga/ }, { name: "_gid" }, { name: "_cl_id" }],
           },
         },
-        // marketing: {
-        //   autoClear: {
-        //     cookies: [{ name: "_fbp" }],
-        //   },
-        // },
+      },
+
+      onConsent: () => {
+        if (CookieConsent.acceptedCategory("analytics")) {
+          loadAnalyticsScripts();
+        }
+      },
+      onChange: () => {
+        if (CookieConsent.acceptedCategory("analytics")) {
+          loadAnalyticsScripts();
+        }
       },
 
       language: {
@@ -68,12 +73,6 @@ export default function CookieConsentInit() {
                     "These cookies help us understand how visitors use the site (Google Analytics, Google Tag Manager, CustomerLabs) so we can improve it.",
                   linkedCategory: "analytics",
                 },
-                // {
-                //   title: "Marketing",
-                //   description:
-                //     "These cookies are used to measure and improve the effectiveness of our advertising (Meta Pixel).",
-                //   linkedCategory: "marketing",
-                // },
               ],
             },
           },
@@ -83,4 +82,35 @@ export default function CookieConsentInit() {
   }, []);
 
   return null;
+}
+
+let analyticsLoaded = false;
+
+function loadAnalyticsScripts() {
+  if (analyticsLoaded) return;
+  analyticsLoaded = true;
+
+  // Activate every <script type="text/plain" data-cookiecategory="analytics"> on the page
+  const scripts = document.querySelectorAll(
+    'script[type="text/plain"][data-cookiecategory="analytics"]',
+  );
+
+  scripts.forEach((oldScript) => {
+    const newScript = document.createElement("script");
+
+    // copy any attributes (like src, async) except type
+    for (const attr of oldScript.attributes) {
+      if (attr.name !== "type") {
+        newScript.setAttribute(attr.name, attr.value);
+      }
+    }
+
+    if (oldScript.src) {
+      newScript.src = oldScript.src;
+    } else {
+      newScript.textContent = oldScript.textContent;
+    }
+
+    oldScript.parentNode.replaceChild(newScript, oldScript);
+  });
 }

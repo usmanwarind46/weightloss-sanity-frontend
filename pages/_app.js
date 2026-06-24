@@ -5,7 +5,6 @@ import { Toaster } from "react-hot-toast";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import CookieConsentInit from "../components/CookieConsent/CookieConsentInit";
-// import WegovySignupModalWrapper from "../components/WegovySignupModalWrapper";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
