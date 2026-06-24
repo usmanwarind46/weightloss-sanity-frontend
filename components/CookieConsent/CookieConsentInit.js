@@ -49,11 +49,12 @@ export default function CookieConsentInit() {
             consentModal: {
               title: "We use cookies",
               description:
-                "We use cookies to run essential parts of this site and to understand how it's used (Google Analytics, Google Tag Manager, CustomerLabs) so we can improve it. You can accept all cookies, reject the non-essential ones, or manage your preferences.",
+                'We use cookies to enhance your browsing experience, serve personalised ads or content, and analyse our traffic. By clicking "Accept All", you consent to our use of cookies.',
               acceptAllBtn: "Accept all",
               acceptNecessaryBtn: "Reject all",
               showPreferencesBtn: "Manage preferences",
             },
+
             preferencesModal: {
               title: "Cookie preferences",
               acceptAllBtn: "Accept all",
