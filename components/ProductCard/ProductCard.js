@@ -77,7 +77,7 @@ export default function ProductCard({ product = products[0] }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -4, boxShadow: "0 24px 60px rgba(0,0,0,0.13)" }}
-      className="flex flex-col sm:flex-row rounded-2xl overflow-hidden shadow-md w-full max-w-2xl bg-white items-stretch h-full"
+      className="flex flex-col sm:flex-row rounded-2xl overflow-hidden shadow-md w-full max-w-2xl xl:max-w-xl 2xl:max-w-2xl bg-white items-stretch h-full"
       style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.09)" }}
     >
       {/* Left: Colored image panel */}

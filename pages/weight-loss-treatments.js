@@ -123,7 +123,8 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
           </div>
 
           {/* Product Cards */}
-          <div className="flex flex-col md:flex-row gap-5 justify-center ">
+          {/* Product Cards */}
+          <div className="flex flex-col lg:flex-row lg:flex-wrap gap-5 justify-center">
             {heroSection?.products?.map((product, i) => (
               <ProductCard
                 key={i}
