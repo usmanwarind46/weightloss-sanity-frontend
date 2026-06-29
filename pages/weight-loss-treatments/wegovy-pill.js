@@ -625,8 +625,10 @@ export default function MounjaroProduct({
             </div> */}
 
             {/* PRICE */}
-            <div className="mt-4 bg-[#d4efe1] rounded-lg p-4 max-w-full sm:max-w-52">
-              <p className="text-lg text-black med-font">Price for 1 Month:</p>
+            <div className="mt-4 bg-[#d4efe1] rounded-lg p-4 max-w-full sm:max-w-64">
+              <p className="text-lg text-black med-font">
+                Price (30 Oral Tablets):
+              </p>
               <p className="text-xl sm:text-3xl font-bold text-blue-600">
                 £{price}.00
               </p>
