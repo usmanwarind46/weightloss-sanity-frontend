@@ -37,7 +37,7 @@ export async function getStaticProps() {
       seoSettings,
       siteSettings,
     },
-    revalidate: 1,
+    revalidate: 300,
   };
 }
 
@@ -124,7 +124,7 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
 
           {/* Product Cards */}
           {/* Product Cards */}
-          <div className="flex flex-col lg:flex-row lg:flex-wrap gap-5 justify-center">
+          <div className="flex flex-col md:flex-row md:flex-wrap gap-5 justify-center">
             {heroSection?.products?.map((product, i) => (
               <ProductCard
                 key={i}
