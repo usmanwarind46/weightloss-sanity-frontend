@@ -638,8 +638,15 @@ export default function MounjaroProduct({
               <WaitlistForm />
             </div> */}
 
+            <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
+              <strong className="semibold-font">Please note:</strong> This is a
+              pre-order to reserve your stock. Deliveries will commence from{" "}
+              <strong className="semibold-font">7 July 2026</strong> onwards.
+              Taking pre-orders for 1.5 mg and 4 mg strengths only.
+            </p>
+
             {/* CONSULTATION */}
-            <div className="mt-6 bg-gray-100  rounded-xl p-5">
+            <div className="mt-2 bg-gray-100  rounded-xl p-5">
               <h3 className="text-xl sm:text-2xl font-reg mb-2">
                 {mounjaroHero?.eligibilityHeading}
               </h3>
