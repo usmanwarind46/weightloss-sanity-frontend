@@ -1,36 +1,23 @@
 export default async function handler(req, res) {
+  if (req.query.secret !== process.env.REVALIDATION_SECRET) {
+    return res.status(401).json({ message: "Invalid token" });
+  }
+
   try {
-    if (req.query.secret !== process.env.REVALIDATE_SECRET) {
-      return res.status(401).json({ message: "Invalid token" });
+    const { slug } = req.body || {};
+
+    if (!slug) {
+      return res.status(400).json({ message: "No slug provided" });
     }
 
-    // ✅ SAFE BODY HANDLING
-    const body = req.body || {};
-
-    console.log("Webhook Body:", body);
-
-    const slug = body?.slug;
-
-    // ✅ HANDLE MISSING SLUG (VERY IMPORTANT)
-    let path = "/";
-
-    if (slug && slug !== "home") {
-      path = `/${slug}`;
-    }
-
-    console.log("Revalidating path:", path);
+    // Map Sanity's "home" slug to the actual homepage route "/"
+    const path = slug === "home" ? "/" : `/weight-loss-treatments/${slug}`;
 
     await res.revalidate(path);
 
-    return res.json({
-      revalidated: true,
-      path,
-    });
+    return res.json({ revalidated: true, path });
   } catch (err) {
-    console.error("❌ Revalidate Error:", err);
-    return res.status(500).json({
-      message: "Error revalidating",
-      error: err.message,
-    });
+    console.error(err);
+    return res.status(500).json({ message: "Error revalidating" });
   }
 }
