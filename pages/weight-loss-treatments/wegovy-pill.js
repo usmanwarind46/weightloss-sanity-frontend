@@ -613,7 +613,7 @@ export default function MounjaroProduct({
               </div>
             </div>
 
-            {/* QUANTITY */}
+            {/* QUANTITYY */}
             {/* <div className="mt-4">
               <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
                 Selected Quantity
