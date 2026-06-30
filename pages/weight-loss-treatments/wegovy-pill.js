@@ -1044,7 +1044,8 @@ export default function MounjaroProduct({
 
             {mounjaroCTA?.scrollButtonLabel && (
               <a
-                href="#waitlist-form"
+                href="https://www.onlineweightlossclinic.co.uk/start-consultation?product_id=7"
+                target="_blank"
                 className="mt-6 inline-block w-full sm:w-auto"
               >
                 <NextButton
