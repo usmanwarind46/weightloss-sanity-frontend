@@ -852,6 +852,149 @@ export default function MounjaroProduct({
         </div>
       </section>
 
+      {/* SWITCHING TREATMENTS SECTION */}
+      <section className="py-12 sm:py-16 bg-[#f8faf9]">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="inline-block text-xs font-semibold tracking-wide uppercase text-[#4caf8a] bg-[#e9f6f0] px-3 py-1 rounded-full mb-3">
+              Switching Treatments
+            </span>
+            <h2 className="text-xl sm:text-3xl 2xl:text-4xl semibold-font text-gray-900">
+              Switching to Wegovy Pills
+            </h2>
+          </div>
+
+          <div className="space-y-14 max-w-4xl mx-auto">
+            {/* === Wegovy Injection → Pill === */}
+            <div>
+              <h3 className="text-lg sm:text-2xl font-semibold text-gray-900 mb-3">
+                Can I switch from Wegovy injections to Wegovy pills?
+              </h3>
+              <p className="text-gray-600 leading-relaxed para-font mb-3">
+                Yes, switching from Wegovy injections to Wegovy pills may be
+                possible, but it should always be done with advice from a
+                qualified healthcare professional. The injection and pill work
+                in different ways in the body, so the doses are not directly the
+                same. The right starting dose of the pill will depend on your
+                current Wegovy injection dose, how your body has responded to
+                treatment, and how well you have tolerated it so far.
+              </p>
+
+              <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm mb-4">
+                <table className="w-full text-left border-collapse min-w-[420px]">
+                  <thead>
+                    <tr className="bg-[#4caf8a]">
+                      <th className="px-5 py-3 text-sm sm:text-base font-semibold text-white">
+                        Current Wegovy injection dose
+                      </th>
+                      <th className="px-5 py-3 text-sm sm:text-base font-semibold text-white">
+                        Wegovy pill dose you may switch to
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      ["0.25mg", "4mg"],
+                      ["0.5mg", "4mg"],
+                      ["1mg", "9mg"],
+                      ["1.7mg", "9mg"],
+                      ["2.4mg", "25mg"],
+                      ["7.2mg", "25mg"],
+                    ].map(([from, to], i) => (
+                      <tr
+                        key={from}
+                        className={`border-b border-gray-100 last:border-b-0 ${
+                          i % 2 === 0 ? "bg-white" : "bg-[#f5f7fb]"
+                        }`}
+                      >
+                        <td className="px-5 py-3 text-gray-700 para-font">
+                          {from}
+                        </td>
+                        <td className="px-5 py-3 text-gray-900 font-medium para-font">
+                          {to}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <p className="text-gray-600 leading-relaxed para-font">
+                Although 25 mg is the highest dose available for the Wegovy
+                pill, it does not work in exactly the same way as the injection
+                because it is absorbed through the digestive system. The 25 mg
+                tablet has been shown to support more average weight loss than
+                the 2.4 mg Wegovy injection, but overall, the 7.2 mg Wegovy
+                injection has shown the greatest average weight loss.
+              </p>
+            </div>
+
+            {/* === Mounjaro Injection → Pill === */}
+            <div>
+              <h3 className="text-lg sm:text-2xl font-semibold text-gray-900 mb-3">
+                Can I switch from Mounjaro injection to the Wegovy pill?
+              </h3>
+              <p className="text-gray-600 leading-relaxed para-font mb-3">
+                Yes, switching from Mounjaro injection to the Wegovy pill may be
+                possible, but it should be done under the guidance of a
+                qualified prescriber. The right Wegovy pill dose will depend on
+                your current Mounjaro dose, how your body has responded to
+                treatment, and how well you have tolerated it so far.
+              </p>
+              <p className="text-gray-600 leading-relaxed para-font mb-4">
+                The table below shows the recommended Wegovy pill doses when
+                switching from Mounjaro:
+              </p>
+
+              <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm mb-4">
+                <table className="w-full text-left border-collapse min-w-[420px]">
+                  <thead>
+                    <tr className="bg-[#5B6EE8]">
+                      <th className="px-5 py-3 text-sm sm:text-base font-semibold text-white">
+                        Current Mounjaro injection dose
+                      </th>
+                      <th className="px-5 py-3 text-sm sm:text-base font-semibold text-white">
+                        Recommended Wegovy pill dose
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      ["2.5mg", "4mg"],
+                      ["5mg", "4mg"],
+                      ["7.5mg", "9mg"],
+                      ["10mg", "9mg"],
+                      ["12.5mg", "9mg"],
+                      ["15mg", "9mg"],
+                    ].map(([from, to], i) => (
+                      <tr
+                        key={from}
+                        className={`border-b border-gray-100 last:border-b-0 ${
+                          i % 2 === 0 ? "bg-white" : "bg-[#f5f7fb]"
+                        }`}
+                      >
+                        <td className="px-5 py-3 text-gray-700 para-font">
+                          {from}
+                        </td>
+                        <td className="px-5 py-3 text-gray-900 font-medium para-font">
+                          {to}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <p className="text-gray-600 leading-relaxed para-font">
+                The table above provides general dose guidance when switching
+                from Mounjaro to the Wegovy pill. Your prescriber will recommend
+                the most suitable starting dose for you.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/*  */}
       <section className="w-full bg-[#f5f6f7] py-16 wegovyInjection-bg">
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
