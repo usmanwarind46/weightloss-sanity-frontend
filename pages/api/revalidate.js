@@ -10,11 +10,18 @@ export default async function handler(req, res) {
       return res.status(400).json({ message: "No slug provided" });
     }
 
+    if (type === "post") {
+      await res.revalidate(`/guide/${slug}`);
+      await res.revalidate("/guide");
+      return res.json({
+        revalidated: true,
+        paths: [`/guide/${slug}`, "/guide"],
+      });
+    }
+
     let path;
 
-    if (type === "post") {
-      path = `/guide/${slug}`;
-    } else if (type === "page") {
+    if (type === "page") {
       const exceptions = {
         home: "/",
         "weight-loss": "/weight-loss-treatments",
