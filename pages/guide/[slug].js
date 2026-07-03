@@ -659,6 +659,94 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                       </table>
                     </div>
                   ),
+
+                  blogTableRich: ({ value }) => (
+                    <div className="my-10 overflow-x-auto rounded-2xl border border-gray-200">
+                      <table className="w-full min-w-[700px] border-separate border-spacing-0">
+                        <thead>
+                          <tr className="bg-blue-50">
+                            {value?.headers?.map((header, i) => (
+                              <th
+                                key={i}
+                                className="border-r border-b border-gray-200 px-5 py-4 text-left font-semibold text-gray-900 last:border-r-0"
+                              >
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {value?.rows?.map((row, i) => {
+                            const isLast = i === value.rows.length - 1;
+                            const cellClass = (extra = "") =>
+                              `px-5 py-4 text-gray-700 align-top ${!isLast ? "border-b border-gray-200" : ""} ${extra}`;
+
+                            const renderCell = (content) => (
+                              <PortableText
+                                value={content}
+                                components={{
+                                  block: {
+                                    normal: ({ children }) => (
+                                      <span>{children}</span>
+                                    ),
+                                  },
+                                  marks: {
+                                    link: ({ value, children }) => (
+                                      <a
+                                        href={value?.href}
+                                        target={
+                                          value?.blank ? "_blank" : "_self"
+                                        }
+                                        rel={
+                                          value?.blank
+                                            ? "noopener noreferrer"
+                                            : undefined
+                                        }
+                                        className="text-teal-600 underline hover:text-teal-800"
+                                      >
+                                        {children}
+                                      </a>
+                                    ),
+                                    strong: ({ children }) => (
+                                      <strong>{children}</strong>
+                                    ),
+                                    em: ({ children }) => <em>{children}</em>,
+                                  },
+                                }}
+                              />
+                            );
+
+                            return (
+                              <tr
+                                key={i}
+                                className={
+                                  i % 2 === 1 ? "bg-gray-50" : "bg-white"
+                                }
+                              >
+                                <td
+                                  className={cellClass(
+                                    "border-r border-gray-200",
+                                  )}
+                                >
+                                  {renderCell(row.column1)}
+                                </td>
+                                <td
+                                  className={cellClass(
+                                    "border-r border-gray-200",
+                                  )}
+                                >
+                                  {renderCell(row.column2)}
+                                </td>
+                                <td className={cellClass()}>
+                                  {renderCell(row.column3)}
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  ),
                 },
               }}
             />
