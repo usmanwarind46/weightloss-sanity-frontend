@@ -629,9 +629,16 @@ export default function MounjaroProduct({
               <p className="text-lg text-black med-font">
                 Price (30 Oral Tablets):
               </p>
-              <p className="text-xl sm:text-3xl font-bold text-blue-600">
-                £{price}.00
-              </p>
+
+              {price == 0 ? (
+                <p className="text-xl sm:text-xl font-bold text-blue-600">
+                  Price coming soon
+                </p>
+              ) : (
+                <p className="text-xl sm:text-3xl font-bold text-blue-600">
+                  £{price}.00
+                </p>
+              )}
             </div>
 
             {/* <div className="wlt-hero-form mt-6">
