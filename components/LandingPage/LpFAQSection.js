@@ -101,7 +101,7 @@ const faqs = [
           className="text-teal-600 underline hover:text-teal-800"
         >
           contact@onlineweightlossclinic.co.uk
-        </a>
+        </a>{" "}
         within 24–48 hours of discovering the issue and no later than 45 days
         after receiving your order. If the manufacturer confirms the fault, a
         replacement, refund or partial refund will be provided. Please note that
