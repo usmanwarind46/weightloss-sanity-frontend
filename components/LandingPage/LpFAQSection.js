@@ -127,80 +127,82 @@ export function LpFAQSection() {
     <section id="faq" className="py-8 md:py-20 bg-white">
       <div className="container">
         {/* Header */}
-        <div className="text-center mb-6 md:mb-16">
-          <h2 className="font-bold text-gray-900 title">
-            Frequently Asked <span>Questions</span>
-          </h2>
-        </div>
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-6 md:mb-16">
+            <h2 className="font-bold text-gray-900 title">
+              Frequently Asked <span>Questions</span>
+            </h2>
+          </div>
 
-        {/* Accordion */}
-        <div className="space-y-3">
-          {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            const isHovered = hoveredIndex === index;
+          {/* Accordion */}
+          <div className="space-y-3">
+            {faqs.map((faq, index) => {
+              const isOpen = openIndex === index;
+              const isHovered = hoveredIndex === index;
 
-            return (
-              // Outer wrapper acts as the gradient border
-              <div
-                key={index}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                style={{
-                  padding: "1px",
-                  borderRadius: "1rem",
-                  background: isHovered || isOpen ? GRADIENT : BORDER_DEFAULT,
-                  transition: "background 0.3s ease",
-                }}
-              >
-                {/* Inner card */}
+              return (
+                // Outer wrapper acts as the gradient border
                 <div
-                  className={`rounded-2xl overflow-hidden transition-colors duration-300 ${
-                    isOpen ? "bg-gray-50" : "bg-white"
-                  }`}
+                  key={index}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  style={{
+                    padding: "1px",
+                    borderRadius: "1rem",
+                    background: isHovered || isOpen ? GRADIENT : BORDER_DEFAULT,
+                    transition: "background 0.3s ease",
+                  }}
                 >
-                  {/* Trigger */}
-                  <button
-                    onClick={() => toggle(index)}
-                    className="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer"
+                  {/* Inner card */}
+                  <div
+                    className={`rounded-2xl overflow-hidden transition-colors duration-300 ${
+                      isOpen ? "bg-gray-50" : "bg-white"
+                    }`}
                   >
-                    <span className="font-semibold text-gray-900 pr-8 lp-faq-heading">
-                      {faq.question}
-                    </span>
-                    <motion.div
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="flex-shrink-0"
+                    {/* Trigger */}
+                    <button
+                      onClick={() => toggle(index)}
+                      className="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer"
                     >
-                      <ChevronDown
-                        size={20}
-                        className={`transition-colors duration-300 ${
-                          isOpen ? "text-gray-900" : "text-gray-400"
-                        }`}
-                      />
-                    </motion.div>
-                  </button>
-
-                  {/* Answer */}
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
+                      <span className="font-semibold text-gray-900 pr-8 lp-faq-heading">
+                        {faq.question}
+                      </span>
                       <motion.div
-                        key="content"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.35, ease: "easeInOut" }}
-                        style={{ overflow: "hidden" }}
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="flex-shrink-0"
                       >
-                        <div className="px-6 pb-6 text-gray-600 leading-relaxed lp-faq-answer">
-                          {faq.answer}
-                        </div>
+                        <ChevronDown
+                          size={20}
+                          className={`transition-colors duration-300 ${
+                            isOpen ? "text-gray-900" : "text-gray-400"
+                          }`}
+                        />
                       </motion.div>
-                    )}
-                  </AnimatePresence>
+                    </button>
+
+                    {/* Answer */}
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          key="content"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.35, ease: "easeInOut" }}
+                          style={{ overflow: "hidden" }}
+                        >
+                          <div className="px-6 pb-6 text-gray-600 leading-relaxed lp-faq-answer">
+                            {faq.answer}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

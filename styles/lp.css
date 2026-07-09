@@ -352,7 +352,7 @@
 /* ── XL: 1281px - 1536px (desktop) ── */
 @media (min-width: 1281px) and (max-width: 1536px) {
   .lp {
-    height: 480px;
+    height: 500px;
   }
   .lphero-text {
     padding: 48px 0;
