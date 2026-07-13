@@ -9,7 +9,7 @@ const steps = [
   {
     number: "1",
     title: "Clinical medical assessment",
-    description: "Complete online health questionnaire (10 minutes)",
+    description: "Complete online health questionnaire",
     image: "/Images/home-page-2.png",
   },
   {

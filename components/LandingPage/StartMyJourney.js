@@ -14,16 +14,16 @@ const pricingItems = [
     id: 2,
     icon: "/Lp-images/icon/injection-icon.png",
     title: "Treatment From",
-    price: "£149/month",
+    price: "£97/month",
     body: "The price you see includes consultation review, medication (if approved), and delivery. No surprise charges for 'express processing,' 'premium support,' or other add-ons you didn't request.",
   },
-  {
-    id: 3,
-    icon: "/Lp-images/icon/delivery-icon.png",
-    title: "Delivery Included",
-    price: "£0",
-    body: "Your medication is dispatched discreetly and delivered directly to your door. No additional delivery charges, no hidden logistics fees.",
-  },
+  // {
+  //   id: 3,
+  //   icon: "/Lp-images/icon/delivery-icon.png",
+  //   title: "Delivery Included",
+  //   price: "£9.90",
+  //   body: "Your medication is dispatched discreetly and delivered directly to your door. No additional delivery charges, no hidden logistics fees.",
+  // },
   {
     id: 4,
     icon: "/Lp-images/icon/ongoing-icon.png",
@@ -164,7 +164,7 @@ reg-font text-gray-900 text-black"
               </p>
             </div>
             <div className="flex justify-center">
-              <Link href="/start-consultation/">
+              <Link href="/weight-loss-treatments/">
                 <button className="next-btn">
                   Start Your Consultation
                   <span className="next-btn-arrow">

@@ -23,7 +23,7 @@ export function LpCTASection() {
               commitment required.
             </p>
 
-            <Link href="/start-consultation/">
+            <Link href="/weight-loss-treatments/">
               <button className="next-btn">
                 Start Free Medical Assessment
                 <span className="next-btn-arrow">
@@ -57,7 +57,7 @@ export function LpCTASection() {
           {/* Row 1 — Price */}
           <p className="text-base sm:text-3xl reg-font tracking-wide text-center">
             Starting from{" "}
-            <span className="med-font text-base sm:text-3xl">£149/month</span>
+            <span className="med-font text-base sm:text-3xl">£97/month</span>
           </p>
 
           {/* Row 2 — Perks */}
@@ -88,7 +88,7 @@ export function LpCTASection() {
                   />
                 </svg>
               </span>
-              Free delivery
+              Discreet delivery
             </span>
             <span className="flex items-center gap-2">
               <span className="flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#3dbf82] shrink-0">
@@ -102,7 +102,7 @@ export function LpCTASection() {
                   />
                 </svg>
               </span>
-              Cancel anytime
+              Lowest price guaranteed
             </span>
           </div>
         </div>
