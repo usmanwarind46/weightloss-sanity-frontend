@@ -604,7 +604,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                   ),
                   blogTable: ({ value }) => (
                     <div className="my-10 overflow-x-auto rounded-2xl border border-gray-200">
-                      <table className="w-full min-w-[700px] border-separate border-spacing-0">
+                      <table className="w-full min-w-[500px] border-separate border-spacing-0">
                         <thead>
                           <tr className="bg-blue-50">
                             {value?.headers?.map((header, i) => (
@@ -617,11 +617,9 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                             ))}
                           </tr>
                         </thead>
-
                         <tbody>
                           {value?.rows?.map((row, i) => {
                             const isLast = i === value.rows.length - 1;
-
                             return (
                               <tr
                                 key={i}
@@ -629,29 +627,16 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                                   i % 2 === 1 ? "bg-gray-50" : "bg-white"
                                 }
                               >
-                                <td
-                                  className={`border-r border-gray-200 px-5 py-4 text-gray-700 align-top ${
-                                    !isLast ? "border-b" : ""
-                                  }`}
-                                >
-                                  {row.column1}
-                                </td>
-
-                                <td
-                                  className={`border-r border-gray-200 px-5 py-4 text-gray-700 align-top ${
-                                    !isLast ? "border-b" : ""
-                                  }`}
-                                >
-                                  {row.column2}
-                                </td>
-
-                                <td
-                                  className={`px-5 py-4 text-gray-700 align-top ${
-                                    !isLast ? "border-b border-gray-200" : ""
-                                  }`}
-                                >
-                                  {row.column3}
-                                </td>
+                                {row.cells?.map((cell, j) => (
+                                  <td
+                                    key={j}
+                                    className={`border-r border-gray-200 px-5 py-4 text-gray-700 align-top last:border-r-0 ${
+                                      !isLast ? "border-b" : ""
+                                    }`}
+                                  >
+                                    {cell}
+                                  </td>
+                                ))}
                               </tr>
                             );
                           })}
@@ -662,7 +647,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
 
                   blogTableRich: ({ value }) => (
                     <div className="my-10 overflow-x-auto rounded-2xl border border-gray-200">
-                      <table className="w-full min-w-[700px] border-separate border-spacing-0">
+                      <table className="w-full min-w-[500px] border-separate border-spacing-0">
                         <thead>
                           <tr className="bg-blue-50">
                             {value?.headers?.map((header, i) => (
@@ -678,44 +663,6 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                         <tbody>
                           {value?.rows?.map((row, i) => {
                             const isLast = i === value.rows.length - 1;
-                            const cellClass = (extra = "") =>
-                              `px-5 py-4 text-gray-700 align-top ${!isLast ? "border-b border-gray-200" : ""} ${extra}`;
-
-                            const renderCell = (content) => (
-                              <PortableText
-                                value={content}
-                                components={{
-                                  block: {
-                                    normal: ({ children }) => (
-                                      <span>{children}</span>
-                                    ),
-                                  },
-                                  marks: {
-                                    link: ({ value, children }) => (
-                                      <a
-                                        href={value?.href}
-                                        target={
-                                          value?.blank ? "_blank" : "_self"
-                                        }
-                                        rel={
-                                          value?.blank
-                                            ? "noopener noreferrer"
-                                            : undefined
-                                        }
-                                        className="text-teal-600 underline hover:text-teal-800"
-                                      >
-                                        {children}
-                                      </a>
-                                    ),
-                                    strong: ({ children }) => (
-                                      <strong>{children}</strong>
-                                    ),
-                                    em: ({ children }) => <em>{children}</em>,
-                                  },
-                                }}
-                              />
-                            );
-
                             return (
                               <tr
                                 key={i}
@@ -723,23 +670,51 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                                   i % 2 === 1 ? "bg-gray-50" : "bg-white"
                                 }
                               >
-                                <td
-                                  className={cellClass(
-                                    "border-r border-gray-200",
-                                  )}
-                                >
-                                  {renderCell(row.column1)}
-                                </td>
-                                <td
-                                  className={cellClass(
-                                    "border-r border-gray-200",
-                                  )}
-                                >
-                                  {renderCell(row.column2)}
-                                </td>
-                                <td className={cellClass()}>
-                                  {renderCell(row.column3)}
-                                </td>
+                                {row.cells?.map((cell, j) => (
+                                  <td
+                                    key={j}
+                                    className={`border-r border-gray-200 px-5 py-4 text-gray-700 align-top last:border-r-0 ${
+                                      !isLast ? "border-b" : ""
+                                    }`}
+                                  >
+                                    <PortableText
+                                      value={cell.content}
+                                      components={{
+                                        block: {
+                                          normal: ({ children }) => (
+                                            <span>{children}</span>
+                                          ),
+                                        },
+                                        marks: {
+                                          link: ({ value, children }) => (
+                                            <a
+                                              href={value?.href}
+                                              target={
+                                                value?.blank
+                                                  ? "_blank"
+                                                  : "_self"
+                                              }
+                                              rel={
+                                                value?.blank
+                                                  ? "noopener noreferrer"
+                                                  : undefined
+                                              }
+                                              className="text-teal-600 underline hover:text-teal-800"
+                                            >
+                                              {children}
+                                            </a>
+                                          ),
+                                          strong: ({ children }) => (
+                                            <strong>{children}</strong>
+                                          ),
+                                          em: ({ children }) => (
+                                            <em>{children}</em>
+                                          ),
+                                        },
+                                      }}
+                                    />
+                                  </td>
+                                ))}
                               </tr>
                             );
                           })}
