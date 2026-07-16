@@ -24,13 +24,13 @@ export function HeroTwo({ ctaLink = "/weight-loss-treatments" }) {
 
   const activeSlide = slides[current];
 
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setCurrent((previous) => (previous + 1) % slides.length);
-    }, 4500);
+  // useEffect(() => {
+  //   const timer = window.setInterval(() => {
+  //     setCurrent((previous) => (previous + 1) % slides.length);
+  //   }, 4500);
 
-    return () => window.clearInterval(timer);
-  }, []);
+  //   return () => window.clearInterval(timer);
+  // }, []);
 
   const handleTreatmentClick = () => {
     window.location.href = ctaLink;
