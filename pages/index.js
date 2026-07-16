@@ -3,6 +3,7 @@ import { FAQSection } from "../components/FAQSection";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Hero } from "../components/Hero";
+import { HeroTwo } from "../components/HeroTwo";
 import { HowItWorks } from "../components/HowItWorks";
 import { LpFAQSection } from "../components/LandingPage/LpFAQSection";
 import { MedicationSection } from "../components/MedicationSection";
@@ -85,7 +86,7 @@ export default function Home({ seoSettings, data, siteSettings }) {
       <div className="min-h-screen bg-white">
         <Header data={siteSettings} />
         <main>
-          {heroSection && <Hero data={heroSection} />}
+          {heroSection && <HeroTwo data={heroSection} />}
           <FadeUp>
             {trustSection && <TrustSection data={trustSection} />}
           </FadeUp>
