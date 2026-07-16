@@ -9,7 +9,7 @@ const slides = [
   {
     id: 1,
     type: "woman",
-    src: "/images/hero-three.png",
+    src: "/Images/hero-three.png",
     alt: "Weight loss treatment product with model",
   },
   {
@@ -41,7 +41,7 @@ export function HeroTwo({ ctaLink = "/weight-loss-treatments" }) {
       {/* Static background */}
       <div className="pointer-events-none absolute inset-0 -z-20">
         <Image
-          src="/images/hero-background.jpg"
+          src="/Images/hero-background.jpg"
           fill
           priority
           sizes="100vw"
@@ -389,7 +389,7 @@ function GraphSlide() {
           "
         >
           <Image
-            src="/images/hero-badge.png"
+            src="/Images/hero-badge.png"
             fill
             priority
             sizes="58vw"
@@ -422,7 +422,7 @@ function GraphSlide() {
           "
         >
           <Image
-            src="/images/hero-graph.png"
+            src="/Images/hero-graph.png"
             width={800}
             height={500}
             priority
@@ -493,7 +493,7 @@ function GraphSlide() {
           "
         >
           <Image
-            src="/images/hero-badge.png"
+            src="/Images/hero-badge.png"
             fill
             priority
             sizes="32vw"
@@ -525,7 +525,7 @@ function GraphSlide() {
           "
         >
           <Image
-            src="/images/hero-graph.png"
+            src="/Images/hero-graph.png"
             width={800}
             height={500}
             priority
