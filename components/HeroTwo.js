@@ -95,7 +95,7 @@ export function HeroTwo({ ctaLink = "/weight-loss-treatments" }) {
             xl:pr-7
           "
         >
-          {/* Heading — mobile order 1 */}
+          {/* Heading — mobile order 1s */}
           <h1
             className="
               order-1
