@@ -6,9 +6,10 @@ import Image from "next/image";
 export function Hero({ data }) {
   return (
     <section className="relative min-h-[700px] overflow-hidden pt-16">
-      {/* 🔥 BACKGROUND IMAGES */}
+      {/* :fire: BACKGROUND IMAGES */}
       <div className="absolute inset-0 z-0">
         {/* Desktop */}
+
         {data.desktopImage?.asset?.url && (
           <Image
             src={data.desktopImage.asset.url}
@@ -18,8 +19,8 @@ export function Hero({ data }) {
             className="object-cover hidden sm:block"
           />
         )}
-
         {/* Mobile */}
+
         {data.mobileImage?.asset?.url && (
           <Image
             src={data.mobileImage.asset.url}
@@ -29,13 +30,12 @@ export function Hero({ data }) {
             className="object-cover block sm:hidden"
           />
         )}
-
         {/* Overlays */}
+
         <div className="absolute inset-0 bg-gradient-to-r from-teal-900/60 via-teal-900/70 to-transparent"></div>
         <div className="absolute inset-0 bg-black/10"></div>
       </div>
-
-      {/* 🔥 CONTENT */}
+      {/* :fire: CONTENT */}
       <FadeUp>
         <div className="relative z-10 container mx-auto py-20">
           <div>
@@ -46,7 +46,6 @@ export function Hero({ data }) {
                 __html: data.headingHtml || "",
               }}
             />
-
             {/* Subheading */}
             <p
               className="text-xl text-white/90 mb-8 leading-relaxed"
@@ -54,7 +53,6 @@ export function Hero({ data }) {
                 __html: data.subheadingHtml || "",
               }}
             />
-
             {/* Button */}
             <div className="py-4 max-w-max">
               <Link href={data.buttonLink || "/start-consultation/"}>
