@@ -18,6 +18,8 @@ const slides = [
   },
 ];
 
+const benefits = ["Expert-led care", "Easy online process", "Speedy delivery"];
+
 export function HeroTwo({ ctaLink = "/weight-loss-treatments" }) {
   const [current, setCurrent] = useState(0);
   const reduceMotion = useReducedMotion();
@@ -111,9 +113,7 @@ export function HeroTwo({ ctaLink = "/weight-loss-treatments" }) {
               text-[#171b25]
 
               min-[400px]:text-[38px]
-
               sm:text-[44px]
-
               md:text-[48px]
 
               lg:order-none
@@ -122,7 +122,6 @@ export function HeroTwo({ ctaLink = "/weight-loss-treatments" }) {
               lg:text-[36px]
 
               xl:text-[45px]
-
               2xl:text-[60px]
             "
           >
@@ -372,20 +371,20 @@ function GraphSlide() {
         <div
           className="
             absolute
-            bottom-[18%]
-            left-[-1%]
-            h-[80%]
-            w-[59%]
+            bottom-[12%]
+            left-[-5%]
+            h-[82%]
+            w-[58%]
 
-            min-[375px]:left-[-8%]
-
-            min-[390px]:left-[-2%]
+            min-[390px]:bottom-[10%]
+            min-[390px]:left-[-3%]
             min-[390px]:h-[86%]
-            min-[390px]:w-[57%]
+            min-[390px]:w-[56%]
 
-            sm:left-[3%]
-            sm:h-[90%]
-            sm:w-[54%]
+            sm:bottom-[8%]
+            sm:left-[2%]
+            sm:h-[89%]
+            sm:w-[53%]
           "
         >
           <Image
@@ -403,8 +402,8 @@ function GraphSlide() {
           className="
             absolute
             right-[1%]
-            top-[8%]
-            w-[57%]
+            top-[4%]
+            w-[58%]
             overflow-hidden
             rounded-[10px]
             bg-white/95
@@ -416,7 +415,7 @@ function GraphSlide() {
             min-[390px]:w-[55%]
 
             sm:right-[5%]
-            sm:top-[10%]
+            sm:top-[6%]
             sm:w-[48%]
             sm:rounded-[14px]
           "
@@ -426,7 +425,7 @@ function GraphSlide() {
             width={800}
             height={500}
             priority
-            alt="Weight loss graph showing 25 pounds lost"
+            alt="Weight loss graph"
             className="h-auto w-full object-contain"
           />
         </div>
@@ -436,17 +435,17 @@ function GraphSlide() {
           className="
             absolute
             right-[1%]
-            top-[59%]
-            w-[51%]
-            pl-2.5
+            top-[50%]
+            w-[54%]
+            pl-3
 
             min-[390px]:right-[2%]
-            min-[390px]:w-[49%]
-            min-[390px]:pl-3
+            min-[390px]:top-[51%]
+            min-[390px]:w-[51%]
 
-            sm:right-[6%]
-            sm:top-[61%]
-            sm:w-[43%]
+            sm:right-[5%]
+            sm:top-[53%]
+            sm:w-[45%]
             sm:pl-4
           "
         >
@@ -463,12 +462,36 @@ function GraphSlide() {
               min-[390px]:text-[8px]
 
               sm:text-[10px]
-              sm:leading-[1.7]
+              sm:leading-[1.65]
             "
           >
             Expert-led treatment for safe and steady weight loss. Complete a
             quick assessment and get clinician-approved guidance.
           </p>
+        </div>
+
+        {/* Mobile benefits */}
+        <div
+          className="
+            absolute
+            left-1/2
+            top-[76%]
+            flex
+            w-[96%]
+            -translate-x-1/2
+            justify-center
+
+            min-[390px]:w-[92%]
+
+            sm:left-auto
+            sm:right-[4%]
+            sm:top-[76%]
+            sm:w-[68%]
+            sm:translate-x-0
+            sm:justify-end
+          "
+        >
+          <BenefitsStrip />
         </div>
       </div>
 
@@ -478,25 +501,24 @@ function GraphSlide() {
         <div
           className="
             absolute
-            left-[2%]
-            top-[3%]
-            h-[91%]
-            w-[54%]
+            left-[0%]
+            top-[1%]
+            h-[94%]
+            w-[55%]
 
-            xl:left-[8%]
-            xl:top-[2%]
-            xl:h-[92%]
-            xl:w-[53%]
+            xl:left-[2%]
+            xl:h-[95%]
+            xl:w-[54%]
 
-            2xl:left-[10%]
-            2xl:w-[52%]
+            2xl:left-[3%]
+            2xl:w-[53%]
           "
         >
           <Image
             src="/Images/hero-badge.png"
             fill
             priority
-            sizes="32vw"
+            sizes="34vw"
             alt="Product box with price match guarantee badge"
             className="object-contain object-center"
           />
@@ -506,9 +528,9 @@ function GraphSlide() {
         <div
           className="
             absolute
-            right-[5%]
-            top-[16%]
-            w-[20%]
+            right-[4%]
+            top-[6%]
+            w-[41%]
             overflow-hidden
             rounded-[15px]
             bg-white/95
@@ -516,12 +538,12 @@ function GraphSlide() {
             ring-1
             ring-[#dce7f6]
 
-            xl:right-[6%]
-            xl:top-[15%]
-            xl:w-[39%]
+            xl:right-[5%]
+            xl:top-[5%]
+            xl:w-[40%]
 
-            2xl:right-[7%]
-            2xl:w-[38%]
+            2xl:right-[6%]
+            2xl:w-[39%]
           "
         >
           <Image
@@ -529,7 +551,7 @@ function GraphSlide() {
             width={800}
             height={500}
             priority
-            alt="Weight loss graph showing 25 pounds lost"
+            alt="Weight loss graph"
             className="h-auto w-full object-contain"
           />
         </div>
@@ -538,17 +560,17 @@ function GraphSlide() {
         <div
           className="
             absolute
-            right-[6%]
-            top-[61%]
-            w-[37%]
+            right-[4%]
+            top-[53%]
+            w-[40%]
             pl-5
 
-            xl:right-[7%]
-            xl:top-[60%]
-            xl:w-[36%]
+            xl:right-[5%]
+            xl:top-[52%]
+            xl:w-[39%]
 
-            2xl:right-[8%]
-            2xl:w-[35%]
+            2xl:right-[6%]
+            2xl:w-[38%]
           "
         >
           <span className="absolute inset-y-0 left-0 w-[2px] rounded-full bg-[#4565bf]" />
@@ -557,21 +579,171 @@ function GraphSlide() {
             className="
               reg-font
               m-0
-              text-[12px]
+              text-[11px]
               leading-[1.7]
               text-[#69707d]
 
               xl:text-[12px]
 
               2xl:text-[13px]
-              2xl:leading-[1.8]
+              2xl:leading-[1.75]
             "
           >
             Expert-led treatment for safe and steady weight loss. Complete a
             quick assessment and get clinician-approved guidance.
           </p>
         </div>
+
+        {/* Desktop benefits */}
+        <div
+          className="
+            absolute
+            right-[4%]
+            top-[72%]
+            flex
+            w-[44%]
+            justify-end
+
+            xl:left-[50%]
+            xl:top-[71%]
+            xl:w-[60%]
+
+            2xl:right-[2%]
+            2xl:top-[70%]
+            2xl:w-[50%]
+          "
+        >
+          <BenefitsStrip />
+        </div>
       </div>
+    </div>
+  );
+}
+
+function BenefitsStrip() {
+  return (
+    <div
+      className="
+        flex
+        min-h-[30px]
+        w-full
+        items-center
+        justify-center
+        rounded-[5px]
+        border
+        border-[#4565bf]/45
+        bg-white/90
+        px-2
+        py-1.5
+        shadow-[0_5px_16px_rgba(55,78,117,0.07)]
+        backdrop-blur-[4px]
+
+        sm:min-h-[32px]
+        sm:px-2.5
+
+        lg:min-h-[34px]
+        lg:px-3
+
+        xl:min-h-[36px]
+      "
+    >
+      {benefits.map((benefit, index) => (
+        <div
+          key={benefit}
+          className="
+            flex
+            shrink-0
+            items-center
+          "
+        >
+          {index > 0 && (
+            <span
+              aria-hidden="true"
+              className="
+                mx-1.5
+                h-3.5
+                w-px
+                shrink-0
+                bg-[#aeb8c5]/75
+
+                min-[390px]:mx-2
+                min-[390px]:h-4
+
+                sm:mx-2.5
+                sm:h-[18px]
+
+                lg:mx-2
+                lg:h-4
+
+                xl:mx-2.5
+                xl:h-[18px]
+              "
+            />
+          )}
+
+          <div
+            className="
+              flex
+              shrink-0
+              items-center
+              gap-1
+
+              min-[390px]:gap-1.5
+
+              sm:gap-1.5
+            "
+          >
+            <Image
+              src="/Images/hero_check.svg"
+              width={18}
+              height={18}
+              alt=""
+              aria-hidden="true"
+              className="
+                h-[13px]
+                w-[13px]
+                shrink-0
+                object-contain
+
+                min-[390px]:h-[14px]
+                min-[390px]:w-[14px]
+
+                sm:h-[15px]
+                sm:w-[15px]
+
+                lg:h-4
+                lg:w-4
+
+                xl:h-[17px]
+                xl:w-[17px]
+              "
+            />
+
+            <span
+              className="
+                whitespace-nowrap
+                text-[7px]
+                font-normal
+                leading-none
+                tracking-[-0.015em]
+                text-[#626874]
+
+                min-[390px]:text-[7.5px]
+
+                sm:text-[8.5px]
+
+                lg:text-[9px]
+
+                xl:text-[10px]
+
+                2xl:text-[11px]
+              "
+            >
+              {benefit}
+            </span>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
