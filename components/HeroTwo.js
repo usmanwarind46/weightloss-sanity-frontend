@@ -236,17 +236,17 @@ export function HeroTwo({ ctaLink = "/weight-loss-treatments" }) {
             order-2
             relative
             z-20
-            mt-5
-            h-[300px]
+            mt-4
+            h-[360px]
             w-full
             min-w-0
 
-            min-[390px]:h-[340px]
+            min-[390px]:h-[390px]
 
             sm:mt-7
-            sm:h-[420px]
+            sm:h-[450px]
 
-            md:h-[460px]
+            md:h-[480px]
 
             lg:order-none
             lg:mt-0
@@ -365,383 +365,391 @@ function WomanSlide({ slide }) {
 function GraphSlide() {
   return (
     <div className="relative h-full w-full">
-      {/* Mobile layout */}
-      <div className="relative mx-auto h-full w-full max-w-[560px] lg:hidden">
+      <MobileGraphSlide />
+      <DesktopGraphSlide />
+    </div>
+  );
+}
+
+function MobileGraphSlide() {
+  return (
+    <div
+      className="
+        mx-auto flex h-full w-full max-w-[600px]
+        flex-col justify-center gap-3
+        px-2 py-2
+
+        min-[390px]:gap-1
+        min-[390px]:px-3
+
+        sm:gap-4
+        sm:px-5
+        sm:py-3
+
+        lg:hidden
+      "
+    >
+      <div
+        className="
+          grid min-h-0 flex-1
+          grid-cols-[42%_58%]
+          items-stretch gap-x-2.5
+
+          min-[390px]:grid-cols-[43%_57%]
+          min-[390px]:gap-x-3
+
+          sm:grid-cols-[45%_55%]
+          sm:gap-x-5
+        "
+      >
         {/* Product and badge */}
-        <div
-          className="
-            absolute
-            bottom-[12%]
-            left-[-5%]
-            h-[82%]
-            w-[58%]
-
-            min-[390px]:bottom-[10%]
-            min-[390px]:left-[-3%]
-            min-[390px]:h-[86%]
-            min-[390px]:w-[56%]
-
-            sm:bottom-[8%]
-            sm:left-[2%]
-            sm:h-[89%]
-            sm:w-[53%]
-          "
-        >
+        <div className="relative min-h-0 w-full">
           <Image
             src="/Images/hero-badge.png"
             fill
             priority
-            sizes="58vw"
+            sizes="
+              (max-width:389px) 42vw,
+              (max-width:639px) 43vw,
+              (max-width:1023px) 45vw
+            "
             alt="Product box with price match guarantee badge"
-            className="object-contain object-bottom"
+            className="object-contain object-center sm:object-bottom"
           />
         </div>
 
-        {/* Graph */}
+        {/* Graph and description */}
         <div
           className="
-            absolute
-            right-[1%]
-            top-[4%]
-            w-[58%]
-            overflow-hidden
-            rounded-[10px]
-            bg-white/95
-            shadow-[0_12px_32px_rgba(55,78,117,0.12)]
-            ring-1
-            ring-[#dce7f6]
+            flex min-w-0 flex-col
+            justify-center gap-3
 
-            min-[390px]:right-[2%]
-            min-[390px]:w-[55%]
+            min-[390px]:gap-3.5
 
-            sm:right-[5%]
-            sm:top-[6%]
-            sm:w-[48%]
-            sm:rounded-[14px]
+            sm:gap-5
           "
         >
-          <Image
-            src="/Images/hero-graph.png"
-            width={800}
-            height={500}
-            priority
-            alt="Weight loss graph"
-            className="h-auto w-full object-contain"
-          />
-        </div>
-
-        {/* Description */}
-        <div
-          className="
-            absolute
-            right-[1%]
-            top-[50%]
-            w-[54%]
-            pl-3
-
-            min-[390px]:right-[2%]
-            min-[390px]:top-[51%]
-            min-[390px]:w-[51%]
-
-            sm:right-[5%]
-            sm:top-[53%]
-            sm:w-[45%]
-            sm:pl-4
-          "
-        >
-          <span className="absolute inset-y-0 left-0 w-px rounded-full bg-[#4565bf]" />
-
-          <p
+          <div
             className="
-              reg-font
-              m-0
-              text-[7px]
-              leading-[1.55]
-              text-[#69707d]
+              relative aspect-[8/5] w-full
+              overflow-hidden rounded-[10px]
+              bg-transparent
+              shadow-[0_12px_32px_rgba(55,78,117,0.12)]
+              ring-1 ring-[#dce7f6]
 
-              min-[390px]:text-[8px]
-
-              sm:text-[10px]
-              sm:leading-[1.65]
+              sm:rounded-[14px]
             "
           >
-            Expert-led treatment for safe and steady weight loss. Complete a
-            quick assessment and get clinician-approved guidance.
-          </p>
-        </div>
+            <Image
+              src="/Images/hero-graph.png"
+              fill
+              priority
+              sizes="
+                (max-width:389px) 58vw,
+                (max-width:639px) 57vw,
+                (max-width:1023px) 55vw
+              "
+              alt="Weight loss graph"
+              className="object-contain"
+            />
+          </div>
 
-        {/* Mobile benefits */}
-        <div
-          className="
-            absolute
-            left-1/2
-            top-[76%]
-            flex
-            w-[96%]
-            -translate-x-1/2
-            justify-center
+          <div
+            className="
+              border-l border-[#4565bf]
+              pl-2.5
 
-            min-[390px]:w-[92%]
+              min-[390px]:pl-3
 
-            sm:left-auto
-            sm:right-[4%]
-            sm:top-[76%]
-            sm:w-[68%]
-            sm:translate-x-0
-            sm:justify-end
-          "
-        >
-          <BenefitsStrip />
+              sm:border-l-2
+              sm:pl-4
+            "
+          >
+            <p
+              className="
+                reg-font m-0
+                text-[7px] leading-[1.55]
+                text-[#69707d]
+
+                min-[390px]:text-[8px]
+
+                sm:text-[10px]
+                sm:leading-[1.65]
+              "
+            >
+              Expert-led treatment for safe and steady weight loss. Complete a
+              quick assessment and get clinician-approved guidance.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Desktop layout */}
-      <div className="relative mx-auto hidden h-full w-full max-w-[790px] lg:block">
-        {/* Product and badge */}
-        <div
+      <MobileBenefitsStrip />
+    </div>
+  );
+}
+
+function DesktopGraphSlide() {
+  return (
+    <div className="relative mx-auto hidden h-full w-full max-w-[790px] lg:block">
+      {/* Product and badge */}
+      <div
+        className="
+          absolute
+          left-[0%]
+          top-[1%]
+          h-[94%]
+          w-[55%]
+
+          xl:left-[2%]
+          xl:h-[95%]
+          xl:w-[54%]
+
+          2xl:left-[3%]
+          2xl:w-[53%]
+        "
+      >
+        <Image
+          src="/Images/hero-badge.png"
+          fill
+          priority
+          sizes="34vw"
+          alt="Product box with price match guarantee badge"
+          className="object-contain object-center"
+        />
+      </div>
+
+      {/* Graph */}
+      <div
+        className="
+          absolute
+          right-[4%]
+          top-[6%]
+          w-[41%]
+          overflow-hidden
+          rounded-[15px]
+          bg-transparent
+          shadow-[0_16px_42px_rgba(55,78,117,0.13)]
+          ring-1 ring-[#dce7f6]
+
+          xl:right-[5%]
+          xl:top-[15%]
+          xl:w-[40%]
+
+          2xl:right-[6%]
+          2xl:top-[8%]
+          2xl:w-[39%]
+        "
+      >
+        <Image
+          src="/Images/hero-graph.png"
+          width={800}
+          height={500}
+          priority
+          alt="Weight loss graph"
+          className="h-auto w-full object-contain"
+        />
+      </div>
+
+      {/* Description */}
+      <div
+        className="
+          absolute
+          right-[4%]
+          top-[53%]
+          w-[41%]
+          border-l-2 border-[#4565bf]
+          pl-5
+
+          xl:right-[5%]
+          xl:top-[52%]
+          xl:w-[40%]
+
+          2xl:right-[6%]
+          2xl:w-[39%]
+        "
+      >
+        <p
           className="
-            absolute
-            left-[0%]
-            top-[1%]
-            h-[94%]
-            w-[55%]
+            reg-font m-0
+            text-[11px]
+            leading-[1.7]
+            text-[#69707d]
 
-            xl:left-[2%]
-            xl:h-[95%]
-            xl:w-[54%]
+            xl:text-[12px]
 
-            2xl:left-[3%]
-            2xl:w-[53%]
+            2xl:text-[13px]
+            2xl:leading-[1.75]
           "
         >
-          <Image
-            src="/Images/hero-badge.png"
-            fill
-            priority
-            sizes="34vw"
-            alt="Product box with price match guarantee badge"
-            className="object-contain object-center"
-          />
-        </div>
+          Expert-led treatment for safe and steady weight loss. Complete a quick
+          assessment and get clinician-approved guidance.
+        </p>
+      </div>
 
-        {/* Graph */}
-        <div
-          className="
-            absolute
-            right-[4%]
-            top-[6%]
-            w-[41%]
-            overflow-hidden
-            rounded-[15px]
-            bg-white/95
-            shadow-[0_16px_42px_rgba(55,78,117,0.13)]
-            ring-1
-            ring-[#dce7f6]
+      {/* Desktop benefits — separate component and sizing */}
+      <div
+        className="
+          absolute
+          right-[4%]
+          top-[75%]
+          w-[41%]
 
-            xl:right-[5%]
-            xl:top-[5%]
-            xl:w-[40%]
+          xl:right-[5%]
+          xl:top-[74%]
+          xl:w-[40%]
 
-            2xl:right-[6%]
-            2xl:w-[39%]
-          "
-        >
-          <Image
-            src="/Images/hero-graph.png"
-            width={800}
-            height={500}
-            priority
-            alt="Weight loss graph"
-            className="h-auto w-full object-contain"
-          />
-        </div>
-
-        {/* Description */}
-        <div
-          className="
-            absolute
-            right-[4%]
-            top-[53%]
-            w-[40%]
-            pl-5
-
-            xl:right-[5%]
-            xl:top-[52%]
-            xl:w-[39%]
-
-            2xl:right-[6%]
-            2xl:w-[38%]
-          "
-        >
-          <span className="absolute inset-y-0 left-0 w-[2px] rounded-full bg-[#4565bf]" />
-
-          <p
-            className="
-              reg-font
-              m-0
-              text-[11px]
-              leading-[1.7]
-              text-[#69707d]
-
-              xl:text-[12px]
-
-              2xl:text-[13px]
-              2xl:leading-[1.75]
-            "
-          >
-            Expert-led treatment for safe and steady weight loss. Complete a
-            quick assessment and get clinician-approved guidance.
-          </p>
-        </div>
-
-        {/* Desktop benefits */}
-        <div
-          className="
-            absolute
-            right-[4%]
-            top-[72%]
-            flex
-            w-[44%]
-            justify-end
-
-            xl:left-[50%]
-            xl:top-[71%]
-            xl:w-[60%]
-
-            2xl:right-[2%]
-            2xl:top-[70%]
-            2xl:w-[50%]
-          "
-        >
-          <BenefitsStrip />
-        </div>
+          2xl:right-[6%]
+          2xl:top-[73%]
+          2xl:w-[39%]
+        "
+      >
+        <DesktopBenefitsStrip />
       </div>
     </div>
   );
 }
 
-function BenefitsStrip() {
+function MobileBenefitsStrip() {
   return (
     <div
       className="
-        flex
-        min-h-[30px]
-        w-full
+        grid min-h-[34px] w-full
+        grid-cols-[0.95fr_1.18fr_1fr]
         items-center
-        justify-center
-        rounded-[5px]
-        border
-        border-[#4565bf]/45
+        overflow-hidden
+        rounded-[6px]
+        border border-[#4565bf]/45
         bg-white/90
-        px-2
-        py-1.5
         shadow-[0_5px_16px_rgba(55,78,117,0.07)]
         backdrop-blur-[4px]
 
-        sm:min-h-[32px]
-        sm:px-2.5
+        min-[390px]:min-h-[36px]
 
-        lg:min-h-[34px]
-        lg:px-3
-
-        xl:min-h-[36px]
+        sm:min-h-[38px]
       "
     >
       {benefits.map((benefit, index) => (
         <div
           key={benefit}
-          className="
-            flex
-            shrink-0
-            items-center
-          "
+          className={`
+            flex min-w-0
+            items-center justify-center
+            gap-1 px-1 py-2
+
+            min-[390px]:gap-1.5
+            min-[390px]:px-1.5
+
+            sm:gap-2
+            sm:px-2
+
+            ${index > 0 ? "border-l border-[#c9ced6]/80" : ""}
+          `}
         >
-          {index > 0 && (
-            <span
-              aria-hidden="true"
-              className="
-                mx-1.5
-                h-3.5
-                w-px
-                shrink-0
-                bg-[#aeb8c5]/75
-
-                min-[390px]:mx-2
-                min-[390px]:h-4
-
-                sm:mx-2.5
-                sm:h-[18px]
-
-                lg:mx-2
-                lg:h-4
-
-                xl:mx-2.5
-                xl:h-[18px]
-              "
-            />
-          )}
-
-          <div
+          <Image
+            src="/Images/hero_check.svg"
+            width={16}
+            height={16}
+            alt=""
+            aria-hidden="true"
             className="
-              flex
-              shrink-0
-              items-center
-              gap-1
+              h-[18px] w-[18px]
+              shrink-0 object-cover
 
-              min-[390px]:gap-1.5
+              min-[390px]:h-[18px]
+              min-[390px]:w-[18px]
 
-              sm:gap-1.5
+              sm:h-[15px]
+              sm:w-[15px]
+            "
+          />
+
+          <span
+            className="
+              whitespace-nowrap
+              text-[6.5px] font-normal
+              leading-none text-[#626874]
+
+              min-[390px]:text-[7px]
+
+              sm:text-[8px]
             "
           >
-            <Image
-              src="/Images/hero_check.svg"
-              width={18}
-              height={18}
-              alt=""
-              aria-hidden="true"
-              className="
-                h-[13px]
-                w-[13px]
-                shrink-0
-                object-contain
+            {benefit}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
-                min-[390px]:h-[14px]
-                min-[390px]:w-[14px]
+function DesktopBenefitsStrip() {
+  return (
+    <div
+      className="
+        grid h-[34px] w-full
+        grid-cols-[1fr_1.18fr_1fr]
+        items-center
+        overflow-hidden
+        rounded-[4px]
+        border border-[#4565bf]/50
+        bg-white/80
+        shadow-[0_5px_16px_rgba(55,78,117,0.05)]
+        backdrop-blur-[3px]
+        xl:h-[36px]
+xl:w-[350px]
+2xl:w-[400px]
+        2xl:h-[38px]
+      "
+    >
+      {benefits.map((benefit, index) => (
+        <div
+          key={benefit}
+          className={`
+            flex h-full min-w-0
+            items-center justify-center
+            gap-1.5 px-1.5
 
-                sm:h-[15px]
-                sm:w-[15px]
+            xl:gap-2
+            xl:px-2
 
-                lg:h-4
-                lg:w-4
+            2xl:px-2.5
 
-                xl:h-[17px]
-                xl:w-[17px]
-              "
-            />
+            ${index > 0 ? "border-l border-[#c9ced6]/80" : ""}
+          `}
+        >
+          <Image
+            src="/Images/hero_check.svg"
+            width={22}
+            height={22}
+            alt=""
+            aria-hidden="true"
+            className="
+              h-full w-full
+              shrink-0 object-contain
 
-            <span
-              className="
-                whitespace-nowrap
-                text-[7px]
-                font-normal
-                leading-none
-                tracking-[-0.015em]
-                text-[#626874]
+              xl:h-[20px]
+              xl:w-[20px]
 
-                min-[390px]:text-[7.5px]
+            2xl:h-[20px]
+              2xl:w-[20px]
+            "
+          />
 
-                sm:text-[8.5px]
+          <span
+            className="
+              whitespace-nowrap
+              text-[7px] font-normal
+              leading-none tracking-[-0.01em]
+              text-[#626874]
 
-                lg:text-[9px]
+              xl:text-[10px]
 
-                xl:text-[10px]
-
-                2xl:text-[11px]
-              "
-            >
-              {benefit}
-            </span>
-          </div>
+              2xl:text-[12px]
+            "
+          >
+            {benefit}
+          </span>
         </div>
       ))}
     </div>
