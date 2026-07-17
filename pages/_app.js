@@ -22,6 +22,29 @@ export default function App({ Component, pageProps }) {
     };
   }, [router.events]);
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const utmSource = params.get("utm_source");
+    const utmMedium = params.get("utm_medium");
+    const utmCampaign = params.get("utm_campaign");
+
+    if (utmSource) {
+      localStorage.setItem("utm_source", utmSource);
+      localStorage.setItem("utm_medium", utmMedium || "");
+      localStorage.setItem("utm_campaign", utmCampaign || "");
+    } else if (!localStorage.getItem("utm_source")) {
+      localStorage.setItem("utm_source", "organic");
+      localStorage.setItem("utm_medium", "none");
+      localStorage.setItem("utm_campaign", "none");
+    }
+
+    // Console mein dekho
+    console.log("=== UTM DEBUG ===");
+    console.log("utm_source:", localStorage.getItem("utm_source"));
+    console.log("utm_medium:", localStorage.getItem("utm_medium"));
+    console.log("utm_campaign:", localStorage.getItem("utm_campaign"));
+  }, []);
+
   return (
     <>
       <CookieConsentInit />
