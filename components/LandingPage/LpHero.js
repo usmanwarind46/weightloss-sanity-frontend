@@ -2,8 +2,11 @@ import Link from "next/link";
 import { FadeUp } from "../MotionWrapper";
 import Image from "next/image";
 import { ArrowRight, ChevronRight } from "lucide-react";
+import { useUtmLink } from "../../hooks/useUtmLink";
 
 export function LpHero() {
+  const consultationUrl = useUtmLink("/weight-loss-treatments/");
+
   const items = [
     {
       icon: "/Lp-images/icon/icon-1.png",
@@ -33,7 +36,7 @@ export function LpHero() {
                 Clinical medical assessment. Personalised treatment plan.
                 UK-regulated private clinic.
               </p>
-              <Link href="/weight-loss-treatments/">
+              <Link href={consultationUrl}>
                 <button className="next-btn">
                   Start Your Consultation
                   <span className="next-btn-arrow">

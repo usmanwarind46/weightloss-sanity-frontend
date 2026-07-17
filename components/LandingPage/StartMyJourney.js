@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { useUtmLink } from "../../hooks/useUtmLink";
 
 const pricingItems = [
   {
@@ -36,6 +37,8 @@ const pricingItems = [
 export default function StartMyJourney() {
   const [activeIndex, setActiveIndex] = useState(null);
   const toggle = (i) => setActiveIndex(activeIndex === i ? null : i);
+
+  const consultationUrl = useUtmLink("/weight-loss-treatments/");
 
   return (
     <section
@@ -164,7 +167,7 @@ reg-font text-gray-900 text-black"
               </p>
             </div>
             <div className="flex justify-center">
-              <Link href="/weight-loss-treatments/">
+              <Link href={consultationUrl}>
                 <button className="next-btn">
                   Start Your Consultation
                   <span className="next-btn-arrow">

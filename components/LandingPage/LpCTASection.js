@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export function LpCTASection() {
+  const consultationUrl = useUtmLink("/weight-loss-treatments/");
+
   return (
     <section className="w-full container mx-auto py-8 reg-font">
       <div className="rounded-3xl overflow-hidden bg-[#E0EDFF]">
@@ -23,7 +25,7 @@ export function LpCTASection() {
               commitment required.
             </p>
 
-            <Link href="/weight-loss-treatments/">
+            <Link href={consultationUrl}>
               <button className="next-btn">
                 Start Free Medical Assessment
                 <span className="next-btn-arrow">
