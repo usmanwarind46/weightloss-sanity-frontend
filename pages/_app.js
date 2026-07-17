@@ -25,24 +25,43 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const utmSource = params.get("utm_source");
-    const utmMedium = params.get("utm_medium");
-    const utmCampaign = params.get("utm_campaign");
 
     if (utmSource) {
-      localStorage.setItem("utm_source", utmSource);
-      localStorage.setItem("utm_medium", utmMedium || "");
-      localStorage.setItem("utm_campaign", utmCampaign || "");
-    } else if (!localStorage.getItem("utm_source")) {
-      localStorage.setItem("utm_source", "organic");
-      localStorage.setItem("utm_medium", "none");
-      localStorage.setItem("utm_campaign", "none");
+      // Paid traffic
+      sessionStorage.setItem("utm_source", utmSource);
+      sessionStorage.setItem("utm_medium", params.get("utm_medium") || "");
+      sessionStorage.setItem("utm_campaign", params.get("utm_campaign") || "");
+    } else {
+      // Referrer se check karo
+      const referrer = document.referrer;
+
+      if (!referrer || referrer === "") {
+        // Koi referrer nahi — Direct
+        sessionStorage.setItem("utm_source", "direct");
+        sessionStorage.setItem("utm_medium", "none");
+        sessionStorage.setItem("utm_campaign", "none");
+      } else if (
+        referrer.includes("google") ||
+        referrer.includes("bing") ||
+        referrer.includes("yahoo") ||
+        referrer.includes("duckduckgo")
+      ) {
+        // Search engine se aaya — Organic
+        sessionStorage.setItem("utm_source", "organic");
+        sessionStorage.setItem("utm_medium", "organic");
+        sessionStorage.setItem("utm_campaign", "none");
+      } else {
+        // Kisi aur site se aaya — Referral
+        sessionStorage.setItem("utm_source", referrer);
+        sessionStorage.setItem("utm_medium", "referral");
+        sessionStorage.setItem("utm_campaign", "none");
+      }
     }
 
-    // Console mein dekho
     console.log("=== UTM DEBUG ===");
-    console.log("utm_source:", localStorage.getItem("utm_source"));
-    console.log("utm_medium:", localStorage.getItem("utm_medium"));
-    console.log("utm_campaign:", localStorage.getItem("utm_campaign"));
+    console.log("utm_source:", sessionStorage.getItem("utm_source"));
+    console.log("utm_medium:", sessionStorage.getItem("utm_medium"));
+    console.log("utm_campaign:", sessionStorage.getItem("utm_campaign"));
   }, []);
 
   return (
