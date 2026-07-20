@@ -6,6 +6,9 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import CookieConsentInit from "../components/CookieConsent/CookieConsentInit";
 
+// ─────────────────────────────────────────────
+// CONSTANTS
+// ─────────────────────────────────────────────
 const ATTRIBUTION_STORAGE_KEY = "owlc_attribution";
 const ROOT_DOMAIN = "onlineweightlossclinic.co.uk";
 
@@ -40,6 +43,7 @@ const SEARCH_SOURCES = [
   "yandex",
   "ecosia",
   "gmb",
+  "gmb_listing",
   "google_business",
   "google_business_profile",
 ];
@@ -60,6 +64,9 @@ const SOCIAL_SOURCES = [
   "reddit",
 ];
 
+// ─────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────
 function normalizeValue(value) {
   return String(value || "")
     .trim()
@@ -69,7 +76,6 @@ function normalizeValue(value) {
 
 function includesSource(value, sources) {
   const normalized = normalizeValue(value);
-
   return sources.some(
     (source) =>
       normalized === source ||
@@ -81,7 +87,6 @@ function includesSource(value, sources) {
 
 function getHostname(url) {
   if (!url) return "";
-
   try {
     return new URL(url).hostname.toLowerCase().replace(/^www\./, "");
   } catch {
@@ -93,7 +98,6 @@ function isInternalHostname(hostname) {
   const normalized = String(hostname || "")
     .toLowerCase()
     .replace(/^www\./, "");
-
   return normalized === ROOT_DOMAIN || normalized.endsWith(`.${ROOT_DOMAIN}`);
 }
 
@@ -106,51 +110,34 @@ function isSocialSource(value) {
 }
 
 function getSearchEngine(value) {
-  const normalized = normalizeValue(value);
-
-  if (normalized.includes("google")) return "google";
-  if (normalized.includes("bing")) return "bing";
-  if (normalized.includes("yahoo")) return "yahoo";
-  if (normalized.includes("duckduckgo")) return "duckduckgo";
-  if (normalized.includes("baidu")) return "baidu";
-  if (normalized.includes("yandex")) return "yandex";
-  if (normalized.includes("ecosia")) return "ecosia";
-
+  const n = normalizeValue(value);
+  if (n.includes("google")) return "google";
+  if (n.includes("bing")) return "bing";
+  if (n.includes("yahoo")) return "yahoo";
+  if (n.includes("duckduckgo")) return "duckduckgo";
+  if (n.includes("baidu")) return "baidu";
+  if (n.includes("yandex")) return "yandex";
+  if (n.includes("ecosia")) return "ecosia";
   return "search_engine";
 }
 
 function getSocialPlatform(value) {
-  const normalized = normalizeValue(value);
-
+  const n = normalizeValue(value);
   if (
-    normalized.includes("facebook") ||
-    normalized === "fb" ||
-    normalized.includes("l.facebook") ||
-    normalized.includes("lm.facebook")
-  ) {
+    n.includes("facebook") ||
+    n === "fb" ||
+    n.includes("l.facebook") ||
+    n.includes("lm.facebook")
+  )
     return "facebook";
-  }
-
-  if (normalized.includes("instagram") || normalized === "ig") {
-    return "instagram";
-  }
-
-  if (normalized.includes("linkedin")) return "linkedin";
-  if (normalized.includes("tiktok")) return "tiktok";
-
-  if (
-    normalized === "x" ||
-    normalized.includes("twitter") ||
-    normalized.includes("t.co")
-  ) {
-    return "x";
-  }
-
-  if (normalized.includes("youtube")) return "youtube";
-  if (normalized.includes("pinterest")) return "pinterest";
-  if (normalized.includes("snapchat")) return "snapchat";
-  if (normalized.includes("reddit")) return "reddit";
-
+  if (n.includes("instagram") || n === "ig") return "instagram";
+  if (n.includes("linkedin")) return "linkedin";
+  if (n.includes("tiktok")) return "tiktok";
+  if (n === "x" || n.includes("twitter") || n.includes("t.co")) return "x";
+  if (n.includes("youtube")) return "youtube";
+  if (n.includes("pinterest")) return "pinterest";
+  if (n.includes("snapchat")) return "snapchat";
+  if (n.includes("reddit")) return "reddit";
   return "social";
 }
 
@@ -167,30 +154,27 @@ function saveStoredAttribution(attribution) {
   try {
     localStorage.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(attribution));
 
-    /*
-     * Backward compatibility:
-     * Existing forms agar purani UTM keys use kar rahe hain to woh
-     * first-touch attribution read karte rahenge.
-     */
+    // Backward compatibility — purani UTM keys maintain
     const firstTouch = attribution.first_touch;
-
-    localStorage.setItem(
-      "utm_source",
-      firstTouch.utm_source || firstTouch.source,
-    );
-    localStorage.setItem(
-      "utm_medium",
-      firstTouch.utm_medium || firstTouch.medium,
-    );
-    localStorage.setItem(
-      "utm_campaign",
-      firstTouch.utm_campaign || firstTouch.campaign || "none",
-    );
+    if (firstTouch) {
+      localStorage.setItem(
+        "utm_source",
+        firstTouch.utm_source || firstTouch.source || "direct",
+      );
+      localStorage.setItem(
+        "utm_medium",
+        firstTouch.utm_medium || firstTouch.medium || "none",
+      );
+      localStorage.setItem("utm_campaign", firstTouch.utm_campaign || "none");
+    }
   } catch (error) {
     console.error("Unable to save attribution:", error);
   }
 }
 
+// ─────────────────────────────────────────────
+// DETECT ATTRIBUTION
+// ─────────────────────────────────────────────
 function detectAttribution() {
   const params = new URLSearchParams(window.location.search);
   const referrer = document.referrer || "";
@@ -210,20 +194,16 @@ function detectAttribution() {
   const dclid = params.get("dclid") || "";
   const gadSource = params.get("gad_source") || "";
   const gadCampaignId = params.get("gad_campaignid") || "";
-
   const msclkid = params.get("msclkid") || "";
-
   const fbclid = params.get("fbclid") || "";
   const ttclid = params.get("ttclid") || "";
   const linkedInClickId = params.get("li_fat_id") || "";
   const twitterClickId = params.get("twclid") || "";
 
   const normalizedMedium = normalizeValue(utmMedium);
-
   const hasGooglePaidIdentifier = Boolean(
     gclid || gbraid || wbraid || gadSource || gadCampaignId,
   );
-
   const hasAnyTrackingSignal = Boolean(
     utmSource ||
     utmMedium ||
@@ -251,10 +231,6 @@ function detectAttribution() {
   let confidence = "medium";
   let evidence = ["no_external_referrer_or_tracking_parameter"];
 
-  /*
-   * Google Ads identifiers take priority over UTMs because someone
-   * could accidentally configure an incorrect UTM medium.
-   */
   if (hasGooglePaidIdentifier) {
     source = "google";
     medium = "cpc";
@@ -288,16 +264,10 @@ function detectAttribution() {
     paidStatus = "paid";
     confidence = "high";
     evidence = ["paid_utm_medium"];
-
-    if (isSocialSource(source)) {
-      channel = "Paid Social";
-    } else if (isSearchSource(source)) {
-      channel = "Paid Search";
-    } else if (normalizedMedium === "display") {
-      channel = "Display";
-    } else {
-      channel = "Paid Other";
-    }
+    if (isSocialSource(source)) channel = "Paid Social";
+    else if (isSearchSource(source)) channel = "Paid Search";
+    else if (normalizedMedium === "display") channel = "Display";
+    else channel = "Paid Other";
   } else if (utmSource || utmMedium) {
     source = normalizeValue(utmSource) || "unknown";
     medium = normalizedMedium || "unknown";
@@ -306,14 +276,9 @@ function detectAttribution() {
 
     if (ORGANIC_MEDIUMS.has(normalizedMedium)) {
       paidStatus = "organic";
-
-      if (isSocialSource(source)) {
-        channel = "Organic Social";
-      } else if (isSearchSource(source)) {
-        channel = "Organic Search";
-      } else {
-        channel = "Organic";
-      }
+      if (isSocialSource(source)) channel = "Organic Social";
+      else if (isSearchSource(source)) channel = "Organic Search";
+      else channel = "Organic";
     } else if (normalizedMedium === "email") {
       channel = "Email";
       paidStatus = "unknown";
@@ -331,38 +296,33 @@ function detectAttribution() {
       paidStatus = "unknown";
     }
   } else if (fbclid) {
-    /*
-     * fbclid Facebook/Instagram click confirm karta hai,
-     * lekin paid ad vs organic post guaranteed nahi.
-     * Agreed reporting fallback: Organic Social.
-     */
+    // fbclid — paid ya organic confirm nahi, lekin Social mark karo
     source = isSocialSource(referrerHostname)
       ? getSocialPlatform(referrerHostname)
       : "meta";
-
     medium = "social";
-    channel = "Organic Social";
+    channel = "Social"; // "Organic Social" nahi — misleading tha
     paidStatus = "unknown";
     confidence = "medium";
     evidence = ["fbclid"];
   } else if (ttclid) {
     source = "tiktok";
     medium = "social";
-    channel = "Organic Social";
+    channel = "Social";
     paidStatus = "unknown";
     confidence = "medium";
     evidence = ["ttclid"];
   } else if (linkedInClickId) {
     source = "linkedin";
     medium = "social";
-    channel = "Organic Social";
+    channel = "Social";
     paidStatus = "unknown";
     confidence = "medium";
     evidence = ["li_fat_id"];
   } else if (twitterClickId) {
     source = "x";
     medium = "social";
-    channel = "Organic Social";
+    channel = "Social";
     paidStatus = "unknown";
     confidence = "medium";
     evidence = ["twclid"];
@@ -388,9 +348,6 @@ function detectAttribution() {
     confidence = "medium";
     evidence = ["external_referrer"];
   } else if (isInternalReferrer) {
-    /*
-     * Main website → consultation ko new acquisition nahi samjhenge.
-     */
     source = "internal";
     medium = "internal";
     channel = "Internal";
@@ -406,14 +363,12 @@ function detectAttribution() {
     paid_status: paidStatus,
     confidence,
     evidence,
-
     utm_source: utmSource,
     utm_medium: utmMedium,
     utm_campaign: utmCampaign,
     utm_term: utmTerm,
     utm_content: utmContent,
     utm_id: utmId,
-
     click_ids: {
       gclid,
       gbraid,
@@ -425,88 +380,93 @@ function detectAttribution() {
       li_fat_id: linkedInClickId,
       twclid: twitterClickId,
     },
-
-    google_ads: {
-      gad_source: gadSource,
-      gad_campaign_id: gadCampaignId,
-    },
-
+    google_ads: { gad_source: gadSource, gad_campaign_id: gadCampaignId },
     landing_page: `${window.location.pathname}${window.location.search}`,
     landing_url: window.location.href,
     referrer,
     referrer_hostname: referrerHostname || null,
     captured_at: new Date().toISOString(),
-
     has_tracking_signal: hasAnyTrackingSignal,
     is_internal_referrer: isInternalReferrer,
   };
 }
 
+// ─────────────────────────────────────────────
+// INITIALIZE ATTRIBUTION
+// ─────────────────────────────────────────────
+function initializeAttribution() {
+  const currentTouch = detectAttribution();
+  const storedAttribution = readStoredAttribution();
+
+  if (!storedAttribution?.first_touch) {
+    // Pehli baar — First Touch aur Last Touch same
+    saveStoredAttribution({
+      first_touch: currentTouch,
+      last_touch: currentTouch,
+    });
+    return;
+  }
+
+  // Last Touch sirf tab update hoga jab external signal ho
+  const hasExternalReferrer =
+    Boolean(currentTouch.referrer_hostname) &&
+    !currentTouch.is_internal_referrer;
+
+  const shouldUpdateLastTouch =
+    currentTouch.has_tracking_signal || hasExternalReferrer;
+
+  if (shouldUpdateLastTouch) {
+    saveStoredAttribution({
+      ...storedAttribution,
+      last_touch: currentTouch,
+    });
+  } else {
+    // Direct return visit — Last Touch change nahi hoga
+    saveStoredAttribution(storedAttribution);
+  }
+}
+
+// ─────────────────────────────────────────────
+// APP
+// ─────────────────────────────────────────────
 export default function App({ Component, pageProps }) {
   const router = useRouter();
 
+  // CustomerLabs pageview
   useEffect(() => {
     const handleRouteChange = () => {
       if (typeof window !== "undefined" && window._cl) {
         window._cl.pageview();
       }
     };
-
     router.events.on("routeChangeComplete", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
+    return () => router.events.off("routeChangeComplete", handleRouteChange);
   }, [router.events]);
 
+  // Attribution — Cookie Consent ke baad chalao
   useEffect(() => {
-    const currentTouch = detectAttribution();
-    const storedAttribution = readStoredAttribution();
-
-    if (!storedAttribution?.first_touch) {
-      /*
-       * First ever visit:
-       * First Touch aur Last Touch dono same honge.
-       */
-      saveStoredAttribution({
-        first_touch: currentTouch,
-        last_touch: currentTouch,
+    // Pehle check karo k analytics consent mila hai
+    import("vanilla-cookieconsent")
+      .then((mod) => {
+        const CC = mod.default || mod;
+        if (CC.acceptedCategory("analytics")) {
+          initializeAttribution();
+        } else {
+          // Consent nahi mila — sirf non-tracking data save karo
+          // Jab consent mile tab CookieConsentInit onConsent mein chalega
+        }
+      })
+      .catch(() => {
+        // Agar library load na ho — anyway chalao
+        initializeAttribution();
       });
-    } else {
-      /*
-       * Last Touch sirf tab update hoga jab:
-       * 1. URL mein tracking/campaign signal ho, ya
-       * 2. User kisi external website/search/social platform se aya ho.
-       *
-       * Direct visit aur main website → consultation internal navigation
-       * existing Last Touch ko overwrite nahi karegi.
-       */
-      const hasExternalReferrer =
-        Boolean(currentTouch.referrer_hostname) &&
-        !currentTouch.is_internal_referrer;
-
-      const shouldUpdateLastTouch =
-        currentTouch.has_tracking_signal || hasExternalReferrer;
-
-      if (shouldUpdateLastTouch) {
-        saveStoredAttribution({
-          ...storedAttribution,
-          last_touch: currentTouch,
-        });
-      } else {
-        /*
-         * Purani individual UTM keys ko canonical First Touch ke saath
-         * synchronized rakho.
-         */
-        saveStoredAttribution(storedAttribution);
-      }
-    }
 
     const saved = readStoredAttribution();
-
-    console.log("=== OWLC ATTRIBUTION DEBUG ===");
-    console.log("First Touch:", saved?.first_touch);
-    console.log("Last Touch:", saved?.last_touch);
+    if (saved) {
+      console.log("=== OWLC ATTRIBUTION DEBUG ===");
+      console.log("First Touch:", saved?.first_touch);
+      console.log("Last Touch:", saved?.last_touch);
+    }
   }, []);
 
   return (
