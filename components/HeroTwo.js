@@ -97,7 +97,7 @@ export function HeroTwo({ ctaLink = "/weight-loss-treatments" }) {
             xl:pr-7
           "
         >
-          {/* Heading — mobile order 1s */}
+          {/* Heading */}
           <h1
             className="
               order-1
@@ -134,7 +134,7 @@ export function HeroTwo({ ctaLink = "/weight-loss-treatments" }) {
             <span className="block">Price Guaranteed</span>
           </h1>
 
-          {/* Card and button — mobile order 3 */}
+          {/* Card and button */}
           <div
             className="
               order-3
@@ -159,11 +159,9 @@ export function HeroTwo({ ctaLink = "/weight-loss-treatments" }) {
               className="
                 w-full
                 rounded-[13px]
-                border
-                border-[#4565bf]/40
+                border border-[#4565bf]/40
                 bg-white/60
-                px-4
-                py-4
+                px-4 py-4
                 shadow-[0_14px_36px_rgba(52,79,120,0.06)]
                 backdrop-blur-[5px]
 
@@ -174,15 +172,10 @@ export function HeroTwo({ ctaLink = "/weight-loss-treatments" }) {
               <div className="flex items-start gap-3.5 text-left">
                 <div
                   className="
-                    flex
-                    h-10
-                    w-10
-                    shrink-0
-                    items-center
-                    justify-center
+                    flex h-10 w-10 shrink-0
+                    items-center justify-center
                     rounded-full
-                    border
-                    border-[#4565bf]/25
+                    border border-[#4565bf]/25
                     bg-white/90
                     text-[#4565bf]
 
@@ -230,7 +223,7 @@ export function HeroTwo({ ctaLink = "/weight-loss-treatments" }) {
           </div>
         </div>
 
-        {/* Slider — mobile order 2 */}
+        {/* Slider */}
         <div
           className="
             order-2
@@ -488,123 +481,143 @@ function MobileGraphSlide() {
     </div>
   );
 }
-
 function DesktopGraphSlide() {
   return (
-    <div className="relative mx-auto hidden h-full w-full max-w-[790px] lg:block">
+    <div className="relative hidden h-full w-full lg:block">
       {/* Product and badge */}
       <div
         className="
           absolute
-          left-[0%]
-          top-[1%]
-          h-[94%]
-          w-[55%]
+          left-[-5%]
+          top-[5%]
+          h-[88%]
+          w-[53%]
 
-          xl:left-[2%]
-          xl:h-[95%]
-          xl:w-[54%]
+          min-[1150px]:left-[-3%]
+          min-[1150px]:top-[3%]
+          min-[1150px]:h-[91%]
+          min-[1150px]:w-[54%]
 
-          2xl:left-[3%]
-          2xl:w-[53%]
+          min-[1280px]:left-[-1%]
+          min-[1280px]:top-[2%]
+          min-[1280px]:h-[93%]
+          min-[1280px]:w-[55%]
+
+          min-[1500px]:left-[1%]
+          min-[1500px]:top-[1%]
+          min-[1500px]:h-[95%]
+          min-[1500px]:w-[54%]
         "
       >
         <Image
           src="/Images/hero-badge.png"
           fill
           priority
-          sizes="34vw"
+          sizes="(min-width:1024px) 34vw"
           alt="Product box with price match guarantee badge"
           className="object-contain object-center"
         />
       </div>
 
-      {/* Graph */}
+      {/* Right-side content */}
       <div
         className="
           absolute
-          right-[4%]
-          top-[6%]
-          w-[41%]
-          overflow-hidden
-          rounded-[15px]
-          bg-transparent
-          shadow-[0_16px_42px_rgba(55,78,117,0.13)]
-          ring-1 ring-[#dce7f6]
+          right-[1%]
+          top-1/2
+          flex
+          w-[48%]
+          -translate-y-1/2
+          flex-col
 
-          xl:right-[5%]
-          xl:top-[15%]
-          xl:w-[40%]
+          min-[1150px]:right-[2%]
+          min-[1150px]:w-[47%]
 
-          2xl:right-[6%]
-          2xl:top-[8%]
-          2xl:w-[39%]
+          min-[1280px]:right-[3%]
+          min-[1280px]:w-[46%]
+
+          min-[1500px]:right-[4%]
+          min-[1500px]:w-[44%]
         "
       >
-        <Image
-          src="/Images/hero-graph.png"
-          width={800}
-          height={500}
-          priority
-          alt="Weight loss graph"
-          className="h-auto w-full object-contain"
-        />
-      </div>
-
-      {/* Description */}
-      <div
-        className="
-          absolute
-          right-[4%]
-          top-[53%]
-          w-[41%]
-          border-l-2 border-[#4565bf]
-          pl-5
-
-          xl:right-[5%]
-          xl:top-[52%]
-          xl:w-[40%]
-
-          2xl:right-[6%]
-          2xl:w-[39%]
-        "
-      >
-        <p
+        {/* Graph */}
+        <div
           className="
-            reg-font m-0
-            text-[11px]
-            leading-[1.7]
-            text-[#69707d]
+            w-full
+            overflow-hidden
+            rounded-[12px]
+            bg-transparent
+            shadow-[0_14px_36px_rgba(55,78,117,0.12)]
+            ring-1 ring-[#dce7f6]
 
-            xl:text-[12px]
-
-            2xl:text-[13px]
-            2xl:leading-[1.75]
+            min-[1150px]:rounded-[13px]
+            min-[1280px]:rounded-[14px]
+            min-[1500px]:rounded-[16px]
           "
         >
-          Expert-led treatment for safe and steady weight loss. Complete a quick
-          assessment and get clinician-approved guidance.
-        </p>
-      </div>
+          <Image
+            src="/Images/hero-graph.png"
+            width={800}
+            height={500}
+            priority
+            alt="Weight loss graph"
+            className="h-auto w-full object-contain"
+          />
+        </div>
 
-      {/* Desktop benefits — separate component and sizing */}
-      <div
-        className="
-          absolute
-          right-[4%]
-          top-[75%]
-          w-[41%]
+        {/* Description */}
+        <div
+          className="
+            mt-4
+            border-l-2 border-[#4565bf]
+            py-0.5
+            pl-4
 
-          xl:right-[5%]
-          xl:top-[74%]
-          xl:w-[40%]
+            min-[1150px]:mt-5
+            min-[1150px]:pl-4
 
-          2xl:right-[6%]
-          2xl:top-[73%]
-          2xl:w-[39%]
-        "
-      >
-        <DesktopBenefitsStrip />
+            min-[1280px]:mt-6
+            min-[1280px]:pl-5
+
+            min-[1500px]:mt-7
+            min-[1500px]:pl-6
+          "
+        >
+          <p
+            className="
+              reg-font
+              m-0
+              max-w-[420px]
+              text-[9px]
+              leading-[1.6]
+              text-[#69707d]
+
+              min-[1150px]:text-[10px]
+              min-[1280px]:text-[11px]
+              min-[1280px]:leading-[1.68]
+
+              min-[1500px]:text-[12px]
+              min-[1500px]:leading-[1.75]
+            "
+          >
+            Expert-led treatment for safe and steady weight loss. Complete a
+            quick assessment and get clinician-approved guidance.
+          </p>
+        </div>
+
+        {/* Benefits */}
+        <div
+          className="
+            mt-4
+            w-full
+
+            min-[1150px]:mt-5
+            min-[1280px]:mt-6
+            min-[1500px]:mt-7
+          "
+        >
+          <DesktopBenefitsStrip />
+        </div>
       </div>
     </div>
   );
@@ -654,7 +667,7 @@ function MobileBenefitsStrip() {
             aria-hidden="true"
             className="
               h-[18px] w-[18px]
-              shrink-0 object-cover
+              shrink-0 object-contain
 
               min-[390px]:h-[18px]
               min-[390px]:w-[18px]
@@ -687,65 +700,83 @@ function DesktopBenefitsStrip() {
   return (
     <div
       className="
-        grid h-[34px] w-full
-        grid-cols-[1fr_1.18fr_1fr]
+        grid
+        h-[30px]
+        w-full
+        grid-cols-[1fr_1.2fr_1fr]
         items-center
         overflow-hidden
         rounded-[4px]
-        border border-[#4565bf]/50
-        bg-white/80
-        shadow-[0_5px_16px_rgba(55,78,117,0.05)]
+        border border-[#4565bf]/45
+        bg-white/88
+        shadow-[0_4px_14px_rgba(55,78,117,0.05)]
         backdrop-blur-[3px]
-        xl:h-[36px]
-xl:w-[350px]
-2xl:w-[400px]
-        2xl:h-[38px]
+
+        min-[1150px]:h-[32px]
+        min-[1280px]:h-[34px]
+        min-[1500px]:h-[38px]
       "
     >
       {benefits.map((benefit, index) => (
         <div
           key={benefit}
           className={`
-            flex h-full min-w-0
-            items-center justify-center
-            gap-1.5 px-1.5
+            flex
+            h-full
+            min-w-0
+            items-center
+            justify-center
+            gap-1
+            px-1
 
-            xl:gap-2
-            xl:px-2
+            min-[1150px]:gap-1.5
+            min-[1150px]:px-1.5
 
-            2xl:px-2.5
+            min-[1280px]:gap-1.5
+            min-[1280px]:px-2
 
-            ${index > 0 ? "border-l border-[#c9ced6]/80" : ""}
+            min-[1500px]:gap-2
+            min-[1500px]:px-2.5
+
+            ${index > 0 ? "border-l border-[#c9ced6]/75" : ""}
           `}
         >
           <Image
             src="/Images/hero_check.svg"
-            width={22}
-            height={22}
+            width={18}
+            height={18}
             alt=""
             aria-hidden="true"
             className="
-              h-full w-full
-              shrink-0 object-contain
+              h-[11px]
+              w-[11px]
+              shrink-0
+              object-contain
 
-              xl:h-[20px]
-              xl:w-[20px]
+              min-[1150px]:h-[12px]
+              min-[1150px]:w-[12px]
 
-            2xl:h-[20px]
-              2xl:w-[20px]
+              min-[1280px]:h-[14px]
+              min-[1280px]:w-[14px]
+
+              min-[1500px]:h-[16px]
+              min-[1500px]:w-[16px]
             "
           />
 
           <span
             className="
               whitespace-nowrap
-              text-[7px] font-normal
-              leading-none tracking-[-0.01em]
-              text-[#626874]
+              text-[9px]
+             reg-font
+              leading-none
+              tracking-[-0.02em]
+              text-[#666666]
 
-              xl:text-[10px]
-
-              2xl:text-[12px]
+              min-[1150px]:text-[7px]
+              min-[1280px]:text-[8px]
+              min-[1500px]:text-[11px]
+              min-[2500px]:text-[12px]
             "
           >
             {benefit}
