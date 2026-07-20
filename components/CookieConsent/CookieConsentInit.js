@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import * as CookieConsent from "vanilla-cookieconsent";
 import "vanilla-cookieconsent/dist/cookieconsent.css";
+import { initializeAttribution } from "../../lib/attribution";
 
 export default function CookieConsentInit() {
   useEffect(() => {
@@ -34,11 +35,13 @@ export default function CookieConsentInit() {
       onConsent: () => {
         if (CookieConsent.acceptedCategory("analytics")) {
           loadAnalyticsScripts();
+          initializeAttribution(); // ← attribution yahan
         }
       },
       onChange: () => {
         if (CookieConsent.acceptedCategory("analytics")) {
           loadAnalyticsScripts();
+          initializeAttribution(); // ← attribution yahan
         }
       },
 
@@ -54,7 +57,6 @@ export default function CookieConsentInit() {
               acceptNecessaryBtn: "Reject all",
               showPreferencesBtn: "Manage preferences",
             },
-
             preferencesModal: {
               title: "Cookie preferences",
               acceptAllBtn: "Accept all",
@@ -91,7 +93,6 @@ function loadAnalyticsScripts() {
   if (analyticsLoaded) return;
   analyticsLoaded = true;
 
-  // Activate every <script type="text/plain" data-cookiecategory="analytics"> on the page
   const scripts = document.querySelectorAll(
     'script[type="text/plain"][data-cookiecategory="analytics"]',
   );
@@ -99,7 +100,6 @@ function loadAnalyticsScripts() {
   scripts.forEach((oldScript) => {
     const newScript = document.createElement("script");
 
-    // copy any attributes (like src, async) except type
     for (const attr of oldScript.attributes) {
       if (attr.name !== "type") {
         newScript.setAttribute(attr.name, attr.value);
