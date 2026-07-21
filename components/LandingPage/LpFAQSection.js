@@ -10,16 +10,16 @@ const faqs = [
     answer:
       "We aim to make prescription weight loss treatment more accessible by offering competitive prices without compromising on clinical care. Every order includes an online consultation, review by a qualified UK clinician and genuine prescription medication supplied through our UK partner pharmacy. This allows you to receive safe, clinician-led treatment at an affordable price.",
   },
-  {
-    question: "Is a lower price a sign of lower quality?",
-    answer:
-      "No. Our lower prices do not reflect lower quality. Every prescription is reviewed by a qualified UK clinician, and all medication is dispensed and shipped by our partner pharmacy, Primed Pharmacy, a UK licensed and General Pharmaceutical Council (GPhC) registered pharmacy.",
-  },
-  {
-    question: "Can I cancel at any time?",
-    answer:
-      "You can cancel your order for a full refund before your medication has been dispensed. Once your medication has been dispensed, changes or cancellations may no longer be possible. After it has been dispatched, your order cannot be cancelled or refunded because prescription medicines cannot be supplied to another patient.",
-  },
+  // {
+  //   question: "Is a lower price a sign of lower quality?",
+  //   answer:
+  //     "No. Our lower prices do not reflect lower quality. Every prescription is reviewed by a qualified UK clinician, and all medication is dispensed and shipped by our partner pharmacy, Primed Pharmacy, a UK licensed and General Pharmaceutical Council (GPhC) registered pharmacy.",
+  // },
+  // {
+  //   question: "Can I cancel at any time?",
+  //   answer:
+  //     "You can cancel your order for a full refund before your medication has been dispensed. Once your medication has been dispensed, changes or cancellations may no longer be possible. After it has been dispatched, your order cannot be cancelled or refunded because prescription medicines cannot be supplied to another patient.",
+  // },
   {
     question: "What's included in the price?",
     answer:
@@ -35,16 +35,16 @@ const faqs = [
     answer:
       "Yes. Online Weight Loss Clinic provides a clinician-led prescribing service. Every consultation is individually reviewed by a qualified UK clinician to ensure treatment is safe and appropriate before a prescription is issued.",
   },
-  {
-    question: "Is treatment approval guaranteed?",
-    answer:
-      "No. Approval is not guaranteed. Every consultation is assessed on an individual basis by one of our clinicians. Treatment is only approved if it is considered clinically appropriate and suitable for your medical history and circumstances.",
-  },
-  {
-    question: "Can I buy medication without a prescription?",
-    answer:
-      "No. Weight loss medications supplied by Online Weight Loss Clinic are prescription-only medicines. You must complete an online consultation, which will be reviewed by one of our qualified clinicians before any medication can be dispensed.",
-  },
+  // {
+  //   question: "Is treatment approval guaranteed?",
+  //   answer:
+  //     "No. Approval is not guaranteed. Every consultation is assessed on an individual basis by one of our clinicians. Treatment is only approved if it is considered clinically appropriate and suitable for your medical history and circumstances.",
+  // },
+  // {
+  //   question: "Can I buy medication without a prescription?",
+  //   answer:
+  //     "No. Weight loss medications supplied by Online Weight Loss Clinic are prescription-only medicines. You must complete an online consultation, which will be reviewed by one of our qualified clinicians before any medication can be dispensed.",
+  // },
   {
     question: "What happens during the online consultation?",
     answer:
@@ -86,30 +86,30 @@ const faqs = [
       </>
     ),
   },
-  {
-    question: "What if I'm not home when my order is delivered?",
-    answer:
-      "If you're unavailable when delivery is attempted, the courier will follow their standard delivery procedures. If your order is returned to us because no one was available to receive it or an incorrect delivery address was provided, you will not be eligible for a refund or replacement. If you need delivery on a specific day, please let us know before your order is dispatched.",
-  },
-  {
-    question: "What if I receive a damaged or faulty product?",
-    answer: (
-      <>
-        If your injection pen or device is damaged or faulty, please email{" "}
-        <a
-          href="mailto:contact@onlineweightlossclinic.co.uk"
-          className="text-teal-600 underline hover:text-teal-800"
-        >
-          contact@onlineweightlossclinic.co.uk
-        </a>{" "}
-        within 24–48 hours of discovering the issue and no later than 45 days
-        after receiving your order. If the manufacturer confirms the fault, a
-        replacement, refund or partial refund will be provided. Please note that
-        the investigation can take up to 6 weeks, and you may need to place
-        another order to avoid a gap in your treatment.
-      </>
-    ),
-  },
+  // {
+  //   question: "What if I'm not home when my order is delivered?",
+  //   answer:
+  //     "If you're unavailable when delivery is attempted, the courier will follow their standard delivery procedures. If your order is returned to us because no one was available to receive it or an incorrect delivery address was provided, you will not be eligible for a refund or replacement. If you need delivery on a specific day, please let us know before your order is dispatched.",
+  // },
+  // {
+  //   question: "What if I receive a damaged or faulty product?",
+  //   answer: (
+  //     <>
+  //       If your injection pen or device is damaged or faulty, please email{" "}
+  //       <a
+  //         href="mailto:contact@onlineweightlossclinic.co.uk"
+  //         className="text-teal-600 underline hover:text-teal-800"
+  //       >
+  //         contact@onlineweightlossclinic.co.uk
+  //       </a>{" "}
+  //       within 24–48 hours of discovering the issue and no later than 45 days
+  //       after receiving your order. If the manufacturer confirms the fault, a
+  //       replacement, refund or partial refund will be provided. Please note that
+  //       the investigation can take up to 6 weeks, and you may need to place
+  //       another order to avoid a gap in your treatment.
+  //     </>
+  //   ),
+  // },
 ];
 
 const GRADIENT = "#4DB581";
