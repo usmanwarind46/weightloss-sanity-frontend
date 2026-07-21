@@ -1,5 +1,8 @@
 "use client";
 
+import { ChevronRight } from "lucide-react";
+import Link from "next/link";
+
 export default function PricingComparison() {
   return (
     <section className="pricing-section">
@@ -46,7 +49,7 @@ export default function PricingComparison() {
           <div className="row glass-row reg-font">
             <div className="glass-overlay" />
             <div className="cell left">Delivery</div>
-            <div className="cell center">Free</div>
+            <div className="cell center">Discreet delivery</div>
             <div className="cell right">Free–£9.99</div>
           </div>
 
@@ -70,7 +73,7 @@ export default function PricingComparison() {
             <div className="cell left" />
             <div className="cell center save-cell">
               <p className="save-title med-font">
-                Save up to <strong className="semibold-font">£1,164</strong>
+                Save up to <strong className="semibold-font">£6,024</strong>
               </p>
               <span className="save-sub reg-font">Annually</span>
             </div>
@@ -82,15 +85,25 @@ export default function PricingComparison() {
       {/* BOTTOM BANNER */}
       <div className="bottom-banner">
         <div className="banner-half reg-font">
-          💰 Save <strong className="semibold-font">£130–£381</strong> every
+          💰 Save <strong className="semibold-font">£191–£502</strong> every
           month
         </div>
         <div className="banner-half right reg-font">
-          💰 Save <strong className="semibold-font">£1,560–£4,572</strong> every
+          💰 Save <strong className="semibold-font">£2,292–£6,024</strong> every
           year
         </div>
       </div>
 
+      <div className="pt-12">
+        <Link href={"/weight-loss-treatments/"}>
+          <button className="next-btn text-xl">
+            Start Your Consultation
+            <span className="next-btn-arrow">
+              <ChevronRight />
+            </span>
+          </button>
+        </Link>
+      </div>
       <div className="lowest-bottom-text reg-font">
         <p className="text-center text-[#585858] mt-12 px-4">
           All UK clinics follow identical GPhC and MHRA standards. The

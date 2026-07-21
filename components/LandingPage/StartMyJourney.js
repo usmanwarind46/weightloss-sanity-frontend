@@ -15,7 +15,7 @@ const pricingItems = [
     id: 2,
     icon: "/Lp-images/icon/injection-icon.png",
     title: "Treatment From",
-    price: "£97/month",
+    price: "£88/month",
     body: "The price you see includes consultation review, medication (if approved), and delivery. No surprise charges for 'express processing,' 'premium support,' or other add-ons you didn't request.",
   },
   // {
@@ -167,7 +167,7 @@ reg-font text-gray-900 text-black"
               </p>
             </div>
             <div className="flex justify-center">
-              <Link href={consultationUrl}>
+              <Link href="/weight-loss-treatments">
                 <button className="next-btn">
                   Start Your Consultation
                   <span className="next-btn-arrow">

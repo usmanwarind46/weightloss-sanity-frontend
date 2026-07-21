@@ -36,7 +36,7 @@ export function LpHero() {
                 Clinical medical assessment. Personalised treatment plan.
                 UK-regulated private clinic.
               </p>
-              <Link href={consultationUrl}>
+              <Link href="/weight-loss-treatments">
                 <button className="next-btn">
                   Start Your Consultation
                   <span className="next-btn-arrow">

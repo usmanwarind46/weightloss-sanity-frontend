@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useUtmLink } from "../../hooks/useUtmLink";
 
 export function LpCTASection() {
-  const consultationUrl = useUtmLink("/weight-loss-treatments/");
+  // const consultationUrl = useUtmLink("/weight-loss-treatments/");
 
   return (
     <section className="w-full container mx-auto py-8 reg-font">
@@ -26,7 +26,7 @@ export function LpCTASection() {
               commitment required.
             </p>
 
-            <Link href={consultationUrl}>
+            <Link href={"/weight-loss-treatments/"} className="w-fit">
               <button className="next-btn">
                 Start Free Medical Assessment
                 <span className="next-btn-arrow">
@@ -60,7 +60,7 @@ export function LpCTASection() {
           {/* Row 1 — Price */}
           <p className="text-base sm:text-3xl reg-font tracking-wide text-center">
             Starting from{" "}
-            <span className="med-font text-base sm:text-3xl">£97/month</span>
+            <span className="med-font text-base sm:text-3xl">£88/month</span>
           </p>
 
           {/* Row 2 — Perks */}
