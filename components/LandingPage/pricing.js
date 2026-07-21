@@ -38,7 +38,7 @@ export default function PricingComparison() {
           {/* Row 2 — solid */}
           <div className="row reg-font">
             <div className="cell left">Monthly Treatment</div>
-            <div className="cell center">From £97</div>
+            <div className="cell center">From £88</div>
             <div className="cell right">£249–£450</div>
           </div>
 
@@ -61,7 +61,7 @@ export default function PricingComparison() {
           <div className="row glass-row reg-font">
             <div className="glass-overlay" />
             <div className="cell left">Total Monthly</div>
-            <div className="cell center">From £97</div>
+            <div className="cell center">From £88</div>
             <div className="cell right">£279–£530</div>
           </div>
 
