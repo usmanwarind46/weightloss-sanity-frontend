@@ -163,7 +163,7 @@ reg-font text-gray-900 text-black"
 
             <div className="flex justify-center">
               <p className="text-center subDescription !text-[#585858] mt-2 max-w-[450px]">
-                Optional lifestyle coaching available separately. Not mandatory.
+                No GP or pharmacy visit needed
               </p>
             </div>
             <div className="flex justify-center">
