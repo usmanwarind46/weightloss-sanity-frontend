@@ -25,7 +25,7 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     // Agar consent pehle se diya hua hai toh chalao
-    // Agar nahi — CookieConsentInit ka onConsent chalayega
+    // Agar nahi — CookieConsentInit ka onConsent chalayega.
     try {
       import("vanilla-cookieconsent").then((mod) => {
         const CC = mod.default || mod;
