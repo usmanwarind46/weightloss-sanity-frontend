@@ -124,17 +124,31 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
 
           {/* Product Cards */}
           {/* Product Cards */}
-          <div className="flex flex-col md:flex-row md:flex-wrap gap-5 justify-center">
-            {heroSection?.products?.map((product, i) => (
-              <ProductCard
-                key={i}
-                product={{
-                  ...product,
-                  image: product?.image,
-                  alt: product?.imageAlt,
-                }}
-              />
-            ))}
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+            {heroSection?.products?.map((product, i) => {
+              const isLastOddCard =
+                heroSection.products.length % 2 !== 0 &&
+                i === heroSection.products.length - 1;
+
+              return (
+                <div
+                  key={i}
+                  className={
+                    isLastOddCard
+                      ? "w-full lg:col-span-2 lg:mx-auto lg:max-w-[calc(50%-10px)]"
+                      : "w-full"
+                  }
+                >
+                  <ProductCard
+                    product={{
+                      ...product,
+                      image: product?.image,
+                      alt: product?.imageAlt,
+                    }}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
