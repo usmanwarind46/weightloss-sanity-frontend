@@ -641,6 +641,17 @@ export default function MounjaroProduct({
               )}
             </div>
 
+            {/* PRE-ORDER NOTE — sirf 25mg pe */}
+            {DOSAGES[dosage]?.label?.includes("25") && (
+              <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
+                <strong className="semibold-font">Please note:</strong> The 25
+                mg dose is now available for pre-order to reserve your stock.
+                Deliveries are expected to begin from{" "}
+                <strong className="semibold-font">4th August 2026</strong>{" "}
+                onwards.
+              </p>
+            )}
+
             {/* <div className="wlt-hero-form mt-6">
               <WaitlistForm />
             </div> */}
