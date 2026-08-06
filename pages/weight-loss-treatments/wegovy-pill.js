@@ -941,9 +941,10 @@ export default function MounjaroProduct({
                 Although 25 mg is the highest dose available for the Wegovy
                 pill, it does not work in exactly the same way as the injection
                 because it is absorbed through the digestive system. The 25 mg
-                tablet has been shown to support more average weight loss than
-                the 2.4 mg Wegovy injection, but overall, the 7.2 mg Wegovy
-                injection has shown the greatest average weight loss.
+                Wegovy tablet has been shown to support more average weight loss
+                than the 2.4 mg Wegovy injection. However, overall, the 7.2 mg
+                Wegovy injection has demonstrated the greatest average weight
+                loss in clinical studies.
               </p>
             </div>
 
@@ -957,7 +958,9 @@ export default function MounjaroProduct({
                 possible, but it should be done under the guidance of a
                 qualified prescriber. The right Wegovy pill dose will depend on
                 your current Mounjaro dose, how your body has responded to
-                treatment, and how well you have tolerated it so far.
+                treatment, and how well you have tolerated it so far. A
+                healthcare professional can assess whether this Wegovy treatment
+                is suitable and provide a Wegovy prescription if appropriate.
               </p>
               <p className="text-gray-600 leading-relaxed para-font mb-4">
                 The table below shows the recommended Wegovy pill doses when
