@@ -171,7 +171,7 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
           {/* Desktop Table */}
           <div className="hidden md:block rounded-2xl overflow-hidden border border-gray-100 shadow-sm mb-10">
             {/* Header */}
-            <div className="grid grid-cols-3 bg-[#4B5FC0]">
+            <div className="grid grid-cols-4 bg-[#4B5FC0]">
               <div className="px-8 py-5 text-white text-sm med-font text-center para-font">
                 Aspects
               </div>
@@ -181,13 +181,16 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
               <div className="px-8 py-5 text-white text-sm med-font text-center para-font">
                 Wegovy Injection in the UK
               </div>
+              <div className="px-8 py-5 text-white text-sm med-font text-center para-font">
+                Wegovy Pill in the UK
+              </div>
             </div>
 
             {/* Rows */}
             {comparisonSection?.tableRows?.map((row, i) => (
               <div
                 key={i}
-                className={`grid grid-cols-3 ${row.bgColor}`}
+                className={`grid grid-cols-4 ${row.bgColor}`}
                 style={{ marginTop: "6px" }}
               >
                 <div className="px-8 py-6 text-sm text-gray-700 reg-font flex items-center justify-center text-center para-font">
@@ -203,6 +206,13 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
 
                 <div className="px-6 py-5 text-center">
                   <CellContent text={row.wegovyText} list={row.wegovyList} />
+                </div>
+
+                <div className="px-6 py-5 text-center">
+                  <CellContent
+                    text={row.wegovyPillText}
+                    list={row.wegovyPillList}
+                  />
                 </div>
               </div>
             ))}
