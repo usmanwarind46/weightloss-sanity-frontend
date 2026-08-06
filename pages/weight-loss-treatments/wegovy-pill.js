@@ -889,7 +889,7 @@ export default function MounjaroProduct({
                 Can I switch from Wegovy injections to Wegovy pills?
               </h3>
               <p className="text-gray-600 leading-relaxed para-font mb-3">
-                Yes, switching from Wegovy injections to Wegovy pills may be
+                Yes, switching from Wegovy injections to Wegovy tablets may be
                 possible, but it should always be done with advice from a
                 qualified healthcare professional. The injection and pill work
                 in different ways in the body, so the doses are not directly the
