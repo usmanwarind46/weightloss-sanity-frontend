@@ -21,6 +21,7 @@ import {
   SITE_SETTINGS_QUERY,
 } from "../lib/sanityQueries";
 import { generateSchema } from "../lib/schemaGenerator";
+import { PortableText } from "next-sanity";
 
 export async function getStaticProps() {
   const data = await sanityClient.fetch(PAGE_QUERY, {
@@ -41,8 +42,27 @@ export async function getStaticProps() {
   };
 }
 
+const ptComponents = {
+  marks: {
+    link: ({ value, children }) => (
+      <a
+        href={value?.href}
+        target={value?.blank ? "_blank" : "_self"}
+        rel="noopener noreferrer"
+        className="text-[#4B5FC0] underline"
+      >
+        {children}
+      </a>
+    ),
+  },
+  block: {
+    normal: ({ children }) => (
+      <span className="text-sm text-gray-700 para-font">{children}</span>
+    ),
+  },
+};
+
 const CellContent = ({ text, list }) => {
-  // cell content
   if (list?.length) {
     return (
       <ul className="text-left inline-block space-y-1">
@@ -58,6 +78,11 @@ const CellContent = ({ text, list }) => {
       </ul>
     );
   }
+
+  if (Array.isArray(text)) {
+    return <PortableText value={text} components={ptComponents} />;
+  }
+
   return <span className="text-sm text-gray-700 para-font">{text}</span>;
 };
 
@@ -157,9 +182,15 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
         <div className="container mx-auto">
           {/* Heading */}
           <div className="text-center mb-8 md:mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl med-font text-gray-900 mb-3 leading-tight">
+            {/* <h2 className="text-2xl sm:text-3xl md:text-4xl med-font text-gray-900 mb-3 leading-tight">
               {comparisonSection?.heading}
-            </h2>
+            </h2> */}
+            <h2
+              className="text-2xl sm:text-3xl md:text-4xl med-font text-gray-900 mb-4 leading-tight"
+              dangerouslySetInnerHTML={{
+                __html: comparisonSection?.heading || "",
+              }}
+            />
             <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
               {comparisonSection?.paragraph1}
             </p>
