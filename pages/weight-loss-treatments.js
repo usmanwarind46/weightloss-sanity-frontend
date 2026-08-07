@@ -235,11 +235,11 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
                   />
                 </div>
 
-                <div className="px-6 py-5 text-center">
+                <div className="px-8 py-6 text-center flex items-center justify-center para-font">
                   <CellContent text={row.wegovyText} list={row.wegovyList} />
                 </div>
 
-                <div className="px-6 py-5 text-center">
+                <div className="px-8 py-6 text-center flex items-center justify-center para-font">
                   <CellContent
                     text={row.wegovyPillText}
                     list={row.wegovyPillList}
