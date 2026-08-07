@@ -358,6 +358,7 @@ export default function MounjaroProduct({
   const autoSchemas = generateSchema({
     globalSeo: seoSettings,
     canonical: `${meta_url}/weight-loss-treatments/wegovy-pill/`,
+    manualSchema: data?.seo?.schema,
   });
 
   return (
