@@ -158,6 +158,7 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
   const autoSchemas = generateSchema({
     globalSeo: seoSettings,
     canonical: `${meta_url}/weight-loss-treatments/mounjaro/`,
+    manualSchema: data?.seo?.schema,
   });
 
   return (
