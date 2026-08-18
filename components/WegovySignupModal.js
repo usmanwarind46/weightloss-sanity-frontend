@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { FiX, FiMail, FiCheckCircle, FiUser } from "react-icons/fi";
+import { FiX, FiMail, FiUser, FiArrowRight } from "react-icons/fi";
 import toast from "react-hot-toast";
 import styles from "../styles/wegovy-signup-modal.module.css";
 
@@ -9,7 +9,6 @@ const CONTACT_API =
 
 const WegovySignupModal = ({ isOpen, onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
 
   const {
     register,
@@ -21,15 +20,35 @@ const WegovySignupModal = ({ isOpen, onClose }) => {
     defaultValues: {
       fullName: "",
       email: "",
-      ageConfirm: false,
     },
   });
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleEscape = (e) => {
+      if (e.key === "Escape" && !isSubmitting) {
+        onClose?.();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [isOpen, isSubmitting, onClose]);
 
   if (!isOpen) return null;
 
   const onSubmit = async (data) => {
+    if (isSubmitting) return;
+
     setIsSubmitting(true);
-    setIsSuccess(false);
 
     try {
       const payload = {
@@ -59,67 +78,80 @@ const WegovySignupModal = ({ isOpen, onClose }) => {
         );
       }
 
-      toast.success("Form submitted successfully.");
-      reset();
+      toast.success("You're on the list.");
 
-      setIsSubmitting(false);
-      setIsSuccess(false);
+      reset();
       onClose?.();
     } catch (error) {
-      toast.error(error?.message || "Something went wrong. Please try again.");
+      toast.error(
+        error?.message || "Something went wrong. Please try again.",
+      );
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(false);
+    }
+  };
+
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget && !isSubmitting) {
+      onClose?.();
     }
   };
 
   return (
-    <div className={styles.modalOverlay}>
+    <div
+      className={styles.modalOverlay}
+      onMouseDown={handleOverlayClick}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="foundayo-modal-title"
+    >
       <div className={styles.modalCard}>
-        {isSubmitting && (
-          <div className={styles.modalLoaderOverlay}>
-            <div className={styles.modalLoaderBox}>
-              <span className={styles.loaderSpinner}></span>
-              <strong>Submitting...</strong>
-              <p>Please wait while we save your details.</p>
-            </div>
-          </div>
-        )}
-
+        {/* Close */}
         <button
           type="button"
           onClick={onClose}
           className={styles.closeButton}
-          aria-label="Close modal"
           disabled={isSubmitting}
+          aria-label="Close modal"
         >
           <FiX />
         </button>
 
+        {/* Header */}
         <div className={styles.modalHeader}>
-          <span className={styles.iconBadge}>
+          {/* <div className={styles.iconBadge}>
             <FiMail />
-          </span>
+          </div> */}
 
-          <div>
-            <h2>Be the first to know when Foundayo is available</h2>
-            <p>
-              Add your details below and we’ll let you know when Foundayo becomes available in the UK.
+          <h2 id="foundayo-modal-title">
+            Be the first to know when Foundayo is available
+          </h2>
 
-            </p>
-          </div>
+          <p>
+            Add your details below and we’ll let you know when Foundayo becomes
+            available in the UK.
+          </p>
         </div>
 
+        {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-          <div className={styles.nameEmailGrid}>
+          <div className={styles.fieldsGrid}>
+            {/* Full Name */}
             <div className={styles.fieldGroup}>
               <label htmlFor="fullName">Full name</label>
 
-              <div className={styles.inputIconWrap}>
+              <div
+                className={`${styles.inputWrap} ${
+                  errors.fullName ? styles.inputError : ""
+                }`}
+              >
                 <FiUser />
+
                 <input
                   id="fullName"
                   type="text"
-                  placeholder="Enter your full name"
+                  placeholder="Jane Smith"
+                  autoComplete="name"
                   disabled={isSubmitting}
                   {...register("fullName", {
                     required: "Full name is required.",
@@ -136,24 +168,34 @@ const WegovySignupModal = ({ isOpen, onClose }) => {
               </div>
 
               {errors.fullName && (
-                <p className={styles.errorText}>{errors.fullName.message}</p>
+                <p className={styles.errorText}>
+                  {errors.fullName.message}
+                </p>
               )}
             </div>
 
+            {/* Email */}
             <div className={styles.fieldGroup}>
               <label htmlFor="email">Email address</label>
 
-              <div className={styles.inputIconWrap}>
+              <div
+                className={`${styles.inputWrap} ${
+                  errors.email ? styles.inputError : ""
+                }`}
+              >
                 <FiMail />
+
                 <input
                   id="email"
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="jane@example.com"
+                  autoComplete="email"
                   disabled={isSubmitting}
                   {...register("email", {
                     required: "Email address is required.",
                     pattern: {
-                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                      value:
+                        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                       message: "Please enter a valid email address.",
                     },
                   })}
@@ -166,57 +208,45 @@ const WegovySignupModal = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          <div className="mt-3">
-            <label className={styles.checkboxRow}>
-              <input
-                type="checkbox"
-                disabled={isSubmitting}
-                {...register("ageConfirm", {
-                  required: "Please confirm you are over 18 years old.",
-                })}
-              />
-
-              <span>I confirm I am over 18 years old.</span>
-            </label>
-
-            {errors.ageConfirm && (
-              <p className={styles.errorText}>{errors.ageConfirm.message}</p>
+          {/* Submit */}
+          <button
+            type="submit"
+            disabled={!isValid || isSubmitting}
+            className={styles.submitButton}
+          >
+            {isSubmitting ? (
+              <>
+                <span className={styles.spinner} />
+                <span>Submitting...</span>
+              </>
+            ) : (
+              <>
+                <span>Keep Me Updated</span>
+                <FiArrowRight />
+              </>
             )}
-          </div>
+          </button>
 
-          <div className={styles.formActions}>
-            <p className={styles.termsText}>
-              By clicking Sign up you agree to our{" "}
-              <a href="/privacy-policy" target="_blank">
-                Privacy Policy
-              </a>{" "}
-              and{" "}
-              <a href="/terms-and-conditions" target="_blank">
-                Terms and Conditions
-              </a>
-              .
-            </p>
-
-            <button
-              type="submit"
-              disabled={!isValid || isSubmitting}
-              className={styles.submitButton}
+          {/* Terms */}
+          <p className={styles.termsText}>
+            By clicking <strong>Keep Me Updated</strong>, you agree to our{" "}
+            <a
+              href="/privacy-policy"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {isSubmitting ? (
-                <span className={styles.buttonLoading}>
-                  <span className={styles.buttonSpinner}></span>
-                  Keeping you updated...
-                </span>
-              ) : (
-                "Keep Me Updated"
-              )}
-            </button>
-          </div>
-
-          {/* <div className={styles.trustNote}>
-            <FiCheckCircle />
-            <span>No spam. Only important treatment availability updates.</span>
-          </div> */}
+              Privacy Policy
+            </a>{" "}
+            and{" "}
+            <a
+              href="/terms-and-conditions"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Terms and Conditions
+            </a>
+            .
+          </p>
         </form>
       </div>
     </div>

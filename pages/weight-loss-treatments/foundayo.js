@@ -86,7 +86,8 @@ function FAQItem({ question, answerHTML }) {
   );
 }
 
-function WaitlistForm({ dark = false }) {
+
+function WaitlistForm({ dark = false, heading, description }) {
   const [state, setState] = useState("idle");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -95,7 +96,9 @@ function WaitlistForm({ dark = false }) {
   const validate = () => {
     const e = {};
 
-    if (!name.trim()) e.name = "Please enter your name";
+    if (!name.trim()) {
+      e.name = "Please enter your name";
+    }
 
     if (!email.trim()) {
       e.email = "Please enter your email";
@@ -109,7 +112,7 @@ function WaitlistForm({ dark = false }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // important: stop double click / repeated submit.
+    // Prevent repeated submission
     if (state === "loading") return;
 
     const errs = validate();
@@ -148,139 +151,445 @@ function WaitlistForm({ dark = false }) {
       setState("success");
     } catch (error) {
       console.error("Waitlist submit failed:", error);
+
       setState("idle");
+
       setErrors({
         form: "Something went wrong. Please try again.",
       });
     }
   };
 
+  // Success state
   if (state === "success") {
     return (
-      <div className={`wlt-state ${dark ? "on-dark" : ""}`}>
-        <div className="wlt-check">
-          <svg viewBox="0 0 52 52" fill="none">
-            <circle cx="26" cy="26" r="25" stroke="#4DB581" strokeWidth="2" />
-            <path
-              d="M14 26l8 8 16-16"
-              stroke="#4DB581"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+      <div className="relative overflow-hidden rounded-[24px] border border-[#4565BF]/15 bg-white p-6 shadow-[0_20px_60px_rgba(23,42,84,0.10)] sm:p-8">
+        {/* Decorative background */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full bg-[#4565BF]/[0.07] blur-3xl"
+        />
+
+        <div className="relative flex min-h-[280px] flex-col items-center justify-center text-center">
+          <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[#4565BF]/10">
+            <svg
+              viewBox="0 0 52 52"
+              fill="none"
+              className="h-9 w-9"
+            >
+              <circle
+                cx="26"
+                cy="26"
+                r="24"
+                stroke="#4565BF"
+                strokeWidth="2"
+              />
+
+              <path
+                d="M15 26.5L22.5 34L38 18.5"
+                stroke="#4565BF"
+                strokeWidth="2.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+
+          <h3 className="text-[22px] font-semibold tracking-[-0.02em] text-[#17213B] sm:text-[26px]">
+            You're on the list
+          </h3>
+
+          <p className="mt-3 max-w-md text-sm leading-6 text-[#667085] sm:text-[15px]">
+            We'll email you as soon as Foundayo becomes available in the UK.
+          </p>
         </div>
-
-        <h3 className="wlt-state-title">You're on the list</h3>
-
-        <p className="wlt-state-body">
-          We'll email you the moment Wegovy tablets are authorised in the UK —
-          you'll be first in line.
-        </p>
       </div>
     );
   }
 
+  // Loading state
   if (state === "loading") {
     return (
-      <div className={`wlt-state ${dark ? "on-dark" : ""}`}>
-        <div className="wlt-spinner">
-          <svg viewBox="0 0 50 50">
+      <div className="relative overflow-hidden rounded-[24px] border border-[#4565BF]/15 bg-white p-6 shadow-[0_20px_60px_rgba(23,42,84,0.10)] sm:p-8">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full bg-[#4565BF]/[0.07] blur-3xl"
+        />
+
+        <div className="relative flex min-h-[280px] flex-col items-center justify-center text-center">
+          <svg
+            className="h-11 w-11 animate-spin"
+            viewBox="0 0 50 50"
+          >
             <circle
               cx="25"
               cy="25"
               r="20"
               fill="none"
-              stroke="rgba(77,181,129,.18)"
+              stroke="rgba(69,101,191,.15)"
               strokeWidth="4"
             />
+
             <circle
               cx="25"
               cy="25"
               r="20"
               fill="none"
-              stroke="#4DB581"
+              stroke="#4565BF"
               strokeWidth="4"
               strokeDasharray="80 45"
               strokeLinecap="round"
             />
           </svg>
-        </div>
 
-        <p className="wlt-state-body">Securing your spot…</p>
+          <h3 className="mt-5 text-lg font-semibold text-[#17213B]">
+            Securing your spot
+          </h3>
+
+          <p className="mt-2 text-sm text-[#667085]">
+            Please wait a moment…
+          </p>
+        </div>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="wlt-form" noValidate>
-      <div className="wlt-field">
-        <label htmlFor={`waitlist-name-${dark ? "dark" : "light"}`}>
-          Full name
-        </label>
+    <form
+      onSubmit={handleSubmit}
+      noValidate
+      className="relative overflow-hidden rounded-[24px] border border-[#4565BF]/15 bg-white p-3 shadow-[0_20px_60px_rgba(23,42,84,0.10)] sm:p-7 lg:p-8"
+    >
+      {/* Decorative glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#4565BF]/[0.07] blur-3xl"
+      />
 
-        <input
-          id={`waitlist-name-${dark ? "dark" : "light"}`}
-          type="text"
-          placeholder="Jane Smith"
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-            setErrors((p) => ({ ...p, name: "", form: "" }));
-          }}
-          className={errors.name ? "wlt-input err" : "wlt-input"}
-        />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-28 -left-28 h-56 w-56 rounded-full bg-[#4565BF]/[0.04] blur-3xl"
+      />
 
-        {errors.name && <span className="wlt-err">{errors.name}</span>}
+      <div className="relative">
+        {/* Form Heading */}
+        {(heading || description) && (
+          <div className="mb-6">
+            {/* <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-[14px] border border-[#4565BF]/10 bg-[#4565BF]/10">
+              <svg
+                width="21"
+                height="21"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M18 8A6 6 0 006 8c0 7-3 7-3 9h18c0-2-3-2-3-9"
+                  stroke="#4565BF"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+                <path
+                  d="M10 21h4"
+                  stroke="#4565BF"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div> */}
+
+            {heading && (
+              <h3
+                className={`max-w-2xl text-[21px] roboto-semibold leading-[1.3] tracking-[-0.025em] sm:text-[25px] ${dark ? "text-white" : "text-[#17213B]"
+                  }`}
+              >
+                {heading}
+              </h3>
+            )}
+
+            {description && (
+              <p
+                className={`mt-2.5 max-w-4xl text-sm leading-6 sm:text-[14px] ${dark ? "text-white/70" : "text-[#667085]"
+                  }`}
+              >
+                {description}
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* Divider */}
+        {/* {(heading || description) && (
+          <div className="mb-6 h-px w-full bg-gradient-to-r from-[#4565BF]/20 via-[#E4E8F0] to-transparent" />
+        )} */}
+
+        {/* Inputs */}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          {/* Full Name */}
+          <div>
+            <label
+              htmlFor={`waitlist-name-${dark ? "dark" : "light"}`}
+              className="mb-2 block text-[14px] roboto-semibold text-[#34415D]"
+            >
+              Full name
+            </label>
+
+            <div className="relative">
+              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-[#98A2B3]">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M20 21a8 8 0 0 0-16 0"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                  />
+
+                  <circle
+                    cx="12"
+                    cy="7"
+                    r="4"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                  />
+                </svg>
+              </span>
+
+              <input
+                id={`waitlist-name-${dark ? "dark" : "light"}`}
+                type="text"
+                placeholder="Jane Smith"
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+
+                  setErrors((prev) => ({
+                    ...prev,
+                    name: "",
+                    form: "",
+                  }));
+                }}
+                className={`h-[52px] w-full rounded-[14px] border bg-[#F8FAFD] pl-11 pr-4 text-sm font-medium text-[#17213B] outline-none transition-all duration-200 placeholder:font-normal placeholder:text-[#98A2B3] focus:bg-white focus:ring-4 ${errors.name
+                    ? "border-red-400 focus:border-red-400 focus:ring-red-100"
+                    : "border-[#DCE2ED] hover:border-[#BCC7DA] focus:border-[#4565BF] focus:ring-[#4565BF]/10"
+                  }`}
+              />
+            </div>
+
+            {errors.name && (
+              <div className="mt-1.5 flex items-center gap-1.5 text-xs font-medium text-red-500">
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+
+                  <path
+                    d="M12 8v5M12 16h.01"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+
+                {errors.name}
+              </div>
+            )}
+          </div>
+
+          {/* Email */}
+          <div>
+            <label
+              htmlFor={`waitlist-email-${dark ? "dark" : "light"}`}
+              className="mb-2 block text-[14px] roboto-semibold text-[#34415D]"
+            >
+              Email address
+            </label>
+
+            <div className="relative">
+              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-[#98A2B3]">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <rect
+                    x="3"
+                    y="5"
+                    width="18"
+                    height="14"
+                    rx="2.5"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                  />
+
+                  <path
+                    d="m4 7 8 6 8-6"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+
+              <input
+                id={`waitlist-email-${dark ? "dark" : "light"}`}
+                type="email"
+                placeholder="jane@example.com"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+
+                  setErrors((prev) => ({
+                    ...prev,
+                    email: "",
+                    form: "",
+                  }));
+                }}
+                className={`h-[52px] w-full rounded-[14px] border bg-[#F8FAFD] pl-11 pr-4 text-sm font-medium text-[#17213B] outline-none transition-all duration-200 placeholder:font-normal placeholder:text-[#98A2B3] focus:bg-white focus:ring-4 ${errors.email
+                    ? "border-red-400 focus:border-red-400 focus:ring-red-100"
+                    : "border-[#DCE2ED] hover:border-[#BCC7DA] focus:border-[#4565BF] focus:ring-[#4565BF]/10"
+                  }`}
+              />
+            </div>
+
+            {errors.email && (
+              <div className="mt-1.5 flex items-center gap-1.5 text-xs font-medium text-red-500">
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+
+                  <path
+                    d="M12 8v5M12 16h.01"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+
+                {errors.email}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Form Error */}
+        {errors.form && (
+          <div className="mt-4 flex items-start gap-2.5 rounded-[13px] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
+            <svg
+              className="mt-0.5 shrink-0"
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="9"
+                stroke="currentColor"
+                strokeWidth="1.8"
+              />
+
+              <path
+                d="M12 8v5M12 16h.01"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+            </svg>
+
+            <span>{errors.form}</span>
+          </div>
+        )}
+
+        {/* Submit */}
+        <button
+          type="submit"
+          disabled={state === "loading"}
+          className="group mt-5 flex h-[54px] w-full items-center justify-center gap-2.5 rounded-[14px] bg-[#4565BF] px-6 text-sm roboto-semibold text-white shadow-[0_10px_25px_rgba(69,101,191,0.26)] transition-all duration-200 hover:-translate-y-[1px] hover:bg-[#3D5AB0] hover:shadow-[0_14px_32px_rgba(69,101,191,0.34)] active:translate-y-0 active:shadow-[0_7px_18px_rgba(69,101,191,0.25)] disabled:pointer-events-none disabled:opacity-60 cursor-pointer"
+        >
+          <span>Join the waitlist</span>
+
+          <svg
+            width="17"
+            height="17"
+            viewBox="0 0 16 16"
+            fill="none"
+            className="transition-transform duration-200 group-hover:translate-x-1"
+          >
+            <path
+              d="M3 8h10M9 4l4 4-4 4"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+
+        {/* Privacy */}
+        <div className="mt-4 flex items-center justify-center gap-2 text-center">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            className="shrink-0 text-[#98A2B3]"
+          >
+            <path
+              d="M12 3 5 6v5c0 4.8 2.7 8.1 7 10 4.3-1.9 7-5.2 7-10V6l-7-3Z"
+              stroke="currentColor"
+              strokeWidth="1.7"
+              strokeLinejoin="round"
+            />
+
+            <path
+              d="m9.5 12 1.7 1.7 3.5-3.7"
+              stroke="currentColor"
+              strokeWidth="1.7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+
+          <p className="text-[12px] leading-5 text-[#98A2B3]">
+            No spam. We'll only email you when Foundayo becomes available.
+          </p>
+        </div>
       </div>
-
-      <div className="wlt-field">
-        <label htmlFor={`waitlist-email-${dark ? "dark" : "light"}`}>
-          Email address
-        </label>
-
-        <input
-          id={`waitlist-email-${dark ? "dark" : "light"}`}
-          type="email"
-          placeholder="jane@example.com"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-            setErrors((p) => ({ ...p, email: "", form: "" }));
-          }}
-          className={errors.email ? "wlt-input err" : "wlt-input"}
-        />
-
-        {errors.email && <span className="wlt-err">{errors.email}</span>}
-      </div>
-
-      {errors.form && <span className="wlt-err">{errors.form}</span>}
-
-      <button
-        type="submit"
-        className="wlt-submit"
-        disabled={state === "loading"}
-      >
-        Join the waitlist
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path
-            d="M3 8h10M9 4l4 4-4 4"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
-
-      <p className="wlt-fineprint">
-        No spam. We only email you when tablets reach the UK.
-      </p>
     </form>
   );
 }
 
 export default function FoundayoProduct({
+
   data,
   seoSettings,
   siteSettings,
@@ -414,11 +723,10 @@ export default function FoundayoProduct({
                 <button
                   key={i}
                   onClick={() => scrollTo(i)}
-                  className={`rounded-xl overflow-hidden border-2 transition-all duration-300 ${
-                    active === i
-                      ? "border-black"
-                      : "border-transparent hover:border-gray-300"
-                  }`}
+                  className={`rounded-xl overflow-hidden border-2 transition-all duration-300 ${active === i
+                    ? "border-black"
+                    : "border-transparent hover:border-gray-300"
+                    }`}
                 >
                   <Image
                     src={img.imageUrl}
@@ -566,22 +874,21 @@ export default function FoundayoProduct({
                 {descOpen ? "Read less" : "Read more"}
                 <ChevronDown
                   size={18}
-                  className={`transition-transform duration-300 ${
-                    descOpen ? "rotate-180" : ""
-                  }`}
+                  className={`transition-transform duration-300 ${descOpen ? "rotate-180" : ""
+                    }`}
                 />
               </button>
             </div>
 
             {/* DOSAGES */}
             <div id="waitlist-form" className="mt-6">
-              <h3 className="med-font mb-1 text-md sm:text-xl sm:text-3xl">
+              {/* <h3 className="med-font mb-1 text-md sm:text-xl sm:text-3xl">
                 {mounjaroHero?.dosageHeading}
               </h3>
 
               <p className="text-gray-600 para-font space-y-4 leading-relaxed mb-4">
                 {mounjaroHero?.dosageText}
-              </p>
+              </p> */}
 
               {/* <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
                 Dosages
@@ -655,9 +962,12 @@ export default function FoundayoProduct({
               </p>
             )} */}
 
-            <div className="wlt-hero-form mt-6">
-              <WaitlistForm />
-            </div>
+            {/* <div className="wlt-hero-form mt-6"> */}
+              <WaitlistForm
+                heading={mounjaroHero?.dosageHeading}
+                description={mounjaroHero?.dosageText}
+              />
+            {/* </div> */}
 
             {/* <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
               <strong className="semibold-font">Please note:</strong> This is a
@@ -766,7 +1076,7 @@ export default function FoundayoProduct({
       <section className="py-4 sm:py-16 bg-white">
         <div className="container mx-auto px-6">
           {/* Heading */}
-          <div className="text-center max-w-3xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-xl sm:text-3xl 2xl:text-4xl semibold-font text-gray-900">
               {mounjaroJourney?.heading}
             </h2>
@@ -824,11 +1134,10 @@ export default function FoundayoProduct({
                 {mounjaroJourney?.journeyItems?.map((item, i) => (
                   <div
                     key={i}
-                    className={`rounded-xl border transition ${
-                      open === i
-                        ? "bg-[#cfe4da] border-transparent"
-                        : "border-gray-200"
-                    }`}
+                    className={`rounded-xl border transition ${open === i
+                      ? "bg-[#cfe4da] border-transparent"
+                      : "border-gray-200"
+                      }`}
                   >
                     <button
                       className="w-full flex justify-between items-center p-5 text-left cursor-pointer"
@@ -878,7 +1187,7 @@ export default function FoundayoProduct({
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-block text-xs font-semibold tracking-wide uppercase text-[#4caf8a] bg-[#e9f6f0] px-3 py-1 rounded-full mb-3">
-              Treatment Comparision
+              Treatments Comparision
             </span>
             <h2 className="text-xl sm:text-3xl 2xl:text-4xl semibold-font text-gray-900">
               Switching to Foundayo
@@ -1026,7 +1335,7 @@ export default function FoundayoProduct({
       <section className="w-full bg-gradient-to-r from-[#cfe8e6] to-[#7ea2d1] pt-8 sm:pt-0">
         <div className="container mx-auto grid lg:grid-cols-2 items-center gap-10 py-12">
           {/* LEFT CONTENT */}
-          <div className="max-w-xl py-4">
+          <div className="max-w-3xl py-4">
             <h2 className="text-2xl sm:text-5xl font-semibold text-gray-900 leading-tight mb-6 ">
               {mounjaroCTA?.heading}
             </h2>
@@ -1117,7 +1426,9 @@ export default function FoundayoProduct({
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 cta-btn">
               <Link href={wegovyBottomCTA?.primaryButtonHref}>
-                <NextButton label={wegovyBottomCTA?.primaryButtonLabel} />
+                <NextButton label={wegovyBottomCTA?.primaryButtonLabel}
+                  props="w-full sm:w-auto"
+                  onClick={() => setIsWegovyModalOpen(true)} />
               </Link>
               <Link
                 href={wegovyBottomCTA?.secondaryButtonHref}
