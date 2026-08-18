@@ -1072,7 +1072,7 @@ export default function FoundayoProduct({
 
             {/* Last reviewed — hamesha visible */}
             <p className="text-xs text-gray-500 mt-3">
-              Last reviewed on: 30/03/2026
+              Last reviewed on: 18/08/2026
             </p>
           </div>
         </div>
