@@ -130,7 +130,7 @@ export default function ProductCard({ product = products[0] }) {
             style={{ color: "#4CAF8A" }}
           >
             {/*Starting from */}
-            {product?.name == "Foundayo" ? "Comming Soon" : "Starting from"}{" "}
+            {product?.name == "Foundayo" ? "Coming Soon" : "Starting from"}{" "}
             {" "}
             <span className="underline underline-offset-2">
               {/* {product.price} */}
