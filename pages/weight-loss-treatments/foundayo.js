@@ -359,7 +359,7 @@ export default function FoundayoProduct({
 
   const autoSchemas = generateSchema({
     globalSeo: seoSettings,
-    canonical: `${meta_url}/weight-loss-treatments/wegovy-pill/`,
+    canonical: `${meta_url}/weight-loss-treatments/foundayo/`,
     manualSchema: data?.seo?.schema,
   });
 
@@ -368,7 +368,7 @@ export default function FoundayoProduct({
       <MetaLayout
         seo={data?.seo}
         globalSeo={seoSettings}
-        canonical={`${meta_url}/weight-loss-treatments/wegovy-pill`}
+        canonical={`${meta_url}/weight-loss-treatments/foundayo`}
         autoSchemas={autoSchemas}
       />
       <Header data={siteSettings} />
@@ -581,12 +581,12 @@ export default function FoundayoProduct({
                 {mounjaroHero?.dosageText}
               </p>
 
-              <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
+              {/* <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
                 Dosages
-              </label>
+              </label> */}
 
               {/* DROPDOWN */}
-              <div className="relative mt-2">
+              {/* <div className="relative mt-2">
                 <button
                   onClick={() => setOpen(!open)}
                   className="w-full border rounded-lg px-4 py-3 flex justify-between items-center bg-white cursor-pointer"
@@ -611,7 +611,7 @@ export default function FoundayoProduct({
                     ))}
                   </div>
                 )}
-              </div>
+              </div> */}
             </div>
 
             {/* QUANTITYY */}
@@ -626,7 +626,7 @@ export default function FoundayoProduct({
             </div> */}
 
             {/* PRICE */}
-            <div className="mt-4 bg-[#d4efe1] rounded-lg p-4 max-w-full sm:max-w-64">
+            {/* <div className="mt-4 bg-[#d4efe1] rounded-lg p-4 max-w-full sm:max-w-64">
               <p className="text-lg text-black med-font">
                 Price (30 Oral Tablets):
               </p>
@@ -640,10 +640,10 @@ export default function FoundayoProduct({
                   £{price}.00
                 </p>
               )}
-            </div>
+            </div> */}
 
             {/* PRE-ORDER NOTE — sirf 25mg pe */}
-            {DOSAGES[dosage]?.label?.includes("25") && (
+            {/* {DOSAGES[dosage]?.label?.includes("25") && (
               <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
                 <strong className="semibold-font">Please note:</strong> The 25
                 mg dose is now available for pre-order to reserve your stock.
@@ -651,7 +651,7 @@ export default function FoundayoProduct({
                 <strong className="semibold-font">4th August 2026</strong>{" "}
                 onwards.
               </p>
-            )}
+            )} */}
 
             <div className="wlt-hero-form mt-6">
               <WaitlistForm />
@@ -892,7 +892,7 @@ export default function FoundayoProduct({
                 <p className="para-font leading-relaxed text-gray-600">
                   A Foundayo vs{" "}
                   <Link
-                    href="/weight-loss-treatments/wegovy-pill"
+                    href="/weight-loss-treatments/foundayo"
                     className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
                   >
                     Wegovy pill
