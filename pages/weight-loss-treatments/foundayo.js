@@ -414,10 +414,11 @@ export default function FoundayoProduct({
                 <button
                   key={i}
                   onClick={() => scrollTo(i)}
-                  className={`rounded-xl overflow-hidden border-2 transition-all duration-300 ${active === i
-                    ? "border-black"
-                    : "border-transparent hover:border-gray-300"
-                    }`}
+                  className={`rounded-xl overflow-hidden border-2 transition-all duration-300 ${
+                    active === i
+                      ? "border-black"
+                      : "border-transparent hover:border-gray-300"
+                  }`}
                 >
                   <Image
                     src={img.imageUrl}
@@ -565,8 +566,9 @@ export default function FoundayoProduct({
                 {descOpen ? "Read less" : "Read more"}
                 <ChevronDown
                   size={18}
-                  className={`transition-transform duration-300 ${descOpen ? "rotate-180" : ""
-                    }`}
+                  className={`transition-transform duration-300 ${
+                    descOpen ? "rotate-180" : ""
+                  }`}
                 />
               </button>
             </div>
@@ -657,15 +659,15 @@ export default function FoundayoProduct({
               <WaitlistForm />
             </div>
 
-            <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
+            {/* <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
               <strong className="semibold-font">Please note:</strong> This is a
               pre-order to reserve your stock. Deliveries will commence from{" "}
               <strong className="semibold-font">7 July 2026</strong> onwards.
               Taking pre-orders for 1.5 mg and 4 mg strengths only.
-            </p>
+            </p> */}
 
             {/* CONSULTATION */}
-            <div className="mt-2 bg-gray-100  rounded-xl p-5">
+            {/* <div className="mt-2 bg-gray-100  rounded-xl p-5">
               <h3 className="text-xl sm:text-2xl font-reg mb-2">
                 {mounjaroHero?.eligibilityHeading}
               </h3>
@@ -673,17 +675,17 @@ export default function FoundayoProduct({
               <p className="text-md text-gray-600 mb-4 para-font">
                 {mounjaroHero?.eligibilityText}
               </p>
-              <Link href={mounjaroHero?.eligibilityButtonHref}>
+              <Link href={mounjaroHero?.eligibilityButtonHref || "#"}>
                 <button
                   className="w-full bg-[#4caf82] text-sm sm:text-lg text-white py-3 rounded-lg semibold-font  hover:bg-[#3d9e6e] cursor-pointer"
-                // onClick={() => {
-                //   window.open("/start-consultation/?product_id=1", "_blank");
-                // }}
+                  // onClick={() => {
+                  //   window.open("/start-consultation/?product_id=1", "_blank");
+                  // }}
                 >
                   {mounjaroHero?.eligibilityButtonLabel}
                 </button>
               </Link>
-            </div>
+            </div> */}
           </div>
 
           <div className="mt-6 bg-[#e7eaf6] rounded-xl p-3 sm:p-5 sm:hidden block">
@@ -822,10 +824,11 @@ export default function FoundayoProduct({
                 {mounjaroJourney?.journeyItems?.map((item, i) => (
                   <div
                     key={i}
-                    className={`rounded-xl border transition ${open === i
-                      ? "bg-[#cfe4da] border-transparent"
-                      : "border-gray-200"
-                      }`}
+                    className={`rounded-xl border transition ${
+                      open === i
+                        ? "bg-[#cfe4da] border-transparent"
+                        : "border-gray-200"
+                    }`}
                   >
                     <button
                       className="w-full flex justify-between items-center p-5 text-left cursor-pointer"
@@ -897,14 +900,15 @@ export default function FoundayoProduct({
                   >
                     Wegovy pill
                   </Link>{" "}
-                  comparison involves two once-daily oral GLP-1 weight management
-                  treatments with different active ingredients. Foundayo pill
-                  contains orforglipron, whereas the Wegovy pill contains semaglutide.
+                  comparison involves two once-daily oral GLP-1 weight
+                  management treatments with different active ingredients.
+                  Foundayo pill contains orforglipron, whereas the Wegovy pill
+                  contains semaglutide.
                 </p>
 
                 <p className="para-font leading-relaxed text-gray-600">
-                  Their dosing instructions also differ. Foundayo can be taken at any
-                  time of day without{" "}
+                  Their dosing instructions also differ. Foundayo can be taken
+                  at any time of day without{" "}
                   <a
                     href="https://www.gov.uk/government/news/uk-first-in-europe-to-authorise-orforglipron-for-weight-management-and-type-2-diabetes"
                     target="_blank"
@@ -913,9 +917,9 @@ export default function FoundayoProduct({
                   >
                     specific food or water restrictions
                   </a>
-                  . The Wegovy pill is taken on an empty stomach with a limited amount
-                  of water, followed by a 30-minute period before having food, drinks
-                  or other oral medicines.
+                  . The Wegovy pill is taken on an empty stomach with a limited
+                  amount of water, followed by a 30-minute period before having
+                  food, drinks or other oral medicines.
                 </p>
               </div>
             </div>
@@ -935,18 +939,18 @@ export default function FoundayoProduct({
                   >
                     Mounjaro
                   </Link>
-                  , the treatments differ in their active ingredients, format and
-                  receptor activity. Foundayo contains orforglipron and is taken as a
-                  daily tablet, while Mounjaro contains tirzepatide and is
-                  administered as a weekly injection.
+                  , the treatments differ in their active ingredients, format
+                  and receptor activity. Foundayo contains orforglipron and is
+                  taken as a daily tablet, while Mounjaro contains tirzepatide
+                  and is administered as a weekly injection.
                 </p>
 
                 <p className="para-font leading-relaxed text-gray-600">
-                  Foundayo acts on GLP-1 receptors, whereas Mounjaro targets both GIP
-                  and GLP-1 receptors. Both can support weight management through
-                  effects on appetite and fullness. Which option is appropriate for
-                  you will depend on your health, medical history and individual
-                  clinical assessment.
+                  Foundayo acts on GLP-1 receptors, whereas Mounjaro targets
+                  both GIP and GLP-1 receptors. Both can support weight
+                  management through effects on appetite and fullness. Which
+                  option is appropriate for you will depend on your health,
+                  medical history and individual clinical assessment.
                 </p>
               </div>
             </div>
@@ -966,16 +970,17 @@ export default function FoundayoProduct({
                   >
                     Wegovy
                   </Link>{" "}
-                  comparison shows several differences in how these treatments are
-                  formulated and taken. Foundayo tablet contains orforglipron as a
-                  once-daily tablet, whereas Wegovy contains semaglutide and is
-                  administered by injection once a week.
+                  comparison shows several differences in how these treatments
+                  are formulated and taken. Foundayo tablet contains
+                  orforglipron as a once-daily tablet, whereas Wegovy contains
+                  semaglutide and is administered by injection once a week.
                 </p>
 
                 <p className="para-font leading-relaxed text-gray-600">
-                  Both are GLP-1 receptor agonists that act on pathways involved in
-                  appetite and fullness. However, their treatment formats differ,
-                  with Foundayo taken orally and Wegovy delivered by injection.
+                  Both are GLP-1 receptor agonists that act on pathways involved
+                  in appetite and fullness. However, their treatment formats
+                  differ, with Foundayo taken orally and Wegovy delivered by
+                  injection.
                 </p>
               </div>
             </div>
@@ -1062,7 +1067,6 @@ export default function FoundayoProduct({
       </section>
 
       {/*  */}
-
 
       <ManjaroTableContent data={mounjaroTabsSection} />
 
