@@ -85,199 +85,199 @@ function FAQItem({ question, answerHTML }) {
   );
 }
 
-// function WaitlistForm({ dark = false }) {
-//   const [state, setState] = useState("idle");
-//   const [name, setName] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [errors, setErrors] = useState({});
+function WaitlistForm({ dark = false }) {
+  const [state, setState] = useState("idle");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [errors, setErrors] = useState({});
 
-//   const validate = () => {
-//     const e = {};
+  const validate = () => {
+    const e = {};
 
-//     if (!name.trim()) e.name = "Please enter your name";
+    if (!name.trim()) e.name = "Please enter your name";
 
-//     if (!email.trim()) {
-//       e.email = "Please enter your email";
-//     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-//       e.email = "Enter a valid email";
-//     }
+    if (!email.trim()) {
+      e.email = "Please enter your email";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      e.email = "Enter a valid email";
+    }
 
-//     return e;
-//   };
+    return e;
+  };
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-//     // important: stop double click / repeated submit.
-//     if (state === "loading") return;
+    // important: stop double click / repeated submit.
+    if (state === "loading") return;
 
-//     const errs = validate();
+    const errs = validate();
 
-//     if (Object.keys(errs).length) {
-//       setErrors(errs);
-//       return;
-//     }
+    if (Object.keys(errs).length) {
+      setErrors(errs);
+      return;
+    }
 
-//     setErrors({});
-//     setState("loading");
+    setErrors({});
+    setState("loading");
 
-//     try {
-//       const payload = {
-//         type: "wegovy-pill",
-//         firstName: name,
-//         email: email,
-//         company_id: 2,
-//       };
+    try {
+      const payload = {
+        type: "wegovy-pill",
+        firstName: name,
+        email: email,
+        company_id: 2,
+      };
 
-//       const res = await fetch(
-//         "https://app.onlineweightlossclinic.co.uk/api/contact-submit",
-//         {
-//           method: "POST",
-//           headers: {
-//             "Content-Type": "application/json",
-//           },
-//           body: JSON.stringify(payload),
-//         },
-//       );
+      const res = await fetch(
+        "https://app.onlineweightlossclinic.co.uk/api/contact-submit",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        },
+      );
 
-//       if (!res.ok) {
-//         throw new Error("Request failed");
-//       }
+      if (!res.ok) {
+        throw new Error("Request failed");
+      }
 
-//       setState("success");
-//     } catch (error) {
-//       console.error("Waitlist submit failed:", error);
-//       setState("idle");
-//       setErrors({
-//         form: "Something went wrong. Please try again.",
-//       });
-//     }
-//   };
+      setState("success");
+    } catch (error) {
+      console.error("Waitlist submit failed:", error);
+      setState("idle");
+      setErrors({
+        form: "Something went wrong. Please try again.",
+      });
+    }
+  };
 
-//   if (state === "success") {
-//     return (
-//       <div className={`wlt-state ${dark ? "on-dark" : ""}`}>
-//         <div className="wlt-check">
-//           <svg viewBox="0 0 52 52" fill="none">
-//             <circle cx="26" cy="26" r="25" stroke="#4DB581" strokeWidth="2" />
-//             <path
-//               d="M14 26l8 8 16-16"
-//               stroke="#4DB581"
-//               strokeWidth="2.5"
-//               strokeLinecap="round"
-//               strokeLinejoin="round"
-//             />
-//           </svg>
-//         </div>
+  if (state === "success") {
+    return (
+      <div className={`wlt-state ${dark ? "on-dark" : ""}`}>
+        <div className="wlt-check">
+          <svg viewBox="0 0 52 52" fill="none">
+            <circle cx="26" cy="26" r="25" stroke="#4DB581" strokeWidth="2" />
+            <path
+              d="M14 26l8 8 16-16"
+              stroke="#4DB581"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
 
-//         <h3 className="wlt-state-title">You're on the list</h3>
+        <h3 className="wlt-state-title">You're on the list</h3>
 
-//         <p className="wlt-state-body">
-//           We'll email you the moment Wegovy tablets are authorised in the UK —
-//           you'll be first in line.
-//         </p>
-//       </div>
-//     );
-//   }
+        <p className="wlt-state-body">
+          We'll email you the moment Wegovy tablets are authorised in the UK —
+          you'll be first in line.
+        </p>
+      </div>
+    );
+  }
 
-//   if (state === "loading") {
-//     return (
-//       <div className={`wlt-state ${dark ? "on-dark" : ""}`}>
-//         <div className="wlt-spinner">
-//           <svg viewBox="0 0 50 50">
-//             <circle
-//               cx="25"
-//               cy="25"
-//               r="20"
-//               fill="none"
-//               stroke="rgba(77,181,129,.18)"
-//               strokeWidth="4"
-//             />
-//             <circle
-//               cx="25"
-//               cy="25"
-//               r="20"
-//               fill="none"
-//               stroke="#4DB581"
-//               strokeWidth="4"
-//               strokeDasharray="80 45"
-//               strokeLinecap="round"
-//             />
-//           </svg>
-//         </div>
+  if (state === "loading") {
+    return (
+      <div className={`wlt-state ${dark ? "on-dark" : ""}`}>
+        <div className="wlt-spinner">
+          <svg viewBox="0 0 50 50">
+            <circle
+              cx="25"
+              cy="25"
+              r="20"
+              fill="none"
+              stroke="rgba(77,181,129,.18)"
+              strokeWidth="4"
+            />
+            <circle
+              cx="25"
+              cy="25"
+              r="20"
+              fill="none"
+              stroke="#4DB581"
+              strokeWidth="4"
+              strokeDasharray="80 45"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
 
-//         <p className="wlt-state-body">Securing your spot…</p>
-//       </div>
-//     );
-//   }
+        <p className="wlt-state-body">Securing your spot…</p>
+      </div>
+    );
+  }
 
-//   return (
-//     <form onSubmit={handleSubmit} className="wlt-form" noValidate>
-//       <div className="wlt-field">
-//         <label htmlFor={`waitlist-name-${dark ? "dark" : "light"}`}>
-//           Full name
-//         </label>
+  return (
+    <form onSubmit={handleSubmit} className="wlt-form" noValidate>
+      <div className="wlt-field">
+        <label htmlFor={`waitlist-name-${dark ? "dark" : "light"}`}>
+          Full name
+        </label>
 
-//         <input
-//           id={`waitlist-name-${dark ? "dark" : "light"}`}
-//           type="text"
-//           placeholder="Jane Smith"
-//           value={name}
-//           onChange={(e) => {
-//             setName(e.target.value);
-//             setErrors((p) => ({ ...p, name: "", form: "" }));
-//           }}
-//           className={errors.name ? "wlt-input err" : "wlt-input"}
-//         />
+        <input
+          id={`waitlist-name-${dark ? "dark" : "light"}`}
+          type="text"
+          placeholder="Jane Smith"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+            setErrors((p) => ({ ...p, name: "", form: "" }));
+          }}
+          className={errors.name ? "wlt-input err" : "wlt-input"}
+        />
 
-//         {errors.name && <span className="wlt-err">{errors.name}</span>}
-//       </div>
+        {errors.name && <span className="wlt-err">{errors.name}</span>}
+      </div>
 
-//       <div className="wlt-field">
-//         <label htmlFor={`waitlist-email-${dark ? "dark" : "light"}`}>
-//           Email address
-//         </label>
+      <div className="wlt-field">
+        <label htmlFor={`waitlist-email-${dark ? "dark" : "light"}`}>
+          Email address
+        </label>
 
-//         <input
-//           id={`waitlist-email-${dark ? "dark" : "light"}`}
-//           type="email"
-//           placeholder="jane@example.com"
-//           value={email}
-//           onChange={(e) => {
-//             setEmail(e.target.value);
-//             setErrors((p) => ({ ...p, email: "", form: "" }));
-//           }}
-//           className={errors.email ? "wlt-input err" : "wlt-input"}
-//         />
+        <input
+          id={`waitlist-email-${dark ? "dark" : "light"}`}
+          type="email"
+          placeholder="jane@example.com"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setErrors((p) => ({ ...p, email: "", form: "" }));
+          }}
+          className={errors.email ? "wlt-input err" : "wlt-input"}
+        />
 
-//         {errors.email && <span className="wlt-err">{errors.email}</span>}
-//       </div>
+        {errors.email && <span className="wlt-err">{errors.email}</span>}
+      </div>
 
-//       {errors.form && <span className="wlt-err">{errors.form}</span>}
+      {errors.form && <span className="wlt-err">{errors.form}</span>}
 
-//       <button
-//         type="submit"
-//         className="wlt-submit"
-//         disabled={state === "loading"}
-//       >
-//         Join the waitlist
-//         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-//           <path
-//             d="M3 8h10M9 4l4 4-4 4"
-//             stroke="currentColor"
-//             strokeWidth="1.6"
-//             strokeLinecap="round"
-//             strokeLinejoin="round"
-//           />
-//         </svg>
-//       </button>
+      <button
+        type="submit"
+        className="wlt-submit"
+        disabled={state === "loading"}
+      >
+        Join the waitlist
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path
+            d="M3 8h10M9 4l4 4-4 4"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
 
-//       <p className="wlt-fineprint">
-//         No spam. We only email you when tablets reach the UK.
-//       </p>
-//     </form>
-//   );
-// }
+      <p className="wlt-fineprint">
+        No spam. We only email you when tablets reach the UK.
+      </p>
+    </form>
+  );
+}
 
 export default function MounjaroProduct({
   data,
@@ -643,7 +643,7 @@ export default function MounjaroProduct({
             </div>
 
             {/* PRE-ORDER NOTE — sirf 25mg pe */}
-            {/* {DOSAGES[dosage]?.label?.includes("25") && (
+            {DOSAGES[dosage]?.label?.includes("25") && (
               <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
                 <strong className="semibold-font">Please note:</strong> The 25
                 mg dose is now available for pre-order to reserve your stock.
@@ -651,18 +651,18 @@ export default function MounjaroProduct({
                 <strong className="semibold-font">4th August 2026</strong>{" "}
                 onwards.
               </p>
-            )} */}
+            )}
 
-            {/* <div className="wlt-hero-form mt-6">
+            <div className="wlt-hero-form mt-6">
               <WaitlistForm />
-            </div> */}
+            </div>
 
-            {/* <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
+            <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
               <strong className="semibold-font">Please note:</strong> This is a
               pre-order to reserve your stock. Deliveries will commence from{" "}
               <strong className="semibold-font">7 July 2026</strong> onwards.
               Taking pre-orders for 1.5 mg and 4 mg strengths only.
-            </p> */}
+            </p>
 
             {/* CONSULTATION */}
             <div className="mt-2 bg-gray-100  rounded-xl p-5">
