@@ -431,7 +431,7 @@ export default function MounjaroProduct({
               ))}
             </div>
 
-            {/* DOCTOR CARD des */}
+            {/* DOCTOR CARD desc */}
             <div className="mt-6 bg-[#e7eaf6] rounded-xl p-3 sm:p-5 sm:block hidden">
               <div className="flex items-center gap-3 sm:gap-4">
                 <Image
