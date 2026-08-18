@@ -496,7 +496,7 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
 
             {/* Last reviewed — hamesha visible */}
             <p className="text-xs text-gray-500 mt-3">
-              Last reviewed on: 30/03/2026
+              Last reviewed on: 07/07/2026
             </p>
           </div>
         </div>
