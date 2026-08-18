@@ -33,7 +33,7 @@ const WegovySignupModal = ({ isOpen, onClose }) => {
 
     try {
       const payload = {
-        type: "wegovy-pill",
+        type: "foundayo",
         firstName: data.fullName,
         email: data.email,
         company_id: 2,
@@ -101,10 +101,10 @@ const WegovySignupModal = ({ isOpen, onClose }) => {
           </span>
 
           <div>
-            <h2>Stay updated with Wegovy Pill information</h2>
+            <h2>Be the first to know when Foundayo is available</h2>
             <p>
-              Be the first to receive clear information and updates about the
-              Wegovy pill and its availability in the UK.
+              Add your details below and we’ll let you know when Foundayo becomes available in the UK.
+
             </p>
           </div>
         </div>
@@ -205,18 +205,18 @@ const WegovySignupModal = ({ isOpen, onClose }) => {
               {isSubmitting ? (
                 <span className={styles.buttonLoading}>
                   <span className={styles.buttonSpinner}></span>
-                  Signing up...
+                  Keeping you updated...
                 </span>
               ) : (
-                "Sign up"
+                "Keep Me Updated"
               )}
             </button>
           </div>
 
-          <div className={styles.trustNote}>
+          {/* <div className={styles.trustNote}>
             <FiCheckCircle />
             <span>No spam. Only important treatment availability updates.</span>
-          </div>
+          </div> */}
         </form>
       </div>
     </div>

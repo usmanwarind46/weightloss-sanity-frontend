@@ -23,6 +23,7 @@ import { generateSchema } from "../../lib/schemaGenerator";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import WegovySignupModalWrapper from "../../components/WegovySignupModalWrapper";
+import WegovySignupModal from "../../components/WegovySignupModal";
 
 export async function getStaticProps() {
   const data = await sanityClient.fetch(PAGE_QUERY, {
@@ -279,7 +280,7 @@ function WaitlistForm({ dark = false }) {
   );
 }
 
-export default function MounjaroProduct({
+export default function FoundayoProduct({
   data,
   seoSettings,
   siteSettings,
@@ -291,6 +292,7 @@ export default function MounjaroProduct({
   const [isExpanded, setIsExpanded] = useState(false);
   const [active, setActive] = useState(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [isWegovyModalOpen, setIsWegovyModalOpen] = useState(false);
 
   const mounjaroHero =
     data?.sections?.find((section) => section._type === "mounjaroHero") || {};
@@ -413,8 +415,8 @@ export default function MounjaroProduct({
                   key={i}
                   onClick={() => scrollTo(i)}
                   className={`rounded-xl overflow-hidden border-2 transition-all duration-300 ${active === i
-                      ? "border-black"
-                      : "border-transparent hover:border-gray-300"
+                    ? "border-black"
+                    : "border-transparent hover:border-gray-300"
                     }`}
                 >
                   <Image
@@ -821,8 +823,8 @@ export default function MounjaroProduct({
                   <div
                     key={i}
                     className={`rounded-xl border transition ${open === i
-                        ? "bg-[#cfe4da] border-transparent"
-                        : "border-gray-200"
+                      ? "bg-[#cfe4da] border-transparent"
+                      : "border-gray-200"
                       }`}
                   >
                     <button
@@ -1021,18 +1023,19 @@ export default function MounjaroProduct({
             </p>
 
             {mounjaroCTA?.scrollButtonLabel && (
-              <a
-                href="https://www.onlineweightlossclinic.co.uk/start-consultation?product_id=7"
-                target="_blank"
-                className="mt-6 inline-block w-full sm:w-auto"
-              >
+              <div className="mt-6 w-full sm:w-auto">
                 <NextButton
                   label={mounjaroCTA?.scrollButtonLabel}
                   type="button"
-                  props="w-full"
+                  props="w-full sm:w-auto"
+                  onClick={() => setIsWegovyModalOpen(true)}
                 />
-              </a>
+              </div>
             )}
+            <WegovySignupModal
+              isOpen={isWegovyModalOpen}
+              onClose={() => setIsWegovyModalOpen(false)}
+            />
           </div>
 
           {/* RIGHT IMAGE */}
@@ -1051,6 +1054,7 @@ export default function MounjaroProduct({
       </section>
 
       {/*  */}
+
 
       <ManjaroTableContent data={mounjaroTabsSection} />
 
@@ -1114,6 +1118,7 @@ export default function MounjaroProduct({
         </div>
       </section>
       <Footer data={siteSettings} />
+
       {/* <WegovySignupModalWrapper /> */}
     </>
   );
