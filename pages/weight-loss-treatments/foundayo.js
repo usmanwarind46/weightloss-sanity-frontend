@@ -123,7 +123,7 @@ function WaitlistForm({ dark = false }) {
 
     try {
       const payload = {
-        type: "wegovy-pill",
+        type: "foundayo",
         firstName: name,
         email: email,
         company_id: 2,
