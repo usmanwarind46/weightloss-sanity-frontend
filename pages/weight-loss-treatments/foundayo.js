@@ -591,7 +591,7 @@ export default function MounjaroProduct({
                   onClick={() => setOpen(!open)}
                   className="w-full border rounded-lg px-4 py-3 flex justify-between items-center bg-white cursor-pointer"
                 >
-                  {DOSAGES[dosage].label}
+                  {DOSAGES[dosage]?.label}
                   <ChevronDown size={18} />
                 </button>
 
