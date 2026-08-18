@@ -376,8 +376,8 @@ function WaitlistForm({ dark = false, heading, description }) {
                   }));
                 }}
                 className={`h-[52px] w-full rounded-[14px] border bg-[#F8FAFD] pl-11 pr-4 text-sm font-medium text-[#17213B] outline-none transition-all duration-200 placeholder:font-normal placeholder:text-[#98A2B3] focus:bg-white focus:ring-4 ${errors.name
-                    ? "border-red-400 focus:border-red-400 focus:ring-red-100"
-                    : "border-[#DCE2ED] hover:border-[#BCC7DA] focus:border-[#4565BF] focus:ring-[#4565BF]/10"
+                  ? "border-red-400 focus:border-red-400 focus:ring-red-100"
+                  : "border-[#DCE2ED] hover:border-[#BCC7DA] focus:border-[#4565BF] focus:ring-[#4565BF]/10"
                   }`}
               />
             </div>
@@ -463,8 +463,8 @@ function WaitlistForm({ dark = false, heading, description }) {
                   }));
                 }}
                 className={`h-[52px] w-full rounded-[14px] border bg-[#F8FAFD] pl-11 pr-4 text-sm font-medium text-[#17213B] outline-none transition-all duration-200 placeholder:font-normal placeholder:text-[#98A2B3] focus:bg-white focus:ring-4 ${errors.email
-                    ? "border-red-400 focus:border-red-400 focus:ring-red-100"
-                    : "border-[#DCE2ED] hover:border-[#BCC7DA] focus:border-[#4565BF] focus:ring-[#4565BF]/10"
+                  ? "border-red-400 focus:border-red-400 focus:ring-red-100"
+                  : "border-[#DCE2ED] hover:border-[#BCC7DA] focus:border-[#4565BF] focus:ring-[#4565BF]/10"
                   }`}
               />
             </div>
@@ -963,10 +963,10 @@ export default function FoundayoProduct({
             )} */}
 
             {/* <div className="wlt-hero-form mt-6"> */}
-              <WaitlistForm
-                heading={mounjaroHero?.dosageHeading}
-                description={mounjaroHero?.dosageText}
-              />
+            <WaitlistForm
+              heading={mounjaroHero?.dosageHeading}
+              description={mounjaroHero?.dosageText}
+            />
             {/* </div> */}
 
             {/* <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
@@ -1425,11 +1425,21 @@ export default function FoundayoProduct({
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 cta-btn">
-              <Link href={wegovyBottomCTA?.primaryButtonHref}>
-                <NextButton label={wegovyBottomCTA?.primaryButtonLabel}
+              {wegovyBottomCTA?.primaryButtonHref ? (
+                <Link href={wegovyBottomCTA.primaryButtonHref}>
+                  <NextButton
+                    label={wegovyBottomCTA?.primaryButtonLabel}
+                    props="w-full sm:w-auto"
+                  />
+                </Link>
+              ) : (
+                <NextButton
+                  label={wegovyBottomCTA?.primaryButtonLabel}
                   props="w-full sm:w-auto"
-                  onClick={() => setIsWegovyModalOpen(true)} />
-              </Link>
+                  type="button"
+                  onClick={() => setIsWegovyModalOpen(true)}
+                />
+              )}
               <Link
                 href={wegovyBottomCTA?.secondaryButtonHref}
                 className="inline-flex items-center gap-2 border-2 border-white/70 hover:border-white text-white hover:bg-white/10 px-6 py-3 rounded-md text-sm md:text-base font-medium transition-all duration-200 group"
