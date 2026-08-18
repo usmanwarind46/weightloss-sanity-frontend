@@ -1209,7 +1209,7 @@ export default function FoundayoProduct({
                 <p className="para-font leading-relaxed text-gray-600">
                   A Foundayo vs{" "}
                   <Link
-                    href="/weight-loss-treatments/foundayo"
+                    href="/weight-loss-treatments/wegovy-pill"
                     className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
                   >
                     Wegovy pill
