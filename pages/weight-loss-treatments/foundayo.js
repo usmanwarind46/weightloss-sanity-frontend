@@ -1023,7 +1023,7 @@ export default function FoundayoProduct({
             </p>
 
             {mounjaroCTA?.scrollButtonLabel && (
-              <div className="mt-6 w-full sm:w-auto">
+              <div className="mt-6 w-full sm:max-w-xs">
                 <NextButton
                   label={mounjaroCTA?.scrollButtonLabel}
                   type="button"
