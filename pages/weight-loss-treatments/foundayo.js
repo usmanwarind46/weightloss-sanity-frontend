@@ -873,6 +873,14 @@ export default function FoundayoProduct({
       {/* SWITCHING TREATMENTS SECTION */}
       <section className="bg-[#f8faf9] py-12 sm:py-16">
         <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="inline-block text-xs font-semibold tracking-wide uppercase text-[#4caf8a] bg-[#e9f6f0] px-3 py-1 rounded-full mb-3">
+              Treatment Comparision
+            </span>
+            <h2 className="text-xl sm:text-3xl 2xl:text-4xl semibold-font text-gray-900">
+              Switching to Foundayo
+            </h2>
+          </div>
           <div className="mx-auto max-w-4xl space-y-12 sm:space-y-14">
             {/* Foundayo vs Wegovy Pill */}
             <div>
