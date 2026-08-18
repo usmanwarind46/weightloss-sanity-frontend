@@ -412,11 +412,10 @@ export default function MounjaroProduct({
                 <button
                   key={i}
                   onClick={() => scrollTo(i)}
-                  className={`rounded-xl overflow-hidden border-2 transition-all duration-300 ${
-                    active === i
+                  className={`rounded-xl overflow-hidden border-2 transition-all duration-300 ${active === i
                       ? "border-black"
                       : "border-transparent hover:border-gray-300"
-                  }`}
+                    }`}
                 >
                   <Image
                     src={img.imageUrl}
@@ -564,9 +563,8 @@ export default function MounjaroProduct({
                 {descOpen ? "Read less" : "Read more"}
                 <ChevronDown
                   size={18}
-                  className={`transition-transform duration-300 ${
-                    descOpen ? "rotate-180" : ""
-                  }`}
+                  className={`transition-transform duration-300 ${descOpen ? "rotate-180" : ""
+                    }`}
                 />
               </button>
             </div>
@@ -676,9 +674,9 @@ export default function MounjaroProduct({
               <Link href={mounjaroHero?.eligibilityButtonHref}>
                 <button
                   className="w-full bg-[#4caf82] text-sm sm:text-lg text-white py-3 rounded-lg semibold-font  hover:bg-[#3d9e6e] cursor-pointer"
-                  // onClick={() => {
-                  //   window.open("/start-consultation/?product_id=1", "_blank");
-                  // }}
+                // onClick={() => {
+                //   window.open("/start-consultation/?product_id=1", "_blank");
+                // }}
                 >
                   {mounjaroHero?.eligibilityButtonLabel}
                 </button>
@@ -822,11 +820,10 @@ export default function MounjaroProduct({
                 {mounjaroJourney?.journeyItems?.map((item, i) => (
                   <div
                     key={i}
-                    className={`rounded-xl border transition ${
-                      open === i
+                    className={`rounded-xl border transition ${open === i
                         ? "bg-[#cfe4da] border-transparent"
                         : "border-gray-200"
-                    }`}
+                      }`}
                   >
                     <button
                       className="w-full flex justify-between items-center p-5 text-left cursor-pointer"
@@ -872,146 +869,105 @@ export default function MounjaroProduct({
       </section>
 
       {/* SWITCHING TREATMENTS SECTION */}
-      <section className="py-12 sm:py-16 bg-[#f8faf9]">
+      <section className="bg-[#f8faf9] py-12 sm:py-16">
         <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-block text-xs font-semibold tracking-wide uppercase text-[#4caf8a] bg-[#e9f6f0] px-3 py-1 rounded-full mb-3">
-              Switching Treatments
-            </span>
-            <h2 className="text-xl sm:text-3xl 2xl:text-4xl semibold-font text-gray-900">
-              Switching to Wegovy Pills
-            </h2>
-          </div>
-
-          <div className="space-y-14 max-w-4xl mx-auto">
-            {/* === Wegovy Injection → Pill === */}
+          <div className="mx-auto max-w-4xl space-y-12 sm:space-y-14">
+            {/* Foundayo vs Wegovy Pill */}
             <div>
-              <h3 className="text-lg sm:text-2xl font-semibold text-gray-900 mb-3">
-                Can I switch from Wegovy injections to Wegovy pills?
-              </h3>
-              <p className="text-gray-600 leading-relaxed para-font mb-3">
-                Yes, switching from Wegovy injections to Wegovy tablets may be
-                possible, but it should always be done with advice from a
-                qualified healthcare professional. The injection and pill work
-                in different ways in the body, so the doses are not directly the
-                same. The right starting dose of the pill will depend on your
-                current Wegovy injection dose, how your body has responded to
-                treatment, and how well you have tolerated it so far.
-              </p>
+              <h2 className="semibold-font mb-4 text-xl text-gray-900 sm:text-3xl 2xl:text-4xl">
+                Foundayo vs Wegovy Pill: What sets them apart?
+              </h2>
 
-              <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm mb-4">
-                <table className="w-full text-left border-collapse min-w-[420px]">
-                  <thead>
-                    <tr className="bg-[#4caf8a]">
-                      <th className="px-5 py-3 text-sm sm:text-base font-semibold text-white">
-                        Current Wegovy injection dose
-                      </th>
-                      <th className="px-5 py-3 text-sm sm:text-base font-semibold text-white">
-                        Wegovy pill dose you may switch to
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[
-                      ["0.25mg", "4mg"],
-                      ["0.5mg", "4mg"],
-                      ["1mg", "9mg"],
-                      ["1.7mg", "9mg"],
-                      ["2.4mg", "25mg"],
-                      ["7.2mg", "25mg"],
-                    ].map(([from, to], i) => (
-                      <tr
-                        key={from}
-                        className={`border-b border-gray-100 last:border-b-0 ${
-                          i % 2 === 0 ? "bg-white" : "bg-[#f5f7fb]"
-                        }`}
-                      >
-                        <td className="px-5 py-3 text-gray-700 para-font">
-                          {from}
-                        </td>
-                        <td className="px-5 py-3 text-gray-900 font-medium para-font">
-                          {to}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              <div className="space-y-4">
+                <p className="para-font leading-relaxed text-gray-600">
+                  A Foundayo vs{" "}
+                  <Link
+                    href="/weight-loss-treatments/wegovy-pill"
+                    className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
+                  >
+                    Wegovy pill
+                  </Link>{" "}
+                  comparison involves two once-daily oral GLP-1 weight management
+                  treatments with different active ingredients. Foundayo pill
+                  contains orforglipron, whereas the Wegovy pill contains semaglutide.
+                </p>
+
+                <p className="para-font leading-relaxed text-gray-600">
+                  Their dosing instructions also differ. Foundayo can be taken at any
+                  time of day without{" "}
+                  <a
+                    href="https://www.gov.uk/government/news/uk-first-in-europe-to-authorise-orforglipron-for-weight-management-and-type-2-diabetes"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
+                  >
+                    specific food or water restrictions
+                  </a>
+                  . The Wegovy pill is taken on an empty stomach with a limited amount
+                  of water, followed by a 30-minute period before having food, drinks
+                  or other oral medicines.
+                </p>
               </div>
-
-              <p className="text-gray-600 leading-relaxed para-font">
-                Although 25 mg is the highest dose available for the Wegovy
-                pill, it does not work in exactly the same way as the injection
-                because it is absorbed through the digestive system. The 25 mg
-                Wegovy tablet has been shown to support more average weight loss
-                than the 2.4 mg Wegovy injection. However, overall, the 7.2 mg
-                Wegovy injection has demonstrated the greatest average weight
-                loss in clinical studies.
-              </p>
             </div>
 
-            {/* === Mounjaro Injection → Pill === */}
+            {/* Foundayo vs Mounjaro */}
             <div>
-              <h3 className="text-lg sm:text-2xl font-semibold text-gray-900 mb-3">
-                Can I switch from Mounjaro injection to the Wegovy pill?
-              </h3>
-              <p className="text-gray-600 leading-relaxed para-font mb-3">
-                Yes, switching from Mounjaro injection to the Wegovy pill may be
-                possible, but it should be done under the guidance of a
-                qualified prescriber. The right Wegovy pill dose will depend on
-                your current Mounjaro dose, how your body has responded to
-                treatment, and how well you have tolerated it so far. A
-                healthcare professional can assess whether this Wegovy treatment
-                is suitable and provide a Wegovy prescription if appropriate.
-              </p>
-              <p className="text-gray-600 leading-relaxed para-font mb-4">
-                The table below shows the recommended Wegovy pill doses when
-                switching from Mounjaro:
-              </p>
+              <h2 className="semibold-font mb-4 text-xl text-gray-900 sm:text-3xl 2xl:text-4xl">
+                Foundayo vs Mounjaro: What are the main differences?
+              </h2>
 
-              <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm mb-4">
-                <table className="w-full text-left border-collapse min-w-[420px]">
-                  <thead>
-                    <tr className="bg-[#5B6EE8]">
-                      <th className="px-5 py-3 text-sm sm:text-base font-semibold text-white">
-                        Current Mounjaro injection dose
-                      </th>
-                      <th className="px-5 py-3 text-sm sm:text-base font-semibold text-white">
-                        Recommended Wegovy pill dose
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[
-                      ["2.5mg", "4mg"],
-                      ["5mg", "4mg"],
-                      ["7.5mg", "9mg"],
-                      ["10mg", "9mg"],
-                      ["12.5mg", "9mg"],
-                      ["15mg", "9mg"],
-                    ].map(([from, to], i) => (
-                      <tr
-                        key={from}
-                        className={`border-b border-gray-100 last:border-b-0 ${
-                          i % 2 === 0 ? "bg-white" : "bg-[#f5f7fb]"
-                        }`}
-                      >
-                        <td className="px-5 py-3 text-gray-700 para-font">
-                          {from}
-                        </td>
-                        <td className="px-5 py-3 text-gray-900 font-medium para-font">
-                          {to}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              <div className="space-y-4">
+                <p className="para-font leading-relaxed text-gray-600">
+                  When looking at Foundayo vs{" "}
+                  <Link
+                    href="/weight-loss-treatments/mounjaro"
+                    className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
+                  >
+                    Mounjaro
+                  </Link>
+                  , the treatments differ in their active ingredients, format and
+                  receptor activity. Foundayo contains orforglipron and is taken as a
+                  daily tablet, while Mounjaro contains tirzepatide and is
+                  administered as a weekly injection.
+                </p>
+
+                <p className="para-font leading-relaxed text-gray-600">
+                  Foundayo acts on GLP-1 receptors, whereas Mounjaro targets both GIP
+                  and GLP-1 receptors. Both can support weight management through
+                  effects on appetite and fullness. Which option is appropriate for
+                  you will depend on your health, medical history and individual
+                  clinical assessment.
+                </p>
               </div>
+            </div>
 
-              <p className="text-gray-600 leading-relaxed para-font">
-                The table above provides general dose guidance when switching
-                from Mounjaro to the Wegovy pill. Your prescriber will recommend
-                the most suitable starting dose for you.
-              </p>
+            {/* Foundayo vs Wegovy */}
+            <div>
+              <h2 className="semibold-font mb-4 text-xl text-gray-900 sm:text-3xl 2xl:text-4xl">
+                Foundayo vs Wegovy: A quick comparison
+              </h2>
+
+              <div className="space-y-4">
+                <p className="para-font leading-relaxed text-gray-600">
+                  The Foundayo vs{" "}
+                  <Link
+                    href="/weight-loss-treatments/wegovy"
+                    className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
+                  >
+                    Wegovy
+                  </Link>{" "}
+                  comparison shows several differences in how these treatments are
+                  formulated and taken. Foundayo tablet contains orforglipron as a
+                  once-daily tablet, whereas Wegovy contains semaglutide and is
+                  administered by injection once a week.
+                </p>
+
+                <p className="para-font leading-relaxed text-gray-600">
+                  Both are GLP-1 receptor agonists that act on pathways involved in
+                  appetite and fullness. However, their treatment formats differ,
+                  with Foundayo taken orally and Wegovy delivered by injection.
+                </p>
+              </div>
             </div>
           </div>
         </div>
