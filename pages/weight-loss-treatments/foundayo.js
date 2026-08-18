@@ -882,6 +882,11 @@ export default function FoundayoProduct({
 
             {/* DOSAGES */}
             <div id="waitlist-form" className="mt-6">
+
+
+              <p className="text-black para-font roboto-semibold space-y-4 leading-relaxed mb-4">
+                Foundayo is coming soon. Simply add your details and we’ll keep you updated.
+              </p>
               {/* <h3 className="med-font mb-1 text-md sm:text-xl sm:text-3xl">
                 {mounjaroHero?.dosageHeading}
               </h3>
@@ -1209,10 +1214,8 @@ export default function FoundayoProduct({
                   >
                     Wegovy pill
                   </Link>{" "}
-                  comparison involves two once-daily oral GLP-1 weight
-                  management treatments with different active ingredients.
-                  Foundayo pill contains orforglipron, whereas the Wegovy pill
-                  contains semaglutide.
+                  comparison involves two once-daily oral GLP-1 weight management treatments with different active ingredients. Foundayo pill contains orforglipron, whereas the Wegovy pill contains semaglutide.
+
                 </p>
 
                 <p className="para-font leading-relaxed text-gray-600">
