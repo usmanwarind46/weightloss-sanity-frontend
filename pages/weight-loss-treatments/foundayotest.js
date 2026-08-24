@@ -971,7 +971,7 @@ export default function FoundayoProduct({
             /> */}
             {/* </div> */}
             {price !== 0 && (
-              <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
+              <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
                 <strong className="semibold-font">Please note:</strong> <br />{" "}
                 Orders for{" "}
                 <strong className="semibold-font">Foundayo 0.8mg</strong> will
@@ -1413,9 +1413,12 @@ export default function FoundayoProduct({
 
             <div>
               <h3 className="text-lg sm:text-2xl font-semibold text-gray-900 mb-5">
-                Switching to Foundayo: Visual Dose Comparison Guide
+                Switching to Foundayo: Visual dose comparison guide
               </h3>
-              <img src="../images/owlc_foundayo_chart.jpg" />
+              <img
+                src="/Images/owlc_foundayo_chart.jpg"
+                alt="foundayo guide chart"
+              />
             </div>
           </div>
         </div>
@@ -1474,14 +1477,16 @@ export default function FoundayoProduct({
                   label={mounjaroCTA?.scrollButtonLabel}
                   type="button"
                   props="w-full sm:w-auto"
-                  onClick={() => setIsWegovyModalOpen(true)}
+                  onClick={() => {
+                    window.location.href = "/start-consultation/?product_id=8";
+                  }}
                 />
               </div>
             )}
-            <WegovySignupModal
+            {/* <WegovySignupModal
               isOpen={isWegovyModalOpen}
               onClose={() => setIsWegovyModalOpen(false)}
-            />
+            /> */}
           </div>
 
           {/* RIGHT IMAGE */}
