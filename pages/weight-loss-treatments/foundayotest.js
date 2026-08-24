@@ -971,7 +971,7 @@ export default function FoundayoProduct({
             /> */}
             {/* </div> */}
             {price !== 0 && (
-              <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
+              <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
                 <strong className="semibold-font">Please note:</strong> <br />{" "}
                 Orders for{" "}
                 <strong className="semibold-font">Foundayo 0.8mg</strong> will
@@ -1475,7 +1475,7 @@ export default function FoundayoProduct({
                   type="button"
                   props="w-full sm:w-auto"
                   onClick={() => {
-                    window.open("/start-consultation/?product_id=8", "_blank");
+                    window.open("/start-consultation/?product_id=8");
                   }}
                 />
               </div>
