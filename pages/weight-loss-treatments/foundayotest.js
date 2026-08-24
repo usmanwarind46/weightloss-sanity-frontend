@@ -1293,15 +1293,9 @@ export default function FoundayoProduct({
                 >
                   Wegovy
                 </Link>{" "}
-                injection to once-daily{" "}
-                <Link
-                  href="/weight-loss-treatments/foundayotest"
-                  className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
-                >
-                  Foundayo
-                </Link>
-                . Your existing Wegovy dose can help determine which Foundayo
-                strength is appropriate when changing treatment.
+                injection to once-daily Foundayo. Your existing Wegovy dose can
+                help determine which Foundayo strength is appropriate when
+                changing treatment.
               </p>
 
               <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm mb-4">
@@ -1362,15 +1356,8 @@ export default function FoundayoProduct({
                 >
                   Wegovy pill
                 </Link>{" "}
-                to{" "}
-                <Link
-                  href="/weight-loss-treatments/foundayotest"
-                  className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
-                >
-                  Foundayo
-                </Link>{" "}
-                may be an option. The Foundayo strength selected can vary
-                according to the daily Wegovy pill dose you currently use.
+                to Foundayo may be an option. The Foundayo strength selected can
+                vary according to the daily Wegovy pill dose you currently use.
               </p>
 
               <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm mb-4">
