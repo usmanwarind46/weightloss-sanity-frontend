@@ -1474,14 +1474,16 @@ export default function FoundayoProduct({
                   label={mounjaroCTA?.scrollButtonLabel}
                   type="button"
                   props="w-full sm:w-auto"
-                  onClick={() => setIsWegovyModalOpen(true)}
+                  onClick={() => {
+                    window.open("/start-consultation/?product_id=8", "_blank");
+                  }}
                 />
               </div>
             )}
-            <WegovySignupModal
+            {/* <WegovySignupModal
               isOpen={isWegovyModalOpen}
               onClose={() => setIsWegovyModalOpen(false)}
-            />
+            /> */}
           </div>
 
           {/* RIGHT IMAGE */}
