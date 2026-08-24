@@ -114,7 +114,6 @@ export default function ProductCard({ product = products[0] }) {
             transition={{ delay: 0.2, duration: 0.4 }}
             className="text-xl sm:text-2xl font-bold text-gray-900 mb-1"
           >
-
             {product.name}{" "}
             <span className="text-gray-700 font-normal text-lg">
               ({product.subtitle})
@@ -130,14 +129,9 @@ export default function ProductCard({ product = products[0] }) {
             style={{ color: "#4CAF8A" }}
           >
             {/*Starting from */}
-            {product?.name == "Foundayo" ? "Coming Soon" : "Starting from"}{" "}
-            {" "}
+            Starting from{" "}
             <span className="underline underline-offset-2">
-              {/* {product.price} */}
-              {product?.name == "Foundayo" ? "" : `$${product.price}`}{" "}
-
-
-
+              {product.price}{" "}
             </span>
           </motion.p>
 
