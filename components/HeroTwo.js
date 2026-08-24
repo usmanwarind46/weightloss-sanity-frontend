@@ -741,7 +741,7 @@ function DesktopBenefitsStrip() {
             ${index > 0 ? "border-l border-[#c9ced6]/75" : ""}
           `}
         >
-          <Image
+          {/* <Image
             src="/Images/hero_check.svg"
             width={18}
             height={18}
@@ -762,7 +762,7 @@ function DesktopBenefitsStrip() {
               min-[1500px]:h-[16px]
               min-[1500px]:w-[16px]
             "
-          />
+          /> */}
 
           <span
             className="
@@ -773,9 +773,9 @@ function DesktopBenefitsStrip() {
               tracking-[-0.02em]
               text-[#666666]
 
-              min-[1150px]:text-[7px]
-              min-[1280px]:text-[8px]
-              min-[1500px]:text-[11px]
+              min-[1150px]:text-[9px]
+              min-[1280px]:text-[10px]
+              min-[1500px]:text-[12px]
               min-[2500px]:text-[12px]
             "
           >
