@@ -1475,7 +1475,7 @@ export default function FoundayoProduct({
                   type="button"
                   props="w-full sm:w-auto"
                   onClick={() => {
-                    window.open("/start-consultation/?product_id=8");
+                    window.location.href = "/start-consultation/?product_id=8";
                   }}
                 />
               </div>
