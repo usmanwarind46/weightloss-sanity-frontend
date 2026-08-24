@@ -973,11 +973,17 @@ export default function FoundayoProduct({
             {price !== 0 && (
               <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
                 <strong className="semibold-font">Please note:</strong> <br />{" "}
-                <strong className="semibold-font">0.8mg</strong> orders will
-                start being dispatched from the middle of this week, from
-                Wednesday, 26 August 2026. <br />
-                <strong className="semibold-font">2.5mg</strong> orders will
-                start being dispatched from the end of this week.
+                Orders for{" "}
+                <strong className="semibold-font">Foundayo 0.8mg</strong> will
+                begin dispatching from{" "}
+                <strong className="semibold-font">
+                  Wednesday, 26 August 2026
+                </strong>
+                , while{" "}
+                <strong className="semibold-font">Foundayo 2.5mg</strong> orders
+                are expected to start dispatching towards the end of this week.
+                You will receive your tracking information once your order has
+                been dispatched.
               </p>
             )}
 
@@ -1358,7 +1364,7 @@ export default function FoundayoProduct({
               <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm mb-4">
                 <table className="w-full text-left border-collapse min-w-[420px]">
                   <thead>
-                    <tr className="bg-[#4caf8a]">
+                    <tr className="bg-[#5B6EE8]">
                       <th className="px-5 py-3 text-sm sm:text-base font-semibold text-white">
                         Current Wegovy pill dose
                       </th>
@@ -1403,6 +1409,13 @@ export default function FoundayoProduct({
                 Switching requirements differ between individuals. Do not change
                 your medicine or dose without advice from a clinician.
               </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg sm:text-2xl font-semibold text-gray-900 mb-5">
+                Switching to Foundayo: Visual Dose Comparison Guide
+              </h3>
+              <img src="../images/owlc_foundayo_chart.jpg" />
             </div>
           </div>
         </div>
