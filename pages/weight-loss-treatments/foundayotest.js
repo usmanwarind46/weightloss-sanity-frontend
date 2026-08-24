@@ -1413,9 +1413,12 @@ export default function FoundayoProduct({
 
             <div>
               <h3 className="text-lg sm:text-2xl font-semibold text-gray-900 mb-5">
-                Switching to Foundayo: Visual Dose Comparison Guide
+                Switching to Foundayo: Visual dose comparison guide
               </h3>
-              <img src="/Images/owlc_foundayo_chart.jpg" />
+              <img
+                src="/Images/owlc_foundayo_chart.jpg"
+                alt="foundayo guide chart"
+              />
             </div>
           </div>
         </div>
