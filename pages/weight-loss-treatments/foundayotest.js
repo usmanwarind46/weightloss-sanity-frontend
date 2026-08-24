@@ -974,7 +974,8 @@ export default function FoundayoProduct({
               <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
                 <strong className="semibold-font">Please note:</strong> <br />{" "}
                 <strong className="semibold-font">0.8mg</strong> orders will
-                start being dispatched from the middle of this week. <br />
+                start being dispatched from the middle of this week, from
+                Wednesday, 26 August 2026. <br />
                 <strong className="semibold-font">2.5mg</strong> orders will
                 start being dispatched from the end of this week.
               </p>
