@@ -1223,14 +1223,8 @@ export default function FoundayoProduct({
                 Can I switch from Mounjaro to Foundayo?
               </h3>
               <p className="text-gray-600 leading-relaxed para-font mb-3">
-                Yes. Moving from Mounjaro to Foundayo may be possible. The{" "}
-                <Link
-                  href="/weight-loss-treatments/foundayotest"
-                  className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
-                >
-                  Foundayo
-                </Link>{" "}
-                dose selected can vary depending on your current weekly{" "}
+                Yes. Moving from Mounjaro to Foundayo may be possible. The
+                Foundayo dose selected can vary depending on your current weekly{" "}
                 <Link
                   href="/weight-loss-treatments/mounjaro"
                   className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
