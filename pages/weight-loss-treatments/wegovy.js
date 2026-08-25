@@ -571,8 +571,9 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
                       Please note
                     </p>
                     <p className="text-sm text-amber-800 mt-1">
-                      Wegovy 7.2mg pack contains 4 individual pens, providing
-                      one injection per week for 4 weeks.
+                      Wegovy 7.2mg contains 4 individual pens, providing 1
+                      injection per week for 4 weeks, whereas the other doses
+                      contain 1 pen with 4 weekly doses.
                     </p>
                   </div>
                 </div>
