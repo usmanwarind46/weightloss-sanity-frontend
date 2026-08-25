@@ -285,7 +285,6 @@ export default function MounjaroProduct({
   siteSettings,
   dark = false,
 }) {
-  const [dosage, setDosage] = useState(0);
   const [open, setOpen] = useState(false);
   const [descOpen, setDescOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -321,7 +320,6 @@ export default function MounjaroProduct({
   const DOSAGES = mounjaroHero?.dosages || [];
 
   const IMAGES = mounjaroHero?.productImages || [];
-  const price = DOSAGES[dosage]?.price;
 
   const faqs = mounjaroFaq?.faqs || [];
 
@@ -573,96 +571,76 @@ export default function MounjaroProduct({
 
             {/* DOSAGES */}
             <div id="waitlist-form" className="mt-6">
-              <h3 className="med-font mb-1 text-md sm:text-xl sm:text-3xl">
+              <h3 className="med-font mb-5 text-md sm:text-xl sm:text-3xl">
                 {mounjaroHero?.dosageHeading}
               </h3>
 
-              <p className="text-gray-600 para-font space-y-4 leading-relaxed mb-4">
-                {mounjaroHero?.dosageText}
-              </p>
+              <div className="flex items-center justify-between gap-3">
+                <h4 className="text-lg font-bold tracking-[-0.02em] text-slate-900 sm:text-xl 2xl:text-2xl">
+                  Dosage options
+                </h4>
+                <span className="whitespace-nowrap rounded-full bg-[#EAF0FF] px-2.5 py-1 text-[9px] font-semibold text-[#354FA8] sm:text-[11px] 2xl:px-3 2xl:py-1.5 2xl:text-xs">
+                  30 tablets per pack
+                </span>
+              </div>
 
-              <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
-                Dosages
-              </label>
-
-              {/* DROPDOWN */}
-              <div className="relative mt-2">
-                <button
-                  onClick={() => setOpen(!open)}
-                  className="w-full border rounded-lg px-4 py-3 flex justify-between items-center bg-white cursor-pointer"
+              {/* DOSAGE CARDS */}
+              <div className="mt-3 w-full pb-1">
+                <div
+                  className="grid w-full grid-cols-2 items-stretch gap-2 sm:grid-cols-4 2xl:gap-3"
+                  role="list"
+                  aria-label="Wegovy Pill dosage prices"
                 >
-                  {DOSAGES[dosage].label}
-                  <ChevronDown size={18} />
-                </button>
+                  {DOSAGES.map((d, i) => {
+                    const label = d.label || "";
+                    const labelParts = label.match(
+                      /^([^()]+?)(?:\s*\(([^)]+)\))?$/,
+                    );
+                    const doseName = labelParts?.[1]?.trim() || label;
+                    const treatmentDays = labelParts?.[2]?.trim();
+                    const shortTreatmentDays = treatmentDays?.replace(
+                      /\s+of Treatment$/i,
+                      "",
+                    );
+                    const compactTreatmentDays = /151/i.test(
+                      shortTreatmentDays || "",
+                    )
+                      ? "Day 151+"
+                      : shortTreatmentDays;
 
-                {open && (
-                  <div className="absolute top-full mt-1 bg-white border rounded-lg w-full shadow cursor-pointer">
-                    {DOSAGES.map((d, i) => (
-                      <button
-                        key={i}
-                        onClick={() => {
-                          setDosage(i);
-                          setOpen(false);
-                        }}
-                        className="block w-full text-left px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                    return (
+                      <div
+                        key={d._key || `${d.label}-${i}`}
+                        role="listitem"
+                        className="relative flex min-h-[112px] min-w-0 flex-col items-center overflow-hidden rounded-xl border border-[#4565BF]/45 bg-gradient-to-b from-[#EEF3FF] via-white to-white px-1 py-3 text-center shadow-[0_7px_20px_rgba(69,101,191,0.12)] sm:px-2 2xl:min-h-[132px] 2xl:px-3 2xl:py-4"
                       >
-                        {d.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-x-0 top-0 h-[3px] bg-[#4565BF]"
+                        />
+                        <span className="block w-full truncate text-sm font-bold leading-5 text-[#273C88] sm:text-sm 2xl:text-base 2xl:leading-5">
+                          {doseName}
+                        </span>
+                        {compactTreatmentDays && (
+                          <span className="mt-1 block text-[9px] font-medium leading-3 text-slate-500 sm:text-[9px] sm:leading-3 2xl:mt-1.5 2xl:text-[11px] 2xl:leading-4">
+                            {compactTreatmentDays}
+                          </span>
+                        )}
+                        <div className="mt-auto pt-2">
+                          <span className="block whitespace-nowrap text-sm font-bold leading-5 text-[#354FA8] sm:text-base 2xl:text-xl 2xl:leading-6">
+                            £{Number(d.price).toFixed(2)}
+                          </span>
+                          <span className="mt-1 inline-flex items-center justify-center gap-1 rounded-full bg-emerald-50 px-1.5 py-0.5 text-[9px] font-semibold leading-3 text-emerald-700 sm:text-[8px] 2xl:mt-1.5 2xl:px-2 2xl:py-1 2xl:text-[10px]">
+                            <span className="h-1 w-1 shrink-0 rounded-full bg-emerald-500" />
+                            In stock
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
-
-            {/* QUANTITYY */}
-            {/* <div className="mt-4">
-              <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
-                Selected Quantity
-              </label>
-
-              <div className="border rounded-lg mt-2 px-4 py-3 bg-white text-sm">
-                1 Month – £{price}.00
-              </div>
-            </div> */}
-
-            {/* PRICE */}
-            <div className="mt-4 bg-[#d4efe1] rounded-lg p-4 max-w-full sm:max-w-64">
-              <p className="text-lg text-black med-font">
-                Price (30 Oral Tablets):
-              </p>
-
-              {price == 0 ? (
-                <p className="text-xl sm:text-xl font-bold text-blue-600">
-                  Price coming soon
-                </p>
-              ) : (
-                <p className="text-xl sm:text-3xl font-bold text-blue-600">
-                  £{price}.00
-                </p>
-              )}
-            </div>
-
-            {/* PRE-ORDER NOTE — sirf 25mg pe */}
-            {/* {DOSAGES[dosage]?.label?.includes("25") && (
-              <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
-                <strong className="semibold-font">Please note:</strong> The 25
-                mg dose is now available for pre-order to reserve your stock.
-                Deliveries are expected to begin from{" "}
-                <strong className="semibold-font">4th August 2026</strong>{" "}
-                onwards.
-              </p>
-            )} */}
-
-            {/* <div className="wlt-hero-form mt-6">
-              <WaitlistForm />
-            </div> */}
-
-            {/* <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
-              <strong className="semibold-font">Please note:</strong> This is a
-              pre-order to reserve your stock. Deliveries will commence from{" "}
-              <strong className="semibold-font">7 July 2026</strong> onwards.
-              Taking pre-orders for 1.5 mg and 4 mg strengths only.
-            </p> */}
 
             {/* CONSULTATION */}
             <div className="mt-2 bg-gray-100  rounded-xl p-5">

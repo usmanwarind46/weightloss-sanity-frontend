@@ -913,7 +913,9 @@ export default function FoundayoProduct({
                 >
                   {DOSAGES.map((d, i) => {
                     const label = d.label || "";
-                    const labelParts = label.match(/^([^()]+?)(?:\s*\(([^)]+)\))?$/);
+                    const labelParts = label.match(
+                      /^([^()]+?)(?:\s*\(([^)]+)\))?$/,
+                    );
                     const doseName = labelParts?.[1]?.trim() || label;
                     const treatmentDays = labelParts?.[2]?.trim();
                     const shortTreatmentDays = treatmentDays?.replace(
@@ -941,27 +943,29 @@ export default function FoundayoProduct({
                           aria-hidden="true"
                           className={`absolute inset-x-0 top-0 h-[3px] ${isAvailable ? "bg-[#4565BF]" : "bg-slate-300"}`}
                         />
-                        <span className={`block w-full truncate text-[12px] font-bold leading-4 sm:text-sm 2xl:text-base 2xl:leading-5 ${isAvailable ? "text-[#273C88]" : "text-slate-700"}`}>
+                        <span
+                          className={`block w-full truncate text-sm font-bold leading-5 sm:text-sm 2xl:text-base 2xl:leading-5 ${isAvailable ? "text-[#273C88]" : "text-slate-700"}`}
+                        >
                           {doseName}
                         </span>
                         {compactTreatmentDays && (
-                          <span className="mt-1 block text-[7px] font-medium leading-[10px] text-slate-500 sm:text-[9px] sm:leading-3 2xl:mt-1.5 2xl:text-[11px] 2xl:leading-4">
+                          <span className="mt-1 block text-[9px] font-medium leading-3 text-slate-500 sm:text-[9px] sm:leading-3 2xl:mt-1.5 2xl:text-[11px] 2xl:leading-4">
                             {compactTreatmentDays}
                           </span>
                         )}
 
                         {isAvailable ? (
                           <div className="mt-auto pt-2">
-                            <span className="block whitespace-nowrap text-[12px] font-bold leading-4 text-[#354FA8] sm:text-base 2xl:text-xl 2xl:leading-6">
+                            <span className="block whitespace-nowrap text-sm font-bold leading-5 text-[#354FA8] sm:text-base 2xl:text-xl 2xl:leading-6">
                               £{Number(d.price).toFixed(2)}
                             </span>
-                            <span className="mt-1 inline-flex items-center justify-center gap-1 rounded-full bg-emerald-50 px-1.5 py-0.5 text-[7px] font-semibold leading-3 text-emerald-700 sm:text-[8px] 2xl:mt-1.5 2xl:px-2 2xl:py-1 2xl:text-[10px]">
+                            <span className="mt-1 inline-flex items-center justify-center gap-1 rounded-full bg-emerald-50 px-1.5 py-0.5 text-[9px] font-semibold leading-3 text-emerald-700 sm:text-[8px] 2xl:mt-1.5 2xl:px-2 2xl:py-1 2xl:text-[10px]">
                               <span className="h-1 w-1 shrink-0 rounded-full bg-emerald-500" />
                               In stock
                             </span>
                           </div>
                         ) : (
-                          <span className="mt-auto px-1.5 py-1 text-[7px] font-semibold leading-3 text-slate-500 sm:text-[9px] 2xl:px-2.5 2xl:py-1.5 2xl:text-[11px]">
+                          <span className="mt-auto px-1.5 py-1 text-[9px] font-semibold leading-3 text-slate-500 sm:text-[9px] 2xl:px-2.5 2xl:py-1.5 2xl:text-[11px]">
                             Coming Soon
                           </span>
                         )}
@@ -971,7 +975,7 @@ export default function FoundayoProduct({
                 </div>
               </div>
 
-              <div className="mt-3 flex items-center gap-2.5 rounded-xl border border-[#4565BF]/15 bg-[#F5F7FC] px-3 py-2.5 text-[10px] leading-4 text-slate-600 sm:text-xs 2xl:mt-4 2xl:px-4 2xl:py-3 2xl:text-sm">
+              {/* <div className="mt-3 flex items-center gap-2.5 rounded-xl border border-[#4565BF]/15 bg-[#F5F7FC] px-3 py-2.5 text-[10px] leading-4 text-slate-600 sm:text-xs 2xl:mt-4 2xl:px-4 2xl:py-3 2xl:text-sm">
                 <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
                   <svg viewBox="0 0 20 20" fill="none" className="h-3 w-3" aria-hidden="true">
                     <path d="M3 6.5h9v7H3zM12 9h2.5l2 2v2.5H12z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
@@ -983,30 +987,25 @@ export default function FoundayoProduct({
                   <strong className="text-slate-800">Dispatch:</strong> 0.8mg
                   from midweek · 2.5mg from the end of the week.
                 </p>
-              </div>
+              </div> */}
+
+              {DOSAGES.some((d) => d.price && Number(d.price) !== 0) && (
+                <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-3">
+                  <strong className="semibold-font">Please note:</strong> <br />{" "}
+                  Orders for{" "}
+                  <strong className="semibold-font">Foundayo 0.8mg</strong> will
+                  begin dispatching from{" "}
+                  <strong className="semibold-font">
+                    Wednesday, 26 August 2026
+                  </strong>
+                  , while{" "}
+                  <strong className="semibold-font">Foundayo 2.5mg</strong>{" "}
+                  orders are expected to start dispatching towards the end of
+                  this week. You will receive your tracking information once
+                  your order has been dispatched.
+                </p>
+              )}
             </div>
-
-            {/* QUANTITYY */}
-            {/* <div className="mt-4">
-              <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
-                Selected Quantity
-              </label>
-
-              <div className="border rounded-lg mt-2 px-4 py-3 bg-white text-sm">
-                1 Month – £{price}.00
-              </div>
-            </div> */}
-
-            {/* PRE-ORDER NOTE — sirf 25mg pe */}
-            {/* {DOSAGES[dosage]?.label?.includes("25") && (
-              <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-2">
-                <strong className="semibold-font">Please note:</strong> The 25
-                mg dose is now available for pre-order to reserve your stock.
-                Deliveries are expected to begin from{" "}
-                <strong className="semibold-font">4th August 2026</strong>{" "}
-                onwards.
-              </p>
-            )} */}
 
             {/* <div className="wlt-hero-form mt-6"> */}
             {/* <WaitlistForm
@@ -1026,10 +1025,10 @@ export default function FoundayoProduct({
               </p>
               <Link href={mounjaroHero?.eligibilityButtonHref || "#"}>
                 <button
-                    className="w-full bg-[#4565BF] text-sm sm:text-lg text-white py-3 rounded-lg semibold-font hover:bg-[#354FA8] cursor-pointer"
-                    // onClick={() => {
-                    //   window.open("/start-consultation/?product_id=1", "_blank");
-                    // }}
+                  className="w-full bg-[#4565BF] text-sm sm:text-lg text-white py-3 rounded-lg semibold-font hover:bg-[#354FA8] cursor-pointer"
+                  // onClick={() => {
+                  //   window.open("/start-consultation/?product_id=1", "_blank");
+                  // }}
                 >
                   {mounjaroHero?.eligibilityButtonLabel}
                 </button>

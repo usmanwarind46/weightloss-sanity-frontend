@@ -230,7 +230,6 @@ function FAQItem({ question, answer }) {
 
 export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
   const half = Math.ceil(wegovyFaqs.length / 2);
-  const [dosage, setDosage] = useState(0);
   const [open, setOpen] = useState(false);
   const [descOpen, setDescOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -241,10 +240,6 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
     data?.sections?.find((section) => section._type === "wegovyHero") || {};
 
   const DOSAGES = wegovyHero?.dosages || [];
-
-  const price = DOSAGES[dosage].price;
-
-  console.log(DOSAGES, "Priiiiicccceeee");
 
   const IMAGES = wegovyHero?.productImages || [];
 
@@ -498,86 +493,90 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
                 {wegovyHero?.dosageText}
               </p>
 
-              <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
-                In Stock Dosages
-              </label>
+              <div className="flex items-center justify-between gap-3">
+                <h4 className="text-lg font-bold tracking-[-0.02em] text-slate-900 sm:text-xl 2xl:text-2xl">
+                  Dosage options
+                </h4>
+              </div>
 
-              {/* DROPDOWN */}
-              <div className="relative mt-2">
-                <button
-                  onClick={() => setOpen(!open)}
-                  className="w-full border rounded-lg px-4 py-3 flex justify-between items-center bg-white"
+              {/* DOSAGE CARDS */}
+              <div className="mt-3 w-full pb-1">
+                <div
+                  className="grid w-full grid-cols-3 items-stretch gap-2 sm:grid-cols-6 2xl:gap-3"
+                  role="list"
+                  aria-label="Wegovy dosage prices"
                 >
-                  {DOSAGES[dosage]?.label}
-                  <ChevronDown size={18} />
-                </button>
+                  {DOSAGES.map((d, i) => {
+                    const label = d.label || "";
+                    const labelParts = label.match(
+                      /^([^()]+?)(?:\s*\(([^)]+)\))?$/,
+                    );
+                    const doseName = labelParts?.[1]?.trim() || label;
+                    const treatmentDays = labelParts?.[2]?.trim();
+                    const shortTreatmentDays = treatmentDays?.replace(
+                      /\s+of Treatment$/i,
+                      "",
+                    );
+                    const compactTreatmentDays = /151/i.test(
+                      shortTreatmentDays || "",
+                    )
+                      ? "Day 151+"
+                      : shortTreatmentDays;
 
-                {open && (
-                  <div className="absolute top-full mt-1 bg-white border rounded-lg w-full shadow">
-                    {DOSAGES.map((d, i) => (
-                      <button
-                        key={i}
-                        onClick={() => {
-                          setDosage(i);
-                          setOpen(false);
-                        }}
-                        className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                    return (
+                      <div
+                        key={d._key || `${d.label}-${i}`}
+                        role="listitem"
+                        className="relative flex min-h-[112px] min-w-0 flex-col items-center overflow-hidden rounded-xl border border-[#4565BF]/45 bg-gradient-to-b from-[#EEF3FF] via-white to-white px-1 py-3 text-center shadow-[0_7px_20px_rgba(69,101,191,0.12)] sm:px-2 2xl:min-h-[132px] 2xl:px-3 2xl:py-4"
                       >
-                        {d.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-x-0 top-0 h-[3px] bg-[#4565BF]"
+                        />
+                        <span className="block w-full truncate text-sm font-bold leading-5 text-[#273C88] sm:text-sm 2xl:text-base 2xl:leading-5">
+                          {doseName}
+                        </span>
+                        {compactTreatmentDays && (
+                          <span className="mt-1 block text-[9px] font-medium leading-3 text-slate-500 sm:text-[9px] sm:leading-3 2xl:mt-1.5 2xl:text-[11px] 2xl:leading-4">
+                            {compactTreatmentDays}
+                          </span>
+                        )}
+                        <div className="mt-auto pt-2">
+                          <span className="block whitespace-nowrap text-sm font-bold leading-5 text-[#354FA8] sm:text-base 2xl:text-xl 2xl:leading-6">
+                            £{Number(d.price).toFixed(2)}
+                          </span>
+                          <span className="mt-1 inline-flex items-center justify-center gap-1 rounded-full bg-emerald-50 px-1.5 py-0.5 text-[9px] font-semibold leading-3 text-emerald-700 sm:text-[8px] 2xl:mt-1.5 2xl:px-2 2xl:py-1 2xl:text-[10px]">
+                            <span className="h-1 w-1 shrink-0 rounded-full bg-emerald-500" />
+                            In stock
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
 
-              {/* TOOLTIP FOR 7.2mg */}
-              {DOSAGES[dosage]?.label?.includes("7.2") && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className="mt-4 bg-amber-50 border border-amber-200 rounded-lg p-4"
-                >
-                  <div className="flex gap-3">
-                    <svg
-                      className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-                    </svg>
-                    <div>
-                      <p className="text-sm font-semibold text-amber-900">
-                        Please note
-                      </p>
-                      <p className="text-sm text-amber-800 mt-1">
-                        Wegovy 7.2mg pack contains 4 individual pens, providing
-                        one injection per week for 4 weeks.
-                      </p>
-                    </div>
+              <div className="mt-4 bg-amber-50 border border-amber-200 rounded-lg p-4">
+                <div className="flex gap-3">
+                  <svg
+                    className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                  </svg>
+                  <div>
+                    <p className="text-sm font-semibold text-amber-900">
+                      Please note
+                    </p>
+                    <p className="text-sm text-amber-800 mt-1">
+                      Wegovy 7.2mg pack contains 4 individual pens, providing
+                      one injection per week for 4 weeks.
+                    </p>
                   </div>
-                </motion.div>
-              )}
-            </div>
-
-            {/* QUANTITY */}
-            {/* <div className="mt-4">
-              <label className="text-gray-700 text-sm sm:text-lg space-y-4 leading-relaxed med-font">
-                Selected Quantity
-              </label>
-
-              <div className="border rounded-lg mt-2 px-4 py-3 bg-white text-sm">
-                1 Month – £{price}.00
+                </div>
               </div>
-            </div> */}
-
-            <div className="mt-4 bg-[#d4efe1] rounded-lg p-4 max-w-full sm:max-w-52">
-              <p className="text-lg text-black med-font">Price for 1 Month:</p>
-              <p className="text-xl sm:text-3xl font-bold text-blue-600">
-                £{price}.00
-              </p>
             </div>
 
             <div className="mt-6 bg-gray-100  rounded-xl p-5">
