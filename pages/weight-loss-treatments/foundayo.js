@@ -971,7 +971,7 @@ export default function FoundayoProduct({
                 </div>
               </div>
 
-              {DOSAGES.some((d) => d.price && Number(d.price) !== 0) && (
+              {/* {DOSAGES.some((d) => d.price && Number(d.price) !== 0) && (
                 <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 para-font mt-3">
                   <strong className="semibold-font">Please note:</strong> <br />{" "}
                   Orders for{" "}
@@ -986,7 +986,7 @@ export default function FoundayoProduct({
                   this week. You will receive your tracking information once
                   your order has been dispatched.
                 </p>
-              )}
+              )} */}
             </div>
 
             {/* CONSULTATION */}
