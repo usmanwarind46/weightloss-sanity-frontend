@@ -923,25 +923,18 @@ export default function FoundayoProduct({
                     )
                       ? "Day 151+"
                       : shortTreatmentDays;
-                    const isAvailable = /^(0\.8|2\.5)\s*mg/i.test(doseName);
 
                     return (
                       <div
                         key={d._key || `${d.label}-${i}`}
                         role="listitem"
-                        className={`relative flex min-h-[112px] min-w-0 flex-col items-center overflow-hidden rounded-xl border px-1 py-3 text-center sm:px-2 2xl:min-h-[132px] 2xl:px-3 2xl:py-4 ${
-                          isAvailable
-                            ? "border-[#4565BF]/45 bg-gradient-to-b from-[#EEF3FF] via-white to-white shadow-[0_7px_20px_rgba(69,101,191,0.12)]"
-                            : "border-slate-200 bg-[#FAFBFC] shadow-[0_3px_12px_rgba(15,23,42,0.05)]"
-                        }`}
+                        className="relative flex min-h-[112px] min-w-0 flex-col items-center overflow-hidden rounded-xl border border-[#4565BF]/45 bg-gradient-to-b from-[#EEF3FF] via-white to-white px-1 py-3 text-center shadow-[0_7px_20px_rgba(69,101,191,0.12)] sm:px-2 2xl:min-h-[132px] 2xl:px-3 2xl:py-4"
                       >
                         <span
                           aria-hidden="true"
-                          className={`absolute inset-x-0 top-0 h-[3px] ${isAvailable ? "bg-[#4565BF]" : "bg-slate-300"}`}
+                          className="absolute inset-x-0 top-0 h-[3px] bg-[#4565BF]"
                         />
-                        <span
-                          className={`block w-full truncate text-sm font-bold leading-5 sm:text-sm 2xl:text-base 2xl:leading-5 ${isAvailable ? "text-[#273C88]" : "text-slate-700"}`}
-                        >
+                        <span className="block w-full truncate text-sm font-bold leading-5 text-[#273C88] sm:text-sm 2xl:text-base 2xl:leading-5">
                           {doseName}
                         </span>
                         {compactTreatmentDays && (
@@ -949,22 +942,15 @@ export default function FoundayoProduct({
                             {compactTreatmentDays}
                           </span>
                         )}
-
-                        {isAvailable ? (
-                          <div className="mt-auto pt-2">
-                            <span className="block whitespace-nowrap text-sm font-bold leading-5 text-[#354FA8] sm:text-base 2xl:text-xl 2xl:leading-6">
-                              £{Number(d.price).toFixed(2)}
-                            </span>
-                            <span className="mt-1 inline-flex items-center justify-center gap-1 rounded-full bg-emerald-50 px-1.5 py-0.5 text-[9px] font-semibold leading-3 text-emerald-700 sm:text-[8px] 2xl:mt-1.5 2xl:px-2 2xl:py-1 2xl:text-[10px]">
-                              <span className="h-1 w-1 shrink-0 rounded-full bg-emerald-500" />
-                              In stock
-                            </span>
-                          </div>
-                        ) : (
-                          <span className="mt-auto px-1.5 py-1 text-[9px] font-semibold leading-3 text-slate-500 sm:text-[9px] 2xl:px-2.5 2xl:py-1.5 2xl:text-[11px]">
-                            Coming Soon
+                        <div className="mt-auto pt-2">
+                          <span className="block whitespace-nowrap text-sm font-bold leading-5 text-[#354FA8] sm:text-base 2xl:text-xl 2xl:leading-6">
+                            £{Number(d.price).toFixed(2)}
                           </span>
-                        )}
+                          <span className="mt-1 inline-flex items-center justify-center gap-1 rounded-full bg-emerald-50 px-1.5 py-0.5 text-[9px] font-semibold leading-3 text-emerald-700 sm:text-[8px] 2xl:mt-1.5 2xl:px-2 2xl:py-1 2xl:text-[10px]">
+                            <span className="h-1 w-1 shrink-0 rounded-full bg-emerald-500" />
+                            In stock
+                          </span>
+                        </div>
                       </div>
                     );
                   })}
