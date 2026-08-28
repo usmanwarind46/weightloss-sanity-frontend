@@ -177,6 +177,198 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
           </div>
         </div>
       </div>
+
+      <section className="container mx-auto pt-12 px-4 md:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="rounded-2xl border border-gray-100 bg-[#EEF3FF] p-6 shadow-sm flex flex-col">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#4B5FC0]/15">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="h-5 w-5 text-[#4B5FC0]"
+                >
+                  <path
+                    d="M12 3v3M12 18v3M3 12h3M18 12h3"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M7 7l2 5h6l2-5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M12 12v5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M8 17h8"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+              <h3 className="text-lg med-font text-gray-900">
+                Injections or Pills: Which May Suit You?
+              </h3>
+            </div>
+            <p className="text-gray-500 text-sm reg-font leading-relaxed para-font flex-1">
+              Weight loss injections and pills provide different approaches to
+              weight management. The suitable option depends on your health
+              history, eligibility, preferences and treatment routine. A
+              clinician will review your BMI, medical history, current
+              medicines, health conditions and goals to assess suitability and
+              prescribe an appropriate treatment plan tailored to your
+              individual needs.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-gray-100 bg-[#F5F7FC] p-6 shadow-sm flex flex-col">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#4B5FC0]/10">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="h-5 w-5 text-[#4B5FC0]"
+                >
+                  <path
+                    d="M12 3v10"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M9 6l6 0"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M10 3h4"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <circle
+                    cx="12"
+                    cy="16"
+                    r="2"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <path
+                    d="M12 18v3"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+              <h3 className="text-lg med-font text-gray-900">
+                Who May Prefer Injections?
+              </h3>
+            </div>
+            <p className="text-gray-500 text-sm reg-font leading-relaxed para-font flex-1">
+              Weight loss injections may be preferred by people who are
+              comfortable with self-injection and find a once-weekly treatment
+              schedule easier to manage. Options such as Mounjaro and Wegovy are
+              given once a week and may suit those who would rather not take
+              weight loss medicine every day.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-gray-100 bg-[#F0FAF5] p-6 shadow-sm flex flex-col">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500/10">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="h-5 w-5 text-emerald-600"
+                >
+                  <rect
+                    x="3"
+                    y="9"
+                    width="18"
+                    height="6"
+                    rx="3"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <path d="M12 9v6" stroke="currentColor" strokeWidth="2" />
+                </svg>
+              </span>
+              <h3 className="text-lg med-font text-gray-900">
+                Who May Prefer Pills?
+              </h3>
+            </div>
+            <p className="text-gray-500 text-sm reg-font leading-relaxed para-font flex-1">
+              Weight loss pills may be suitable for people who prefer a
+              needle-free treatment and can follow a daily tablet routine.
+              Suitability depends on individual health needs, eligibility and
+              the ability to follow the prescribed instructions for taking the
+              medicine.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-gray-100 bg-[#FFF8F0] p-6 shadow-sm flex flex-col">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500/10">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="h-5 w-5 text-amber-600"
+                >
+                  <circle
+                    cx="12"
+                    cy="7"
+                    r="3"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <path
+                    d="M5 21v-2a7 7 0 0114 0v2"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M17 10l2 2 4-4"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+              <h3 className="text-lg med-font text-gray-900">
+                Which Option Is Right for Me?
+              </h3>
+            </div>
+            <p className="text-gray-500 text-sm reg-font leading-relaxed para-font flex-1">
+              Choosing between weight loss injections and pills is not based on
+              preference alone. Your BMI, medical history, existing medicines,
+              previous treatments and potential risks are considered. Complete
+              our{" "}
+              <a
+                className="text-[#4B5FC0] underline"
+                href="https://www.onlineweightlossclinic.co.uk/start-consultation?product_id=7"
+              >
+                free online consultation
+              </a>{" "}
+              and a UK clinician will assess your suitability and advise which
+              treatment options may be appropriate for you.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Comparison Table */}
       <section className="w-full bg-white py-12 md:py-20 px-4 md:px-6">
         <div className="container mx-auto">
@@ -202,18 +394,21 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
           {/* Desktop Table */}
           <div className="hidden md:block rounded-2xl overflow-hidden border border-gray-100 shadow-sm mb-10">
             {/* Header */}
-            <div className="grid grid-cols-4 bg-[#4B5FC0]">
-              <div className="px-8 py-5 text-white text-sm med-font text-center para-font">
+            <div className="grid grid-cols-5 bg-[#4B5FC0]">
+              <div className="px-6 py-5 text-white text-sm med-font text-center para-font">
                 Aspects
               </div>
-              <div className="px-8 py-5 text-white text-sm med-font text-center para-font">
+              <div className="px-6 py-5 text-white text-sm med-font text-center para-font">
                 Mounjaro Injection in the UK
               </div>
-              <div className="px-8 py-5 text-white text-sm med-font text-center para-font">
+              <div className="px-6 py-5 text-white text-sm med-font text-center para-font">
                 Wegovy Injection in the UK
               </div>
-              <div className="px-8 py-5 text-white text-sm med-font text-center para-font">
+              <div className="px-6 py-5 text-white text-sm med-font text-center para-font">
                 Wegovy Pill in the UK
+              </div>
+              <div className="px-6 py-5 text-white text-sm med-font text-center para-font">
+                Foundayo in the UK
               </div>
             </div>
 
@@ -221,28 +416,35 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
             {comparisonSection?.tableRows?.map((row, i) => (
               <div
                 key={i}
-                className={`grid grid-cols-4 ${row.bgColor}`}
+                className={`grid grid-cols-5 ${row.bgColor}`}
                 style={{ marginTop: "6px" }}
               >
-                <div className="px-8 py-6 text-sm text-gray-700 reg-font flex items-center justify-center text-center para-font">
+                <div className="px-6 py-6 text-sm text-gray-700 reg-font flex items-center justify-center text-center para-font">
                   {row.aspect}
                 </div>
 
-                <div className="px-8 py-6 text-center flex items-center justify-center para-font">
+                <div className="px-6 py-6 text-center flex items-center justify-center para-font">
                   <CellContent
                     text={row.mounjaroText}
                     list={row.mounjaroList}
                   />
                 </div>
 
-                <div className="px-8 py-6 text-center flex items-center justify-center para-font">
+                <div className="px-6 py-6 text-center flex items-center justify-center para-font">
                   <CellContent text={row.wegovyText} list={row.wegovyList} />
                 </div>
 
-                <div className="px-8 py-6 text-center flex items-center justify-center para-font">
+                <div className="px-6 py-6 text-center flex items-center justify-center para-font">
                   <CellContent
                     text={row.wegovyPillText}
                     list={row.wegovyPillList}
+                  />
+                </div>
+
+                <div className="px-6 py-6 text-center flex items-center justify-center para-font">
+                  <CellContent
+                    text={row.foundayoText}
+                    list={row.foundayoList}
                   />
                 </div>
               </div>
@@ -264,7 +466,7 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
                 <div className="grid grid-cols-2 divide-x divide-gray-100">
                   {/* Mounjaro */}
                   <div
-                    className={`${row.bgColor} px-4 py-4 flex flex-col gap-2`}
+                    className={`${row.bgColor} px-4 py-4 flex flex-col gap-2 border-b border-gray-100`}
                   >
                     <p className="text-xs font-semibold text-[#4B5FC0] mb-1">
                       Mounjaro
@@ -278,13 +480,41 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
 
                   {/* Wegovy */}
                   <div
-                    className={`${row.bgColor} px-4 py-4 flex flex-col gap-2`}
+                    className={`${row.bgColor} px-4 py-4 flex flex-col gap-2 border-b border-gray-100`}
                   >
                     <p className="text-xs font-semibold text-[#4B5FC0] mb-1">
                       Wegovy
                     </p>
 
                     <CellContent text={row.wegovyText} list={row.wegovyList} />
+                  </div>
+
+                  {/* Wegovy Pill */}
+                  <div
+                    className={`${row.bgColor} px-4 py-4 flex flex-col gap-2`}
+                  >
+                    <p className="text-xs font-semibold text-[#4B5FC0] mb-1">
+                      Wegovy Pill
+                    </p>
+
+                    <CellContent
+                      text={row.wegovyPillText}
+                      list={row.wegovyPillList}
+                    />
+                  </div>
+
+                  {/* Foundayo */}
+                  <div
+                    className={`${row.bgColor} px-4 py-4 flex flex-col gap-2`}
+                  >
+                    <p className="text-xs font-semibold text-[#4B5FC0] mb-1">
+                      Foundayo
+                    </p>
+
+                    <CellContent
+                      text={row.foundayoText}
+                      list={row.foundayoList}
+                    />
                   </div>
                 </div>
               </div>
@@ -607,6 +837,197 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
       </section>
 
       {/*  */}
+
+      <section className="container mx-auto pt-12">
+        <h2 className="text-2xl sm:text-3xl md:text-3xl med-font text-gray-900 mb-4 leading-tight">
+          Can I Get Weight Loss Treatments Over the Counter?
+        </h2>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
+          No. Prescription weight loss treatments, including Mounjaro
+          (tirzepatide), Wegovy (semaglutide), Wegovy Pill (semaglutide) and
+          Foundayo (orforglipron), are not available over the counter. These
+          treatments require a medical assessment and ongoing clinical support
+          due to their effects on appetite regulation, metabolism and potential
+          side effects.
+        </p>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
+          At Online Weight Loss Clinic, you can order prescription weight loss
+          treatments following a clinician-reviewed free online consultation.
+          Your medical history, current health and existing medicines are
+          assessed to determine whether treatment is suitable for you.
+        </p>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-8 para-font">
+          While some over-the-counter products, such as herbal supplements or
+          fat binders, are marketed for weight loss, they generally do not have
+          the same level of clinical evidence as prescription weight loss
+          treatments.
+        </p>
+        <h3 className="text-2xl sm:text-2xl md:text-2xl med-font text-gray-900 mb-4 leading-tight">
+          Can You Switch Between Weight Loss Treatments?
+        </h3>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
+          Switching between weight loss treatments may be possible if your
+          current option is no longer suitable for your needs or goals. However,
+          weight loss treatments are not directly interchangeable. A healthcare
+          professional will review your dose, medical history, treatment
+          progress and suitability before recommending a switch.
+        </p>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-8 para-font">
+          If approved, your clinician will advise when to stop your current
+          treatment and start the new one. The dose and timing will depend on
+          your existing medicine, treatment response and individual health
+          circumstances to ensure a safe and supported transition.
+        </p>
+        <h3 className="text-2xl sm:text-2xl md:text-2xl med-font text-gray-900 mb-4 leading-tight">
+          Switching From Mounjaro to Wegovy
+        </h3>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
+          Moving from{" "}
+          <a
+            className="text-[#4B5FC0] underline"
+            href="https://www.onlineweightlossclinic.co.uk/guide/switching-from-mounjaro-to-wegovy-dosage"
+          >
+            Mounjaro to Wegovy
+          </a>{" "}
+          may be suitable for some people after a clinician reviews their
+          treatment response, health history and ongoing weight management
+          needs. Both treatments are weekly injections used for weight
+          management, but they contain different active ingredients and work in
+          different ways.
+        </p>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
+          Mounjaro contains tirzepatide, which targets both GLP-1 and GIP
+          receptors, while Wegovy contains semaglutide, which works through the
+          GLP-1 pathway. If you are considering a switch, a clinician will
+          assess your current Mounjaro dose, treatment history and health
+          information before deciding whether Wegovy is suitable.
+        </p>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-8 para-font">
+          If approved, your healthcare professional will guide you on the
+          appropriate Wegovy starting dose and when to begin your new treatment
+          after your final Mounjaro injection. This approach helps ensure your
+          transition is planned according to your individual needs.
+        </p>
+        <h3 className="text-2xl sm:text-2xl md:text-2xl med-font text-gray-900 mb-4 leading-tight">
+          Switching From Wegovy to Mounjaro
+        </h3>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
+          Changing from Wegovy to Mounjaro may be considered if a clinician
+          decides that Mounjaro is a more suitable option after reviewing your
+          treatment progress. Your current Wegovy dose, response, medical
+          history and any side effects will be assessed before making a
+          recommendation.
+        </p>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-8 para-font">
+          Wegovy contains semaglutide and works through GLP-1 receptors, while
+          Mounjaro contains tirzepatide and targets both GLP-1 and GIP pathways.
+          If the switch is approved, your clinician will advise the correct
+          Mounjaro starting dose and when to begin treatment. Your dose may then
+          be increased gradually based on the recommended schedule and your
+          response.
+        </p>
+        <h3 className="text-2xl sm:text-2xl md:text-2xl med-font text-gray-900 mb-4 leading-tight">
+          Switching From Mounjaro to Saxenda
+        </h3>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
+          A Mounjaro to Saxenda switch may be considered if your treatment needs
+          change, you experience tolerability concerns or a different approach
+          is recommended following a clinical review. Mounjaro contains
+          tirzepatide, which acts on GLP-1 and GIP pathways, while Saxenda
+          contains liraglutide and works through GLP-1 receptors.
+        </p>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-8 para-font">
+          Before switching, a clinician will review your current Mounjaro dose,
+          health history and treatment response. If Saxenda is suitable, they
+          will guide you on when to stop Mounjaro and start Saxenda. Treatment
+          usually begins at a lower Saxenda dose, which is increased gradually
+          to support adjustment.
+        </p>
+        <h3 className="text-2xl sm:text-2xl md:text-2xl med-font text-gray-900 mb-4 leading-tight">
+          Switching From Saxenda to Mounjaro
+        </h3>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
+          Changing from Saxenda to Mounjaro may be considered if your current
+          treatment is not providing the support you need, you are experiencing
+          challenges with Saxenda or you prefer a weekly injection schedule. A
+          clinician will review your treatment progress, health history and
+          weight management goals before recommending a change.
+        </p>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-8 para-font">
+          Saxenda and Mounjaro contain different active ingredients and work
+          through different pathways, so there is no direct dose conversion
+          between them. If suitable, your clinician will advise the correct
+          Mounjaro starting dose and provide guidance on when to begin your new
+          treatment.
+        </p>
+        <h3 className="text-2xl sm:text-2xl md:text-2xl med-font text-gray-900 mb-4 leading-tight">
+          Switching From Weight Loss Injections to Wegovy Pill
+        </h3>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
+          Moving from a{" "}
+          <a
+            className="text-[#4B5FC0] underline"
+            href="https://www.onlineweightlossclinic.co.uk/guide/switching-from-mounjaro-to-wegovy-pill-uk-patient-guide"
+          >
+            weight loss injection to Wegovy Pill
+          </a>{" "}
+          may be suitable for some people following a clinical assessment,
+          particularly if they prefer a daily tablet instead of continuing with
+          injections. Your healthcare professional will review your current
+          treatment, dose, response and medical history before recommending a
+          suitable approach.
+        </p>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-8 para-font">
+          If you are using Wegovy Injection, your clinician will advise whether
+          changing to Wegovy Pill is appropriate and when to start after your
+          final injection. For those switching from other injections such as
+          Mounjaro or Saxenda, treatment cannot be changed using a direct
+          dose-for-dose conversion. The recommended Wegovy Pill dose and timing
+          will depend on your individual circumstances and clinical review.
+        </p>
+        <h3 className="text-2xl sm:text-2xl md:text-2xl med-font text-gray-900 mb-4 leading-tight">
+          Switching From Wegovy Pill to Foundayo
+        </h3>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
+          Changing from Wegovy Pill to Foundayo may be considered if a
+          healthcare professional determines that Foundayo is a suitable option
+          for your treatment needs. Wegovy Pill contains semaglutide, while
+          Foundayo contains orforglipron. Although both work through GLP-1
+          pathways, they are different medicines with their own dosing schedules
+          and treatment instructions.
+        </p>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-8 para-font">
+          Foundayo may be suitable for people who prefer a daily oral treatment
+          with more flexible administration, as it can be taken with or without
+          food. Before recommending a switch, your clinician will review your
+          current Wegovy Pill dose, treatment response, any side effects and the
+          timing of your last dose. They will then advise when and how to begin
+          Foundayo based on your individual circumstances.
+        </p>
+        <h3 className="text-2xl sm:text-2xl md:text-2xl med-font text-gray-900 mb-4 leading-tight">
+          Switching From Weight Loss Injections to Foundayo
+        </h3>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
+          Moving from a weight loss injection to Foundayo may be an option after
+          a clinical review. This may include people currently using treatments
+          such as Mounjaro, Wegovy Injection or Saxenda who are looking for a
+          needle-free daily tablet option.
+        </p>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
+          Foundayo and injectable treatments work differently, with different
+          active ingredients, dosing schedules and clinical considerations. A
+          direct dose conversion is not available when changing from injections
+          to Foundayo. Your clinician will assess your current medication, dose,
+          treatment progress and medical history before deciding whether a
+          switch is appropriate.
+        </p>
+        <p className="text-gray-500 text-sm md:text-base reg-font mb-20 para-font">
+          If the change is approved, your healthcare professional will provide
+          guidance on when to stop your current injection and start Foundayo.
+          The recommended starting dose will depend on your previous treatment
+          and individual health factors to support a planned transition.
+        </p>
+      </section>
 
       <section className="relative overflow-hidden cta-bg-2">
         {/* Dark overlay */}
