@@ -839,29 +839,6 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
       {/*  */}
 
       <section className="container mx-auto pt-12">
-        <h2 className="text-2xl sm:text-3xl md:text-3xl med-font text-gray-900 mb-4 leading-tight">
-          Can I Get Weight Loss Treatments Over the Counter?
-        </h2>
-        <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
-          No. Prescription weight loss treatments, including Mounjaro
-          (tirzepatide), Wegovy (semaglutide), Wegovy Pill (semaglutide) and
-          Foundayo (orforglipron), are not available over the counter. These
-          treatments require a medical assessment and ongoing clinical support
-          due to their effects on appetite regulation, metabolism and potential
-          side effects.
-        </p>
-        <p className="text-gray-500 text-sm md:text-base reg-font mb-3 para-font">
-          At Online Weight Loss Clinic, you can order prescription weight loss
-          treatments following a clinician-reviewed free online consultation.
-          Your medical history, current health and existing medicines are
-          assessed to determine whether treatment is suitable for you.
-        </p>
-        <p className="text-gray-500 text-sm md:text-base reg-font mb-8 para-font">
-          While some over-the-counter products, such as herbal supplements or
-          fat binders, are marketed for weight loss, they generally do not have
-          the same level of clinical evidence as prescription weight loss
-          treatments.
-        </p>
         <h3 className="text-2xl sm:text-2xl md:text-2xl med-font text-gray-900 mb-4 leading-tight">
           Can You Switch Between Weight Loss Treatments?
         </h3>
