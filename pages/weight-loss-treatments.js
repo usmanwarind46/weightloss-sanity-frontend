@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Header } from "../components/Header";
 import ProductCard from "../components/ProductCard/ProductCard";
 import {
@@ -88,6 +88,33 @@ const CellContent = ({ text, list }) => {
 
 const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
   const [active, setActive] = useState(0);
+  const contentRef = useRef(null);
+  const sidebarRef = useRef(null);
+  const [sidebarMaxHeight, setSidebarMaxHeight] = useState(340);
+  const [sidebarNeedsScroll, setSidebarNeedsScroll] = useState(true);
+
+  useEffect(() => {
+    const contentEl = contentRef.current;
+    const sidebarEl = sidebarRef.current;
+    if (!contentEl || !sidebarEl) return;
+
+    const update = () => {
+      const contentH = contentEl.scrollHeight;
+      const sidebarScrollH = sidebarEl.scrollHeight;
+      if (contentH >= sidebarScrollH) {
+        setSidebarMaxHeight(sidebarScrollH);
+        setSidebarNeedsScroll(false);
+      } else {
+        setSidebarMaxHeight(contentH);
+        setSidebarNeedsScroll(contentH < sidebarScrollH);
+      }
+    };
+
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(contentEl);
+    return () => observer.disconnect();
+  }, [active]);
 
   const autoSchemas = generateSchema({
     globalSeo: seoSettings,
@@ -743,18 +770,20 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
           </div>
 
           {/* ================= DESKTOP ================= */}
-          <div className="hidden md:flex gap-0">
+          <div className="hidden md:flex items-start gap-0">
             {/* Sidebar */}
             <div className="w-72 shrink-0 border-r border-gray-200 pr-0 relative">
               <div
-                className="tabs-sidebar overflow-y-auto"
+                ref={sidebarRef}
+                className={`tabs-sidebar ${sidebarNeedsScroll ? "overflow-y-auto" : "overflow-y-hidden"}`}
                 style={{
-                  maxHeight: "340px",
+                  maxHeight: `${sidebarMaxHeight}px`,
                   scrollbarWidth: "thin",
                   scrollbarColor: "#4B5FC0 #e5e7eb",
+                  transition: "max-height 0.3s ease",
                 }}
               >
-                <ul className="flex flex-col pb-10">
+                <ul className={`flex flex-col ${sidebarNeedsScroll ? "pb-10" : ""}`}>
                   {tabsSection?.tabs?.map((tab, i) => (
                     <li key={i}>
                       <button
@@ -778,16 +807,18 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
                   ))}
                 </ul>
               </div>
-              <div
-                className="pointer-events-none absolute bottom-0 left-0 right-0 h-16"
-                style={{
-                  background: "linear-gradient(to top, white 0%, transparent 100%)",
-                }}
-              />
+              {sidebarNeedsScroll && (
+                <div
+                  className="pointer-events-none absolute bottom-0 left-0 right-0 h-16"
+                  style={{
+                    background: "linear-gradient(to top, white 0%, transparent 100%)",
+                  }}
+                />
+              )}
             </div>
 
             {/* Content */}
-            <div className="flex-1 pl-10 md:pl-12">
+            <div ref={contentRef} className="flex-1 pl-10 md:pl-12">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
