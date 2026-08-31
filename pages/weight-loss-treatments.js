@@ -745,30 +745,45 @@ const WeightLossTreatments = ({ data, seoSettings, siteSettings }) => {
           {/* ================= DESKTOP ================= */}
           <div className="hidden md:flex gap-0">
             {/* Sidebar */}
-            <div className="w-72 shrink-0 border-r border-gray-200 pr-0">
-              <ul className="flex flex-col">
-                {tabsSection?.tabs?.map((tab, i) => (
-                  <li key={i}>
-                    <button
-                      onClick={() => setActive(i)}
-                      className={`w-full text-left px-4 py-5 border-b border-gray-100 transition-colors duration-200 rounded-l-xl flex items-center sm:items-start gap-3
-                ${active === i ? "bg-green-50" : "hover:bg-gray-50"}`}
-                    >
-                      <span
-                        className={`text-sm font-semibold shrink-0 mt-0.5 ${active === i ? "text-green-700" : "text-gray-400"}`}
+            <div className="w-72 shrink-0 border-r border-gray-200 pr-0 relative">
+              <div
+                className="tabs-sidebar overflow-y-auto"
+                style={{
+                  maxHeight: "340px",
+                  scrollbarWidth: "thin",
+                  scrollbarColor: "#4B5FC0 #e5e7eb",
+                }}
+              >
+                <ul className="flex flex-col pb-10">
+                  {tabsSection?.tabs?.map((tab, i) => (
+                    <li key={i}>
+                      <button
+                        onClick={() => setActive(i)}
+                        className={`w-full text-left px-4 py-5 border-b border-gray-100 transition-colors duration-200 rounded-l-xl flex items-center sm:items-start gap-3
+                  ${active === i ? "bg-green-50" : "hover:bg-gray-50"}`}
                       >
-                        {tab.id}
-                      </span>
+                        <span
+                          className={`text-sm font-semibold shrink-0 mt-0.5 ${active === i ? "text-green-700" : "text-gray-400"}`}
+                        >
+                          {tab.id}
+                        </span>
 
-                      <span
-                        className={`text-md 2xl:text-lg leading-snug ${active === i ? "text-gray-900 med-font" : "text-gray-500 reg-font"} cursor-pointer `}
-                      >
-                        {tab.label}
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
+                        <span
+                          className={`text-md 2xl:text-lg leading-snug ${active === i ? "text-gray-900 med-font" : "text-gray-500 reg-font"} cursor-pointer `}
+                        >
+                          {tab.label}
+                        </span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div
+                className="pointer-events-none absolute bottom-0 left-0 right-0 h-16"
+                style={{
+                  background: "linear-gradient(to top, white 0%, transparent 100%)",
+                }}
+              />
             </div>
 
             {/* Content */}
