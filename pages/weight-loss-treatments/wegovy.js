@@ -452,6 +452,20 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
               {wegovyHero?.heading}
             </h1>
 
+            {(wegovyHero?.trustpilotLink || wegovyHero?.trustpilotImageUrl) && (
+              <a
+                href={wegovyHero?.trustpilotLink || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={wegovyHero?.trustpilotImageUrl}
+                  alt={wegovyHero?.trustpilotImageAlt || "Trustpilot Reviews"}
+                  className="mb-4"
+                />
+              </a>
+            )}
+
             {/* DESCRIPTION */}
             <div className="text-gray-600 para-font space-y-4 leading-relaxed">
               <ul className="list-disc pl-5 space-y-2">

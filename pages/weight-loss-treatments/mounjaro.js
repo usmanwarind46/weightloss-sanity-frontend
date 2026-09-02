@@ -313,6 +313,20 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
               {mounjaroHero?.heading}
             </h1>
 
+            {(mounjaroHero?.trustpilotLink || mounjaroHero?.trustpilotImageUrl) && (
+              <a
+                href={mounjaroHero?.trustpilotLink || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={mounjaroHero?.trustpilotImageUrl}
+                  alt={mounjaroHero?.trustpilotImageAlt || "Trustpilot Reviews"}
+                  className="mb-4"
+                />
+              </a>
+            )}
+
             {/* DESCRIPTION */}
             <div className="text-gray-600 para-font space-y-4 leading-relaxed">
               {/* Pehla paragraph — hamesha visible */}

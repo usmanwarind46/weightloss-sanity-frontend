@@ -822,6 +822,20 @@ export default function FoundayoProduct({
               {mounjaroHero?.heading}
             </h1>
 
+            {(mounjaroHero?.trustpilotLink || mounjaroHero?.trustpilotImageUrl) && (
+              <a
+                href={mounjaroHero?.trustpilotLink || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={mounjaroHero?.trustpilotImageUrl || "/Images/owlc-reviews.svg"}
+                  alt={mounjaroHero?.trustpilotImageAlt || "Trustpilot Reviews"}
+                  className="mb-4"
+                />
+              </a>
+            )}
+
             {/* DESCRIPTION */}
             <div className="text-gray-600 para-font space-y-4 leading-relaxed">
               <ul className="list-disc pl-5 space-y-2">
