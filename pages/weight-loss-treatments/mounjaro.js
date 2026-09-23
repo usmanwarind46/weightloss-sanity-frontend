@@ -313,7 +313,8 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
               {mounjaroHero?.heading}
             </h1>
 
-            {(mounjaroHero?.trustpilotLink || mounjaroHero?.trustpilotImageUrl) && (
+            {(mounjaroHero?.trustpilotLink ||
+              mounjaroHero?.trustpilotImageUrl) && (
               <a
                 href={mounjaroHero?.trustpilotLink || "#"}
                 target="_blank"
@@ -682,6 +683,18 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
             <p className="text-lg text-gray-700 leading-relaxed para-font">
               {mounjaroCTA?.paragraph}
             </p>
+            {mounjaroCTA?.scrollButtonLabel && (
+              <div className="mt-6 w-full sm:max-w-xs">
+                <NextButton
+                  label={mounjaroCTA?.scrollButtonLabel}
+                  type="button"
+                  props="w-full sm:w-auto"
+                  onClick={() => {
+                    window.location.href = "/start-consultation/?product_id=4";
+                  }}
+                />
+              </div>
+            )}
           </div>
 
           {/* RIGHT IMAGE */}
