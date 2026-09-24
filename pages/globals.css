@@ -622,7 +622,7 @@ body {
   }
 
   .tabs-sidebar::-webkit-scrollbar-thumb {
-    background: #4B5FC0;
+    background: #4b5fc0;
     border-radius: 10px;
   }
 
@@ -792,6 +792,11 @@ body {
   font-size: 20px;
   margin-top: 20px;
   margin-bottom: 14px;
+}
+
+.mounjaro-content h5 {
+  margin-top: 24px;
+  margin-bottom: 16px;
 }
 
 .mounjaro-content p {
