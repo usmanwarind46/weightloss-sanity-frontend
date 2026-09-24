@@ -830,6 +830,17 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
             <p className="text-lg text-gray-700 leading-relaxed para-font">
               {wegovyCTA?.paragraph}
             </p>
+
+            <div className="mt-6 w-full sm:max-w-xs">
+              <NextButton
+                label={"Start Consultation"}
+                type="button"
+                props="w-full sm:w-auto"
+                onClick={() => {
+                  window.location.href = "/start-consultation/?product_id=1";
+                }}
+              />
+            </div>
           </div>
 
           {/* RIGHT IMAGE */}
