@@ -513,7 +513,8 @@ export default function MounjaroProduct({
               {mounjaroHero?.heading}
             </h1>
 
-            {(mounjaroHero?.trustpilotLink || mounjaroHero?.trustpilotImageUrl) && (
+            {(mounjaroHero?.trustpilotLink ||
+              mounjaroHero?.trustpilotImageUrl) && (
               <a
                 href={mounjaroHero?.trustpilotLink || "#"}
                 target="_blank"
@@ -947,8 +948,14 @@ export default function MounjaroProduct({
                 Can I switch from Mounjaro injection to the Wegovy pill?
               </h3>
               <p className="text-gray-600 leading-relaxed para-font mb-3">
-                Yes, switching from Mounjaro injection to the Wegovy pill may be
-                possible, but it should be done under the guidance of a
+                Yes,{" "}
+                <Link
+                  href="https://www.onlineweightlossclinic.co.uk/guide/switching-from-mounjaro-to-wegovy-pill-uk-patient-guide"
+                  className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
+                >
+                  switching from Mounjaro injection to the Wegovy pill
+                </Link>
+                may be possible, but it should be done under the guidance of a
                 qualified prescriber. The right Wegovy pill dose will depend on
                 your current Mounjaro dose, how your body has responded to
                 treatment, and how well you have tolerated it so far. A

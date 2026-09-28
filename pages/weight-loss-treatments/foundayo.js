@@ -822,14 +822,18 @@ export default function FoundayoProduct({
               {mounjaroHero?.heading}
             </h1>
 
-            {(mounjaroHero?.trustpilotLink || mounjaroHero?.trustpilotImageUrl) && (
+            {(mounjaroHero?.trustpilotLink ||
+              mounjaroHero?.trustpilotImageUrl) && (
               <a
                 href={mounjaroHero?.trustpilotLink || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
-                  src={mounjaroHero?.trustpilotImageUrl || "/Images/owlc-reviews.svg"}
+                  src={
+                    mounjaroHero?.trustpilotImageUrl ||
+                    "/Images/owlc-reviews.svg"
+                  }
                   alt={mounjaroHero?.trustpilotImageAlt || "Trustpilot Reviews"}
                   className="mb-4"
                 />
@@ -1227,15 +1231,22 @@ export default function FoundayoProduct({
                 Can I switch from Mounjaro to Foundayo?
               </h3>
               <p className="text-gray-600 leading-relaxed para-font mb-3">
-                Yes. Moving from Mounjaro to Foundayo may be possible. The
-                Foundayo dose selected can vary depending on your current weekly{" "}
+                Yes.{" "}
                 <Link
-                  href="/weight-loss-treatments/mounjaro"
+                  href="https://www.onlineweightlossclinic.co.uk/guide/switching-from-mounjaro-to-foundayo"
+                  className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
+                >
+                  Switching from Mounjaro to Foundayo
+                </Link>{" "}
+                may be possible for suitable patients. The Foundayo starting
+                dose can depend on your current weekly{" "}
+                <Link
+                  href="https://www.onlineweightlossclinic.co.uk/weight-loss-treatments/mounjaro"
                   className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
                 >
                   Mounjaro
                 </Link>{" "}
-                dose.
+                dose and how you have responded to treatment.
               </p>
 
               <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm mb-4">
@@ -1276,6 +1287,11 @@ export default function FoundayoProduct({
                   </tbody>
                 </table>
               </div>
+              <p className="text-gray-600 leading-relaxed para-font">
+                Our clinician should guide the switch and confirm the most
+                appropriate Foundayo dose based on your treatment history,
+                tolerance and individual response.
+              </p>
             </div>
 
             {/* === Wegovy Injection → Foundayo === */}
@@ -1284,16 +1300,23 @@ export default function FoundayoProduct({
                 Can I switch from Wegovy Injection to Foundayo?
               </h3>
               <p className="text-gray-600 leading-relaxed para-font mb-3">
-                Yes. It may be possible to move from a weekly{" "}
+                Yes.{" "}
                 <Link
-                  href="/weight-loss-treatments/wegovy"
+                  href="https://www.onlineweightlossclinic.co.uk/guide/switching-from-wegovy-to-foundayo"
+                  className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
+                >
+                  Switching from Wegovy to Foundayo
+                </Link>{" "}
+                may be possible for suitable patients moving from a weekly{" "}
+                <Link
+                  href="https://www.onlineweightlossclinic.co.uk/weight-loss-treatments/wegovy"
                   className="font-medium text-[#4caf8a] underline decoration-[#4caf8a]/40 underline-offset-4 transition-colors hover:text-[#388f70]"
                 >
                   Wegovy
                 </Link>{" "}
-                injection to once-daily Foundayo. Your existing Wegovy dose can
-                help determine which Foundayo strength is appropriate when
-                changing treatment.
+                injection to a once-daily tablet. Your current Wegovy dose can
+                help guide the Foundayo strength recommended when changing
+                treatment.
               </p>
 
               <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm mb-4">
@@ -1336,8 +1359,10 @@ export default function FoundayoProduct({
               </div>
 
               <p className="text-gray-600 leading-relaxed para-font">
-                As an oral medicine, Foundayo may suit people looking to move
-                away from a weekly injectable treatment.
+                Foundayo may appeal to people who prefer a daily oral medicine
+                instead of a weekly injection. Any switch should be guided by a
+                clinician, who can advise on the appropriate starting dose and
+                timing.
               </p>
             </div>
 
