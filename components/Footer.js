@@ -100,11 +100,10 @@ export function Footer({ data }) {
             </h4>
 
             <ul
-              className={`space-y-3 text-sm footer-font-size max-[600px]:transition-all max-[600px]:overflow-hidden ${
-                activeIndex === 0
+              className={`space-y-3 text-sm footer-font-size max-[600px]:transition-all max-[600px]:overflow-hidden ${activeIndex === 0
                   ? "max-[600px]:max-h-96"
                   : "max-[600px]:max-h-0"
-              } md:max-h-full`}
+                } md:max-h-full`}
             >
               {data?.footerLinks1?.map((item) => (
                 <li key={item.label}>
@@ -134,11 +133,10 @@ export function Footer({ data }) {
             </h4>
 
             <ul
-              className={`space-y-3 text-sm footer-font-size max-[600px]:transition-all max-[600px]:overflow-hidden ${
-                activeIndex === 1
+              className={`space-y-3 text-sm footer-font-size max-[600px]:transition-all max-[600px]:overflow-hidden ${activeIndex === 1
                   ? "max-[600px]:max-h-96"
                   : "max-[600px]:max-h-0"
-              } md:max-h-full`}
+                } md:max-h-full`}
             >
               {data?.footerLinks2?.map((item) => (
                 <li key={item.label}>
@@ -180,12 +178,15 @@ export function Footer({ data }) {
               <li className="flex items-start gap-3">
                 <MapPin size={15} className="text-teal-600 mt-0.5 shrink-0" />
                 <address className="not-italic text-gray-600">
-                  {data?.footerContact?.address?.map((line, i) => (
-                    <span key={i}>
-                      {line}
-                      <br />
-                    </span>
-                  ))}
+                  <a href="https://share.google/DTm92gseQ50NHgqpT" target="_blank" className="text-gray-600 hover:text-teal-600 break-all"
+                  >
+                    {data?.footerContact?.address?.map((line, i) => (
+                      <span key={i}>
+                        {line}
+                        <br />
+                      </span>
+                    ))}
+                  </a>
                 </address>
               </li>
             </ul>
