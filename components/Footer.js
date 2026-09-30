@@ -11,6 +11,8 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 export function Footer({ data }) {
+
+  // console.log(data, "data From Footer");
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -183,6 +185,8 @@ export function Footer({ data }) {
                     {data?.footerContact?.address?.map((line, i) => (
                       <span key={i}>
                         {line}
+
+                        
                         <br />
                       </span>
                     ))}
