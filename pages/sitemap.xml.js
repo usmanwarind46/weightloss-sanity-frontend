@@ -62,8 +62,12 @@ export async function getServerSideProps({ res }) {
         path = "";
       } else if (page.slug === "weight-loss") {
         path = "weight-loss-treatments";
-      } else if (["mounjaro", "wegovy"].includes(page.slug)) {
+      } else if (
+        ["mounjaro", "wegovy", "wegovy-pill", "foundayo"].includes(page.slug)
+      ) {
         path = `weight-loss-treatments/${page.slug}`;
+      } else if (page.slug === "refund-return") {
+        path = "refunds-returns";
       } else {
         path = page.slug;
       }

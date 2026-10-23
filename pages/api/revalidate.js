@@ -34,6 +34,7 @@ export default async function handler(req, res) {
         "privacy-policy": "/privacy-policy",
         "terms-conditions": "/terms-conditions",
         "refunds-returns": "/refunds-returns",
+        "refund-return": "/refunds-returns",
         "shipping-policy": "/shipping-policy",
         complaints: "/complaints",
         doctor: "/doctor",

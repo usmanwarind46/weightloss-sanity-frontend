@@ -179,7 +179,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
       <Header data={siteSettings} />
       <div className="bg-white mb-15">
         {/* ── HERO ── */}
-        <div className="relative h-[60vh] min-h-[420px] overflow-hidden">
+        <div className="relative h-[60vh] min-h-[420px] max-h-[640px] overflow-hidden">
           <img
             src={data?.image}
             alt={data.imageAlt || data.title}
@@ -277,7 +277,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
 
         {/* ── CONTENT (STATIC FOR NOW) ── */}
         <article className="container mx-auto px-3 sm:px-6 py-14 editorial-body blogs-content">
-          <p className="text-md text-gray-600">
+          <div className="text-md text-gray-600">
             {/* 🔥 NEXT STEP: WILL BE DYNAMIC */}
             <PortableText
               value={data?.content}
@@ -725,7 +725,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                 },
               }}
             />
-          </p>
+          </div>
         </article>
 
         {relatedPosts.length > 0 && (
