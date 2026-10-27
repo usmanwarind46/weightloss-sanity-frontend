@@ -17,7 +17,11 @@ import {
   PAGE_QUERY,
   SEO_QUERY,
   SITE_SETTINGS_QUERY,
+  TREATMENT_PRODUCTS_QUERY,
+  CATEGORY_POSTS_QUERY,
 } from "../../lib/sanityQueries";
+import OtherTreatments from "../../components/OtherTreatments/OtherTreatments";
+import RelatedGuides from "../../components/RelatedGuides/RelatedGuides";
 import NextButton from "../../components/ui/NextButton";
 import { generateSchema } from "../../lib/schemaGenerator";
 import Link from "next/link";
@@ -34,11 +38,19 @@ export async function getStaticProps() {
 
   const siteSettings = await sanityClient.fetch(SITE_SETTINGS_QUERY);
 
+  const treatmentProducts = await sanityClient.fetch(TREATMENT_PRODUCTS_QUERY);
+
+  const relatedPosts = await sanityClient.fetch(CATEGORY_POSTS_QUERY, {
+    category: "foundayo",
+  });
+
   return {
     props: {
       data,
       seoSettings,
       siteSettings,
+      treatmentProducts,
+      relatedPosts,
     },
     revalidate: 1,
   };
@@ -591,6 +603,8 @@ export default function FoundayoProduct({
   data,
   seoSettings,
   siteSettings,
+  treatmentProducts,
+  relatedPosts,
   dark = false,
 }) {
   const [open, setOpen] = useState(false);
@@ -1118,7 +1132,7 @@ export default function FoundayoProduct({
           </div>
 
           {/* Content */}
-          <div className="grid md:grid-cols-2 gap:6 sm:gap-16 mt-16 items-center">
+          <div className="grid md:grid-cols-2 gap:6 sm:gap-16 mt-0 items-center">
             {/* LEFT SIDE */}
             <div>
               <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
@@ -1199,7 +1213,7 @@ export default function FoundayoProduct({
       </section>
 
       {/* SWITCHING TREATMENTS SECTION */}
-      <section className="bg-[#f8faf9] py-12 sm:py-16">
+      <section className="bg-[#f8faf9] py-5 sm:py-5">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-block text-xs font-semibold tracking-wide uppercase text-[#4caf8a] bg-[#e9f6f0] px-3 py-1 rounded-full mb-3">
@@ -1560,6 +1574,13 @@ export default function FoundayoProduct({
           </div>
         </div>
       </div>
+
+      <OtherTreatments
+        products={treatmentProducts}
+        currentHref="/weight-loss-treatments/foundayo"
+      />
+
+      <RelatedGuides posts={relatedPosts} />
 
       <section className="relative overflow-hidden cta-bg-2">
         {/* Dark overlay */}

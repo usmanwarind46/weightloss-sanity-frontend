@@ -21,7 +21,11 @@ import {
   PAGE_QUERY,
   SEO_QUERY,
   SITE_SETTINGS_QUERY,
+  TREATMENT_PRODUCTS_QUERY,
+  CATEGORY_POSTS_QUERY,
 } from "../../lib/sanityQueries";
+import OtherTreatments from "../../components/OtherTreatments/OtherTreatments";
+import RelatedGuides from "../../components/RelatedGuides/RelatedGuides";
 import { generateSchema } from "../../lib/schemaGenerator";
 import { PortableText } from "@portabletext/react";
 
@@ -34,11 +38,19 @@ export async function getStaticProps() {
 
   const siteSettings = await sanityClient.fetch(SITE_SETTINGS_QUERY);
 
+  const treatmentProducts = await sanityClient.fetch(TREATMENT_PRODUCTS_QUERY);
+
+  const relatedPosts = await sanityClient.fetch(CATEGORY_POSTS_QUERY, {
+    category: "wegovy",
+  });
+
   return {
     props: {
       seoSettings,
       data,
       siteSettings,
+      treatmentProducts,
+      relatedPosts,
     },
     revalidate: 300,
   };
@@ -228,7 +240,13 @@ function FAQItem({ question, answer }) {
   );
 }
 
-export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
+export default function MounjaroProduct({
+  seoSettings,
+  data,
+  siteSettings,
+  treatmentProducts,
+  relatedPosts,
+}) {
   const half = Math.ceil(wegovyFaqs.length / 2);
   const [open, setOpen] = useState(false);
   const [descOpen, setDescOpen] = useState(false);
@@ -690,7 +708,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
         </div>
       </div>
 
-      <section className="py-4 sm:py-16 bg-white">
+      <section className="py-4 sm:py-12 bg-white">
         <div className="container mx-auto px-6">
           {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
@@ -785,7 +803,7 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
       </section>
 
       {/*  */}
-      <section className="w-full bg-[#f5f6f7] py-16 wegovyInjection-bg">
+      <section className="w-full bg-[#f5f6f7] py-12 wegovyInjection-bg">
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
           {/* LEFT IMAGE */}
           <div className="w-full "></div>
@@ -886,6 +904,13 @@ export default function MounjaroProduct({ seoSettings, data, siteSettings }) {
           </div>
         </div>
       </div>
+
+      <OtherTreatments
+        products={treatmentProducts}
+        currentHref="/weight-loss-treatments/wegovy"
+      />
+
+      <RelatedGuides posts={relatedPosts} />
 
       <section className="relative overflow-hidden cta-bg-2">
         {/* Dark overlay */}

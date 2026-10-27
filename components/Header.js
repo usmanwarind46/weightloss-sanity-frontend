@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ChevronRight, Menu, X } from "lucide-react";
+import { FaRightToBracket } from "react-icons/fa6";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -19,7 +20,7 @@ export function Header({ data }) {
   const logoUrl = data?.logo?.asset?.url;
   const topBarText = data?.topBarText;
   const topBarRightText = data?.topBarRightText;
-  const ctaLabel = data?.ctaLabel || "Patient Login";
+  const ctaLabel = data?.ctaLabel || "Check Eligibility";
   const ctaLink = data?.ctaLink || "/start-consultation/login/";
 
   // ✅ Keep your business logic
@@ -125,6 +126,15 @@ export function Header({ data }) {
 
           {/* RIGHT SIDE */}
           <div className="flex items-center gap-3">
+            {/* LOGIN */}
+            <Link
+              href="/start-consultation/login"
+              className="hidden sm:inline-flex items-center gap-2 ml-4 mr-2 text-base lg:text-lg roboto-reg text-gray-700 hover:text-[#4565BF] transition-colors duration-200"
+            >
+              <FaRightToBracket size={14} className="text-[#4565BF]" />
+              Login
+            </Link>
+
             {/* CTA */}
             <div className="hidden sm:block">
               <Link href={data?.ctaLink || "/start-consultation/login/"}>
@@ -198,6 +208,16 @@ export function Header({ data }) {
                   </motion.div>
                 );
               })}
+
+              {/* MOBILE LOGIN */}
+              <Link
+                href="/start-consultation/login"
+                onClick={() => setMenuOpen(false)}
+                className="sm:hidden flex items-center gap-3 px-4 py-3 rounded-xl text-sm roboto-reg text-gray-700 hover:bg-gray-50 transition-colors"
+              >
+                <FaRightToBracket size={13} className="text-[#4565BF]" />
+                Login
+              </Link>
 
               {/* MOBILE CTA */}
               <div className="pt-3 pb-1">

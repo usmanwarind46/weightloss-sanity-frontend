@@ -57,6 +57,19 @@ const products = [
   },
 ];
 
+// Consultation product IDs, matched by the card's treatment page link
+const PRODUCT_IDS = {
+  "/weight-loss-treatments/wegovy": 1,
+  "/weight-loss-treatments/mounjaro": 4,
+  "/weight-loss-treatments/wegovy-pill": 7,
+  "/weight-loss-treatments/foundayo": 8,
+};
+
+export function getBuyLink(href) {
+  const productId = PRODUCT_IDS[href?.replace(/\/$/, "")];
+  return productId ? `/start-consultation?product_id=${productId}` : null;
+}
+
 const CheckIcon = ({ color }) => (
   <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
     <circle cx="9" cy="9" r="8.5" stroke={color} strokeOpacity="0.4" />
@@ -71,6 +84,8 @@ const CheckIcon = ({ color }) => (
 );
 
 export default function ProductCard({ product = products[0] }) {
+  const buyLink = getBuyLink(product.href);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -162,22 +177,43 @@ export default function ProductCard({ product = products[0] }) {
           </ul>
         </div>
 
-        <Link href={product.href}>
-          <motion.button
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55, duration: 0.35 }}
-            whileHover={{ scale: 1.02, brightness: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full py-3 rounded-xl text-white text-sm font-semibold tracking-wide transition-all duration-200 cursor-pointer wieght-card-font"
-            style={{
-              background: `linear-gradient(135deg, #4CAF8A 0%, #3d9e7a 100%)`,
-              boxShadow: "0 4px 16px rgba(76,175,138,0.35)",
-            }}
-          >
-            View Treatment
-          </motion.button>
-        </Link>
+        <div className="flex flex-col gap-3">
+          {buyLink && (
+            <Link href={buyLink}>
+              <motion.button
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.35 }}
+                whileHover={{ scale: 1.02, brightness: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full py-3 rounded-xl text-white text-sm font-semibold tracking-wide transition-all duration-200 cursor-pointer wieght-card-font"
+                style={{
+                  background: `linear-gradient(135deg, #4B6BC1 0%, #3f59a8 100%)`,
+                  boxShadow: "0 4px 16px rgba(75,107,193,0.35)",
+                }}
+              >
+                Buy {product.name}
+              </motion.button>
+            </Link>
+          )}
+
+          <Link href={product.href}>
+            <motion.button
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55, duration: 0.35 }}
+              whileHover={{ scale: 1.02, brightness: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full py-3 rounded-xl text-white text-sm font-semibold tracking-wide transition-all duration-200 cursor-pointer wieght-card-font"
+              style={{
+                background: `linear-gradient(135deg, #4CAF8A 0%, #3d9e7a 100%)`,
+                boxShadow: "0 4px 16px rgba(76,175,138,0.35)",
+              }}
+            >
+              View Treatment
+            </motion.button>
+          </Link>
+        </div>
       </div>
     </motion.div>
   );

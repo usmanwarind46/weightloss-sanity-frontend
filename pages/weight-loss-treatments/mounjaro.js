@@ -17,7 +17,11 @@ import {
   PAGE_QUERY,
   SEO_QUERY,
   SITE_SETTINGS_QUERY,
+  TREATMENT_PRODUCTS_QUERY,
+  CATEGORY_POSTS_QUERY,
 } from "../../lib/sanityQueries";
+import OtherTreatments from "../../components/OtherTreatments/OtherTreatments";
+import RelatedGuides from "../../components/RelatedGuides/RelatedGuides";
 import NextButton from "../../components/ui/NextButton";
 import { generateSchema } from "../../lib/schemaGenerator";
 import Link from "next/link";
@@ -32,11 +36,21 @@ export async function getStaticProps() {
 
   const siteSettings = await sanityClient.fetch(SITE_SETTINGS_QUERY);
 
+  const treatmentProducts = await sanityClient.fetch(
+    TREATMENT_PRODUCTS_QUERY,
+  );
+
+  const relatedPosts = await sanityClient.fetch(CATEGORY_POSTS_QUERY, {
+    category: "mounjaro",
+  });
+
   return {
     props: {
       data,
       seoSettings,
       siteSettings,
+      treatmentProducts,
+      relatedPosts,
     },
     revalidate: 300,
   };
@@ -84,7 +98,13 @@ function FAQItem({ question, answerHTML }) {
   );
 }
 
-export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
+export default function MounjaroProduct({
+  data,
+  seoSettings,
+  siteSettings,
+  treatmentProducts,
+  relatedPosts,
+}) {
   const [open, setOpen] = useState(false);
   const [descOpen, setDescOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -746,6 +766,13 @@ export default function MounjaroProduct({ data, seoSettings, siteSettings }) {
           </div>
         </div>
       </div>
+
+      <OtherTreatments
+        products={treatmentProducts}
+        currentHref="/weight-loss-treatments/mounjaro"
+      />
+
+      <RelatedGuides posts={relatedPosts} />
 
       <section className="relative overflow-hidden cta-bg-2">
         {/* Dark overlay */}
