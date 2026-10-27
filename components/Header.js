@@ -92,13 +92,13 @@ export function Header({ data }) {
                 alt="Online Weight Loss Clinic"
                 width={150}
                 height={150}
-                className="w-32 md:w-44 h-auto"
+                className="w-32 xl:w-36 min-[1440px]:w-44 h-auto"
               />
             )}
           </Link>
 
           {/* DESKTOP NAV */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 min-[1440px]:gap-8">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
 
@@ -106,7 +106,7 @@ export function Header({ data }) {
                 <Link
                   key={link.href || "#"}
                   href={link.href || "#"}
-                  className={`relative text-base lg:text-lg roboto-reg transition-colors duration-200 group
+                  className={`relative whitespace-nowrap text-[15px] min-[1440px]:text-lg roboto-reg transition-colors duration-200 group
                   ${
                     isActive
                       ? "text-[#4B5FC0] font-semibold"
@@ -125,18 +125,18 @@ export function Header({ data }) {
           </nav>
 
           {/* RIGHT SIDE */}
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-3">
             {/* LOGIN */}
             <Link
               href="/start-consultation/login"
-              className="hidden sm:inline-flex items-center gap-2 ml-4 mr-2 text-base lg:text-lg roboto-reg text-gray-700 hover:text-[#4565BF] transition-colors duration-200"
+              className="hidden sm:inline-flex items-center gap-2 ml-2 mr-1 min-[1440px]:ml-4 min-[1440px]:mr-2 whitespace-nowrap text-[15px] min-[1440px]:text-lg roboto-reg text-gray-700 hover:text-[#4565BF] transition-colors duration-200"
             >
               <FaRightToBracket size={14} className="text-[#4565BF]" />
               Login
             </Link>
 
             {/* CTA */}
-            <div className="hidden sm:block">
+            <div className="hidden sm:block whitespace-nowrap [&_button]:px-5 min-[1440px]:[&_button]:px-8">
               <Link href={data?.ctaLink || "/start-consultation/login/"}>
                 {" "}
                 <NextButton
@@ -150,7 +150,7 @@ export function Header({ data }) {
             {/* MOBILE MENU BUTTON */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden p-2 rounded-xl text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+              className="lg:hidden p-2 rounded-xl text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
               aria-label="Toggle menu"
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -177,7 +177,7 @@ export function Header({ data }) {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden border-t border-gray-100 bg-white"
+            className="lg:hidden overflow-hidden border-t border-gray-100 bg-white"
           >
             <div className="px-4 py-4 flex flex-col gap-1">
               {navLinks.map((link, i) => {

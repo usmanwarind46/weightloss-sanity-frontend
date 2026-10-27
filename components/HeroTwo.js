@@ -218,8 +218,8 @@ export function HeroTwo({ ctaLink = "/weight-loss-treatments" }) {
             </div>
 
             {/* CTA */}
-            <div className="flex w-full flex-col gap-3 pt-4 lg:flex-row lg:justify-start lg:pt-5">
-              <div className="w-full lg:w-auto">
+            <div className="flex w-full flex-col gap-3 whitespace-nowrap pt-4 lg:grid lg:grid-cols-2 lg:pt-5 lg:[&_button]:px-4 min-[1440px]:[&_button]:px-8">
+              <div className="w-full">
                 <NextButton
                   label="View Treatments"
                   onClick={handleTreatmentClick}
@@ -229,7 +229,7 @@ export function HeroTwo({ ctaLink = "/weight-loss-treatments" }) {
               <button
                 type="button"
                 onClick={handleEligibilityClick}
-                className="w-full lg:w-auto border-2 border-[#4565BF] bg-white px-8 py-3 rounded-md text-[#4565BF] semibold-font text-md capitalize cursor-pointer transition-all duration-200 ease-in-out hover:bg-[#4565BF] hover:text-white hover:scale-[1.03] hover:shadow-lg hover:shadow-[#4565BF]/40 active:scale-[0.98]"
+                className="w-full border-2 border-[#4565BF] bg-white px-8 py-3 rounded-md text-[#4565BF] semibold-font text-md capitalize cursor-pointer transition-all duration-200 ease-in-out hover:bg-[#4565BF] hover:text-white hover:scale-[1.03] hover:shadow-lg hover:shadow-[#4565BF]/40 active:scale-[0.98]"
               >
                 Check Eligibility
               </button>
