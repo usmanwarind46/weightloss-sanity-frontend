@@ -208,11 +208,6 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                     {data?.categories?.[0]?.title}
                   </span>
 
-                  <span className="text-white/40">·</span>
-
-                  <span className="text-xs text-white/70 editorial-body">
-                    {new Date(data?.publishedAt).toDateString()}
-                  </span>
                 </div>
 
                 {/* TITLE */}
@@ -250,7 +245,10 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                     <span>{data?.expert?.name}</span>
                   )}
                 </div>
-                <div className="text-white text-sm flex flex-wrap gap-2 items-center mt-2">
+                <div className="text-white text-sm flex flex-col gap-1 mt-2">
+                  <span className="">
+                    Published date {new Date(data?.publishedAt).toDateString()}
+                  </span>
                   <span className="">
                     Last updated {new Date(data?._updatedAt || data?.publishedAt).toDateString()}
                   </span>
