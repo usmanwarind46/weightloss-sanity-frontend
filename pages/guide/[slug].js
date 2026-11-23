@@ -252,7 +252,7 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                 </div>
                 <div className="text-white text-sm flex flex-wrap gap-2 items-center mt-2">
                   <span className="">
-                    Last updated {new Date(data?.publishedAt).toDateString()}
+                    Last updated {new Date(data?._updatedAt || data?.publishedAt).toDateString()}
                   </span>
                 </div>
               </div>
