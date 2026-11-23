@@ -50,6 +50,25 @@ export async function getStaticProps({ params }) {
   };
 }
 
+// Format: Mon, 09-Nov-2026 (fixed timezone so server and client render the same)
+function formatBlogDate(value) {
+  if (!value) return "";
+  const d = new Date(value);
+  if (isNaN(d)) return "";
+  const parts = Object.fromEntries(
+    new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Europe/London",
+      weekday: "short",
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    })
+      .formatToParts(d)
+      .map((p) => [p.type, p.value]),
+  );
+  return `${parts.weekday}, ${parts.day}-${parts.month}-${parts.year}`;
+}
+
 function RelatedPostsSlider({ posts }) {
   const autoScrollPlugin = useRef(
     AutoScroll({
@@ -247,10 +266,10 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                 </div>
                 <div className="text-white text-sm flex flex-col gap-1 mt-2">
                   <span className="">
-                    Published date {new Date(data?.publishedAt).toDateString()}
+                    Published date {formatBlogDate(data?.publishedAt)}
                   </span>
                   <span className="">
-                    Last updated {new Date(data?._updatedAt || data?.publishedAt).toDateString()}
+                    Last updated {formatBlogDate(data?._updatedAt || data?.publishedAt)}
                   </span>
                 </div>
               </div>
