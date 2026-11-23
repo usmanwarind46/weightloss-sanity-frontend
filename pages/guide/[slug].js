@@ -266,10 +266,10 @@ export default function BlogPage({ data, seoSettings, siteSettings }) {
                 </div>
                 <div className="text-white text-sm flex flex-col gap-1 mt-2">
                   <span className="">
-                    Published date {formatBlogDate(data?.publishedAt)}
+                    Published Date : {formatBlogDate(data?.publishedAt)}
                   </span>
                   <span className="">
-                    Last updated {formatBlogDate(data?._updatedAt || data?.publishedAt)}
+                    Last Updated : {formatBlogDate(data?._updatedAt || data?.publishedAt)}
                   </span>
                 </div>
               </div>
